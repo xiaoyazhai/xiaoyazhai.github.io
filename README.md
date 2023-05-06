@@ -1,2 +1,1 @@
 # xiaoyazhai.github.io
-homepage
