@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="jemdoc.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Open Source</title>
+</head>
+<body>
+  <div class="menu">
+   <!-- <ul>-->
+    <div class="menu-icon">
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul class="menu-items">
+      <!-- Place your menu items here -->
+      <a href="index.html"><span class="menu-text"><b>Xiaoya ZHAI</b></span>
+      <span class="menu-abbrev">Me</span></a>
+      <hr />
+      <a href="./_bioSketch.html"><span class="menu-text">BioSketch</span>
+      <span class="menu-abbrev">Bio</span></a>
+      <a href="./_ResearchHightlights.html"><span class="menu-text">Research Highlights</span>
+        <span class="menu-abbrev">RH</span></a>
+      <a href="./_publications.html"><span class="menu-text">Publications</span>
+        <span class="menu-abbrev">Pub</span></a>
+      <a href="./_opensource.html"><span class="menu-text">Open Source</span>
+        <span class="menu-abbrev">OS</span></a>
+      <a href="_teaching.html"><span class="menu-text">Teaching</span>
+        <span class="menu-abbrev">Tea</span></a>
+      <a href="_researchLab.html"><span class="menu-text">Research Lab</span>
+        <span class="menu-abbrev">Lab</span></a>
+      <!-- ... -->
+   <!-- </ul>-->
+ </ul>
+  </div>
+
+<div class="content">
+<h4 align="center"> Open Source Code &amp;  Data<!--[<a href="https://scholar.google.com.hk/citations?user=qsJCXFoAAAAJ&hl=en">Google Scholar</a>]--></h4>
+<!--<p><a href="http://scholar.google.com/citations?user=PeMuphgAAAAJ">My Google Scholar</a></p>-->
+<br />
+<br />
+<br />
+
+
+
+	<table width="105%">
+	<tbody>
+	<tr>
+		<td> <h3 align="center">An Optimized, Easy-to-use, Open-source GPU Solver for Large-scale Inverse Homogenization Problems </h3><br>
+		<p align="center">[<a href="https://github.com/lavenklau/homo3d">Project Code</a>]</p>
+		<p style="text-align: justify"><font face="Trebuchet MS">We propose a high-performance GPU solver for inverse homogenization problems to design high-resolution 3D microstructures. Central to our solver is a favorable combination of data structures and algorithms, making full use of the parallel computation power of today’s GPUs through a software-level design space exploration. This solver is demonstrated to optimize homogenized stiffness tensors, such as bulk modulus, shear modulus, and Poisson’s ratio, under the constraint of bounded material volume. Practical high-resolution examples with 512^3 ≈ 134.2 million finite elements run in less than 45 seconds per iteration with a peak GPU memory of 9 GB on an NVIDIA GeForce GTX 1080Ti GPU. Besides, our GPU implementation is equipped with an easy-to-use framework with less than 20 lines of code to support various objective functions defined by the homogenized stiffness tensors.</font> </p>
+		<br />
+		<div style="text-align:center;width:1000px;border:greensolid1px;">
+		<img alt="" src="./indexpics/gallery.png" width="900px" style="box-shadow: 4px 4px 8px #888; display:inline-block;"/>
+		</div>
+		</td>
+	</tr>
+	<tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>	
+	</tbody></table>
+	<H1></H1>
+	
+
+	<table width="105%">
+	<tbody>
+	<tr>
+		<td> <h3 align="center">Large-Scale Worst-Case Topology Optimization </h3><br>
+		<p align="center">[<a href="https://github.com/lavenklau/robtop">Project Code</a>]</p>
+		<p style="text-align: justify"><font face="Trebuchet MS">We propose a novel topology optimization method to efficiently minimize the maximum compliance for a high-resolution model bearing uncertain external loads. Central to this approach is a modified power method that can quickly compute the maximum eigenvalue to evaluate the worst-case compliance, enabling our method to be suitable for large-scale topology optimization. After obtaining the worst-case compliance, we use the adjoint variable method to perform the sensitivity analysis for updating the density variables. By iteratively computing the worst-case compliance, performing the sensitivity analysis, and updating the density variables, our algorithm achieves the optimized models with high efficiency. The capability and feasibility of our approach are demonstrated over various large-scale models. Typically, for a model of size 512×170×170 and 69934 loading nodes, our method took about 50 minutes on a desktop computer with an NVIDIA GTX 1080Ti graphics card with 11 GB memory.</font> </p>
+		<br />
+		<div style="text-align:center;width:1000px;border:greensolid1px;">
+		<img alt="" src="./indexpics/large_.png" width="900px" style="box-shadow: 4px 4px 8px #888; display:inline-block;"/>
+		</div>
+		</td>
+	</tr>
+	<tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>	
+	</tbody></table>
+	<H1></H1>
+
+	<br/>
+	<br/>
+	<table width="105%">
+	<tbody>
+	<tr>
+		<td> <h3 align="center">Path Planning Generation System </h3><br>
+		<p align="center">[<a href=" ">Project Code / To be released</a>]</p>
+		<p style="text-align: justify"><font face="Trebuchet MS">Porous structures are widely used in our daily life due to their special properties such as higher rigidity and lightweight. With the popularity of additive manufacturing (AM), producing porous structures by AM shows great advantages over traditional manufacturing technologies. In this paper, we first introduce a framework to model a type of porous structures which contain lots of small holes. Then we propose an efficient path planning algorithm for this type of porous structures. The algorithm consists of the following steps: for each slice of a porous structure, we first subdivide the domain of the slice into subdomains by generalized Voronoi diagram such that each subdomain contains exactly one hole, and then we carry out dual operation to obtain a partition of the domain into a set of subregions. A route is then found to traverse every subregion by solving a traveling salesman problem (TSP) using genetic algorithm (GA), and along the route subregions are merged into larger ones to improve printing efficiency. Finally we fill each merged subregion with a single Fermat spiral curve and further optimize smoothness and uniformity of the filling path. We demonstrated a variety of testing examples and the experimental results showed the superiority and effectiveness of our method in terms of material cost, printing time and structure stability.</font> </p>
+		<br />
+		<div style="text-align:center;width:1000px;border:greensolid1px;">
+		<img alt="" src="./indexpics/porous.png" width="800px" style="box-shadow: 4px 4px 8px #888; display:inline-block;"/><br/>
+		Porous Path Planning Generation System
+		<br />
+		<br />
+		<img alt="" src="./indexpics/plane_slice.png" width="800px" style="box-shadow: 4px 4px 8px #888; display:inline-block;"/><br/>
+		Fractal Path Planning Generation System
+		</div>
+		</td>
+	</tr>
+	<tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>	
+	</tbody></table>
+	<H1></H1>
+
+	<br/>
+	<br/>
+	<table width="105%">
+	<tbody>
+	<tr>
+		<td> <h3 align="center">Isogeometric Analysis Tools for Mechanical Analysis &amp; Topology Optimization </h3><br>
+		<p align="center">[<a href=" ">Project Code / To be released</a>]</p>
+		<p style="text-align: justify"><font face="Trebuchet MS">This system shows topology optimization based on isogeometric analysis. It includes: equilibrium equation calculation, the visualization of displacement, equivalent stress, equivalent strain, structural deformation.
+		</font> </p>
+		<br />
+		<div style="text-align:center;width:1000px;border:greensolid1px;">
+		<img alt="" src="./indexpics/2D_TOP_IGA.png" width="600px" style="box-shadow: 4px 4px 8px #888; display:inline-block;"/>
+		</div>
+		</td>
+	</tr>
+	<tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>	
+	</tbody></table>
+	<H1></H1>
+	
+		<table width="105%">
+	<tbody>
+	<tr>
+		<td> <h3 align="center">Basic NUBRS Tools for Calculation Operation</h3><br>
+		<p align="center">[<a href=" ">Project Code / To be released</a>]</p>
+
+		<p style="text-align: justify"><font face="Trebuchet MS">I developed a series of spline curve and surface tools. Including <b>Bezier curve/surface, B-spline curve/surface user interaction design</b> in my PhD period. 
+		<p  style="text-align: justify"><li>The operations of the <u><b>curve system</b></u> include: Interaction design of control points (add control points, move control points, delete control points), interaction design of Bezier curve/B-spline curve (move lines, delete lines), display Bezier/ B-spline basis function, given parameters to calculate the point location of the physical domain of the point, ascending order, descending order, segmentation curve, node insertion, Beizer curve extraction, etc.</li></p>
+		<p  style="text-align: justify"><li> The operations of the <u><b>surface system</b></u> include: Bezier/B-spline surface text reading and display, display Bezier/B-spline basis function, given parameters to calculate the point position of the point physical domain, ascending, descending, segmentation curve, node insertion, Beizer surface extraction, etc. </li></p>
+ 		</font> </p>
+		<br />
+		<div style="text-align:center;width:1000px;border:greensolid1px;">
+		<img alt="" src="./indexpics/bezier_curve_test.png" width="1000px" style="box-shadow: 4px 4px 8px #888; display:inline-block;"/>
+		<p align="center">Curve System</p>
+		<br />
+		<img alt="" src="./indexpics/bezier_surface_test.png" width="1000px" style="box-shadow: 4px 4px 8px #888; display:inline-block;"/>		
+		<p align="center">Surface System</p>
+
+		</div>
+		</td>
+	</tr>
+	<tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>	
+	</tbody></table>
+	<H1></H1>
+	
+
+	<br/>
+
+
+	<p style="text-align: center;"><font face="Trebuchet MS">Feel free to download! Enjoy your coding journey!</font></p>
+	<p style="text-align: center;"><font face="Trebuchet MS">If there is any problem whiling using, please send a message to [ xiaoyazhai@ustc.edu.cn ]</font></p>
+	<p style="text-align: center;"><font face="Trebuchet MS">&copy; USTC GCL </font></p>
+
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

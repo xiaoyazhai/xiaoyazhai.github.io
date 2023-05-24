@@ -1,0 +1,38 @@
+1. BioSketch:
+(1) Newpage: Computer Graphics Frontier, USTC, 2023 (中国科学技术大学《计算机图形学前沿》暑期课程);
+
+(2) Newpage: Seminar on Frontiers of Mathematics and Interdisciplinarity, USTC, 2023 (中国科学技术大学 《数学与交叉学科前沿研讨会》)
+
+(3) BioSketch teaser
+
+2. Research Highlights
+
+(1) Newpage: dizhang
+
+(2) Newpage: xiaoya zhai
+
+(3) Newpage: jingchao
+
+
+3. Open Source
+
+(1) NURBS: curve system/ surface system -> Github improve
+
+(2) TopOpt system: 2D/ 3D -> Github improve
+
+(3) IGA-TopOpt system: 2D -> Github improve
+
+
+4. Teaching
+
+Course
+Mathematical modeling
+Topology optimization
+
+
+Study Materials
+Programming exercises
+Topology optimization
+Isogeometric analysis
+Numerical analysis
+High performance computing
