@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="shortcut icon" href="myIcon.ico">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<meta name="keywords" content="Xiaoya Zhai, USTC, TU Delft, CUHK"> 
+<meta name="description" content="Xiaoya Zhai&#39;s home page">
+<meta name="google-site-verification" content="yy_3iiS_X6pJdegdwitJMrH0LRLHXwpjrV9RKLXxKjg" />
+<meta name="google-site-verification" content="yy_3iiS_X6pJdegdwitJMrH0LRLHXwpjrV9RKLXxKjg" />
+<link rel="stylesheet" href="project.css" type="text/css">
+<title>LIVE3D-GPU3DMicro</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87320911-1', 'auto');
+  ga('send', 'pageview');
+  <meta name="google-site-verification" content="gX0A9v9FMnhGO_AlZMQdVHrogcF5XpqJvLDkC0UASFY" />
+	
+</script>
+</head>
+<body>
+<div id="layout-content" style="margin-top:25px">
+
+
+
+<div class="main">
+<h4 align="center"> An Optimized, Easy-to-use, Open-source GPU Solver for Large-scale Inverse Homogenization Problems<!--[<a href="https://scholar.google.com.hk/citations?user=qsJCXFoAAAAJ&hl=en">Google Scholar</a>]--></h4>
+<!--<p><a href="http://scholar.google.com/citations?user=PeMuphgAAAAJ">My Google Scholar</a></p>-->
+<p align="center">Structural and Multidisciplinary Optimization, 2023.<p>
+<p align="center"><font face="arial">Di Zhang, <a href="https://xiaoyazhai.github.io/index.html">Xiaoya Zhai*</a>, <a herf="http://staff.ustc.edu.cn/~lgliu/">Ligang Liu</a>, <a herf="https://ustc-gcl-f.github.io/">Xiao-Ming Fu</a>. <br></font></p >
+<br />
+<br/>
+
+<p><i>A reviewer commented, "I believe that this manuscript will ultimately be of great value to the readers of SAMO, and the broader topology optimization community!"</i></p>
+<table width="100%">
+	<tbody>
+	<tr>
+		<td> 
+		<div style="text-align:center;width:100%;border:greensolid1px;">
+		<img alt="" src="./pics/2023-high3DMicro.png" style="width:100%;box-shadow: 0px 0px 0px #888; display:inline-block;"/>
+		<br />
+		<br />
+		</div>
+		</td>
+	</tr>
+<br> 
+<br />
+</tbody>
+</table>
+<div style="text-align:center;width:100%;border:greensolid1px;"><p>Figure 1: 
+Solving large-scale IHPs on the unit cell domain (512 × 512 × 512 elements) with three different objectives: bulk modulus B (a), shear
+modulus G (b), and Poisson’s ratio r (c).
+Gallery of our optimized microstructures with the resolution 128 × 128 × 128.</p></div>
+
+<p>Key words: Inverse homogenization problems; Microstructure design; High-resolution; GPU optimization.</p>
+
+	<H2>Abstract</H2>
+	<table width="100%">
+	<tbody>
+	<tr>
+
+	<p style="text-align: justify">We propose a high-performance GPU solver for inverse homogenization problems to design high-resolution 3D microstructures. Central to our solver is a favorable combination of data structures and algorithms, making full use of the parallel computation power of today’s GPUs through a software-level design space exploration. This solver is demonstrated to optimize homogenized stiffness tensors, such as bulk modulus, shear modulus, and Poisson’s ratio, under the constraint of bounded material volume. Practical high-resolution examples with 512^3 ≈ 134.2 million finite elements run in less than 40 seconds per iteration with a peak GPU memory of 9 GB on an NVIDIA GeForce GTX 1080Ti GPU. Besides, our GPU implementation is equipped with an easy-to-use framework with less than 20 lines of code to support various objective functions defined by the homogenized stiffness tensors.</p>
+
+	<p> <b><u>Major contradiction</u></b>: Computational efficiency/memory storage for large-scale optimization problems vs. computational accuracy of the model.</p>
+	<br />
+	</tr>
+
+
+	<H2>Motivation</H2>
+
+	<table width="100%">
+	<tbody>
+	<tr>
+		<td>
+	<p style="text-align: justify">We aim to use the parallel computation power of today’s GPUs for time- and memory-efficiently solving large-scale
+IHPs under periodic boundary conditions with the density
+representation. However, it is challenging to make full use
+of the computing resources of GPU to realize the solver. The
+reasons are twofold.
+<li> First, since the solver contains multiple
+steps with different computational profiles, the choice of data
+structures and algorithms should be considered globally to
+be suitable for every step. </li>
+<li>Second, as the GPU memory is
+limited, the memory usage should be reduced to adapt to
+high resolution while ensuring accuracy and high efficiency.</p></li>
+
+<br/>
+<br/>
+	<H2>Methods</H2>
+
+	<table width="100%">
+	<tbody>
+	<tr>
+		<td>
+	<p style="text-align: justify"><b>Data structure tailored to solve IHPs.</b> 
+
+	<p>For each vertex of each level’s mesh,
+we store the numerical stencil, the displacement, the
+force, and the residual in the multigrid implementation.
+The numerical stencil consists of 27 matrices of dimension 3×3, each of which corresponds to one adjacent vertex. By employing mixed floating-point precision, a balance between computational accuracy and performance can be achieved. Nodal vectors are all stored in the Structure of Array (SoA) format. The numerical stencils are stored in Array of Structure (AoS)
+format. In our GPU implementation, we pad a layer of vertices and
+elements around the mesh. </li> </p>
+
+
+<p style="text-align: justify"><b> Dedicated multigrid solver</b> </p>
+
+<p>Due to the loss of precision caused by the mixed-precision scheme and the high resolutions, the multigrid solver may diverge with a numerical explosion. We find in practice that these situations may be caused by insufficient Dirichlet boundary conditions and no materials at corners during optimization. To handle such a problem, we remove the component belonging to the numerical stencil’s null space from the restricted residual before
+solving the system on the coarsest mesh.</p>
+
+	<br/>
+
+	<br/>
+
+	<tr>
+		<td> <h2>Results</h2><br>
+		<p style="text-align: justify">
+		We optimize three different objectives: bulk modulus, shear modulus, and negative Poisson’s ratio. The cubic domain is discretized with 8-node brick elements. Symmetry is essential for designing isotropic material. We have predefined three symmetry types: 
+			<li>reflect3: the reflection symmetry on three planes
+		{x = 0.5, y = 0.5,z = 0.5} of the cube domain;</li>
+			<li>reflect6: the reflection symmetry on six planes {x =
+		0.5, y = 0.5,z = 0.5, x + y = 0, y + z = 0,z + x = 0}
+		of the cube domain; </li>
+			<li> rotate3: rotation symmetry means that the structure is
+		invariant under the rotation of 90◦ around the x, y, z axes that pass through the cube domain’s center, as same under
+		their compositions.</li>
+	</p>
+
+	<table width="100%">
+	<tbody>
+	<tr>
+		<td> 
+		<div style="text-align:center;width:100%;border:greensolid1px;">
+		<img alt="" src="./pics/2023-MicroGallery.png" style="width:100%;box-shadow: 0px 0px 0px #888; display:inline-block;"/>
+		<br />
+		<br />
+		</div>
+		</td>
+	</tr>
+	<br> 
+	<br />
+	</tbody>
+	</table>
+	<div style="text-align:center;width:100%;border:greensolid1px;"><p>Figure 2: 
+	Gallery of our optimized microstructures with the resolution 128 × 128 × 128.</p></div>
+
+	<p>We use different initial density fields for optimization. Different initial density fields lead to different results, which are different local optimal solutions. Trigonometric functions are adopted to cover various initial density fields.</p>
+
+	<br/>
+		 <table width="100%">
+	<tbody>
+	<tr>
+		<td> 
+		<div style="text-align:center;width:100%;border:greensolid1px;">
+		<img alt="" src="./pics/2023-MicroInit.png" style="width:100%;box-shadow: 0px 0px 0px #888; display:inline-block;"/>
+		<br />
+		<br />
+		</div>
+		</td>
+	</tr>
+	<br> 
+	<br />
+	</tbody>
+	</table>
+	<div style="text-align:center;width:100%;border:greensolid1px;"><p>Figure 3: 
+	 Different initial density fields (upper row) and optimized results (bottom row) are given for bulk modulus maximization (a1)-(a3), shear modulus maximization (b1)-(b3), and negative Poisson’s ratio materials (c1)-(c3) with 128 × 128 × 128 elements under the volume fraction 10%.</p></div>
+<br/>
+	 <p> We implement the multi-CPU framework Aage et al. (2015)
+and conduct the experiments on a cluster with a total of 9
+nodes, each equipped with two Interl Xeon E5-2680 v4 28-
+core CPUs and 128GB memory connected by Intel OPA.
+The final structures and moduli obtained
+by both frameworks are very similar. The average time of
+each iteration for the Multi-CPU framework is around 40.0
+s, while our framework achieves a significantly reduced average time cost of 4.4 s. 
+Users can optimize material properties according to their own goals through our framework.</p>
+
+		<br />
+		
+		</td>
+	</tr>
+
+	<tr>
+		<td> <h2>Download</h2><br>
+		<table width="50%">
+  <tbody>
+	<tr>
+	    <td width="50" style="text-align:center;">
+	    <img align="center" src="./pics/paperpic.png" width="80px" >
+	    </td>   
+
+	    <!-- <td width="30">
+	    <img align="center" src="./pics/slidespic.png" width="80px">
+	    </td>   -->
+	    
+	    <td width="50" style="text-align:center;">
+	    <img align="center" src="./pics/slidespic.png" width="80px" >
+	    </td>   
+
+		<td width="50" style="text-align:center;">
+	    <img align="center" src="./pics/github.png" width="80px" >
+	    </td>   
+
+	    
+	   <!--  <td width="100">
+	    <img align="center" src="./pics/BibTex.png" width="80px" >
+	    </td>  -->
+	</tr>
+	<tr>
+	    <td width="50" style="text-align:center;">
+	    &nbsp &nbsp <a href = "https://link.springer.com/article/10.1007/s00158-023-03657-y#article-info">Paper</a>
+	    </td>   
+	   <!--   <td width="30">
+	   &nbsp &nbsp &nbsp Slides -->
+	    </td>   
+	    <td width="50" style="text-align:center;">
+	    &nbsp &nbsp <a href = "./video/MovieS1.mp4">Slide</a>
+	    </td>   
+
+	    </td>   
+	    <td width="50" style="text-align:center;">
+	    &nbsp &nbsp <a href = "https://github.com/lavenklau/homo3d">Code</a>
+	    </td>  
+
+	    
+	    <!-- <td width="100">
+	    &nbsp &nbsp Bibtex
+	    </td>  -->
+	</tr>
+</tbody>
+</table>
+		<br />
+		
+		</td>
+	</tr>
+
+	<tr>
+		<td> <h2>BibTex</h2><br>
+		<p style="text-align: justify">
+		@article {zhang2023Micro,<br/>
+		    title = {An Optimized, Easy-to-use, Open-source GPU Solver for Large-scale Inverse Homogenization Problems},<br/>
+		   author = {Zhang, Di and Zhai, Xiaoya and Liu, Ligang and Fu, Xiao-Ming}<br/>
+		   journal = {Structural and Multidisciplinary Optimization},<br/>
+		   volume={66},<br/>
+		   number={207},<br/>
+		   year = {2023},<br/>
+		   doi ={<a herf="https://doi.org/10.1007/s00158-023-03657-y">10.1007/s00158-023-03657-y</a>}<br/>
+		}
+		 </p>
+		
+		</td>
+	</tr>
+
+	<tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>	
+	</tbody></table>
+	<H1></H1>
+
+	<p style="text-align: center;"><font face="Trebuchet MS">Feel free to download! Enjoy your coding journey!</font></p>
+	<p style="text-align: center;"><font face="Trebuchet MS">If there is any problem whiling using, please send a message to [ xiaoyazhai@ustc.edu.cn ]</font></p>
+	
+
+</div>
