@@ -1,0 +1,265 @@
+<!DOCTYPE  "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <link rel="shortcut icon" href="myIcon.ico">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="keywords" content="Xiaoya Zhai, USTC, TU Delft, CUHK"> 
+  <meta name="description" content="Xiaoya Zhai&#39;s home page">
+  <meta name="google-site-verification" content="yy_3iiS_X6pJdegdwitJMrH0LRLHXwpjrV9RKLXxKjg" />
+  <link rel="stylesheet" type="text/css" href="project.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<title>Differentiable Microstructures</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87320911-1', 'auto');
+  ga('send', 'pageview');
+  <meta name="google-site-verification" content="gX0A9v9FMnhGO_AlZMQdVHrogcF5XpqJvLDkC0UASFY" />
+	
+</script>
+</head>
+<body>
+<div id="layout-content" style="margin-top:25px">
+
+
+
+<div class="main">
+<h4 align="center"> Topology Optimization of Differentiable Microstructures</h4>
+<p align="center">Computer Methods in Applied Mechanics and Engineering, 2023<p>
+<p align="center"><font face="arial"><b><a href="https://xiaoyazhai.github.io/index.html">Xiaoya Zhai</a></b>, <a herf="https://weiming-wang.github.io//">Weiming Wang</a>, Falai Chen, <a herf="https://www.jun-wu.net/">Jun Wu*</a>. <br></font></p >
+<!--<p><a href="http://scholar.google.com/citations?user=PeMuphgAAAAJ">My Google Scholar</a></p>-->
+<br />
+
+<br/>
+
+<p><i>A reviewer comment "The manuscript presents a compelling and innovative approach by treating the boundary expansion as a heat conduction problem. This idea stands out as unique and does not seem to have been previously published or explored by other researcher".</i></p>
+
+<table width="100%">
+	<tbody>
+	<tr>
+		<td> 
+		<div style="text-align:center;width:100%;border:greensolid1px;">
+		<img alt="" src="./pics/2023-Diff_pipe.png" style="width:100%;box-shadow: 0px 0px 0px #888; display:inline-block;"/>
+		<br />
+		<br />
+		</div>
+		</td>
+	</tr>
+<br> 
+<br />
+</tbody>
+</table>
+<div style="text-align:center;width:100%;border:greensolid1px;"><p>Figure 1: the pipeline of differentiable microstructures generation.</p></div>
+
+<p>Key words: Topology optimization; Functionally graded microstructures; Inverse homogenization</p>
+
+<H2>Abstract</H2>
+<p  style="text-align: justify">Recent years have seen a growing interest in topology optimization of functionally graded microstructures, characterized by an array of microstructures with varying volume fractions. However, microstructures optimized at slightly different volume fractions do not necessarily connect well when placed adjacently. Furthermore, optimization is commonly performed on a finite set of volume fractions, limiting the number of microstructure configurations.</p>
+
+<p>In this project, we introduce the concept of differentiable microstructures, which are parameterized microstructures that exhibit continuous variations in both geometry and mechanical properties. To construct such microstructures, we propose a novel formulation for topology optimization. In this approach, a series of microstructures is represented using a height field, and the objective is to maximize the bulk modulus of the entire series. Through this optimization process, an initial microstructure with a small volume fraction undergoes non-uniform transformations, generating a series of microstructures with progressively increasing volume fractions. Notably, when compared to traditional uniform morphing methods, our proposed optimization approach yields a series of microstructures with bulk moduli that closely approach the theoretical limit.</p>
+
+
+<H2>Differentiable Microstructures</H2>
+
+	<table width="100%">
+	<tbody>
+	<tr>
+		<td>
+<p style="text-align: justify">Differentiable microstructures are graded microstructures that are described by <b><u>continuous parameters</u></b>, and wherein both <b><u>physical properties</u></b> and the <b><u>geometry</u></b> are continuous and differentiable with respect to predefined parameters. </p>
+
+<p style="text-align: justify">The physical differentiability is the same as the concept of numerical differentiability. 
+The physical properties can be evaluated, for example, by numerical homogenization. 
+To define geometric differentiability, a metric is needed for quantifying the geometric difference between adjacent microstructure density distribution. 
+This is beneficial to allow for varying topologies in functionally graded microstructures. While often a small modification in geometry leads to a small change in physical properties, the change in physical properties is not guaranteed to be small. If the topology differs from adjacent density distribution, the physical properties may differ unproportionally. Thus, both geometric and physical differentiabilities are needed to define differentiable microstructures. </p>
+
+
+<H2> Methods</H2>
+
+<p style="text-align: justify"> In our approach and in multi-scale optimization, the interest is to get an optimal series. Here we use a novel approach by treating the boundary expansion as a heat conduction problem.  The continuous morphing ensures geometric differentiability, while the non-uniform characteristic provides an opportunity to maximize the physical property for the entire sequence during morphing. Different from the traditional topology optimization, we take the thermal conductivity as the variable and the physical properties of the sequence microstructure as the objective function, in addition to applying the equilibrium equation and mentioning the constraints. Additional heat conduction constraints are also added to the model.
+ </p>
+<table width="100%">
+	<tbody>
+	<tr>
+		<td> 
+		<div style="text-align:center;width:100%;border:greensolid1px;">
+		<img alt="" src="./pics/2023-geo_diff.png" style="width:90%;box-shadow: 0px 0px 0px #888; display:inline-block;"/>
+		<br />
+		<br />
+		</div>
+		</td>
+	</tr>
+<br> 
+<br />
+</tbody>
+</table>
+<div style="text-align:center;width:100%;border:greensolid1px;"><p>Figure 2: Different sequence results for different thermal coefficients.</p></div>
+
+
+		<br />
+		</td>
+	</tr>
+</div>
+</tbody>
+</table>
+
+
+<H2>Results</H2>
+
+<p style="text-align: justify"> Two alternative methods (uniform offset vs. uniform thermal conduction) are compared with the optimized microstructures. The results are visually compared in Figure 3, using the height field as well as iso-contours. The slope of the height field is inversely proportional to the space between adjacent iso-contours. This large variation is achieved with non-uniform thermal diffusivities. Three instances of the microstructures in each series are shown at the bottom.
+ </p>
+<table width="100%">
+	<tbody>
+	<tr>
+		<td> 
+		<div style="text-align:center;width:100%;border:greensolid1px;">
+		<img alt="" src="./pics/2023-compare-microstructures.png" style="width:90%;box-shadow: 0px 0px 0px #888; display:inline-block;"/>
+		<br />
+		<br />
+		</div>
+		</td>
+	</tr>
+<br> 
+<br />
+</tbody>
+</table>
+<div style="text-align:center;width:100%;border:greensolid1px;"><p>Figure 3: Comparison of 2D differentiable microstructures (iii) obtained by (a) uniform dilation, (b) uniform thermal diffusivity, and (c) optimized
+thermal diffusivity. The differentiable microstructures are visualized by height fields (i) and iso-contours (ii).</p></div>
+
+<p style="text-align: justify"> To quantitatively measure the deviation from the theoretical limit, we define two metrics to evaluate the quality of the optimized microstructures. E1 measures the average of the difference between the bulk modulus of the optimized microstructure and the theoretical limit at different volume fractions. E2 measures the maximum of the differences.</p>
+<table width="100%">
+	<tbody>
+	<tr>
+		<td> 
+		<div style="text-align:center;width:100%;border:greensolid1px;">
+		<img alt="" src="./pics/2023-MicroSamp.png" style="width:90%;box-shadow: 0px 0px 0px #888; display:inline-block;"/>
+		<br />
+		<br />
+		</div>
+		</td>
+	</tr>
+<br> 
+<br />
+</tbody>
+</table>
+<div style="text-align:center;width:100%;border:greensolid1px;"><p>Figure 4: The bar graph of the evaluation factor E1 (blue bar) and E2 (pink bar) of three approaches under ten cases. The histograms from left to right are shown uniform dilation operation (1), uniform thermal diffusivity operation (2), and optimized thermal diffusivity  operation (3), respectively.</p></div>
+
+		<br />
+		</td>
+	</tr>
+</div>
+</tbody>
+</table>
+
+<H2>Extended to Two-scale Problem</H2>
+
+<p style="text-align: justify"> The concept of differentiable microstructures is introduced primarily for the design of two-scale structures with gradation. We also validate their benefits using different two-scale topology optimization strategies.
+ </p>
+<table width="100%">
+	<tbody>
+	<tr>
+		<td> 
+		<div style="text-align:center;width:100%;border:greensolid1px;">
+		<img alt="" src="./pics/2023-decouple.png" style="width:90%;box-shadow: 0px 0px 0px #888; display:inline-block;"/>
+		<br />
+		<br />
+		</div>
+		</td>
+	</tr>
+<br> 
+<br />
+</tbody>
+</table>
+<div style="text-align:center;width:100%;border:greensolid1px;"><p>Figure 5: Decoupled two-scale topology optimization with differentiable microstructures. (a) Design domain and boundary conditions. (b) The number of intermediate densities between 0 and 1. (c) The elasticity interpolation function for three series of differentiable microstructures, obtained by ''uniform dilation'' (d), ''uniform thermal diffusivity'' (e), and our approach (f). </p></div>
+
+<table width="100%">
+	<tbody>
+	<tr>
+		<td> 
+		<div style="text-align:center; width:100%;border:greensolid1px;">
+		<img alt="" src="./pics/2023-concurrent.png" style="width:70%;box-shadow: 0px 0px 0px #888; display:inline-block;"/>
+		<br />
+		<br />
+		</div>
+		</td>
+	</tr>
+<br> 
+<br />
+</tbody>
+</table>
+<div style="text-align:center;width:100%;border:greensolid1px;"><p>Figure 6: Differentiable microstructures applied to concurrent two-scale topology optimization. (a) Illustration of the design domain, boundary conditions and the optimized two-scale structure. (b, c, d) Visualization of the optimized differentiable microstructures, showing the anisotropic feature due to the specific boundary conditions.</p></div>
+
+		<br />
+		</td>
+	</tr>
+</div>
+</tbody>
+</table>
+
+
+
+
+<td> <h1>Download</h1><br>
+<table width="70%">
+  <tbody>
+	<tr>
+	    <td width="50">
+	    <img align="center" src="./pics/paperpic.png" width="80px" >
+	    </td>   
+	</tr>
+	<tr>
+	    <td width="50">
+	    &nbsp &nbsp <a href = "https://www.sciencedirect.com/science/article/pii/S0045782523006540">Paper</a>
+	    </td>   
+	   <!--   <td width="30">
+	   &nbsp &nbsp &nbsp Slides -->
+	    </td>   
+	    <!-- <td width="100">
+	    &nbsp &nbsp Bibtex
+	    </td>  -->
+	</tr>
+</tbody>
+</table>
+
+<br />
+<br />
+	
+	
+	<tr>
+		<td> <h1>BibTex</h1><br>
+		<p>@article {zhai2023diffMicro,<br/>
+    title = {Topology Optimization of Differentiable Microstructures},<br/>
+   author = {Zhai, Xiaoya and Wang, Weiming and Chen, Falai and Wu, Jun}<br/>
+   journal = {Topology Optimization of Differentiable Microstructures},<br/>
+   volume={418},<br/>
+   number={Part A},<br/>
+   pages={116530},<br/>
+   year = {2024}<br/>
+}</p>
+		</td>
+	</tr>
+	<tr>&nbsp</tr>
+        <tr>&nbsp</tr>
+        <tr>&nbsp</tr>	
+	</tbody></table>
+	<H1></H1>
+
+	<p style="text-align: center;"><font face="Trebuchet MS">Welcome to cite this work!</font></p>
+	<p style="text-align: center;"><font face="Trebuchet MS">If there is any problem, please send a message to [ xiaoyazhai@ustc.edu.cn ]</font></p>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+  
+<br />
+<br />	
+
+</div>
+</div>
+</body>
+</html>
