@@ -1,0 +1,193 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<meta http-equiv="Content-Language" content="zh-cn">
+
+<title>Topology Optimization of Compatible Thermal Microstructures</title>
+<style>
+<!--
+.thumbnailClass {
+	BORDER-RIGHT: white 0px outset; BORDER-TOP: white 0px outset; MARGIN: 0px 5px 0px 0px; BORDER-LEFT: white 0px outset; BORDER-BOTTOM: white 0px outset
+}
+.sectionClass {
+	BORDER-RIGHT: #286dc2 2px outset; PADDING-RIGHT: 0px; BORDER-TOP: #286dc2 2px outset; PADDING-LEFT: 0px; BACKGROUND: #286dc2; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #286dc2 2px outset; PADDING-TOP: 0px; BORDER-BOTTOM: #286dc2 2px outset
+}
+.section2Class {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 110%; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: white; TEXT-INDENT: 0.1in; PADDING-TOP: 0px; FONT-FAMILY: helvetica
+}
+.abstractClassCol {
+	COLOR: teal
+}
+.hindsightClassCol {
+	COLOR: darkred
+}
+.abstractClass {
+	COLOR: teal
+}
+.hindsightClass {
+	COLOR: darkred
+}
+
+-->
+</style>
+</head>
+
+<body>
+
+<p align="center"><b><font face="Arial" size="6">Topology Optimization of Compatible Thermal Microstructures</font></b></p>
+<table width="800" border="0" align="center">
+	<tbody>
+		<tr><td align="center" colspan="3"><span lang="EN-US" style="font-size:14.0pt;font-family:Arial;">
+			Tianjie Chen&nbsp;&nbsp;&nbsp;&nbsp;
+			
+		<a href="https://xiaoyazhai.github.io/">Xiaoya Zhai</a><span lang="EN-US" style="font-size:14.0pt;font-family:Arial;">&nbsp;&nbsp;&nbsp;&nbsp;
+			Zheng Zhang&nbsp;&nbsp;&nbsp;&nbsp;
+		</span><a href="http://staff.ustc.edu.cn/~lgliu/">Ligang Liu</a><span lang="EN-US" style="font-size:14.0pt;font-family:Arial;">&nbsp;&nbsp;&nbsp;&nbsp; 
+		</span><a href="https://ustc-gcl-f.github.io/">Xiao-Ming Fu</a><span lang="EN-US" style="font-size:14.0pt;font-family:Arial;">&nbsp;&nbsp;&nbsp;&nbsp; 
+		</span></td></tr>
+	<tr>
+		<td width="495" align="center">
+		<span style="font-size: 14.0pt; font-family: Arial,sans-serif">
+		<a href="http://www.ustc.edu.cn/">University of Science and Technology of China</a></span></td>
+	</tr>
+	</tbody></table>
+<p align="center"><font face="Arial" size="4"><i>International Journal of Heat and Mass Transfer 
+</i>, 2025. </font> </p>
+<p align="center">&nbsp;</p>
+<table width="1210" border="2" align="center" bordercolor="#FFFFFF" id="table2" style="border-collapse: collapse">
+	<tbody><tr>
+		<td align="center" colspan="2">
+		<hr>
+		<br>
+		<img border="0" src="pics/2025-thermal1.png" width="1000" height="438"><p align="center">
+		<span lang="en-us"><i><span style="font-family: Arial,sans-serif">Figure 1</span></i></span><i><span lang="EN-US" style="font-family:Arial,sans-serif">: </span></i>
+		<span lang="en-us"><i><span style="font-family: Arial,sans-serif">Orthogonal anisotropy compatible thermal microstructure and thermal cloak design. </span></i></span></p><hr>&nbsp;
+	</td>
+	</tr>
+	<tr>
+		<td width="10%" align="center" bgcolor="#CCFFCC">
+		<p align="left"><font face="Arial" color="#008080" size="4">Abstract</font></p></td>
+		<td width="89%">
+		<p align="justify"><font face="Arial" size="4">
+			Thermal microstructures are arranged periodically or in gradients to create thermal management systems. Ensuring connectivity is
+			a critical challenge in designing multiple thermal microstructures for multiscale applications. This is an important issue that has not
+			yet been systematically studied in a quantitative manner. In this work, we introduce the concept of thermal compatibility. It refers
+			to the ability of different microstructures to work together effectively in thermal systems. Thermal compatibility ensures efficient
+			heat transfer while minimizing thermal resistance. To address this, we propose a novel framework incorporating thermal resistance
+			into the topology optimization model with the constraint of predefined thermal conductivity tensors to generate compatible thermal
+			microstructures. Our optimization model considers the compatibility of adjacent microstructures and extends to mutual compatibility. Moreover, it accounts for both isotropic and orthogonal anisotropic thermal microstructures. When the thermal microstructures
+			exhibit good compatibility, the results from both full-scale and homogenization analyses are consistent. We further demonstrate the
+			applicability of our method through two thermal-related multiscale design examples: thermal dissipation and thermal cloak design.
+			<br>
+			<br></font></p></td>
+	</tr>
+	<tr>
+		<td width="10%" align="left" bgcolor="#FFFFCC">
+		<font face="Arial" size="4" color="#008080">Keywords</font></td>
+		<td width="89%" align="left">
+			<br>
+		<span lang="EN-US" style="font-size:13.5pt;font-family:Arial;">
+			Topology optimization, compatible thermal microstructures, multiscale optimization
+		<br></span><font face="Arial" size="4"><br></font></td>
+	</tr>
+	<tr>
+		<td width="10%" align="left" bgcolor="#CCFFCC">
+		<font face="Arial" size="4" color="#008080">Motivation</font></td>
+		<td width="89%" align="left">
+		<p align="justify"><font size="4">
+		<span style="font-family: Arial,sans-serif"><br>Connectivity is a key challenge for multiscale optimization requiring microstructure assembly. Several studies have focused on the connectivity of mechanical microstructures, including geometric connectivity and mechanically compatible connectivity. Thermal microstructures composed of multiple materials inherently maintain solid connectivity; however, the interfaces between different materials significantly impact heat transfer. The connectivity of thermal microstructures is widely acknowledged as an important issue; however, systematic and relevant quantitative analyses remain lacking. Moreover, existing approaches typically focus on achieving geometric connectivity using the same material between adjacent thermal microstructures while overlooking microstructure compatibility. <br><br></span></font></p>
+	</td></tr>
+	<tr>
+		<td width="10%" align="left" bgcolor="#FFFFCC">
+		<font face="Arial" size="4" color="#008080">Methods</font></td>
+		<td width="89%" align="left">
+		<span style="font-family: Arial,sans-serif">
+			<p align="justify"><span lang="EN-US" style="font-size:13.5pt;font-family:Arial,sans-serif">
+				Firstly, To better investigate the connectivity of thermal microstructures, we identify thermal compatibility between different microstructures as a critical issue. Here, compatibility implies that the design of microstructures ensures continuous and efficient heat transfer without significant losses or disruptions. By comparing the thermal conductivity tensors analyzed by the series and parallel model in macroscale and by effective homogenization on the combination of different cells ,We quantitatively analyze the compatibility between different thermal microstructures, and discover the relationship between compatibility of different thermal microstructures and thermal resistance of the combined thermal microstructure.
+			<p align="center">
+			<img border="0" src="pics/2025-thermal2.svg" width="1100" height="180"></p>
+			<p align="justify"><span lang="EN-US" style="font-size:13.5pt;font-family:Arial,sans-serif"><i>
+				Figure 2:  Comparison of three pairs of microstructures: (a) with totally no connectivity, (b) with good connectivity, (c) with partial connectivity. Their connectivity in the x-axis direction is different. The charts on the right report the thermal conductivity of combined microstructures in two directions. It can be suggested that poor compatibility will lead to decrease of thermal conductivity ratio in the series direction along which thermal microstructures are combined.
+				</span><br><br></p>
+
+			<br>
+			<p align="justify"><span lang="EN-US" style="font-size:13.5pt;font-family:Arial,sans-serif">
+				Furthermore, we incorporate compatibility into topology optimization of thermal microstructure design and generate a series of different thermal microstructures with excellent compatibility that are suitable for thermal-related multiscale designs.</span></p>
+			<p align="center">
+			<img border="0" src="pics/2025-thermal3.svg" width="1100" height="300"></p>
+			<p align="justify"><span lang="EN-US" style="font-size:13.5pt;font-family:Arial,sans-serif"><i>
+				Figure 3: Topology optimized series of thermal microstructures: (a) without consideration of compatibility; (b) with consideration of compatibility between adjaccent cells; (c) with consideration of compatibility between every two different cells. </span></i></span></p><hr>&nbsp;
+				</span><br><br></p>
+		
+		</td>
+			</tr>
+	<tr>
+		
+		<td width="10%" align="left" bgcolor="#CCFFCC">
+		<font face="Arial" size="4" color="#008080">Paper</font></td>
+		<td width="89%" align="left">
+		<font face="Arial" size="4">
+		<br>
+		<a href="https://rec.ustc.edu.cn/share/708aa870-0325-11f0-a265-7d7026e16f8d">PDF</a></font><br><br></td>
+		
+		<!--
+		<td width="10%" align="left" bgcolor="#CCFFCC">
+		<font face="Arial" size="4" color="#008080">Paper</font></td>
+		<td width="89%" align="left">
+		<font face="Arial" size="4">
+		<br>
+		<a href="file/Paper.pdf">PDF</a> (261M)</font><br><br></td>
+		-->
+	</tr>
+	<tr>
+		<td width="10%" align="left" bgcolor="#FFFFCC">
+		<font face="Arial" size="4" color="#008080">Software</font></td>
+		<td width="89%" align="left">
+		<span style="font-size: 13.5pt; font-family: Arial,sans-serif">
+		<br>
+		<a href="https://github.com/cas-ustc-meow/2025CompatibleThermalMicrostructures">Code</a><br><br></span></td>
+	</tr>
+
+	<tr>
+		<td width="10%" align="left" bgcolor="#CCFFCC">
+		<font face="Arial" size="4" color="#008080">Ack</font></td>
+		<td width="89%" align="left">
+		<p align="justify"><span lang="EN-US" style="font-size:13.5pt;font-family:Arial,sans-serif">
+		<br>
+		We would like to thank the anonymous reviewers for their constructive suggestions and comments. This work is supported by the National Key R&D Program of China (No. 2024YFA1016300), the National Natural Science Foundation of China (No. 62402467, No. 62025207, No. 61972368), the Youth Innovation Key Research Funds for the Central Universities, China (No. YD0010002010), the Strategic Priority Research Program of the Chinese Academy of Sciences (No. XDB0640000). Xiao-Ming Fu is a USTC Tang Scholar. </span><font face="Arial" size="4"><br><br></font></p></td>
+	</tr>
+	<tr>
+		<td width="10%" align="left" bgcolor="#FFFFCC">
+		<font face="Arial" size="4" color="#008080">BibTex</font></td>
+		<td width="89%" align="left"><span lang="EN-US" style="font-size:13.5pt;font-family:Arial,sans-serif">
+			<br> @article {Chen2024CompatibleThermal,<br>
+			&nbsp;&nbsp;&nbsp; title = {Topology Optimization of Compatible Thermal Microstructures}, <br>
+  			&nbsp;&nbsp;&nbsp; author = {Chen, Tianjie and Zhai, Xiaoya and Liu, Ligang and Fu, Xiao-Ming}<br>
+  			&nbsp;&nbsp;&nbsp; journal = {International Journal of Heat and Mass Transfer},<br>
+			&nbsp;&nbsp;&nbsp; volume={},<br>
+			&nbsp;&nbsp;&nbsp; number={},<br>
+			&nbsp;&nbsp;&nbsp; pages={},
+			&nbsp;&nbsp;&nbsp; <br>
+			&nbsp;&nbsp;&nbsp; year = {2025}<br>}</span>
+		</td>
+
+	</tr>
+	</tbody>
+	</table>
+	<p><span style="font-size: 13.5pt; font-family: Arial,sans-serif">
+	
+	<hr>
+	<table width="1210" border="2" align="center" bordercolor="#FFFFFF" id="table2" style="border-collapse: collapse">
+	<tbody>
+	<tr>
+		<td>
+		<td align="center">  
+		<p align="justify" style = "text-align:center;"><i><font face="Verdana"><br>
+		Copyright &#169; USTC GCL<br>
+		</font></i></p></td>
+		
+		
+	</tr>	
+</tbody>
+</table>
+<br>
+		<br>
+</body></html>
