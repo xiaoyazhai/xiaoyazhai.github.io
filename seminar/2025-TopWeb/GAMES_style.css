@@ -1,0 +1,280 @@
+body {
+    padding-top: 50px;
+}
+
+.starter-template {
+    padding: 40px 15px;
+    b text-align: center;
+}
+
+.navbar-collapse {
+    text-align: center;
+    width: 100%;
+}
+
+.navbar-nav li {
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 14.285%;
+    display: inline;
+    font-size: 18px;
+    list-style: none;
+    /*去掉圆点*/
+}
+
+.navbar-nav>li>a {
+    line-height: 40px;
+    padding: 5px 5px 5px 5px;
+    vertical-align: middle;
+}
+
+.navbar-nav {
+    display: inline-table;
+    width: 100%;
+    text-align: center;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+.header,
+.marketing,
+.footer {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Custom page header */
+
+.header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+}
+
+.container-fluid>.navbar-collapse,
+.container-fluid>.navbar-header,
+.container>.navbar-collapse,
+.container>.navbar-header {
+    margin-left: 0px;
+}
+
+/* Custom page footer */
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 1100px;
+        /* 总宽度 */
+    }
+}
+
+.container-narrow>hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+
+.jumbotron {
+    box-shadow: 0px 0px 10px #888888;
+    text-align: center;
+    border-bottom: 12px solid #ffffff;
+    background-color: #ffffff;
+}
+
+.jumbotron .btn {
+    padding: 14px 24px;
+    font-size: 21px;
+}
+
+.jumbotron>ul>li {
+    text-align: justify;
+    text-justify: inter-ideograph;
+}
+
+/* Supporting marketing content */
+
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p+h4 {
+    margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+
+@media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 130px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+.carousel.slide {
+    box-shadow: 0px 0px 5px #888888;
+    border: 0.5px solid;
+    border-radius: 3px;
+}
+
+.carousel-indicators {
+    /*圆点位置*/
+    bottom: 4px;
+}
+
+.jumbotron h4 {
+    font-size: 24px;
+}
+
+.jumbotron p {
+    font-size: 18px;
+    text-align: justify;
+}
+
+/*主讲人图片*/
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.placeholders h4 {
+    margin-bottom: 0;
+}
+
+.placeholder {
+    margin-bottom: 20px;
+}
+
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #888888;
+}
+
+.tableA {
+    text-align: center;
+    border-top: 1px solid #9a9a9a;
+    margin-bottom: 0px;
+}
+
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+    padding: 4px;
+    vertical-align: middle;
+}
+
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+    border: 1px solid #9a9a9a;
+    vertical-align: middle;
+}
+
+.table>caption+thead>tr:first-child>th,
+.table>colgroup+thead>tr:first-child>th,
+.table>thead:first-child>tr:first-child>th,
+.table>caption+thead>tr:first-child>td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #3b8dbd;
+}
+
+.text-muted {
+    color: #4bbdd0;
+}
+
+.trcontainer {
+    width: 100%;
+    margin-left: 0;
+    overflow: hidden;
+}
+
+.trcontainer ul {
+    padding-left: 0px;
+}
+
+.trcontainer ul li {
+    list-style-type: none;
+}
+
+.trcontainer ul li img {
+    border-radius: 5%;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.trcontainer span {
+    padding: 1%;
+    margin: 1%;
+    display: block;
+    width: 48%;
+    border: 1px solid #ccc;
+    border-radius: 5%;
+    background-color: #f4f4f4;
+    float: left;
+}
+
+.trcontainer2 {
+    z-index: 999;
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+}
+
+.trcontainer2 button {
+    padding: 1%;
+    margin: 1%;
+    display: block;
+    width: 38%;
+    border: 1px solid #ccc;
+    border-radius: 5%;
+    background-color: #f4f4f4;
+    float: left;
+    padding: 0px;
+}
+
+.jumbotron button {
+    border: 0px solid #ffffff;
+    background-color: #ffffff;
+}
+
+.trcontainer2 button {}

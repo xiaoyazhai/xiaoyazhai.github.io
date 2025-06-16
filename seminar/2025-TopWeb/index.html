@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>CSIAM GDC“智能结构设计”研讨会</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="GAMES_style.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="buttom.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- 图片自适应 -->
+    <style>
+        .coverImg {
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="trcontainer2" style="width:60px;position: fixed;bottom:0px;left:0px;margin:1%">
+        <button id="top1" style="width:80%;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;"><span style="width:40%;margin-left:0%;margin-right:0%">回到<br>顶部</span></button>
+        <button id="huiyijieshao1" style="width:80%;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;"><span style="width:40%;margin-left:0%;margin-right:0%">会议<br>介绍</span></button>
+        <button id="zhucecanhui1" style="width:80%;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;"><span style="width:40%;margin-left:0%;margin-right:0%">注册<br>参会</span></button>
+        <button id="baogaoanpai1" style="width:80%;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;"><span style="width:40%;margin-left:0%;margin-right:0%">会议<br>安排</span></button>
+        <button id="jiabinjieshao1" style="width:80%;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;"><span style="width:40%;margin-left:0%;margin-right:0%">嘉宾<br>报告</span></button>
+        <button id="zuzhijiegou" style="width:80%;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;"><span style="width:40%;margin-left:0%;margin-right:0%">组织<br>结构</span></button>
+    </div>
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+                <!--<a class="navbar-brand" href="#"></a>-->
+
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+
+                <ul class="nav navbar-nav">
+
+                    <!-- <li><a href="index.html">课程首页</a></li>
+          <li><a href="program.html">课程安排</a></li>
+          <li><a href="speaker.html">授课教师</a></li>
+          <li><a href="registration.html">课程注册</a></li>
+          <li><a href="transport_hotel.html">交通和酒店</a></li> -->
+                    <!-- <li><a href="http://staff.ustc.edu.cn/~lgliu/Courses/SummerSchool/USTC-summer-school.html">历年暑期课程</a></li> -->
+                    <!-- <li class="active"><a href="index.html" >“几何计算前沿”国际研讨会</a></li> -->
+                </ul>
+            </div>
+
+
+
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+
+        <div class="starter-template">
+
+            <div class="jumbotron">
+                <a id="top1_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                <!-- <h1 style="font-size:35px;">CSIAM GDC Symposium on Geometric Computing<br> <br><font style="color:#3b8dbd;font-weight:500;font-size:30px;">“几何计算前沿”国际研讨会</font> -->
+                <h1 <font style="color:#3b8dbd;font-weight:500;font-size:30px;">CSIAM GDC “智能结构设计” 研讨会</font>
+                    <br>
+                </h1>
+                <br>
+                <div class="trcontainer2" style="display:flex;">
+                    <button id="huiyijieshao" style="width:260px;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;height:40px;">会议介绍</button>
+                    <button id="zhucecanhui" style="width:260px;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;height:40px;">注册参会</button>
+                    <button id="baogaoanpai" style="width:260px;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;height:40px;">会议安排</button>
+                    <button id="jiabinjieshao" style="width:260px;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;height:40px;">嘉宾报告</button>
+                </div>
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+
+                <br>
+                <a id="huiyijieshao_position" style="position:relative; top:-72px;  display: block; height: 0;"></a>
+                <a id="huiyijieshao1_position" style="position:relative; top:-72px;  display: block; height: 0;"></a>
+                <h4 style="color:#4bbdd0;">会议介绍</h4>
+
+                <br>
+                <p style="text-indent: 40px">近年来，结构优化与拓扑优化正日益与人工智能（AI）技术深度融合。如何综合利用经典拓扑优化理论与AI算法，生成同时满足工程性能约束（如轻量化、高刚度）与功能性需求（如多物理场耦合、多功能响应）的复杂结构模型，依然是学术界与工业界面临的重大挑战。高精度、高性能的结构与材料，正逐步成为推动高端装备制造、生物医疗等领域技术变革的关键驱动力。本次研讨会将聚焦拓扑优化的最新发展趋势，涵盖拓扑优化算法、多功能/多物理场超材料设计、AI生成式设计、以及增材制造工艺等前沿方向，深入探讨跨学科研究的突破性成果与实际应用路径。</p>
+                <p style="text-indent: 40px">为推动该领域的学术交流与产业协同发展，中国工业与应用数学学会几何设计与计算专业委员会（CSIAM-GDC）联合中国图学学会微观几何设计与制造专业委员会，拟于2025年7月6日（星期日）在中国科学技术大学举办“智能结构设计”研讨会。届时将邀请来自学术界和工业界的专家学者，共同交流结构优化与AI生成设计的研究进展与应用前景。会议将设有主题报告、圆桌论坛等环节，围绕若干技术热点展开深入研讨，助力智能设计迈向更高水平。</p>
+
+                <ul>
+                    <li>
+                        <p>时间：2025年7月6日星期日</p>
+                    </li>
+                    <li>
+                        <p>地点：合肥 中国科学技术大学东校区 第五教学楼5101（<a href="https://j.map.baidu.com/44/_3u" target="_blank" rel="noopener">地图</a>）</p>
+                    </li>
+                </ul>
+
+                <!-- <p>研讨会图片直播：
+                    <a href="https://graphics.xmu.edu.cn/GDC2025SymposiumXM/Gallery/" target="_blank" rel="noopener">https://graphics.xmu.edu.cn/GDC2025SymposiumXM/Gallery</a>
+                </p> -->
+
+
+                <style>
+                    /* 重置盒模型 */
+                    .image-card, .image-card * {
+                        box-sizing: border-box;
+                    }
+                    /* 容器增强样式 */
+                    .dual-images {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        gap: 30px;
+                        align-items: stretch;
+                        padding: 15px 0; /* 增加容器内边距 */
+                    }
+                    .image-card {
+                        flex: 1 1 calc(50% - 15px);
+                        max-width: 500px;
+                        min-width: 300px;
+                        position: relative;
+                        overflow: hidden;
+                        background: #fff;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                        border-radius: 4px; /* 统一圆角 */
+                    }
+
+                    /* 图片说明文字优化 */
+                    .image-caption {
+                        text-align: center;
+                        padding: 10px;
+                        background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6)); /* 渐变背景 */
+                        color: white;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        font-size: 14px;
+                    }
+
+                    /* 精准尺寸控制 */
+                    .thumbnail {
+                        position: relative;
+                        padding-bottom: 60%;
+                        height: 0;
+                        margin: -1px; /* 消除边框偏移 */
+                        border: 1px solid transparent; /* 占位边框 */
+                    }
+
+                    .thumbnail img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        display: block; /* 消除图片基线空隙 */
+                        border-radius: 3px; /* 匹配容器圆角 */
+                    }
+                
+                    /* 文字定位修正 */
+                    .image-caption {
+                        position: absolute;
+                        bottom: -1px; /* 对齐容器底部 */
+                        left: -1px;
+                        right: -1px;
+                        padding: 12px 15px;
+                        background: linear-gradient(to top, rgba(0,0,0,0.7) 30%, transparent);
+                        color: #fff;
+                        font-size: 14px;
+                        line-height: 1.4;
+                    }
+
+                    /* 响应式调整 */
+                    @media (max-width: 991px) {
+                        .image-card {
+                            flex-basis: 100%;
+                            max-width: 600px;
+                        }
+                        .thumbnail {
+                            padding-bottom: 70%;
+                        }
+                        .image-caption {
+                            font-size: 13px;
+                            padding: 10px 12px;
+                        }
+                    }
+                </style>
+                
+                <!-- <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!== 双图容器 ==>
+                            <div class="dual-images">
+                                <!== 图片1 ==>
+                                <div class="image-card">
+                                    <div class="thumbnail">
+                                        <img src="images/xmu_keyizhongxin.jpg" 
+                                             alt="厦门大学科学艺术中心" 
+                                             class="img-responsive">
+                                        <div class="image-caption">
+                                            厦门大学科学艺术中心
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!== 图片2 ==>
+                                <div class="image-card">
+                                    <div class="thumbnail">
+                                        <img src="images/xmu_keyizhongxin4.png" 
+                                             alt="四号会议室" 
+                                             class="img-responsive">
+                                        <div class="image-caption">
+                                            四号会议室
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+
+                <br>
+                <a id="zhucecanhui_position" style="position:relative; top:-72px;  display: block; height: 0;"></a>
+                <a id="zhucecanhui1_position" style="position:relative; top:-72px;  display: block; height: 0;"></a>
+                <h4 style="color:#4bbdd0;">注册参会</h4>
+
+                <br>
+                <p style="text-indent: 40px">本次会议免收注册费，为了方便会议组织及入校报备，请填写报名表（<a href="https://docs.qq.com/form/page/DZWpWdktIUUFiTWNy" target="_blank" rel="noopener">报名链接</a>）。</p>
+
+                <body>
+                    <div class="container">
+                        <img src="images/qrcode.jpeg" alt="报名表二维码" style="width: 30%;">
+                    </div>
+                </body>
+
+                <style>
+                .red-text {
+                    color: red;
+                  }
+                </style>
+                <!-- <p>由于需要提前进行入校报备，会议报名截止时间为4月10日<span class="red-text">（报名人数已满，感谢支持！）</span>。第一次入校需要刷身份证，之后可以刷脸入校。</p>
+
+                <p>推荐住宿酒店：</p>
+                    <p>（1）厦门大学国际学术交流中心（<a href="https://j.map.baidu.com/c4/8l4" target="_blank" rel="noopener">地图</a>），位于校内，距会场300米，房源紧张；订房热线：0592-2182621，大床房400，双床房500，订房Code：GDC研讨会；</p>
+                    <p>（2）鹭江佲家酒店（<a href="https://j.map.baidu.com/e7/von" target="_blank" rel="noopener">地图</a>），距会场3千米；订房热线：18020722505 林经理，大床房400，双床房480，订房Code：GDC研讨会。</p> -->
+
+                <p style="font-size:10px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+
+                <br>
+                <a id="baogaoanpai_position" style="position:relative; top:-72px;  display: block; height: 0;"></a>
+                <a id="baogaoanpai1_position" style="position:relative; top:-72px;  display: block; height: 0;"></a>
+                <h4 style="color:#4bbdd0;">会议安排</h4>
+
+                <br>
+                <div class="tableA">
+                    <table class="table table-striped">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+
+                        <thead>
+                            <tr style="background-color:rgb(255, 241, 194)">
+                                <td><strong>时间</strong></td>
+                                <td colspan="3"><strong>活动内容</strong></td>
+                        </thead>
+                            <tbody>
+                                <tr>
+                                    <td>9:00-9:10</td>
+                                    <td colspan="3"><strong>开幕及致辞，主持人：刘利刚</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>9:10-9:20</td>
+                                    <td colspan="3">合影</td>
+                                </tr>
+                            </tbody>
+
+                        <thead>
+                            <tr style="background-color:rgb(253, 233, 217)">
+                                <td><strong>9:20-11:30</strong></td>
+                                <td colspan="3"><strong>Session 1，主持人：翟晓雅</strong></td>
+                        </thead>
+
+                        <thead>
+                            <tr style="background-color:#ffffff">
+                                <td>时间</td>
+                                <td>讲者</td>
+                                <td>单位</td>
+                                <td>题目</td>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>9:20-9:45</td>
+                                <td>TBD</td>
+                                <td>TBD</td>
+                                <td>TBD</td>
+                            </tr>
+                            <tr>
+                                <td>9:45-10:10</td>
+                                <td>张维生</td>
+                                <td>大连理工大学</td>
+                                <td>机器学习驱动的几何感知Filter：设计交互的拓扑优化新方法</td>
+                            </tr>
+                            <tr>
+                                <td>10:10-10:35</td>
+                                <td>吕琳</td>
+                                <td>山东大学</td>
+                                <td>功能驱动的结构智能生成方法</td>
+                            </tr>
+                        </tbody>
+
+                        <thead>
+                            <tr style="background-color:rgb(217, 242, 253)">
+                                <td>10:35-10:50</td>
+                                <td colspan="3">茶歇</td>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>10:50-11:15</td>
+                                <td>刘珂</td>
+                                <td>北京大学</td>
+                                <td>神经进化驱动的材料微结构设计</td>
+                            </tr>
+                            <tr>
+                                <td>11:15-11:40</td>
+                                <td>郑销阳</td>
+                                <td>东京大学</td>
+                                <td>AI驱动的力学超材料设计与应用</td>
+                            </tr>
+                            <tr>
+                                <td>11:40-12:05</td>
+                                <td>易兵</td>
+                                <td>中南大学</td>
+                                <td>可装配可组装超材料结构拓扑优化设计</td>
+                            </tr>
+                        </tbody>
+
+                        <thead>
+                            <tr style="background-color:rgb(228, 253, 217)">
+                                <td>12:05-14:00</td>
+                                <td colspan="3">午餐</td>
+                        </thead>
+
+                        <thead>
+                            <tr style="background-color:rgb(253, 233, 217)">
+                                <td><strong>14:00-16:00</strong></td>
+                                <td colspan="3"><strong>Session 2，主持人：傅孝明</strong></td>
+                        </thead>
+
+                        <thead>
+                            <tr style="background-color:#ffffff">
+                                <td>时间</td>
+                                <td>讲者</td>
+                                <td>单位</td>
+                                <td>题目</td>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>14:00-14:25</td>
+                                <td>牛斌</td>
+                                <td>大连理工大学</td>
+                                <td>多维多尺度结构建模与优化设计</td>
+                            </tr>
+                            <tr>
+                                <td>14:25-14:50</td>
+                                <td>李大伟</td>
+                                <td>南京理工大学</td>
+                                <td>三维电磁吸波超材料结构设计与展望</td>
+                            </tr>
+                            <tr>
+                                <td>14:50-15:15</td>
+                                <td>刘兵山</td>
+                                <td>中国空间应用中心</td>
+                                <td>先进陶瓷增材制造技术与应用</td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr style="background-color:rgb(217, 242, 253)">
+                                <td>15:15-15:35</td>
+                                <td colspan="3">茶歇</td>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>15:35-16:00</td>
+                                <td>李明</td>
+                                <td>浙江大学</td>
+                                <td>大规模微孔结构的一体化设计方法探究</td>
+                            </tr>
+                            <tr>
+                                <td>16:00-16:25</td>
+                                <td>高杰</td>
+                                <td>华中科技大学</td>
+                                <td>T样条驱动的复杂薄壳气动拓扑优化设计研究</td>
+                            </tr>
+                        </tbody>
+
+                        <thead>
+                            <tr style="background-color:rgb(253, 233, 217)">
+                                <td><strong>16:25-17:50</strong></td>
+                                <td colspan="3"><strong>圆桌讨论，主持人：牛斌 大连理工大学</strong><br>
+                                    嘉宾：全体参会嘉宾
+                                </td>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>17:50-18:00</td>
+                                <td colspan="3">总结及闭幕</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                <br>
+                <a id="jiabinjieshao_position" style="position:relative; top:-72px;  display: block; height: 0;"></a>
+                <a id="jiabinjieshao1_position" style="position:relative; top:-72px;  display: block; height: 0;"></a>
+                <!-- <h4 style="color:#4bbdd0;">特邀嘉宾</h4> -->
+
+                <br>
+
+                <!-- <style>
+                    .custom-parent .placeholders {
+                        display: flex;
+                        justify-content: center;  /* 子元素水平居中 */
+                        flex-wrap: wrap;          /* 允许换行（响应式需要） */
+                        margin-left: -15px;       /* 抵消 Bootstrap 的默认 gutter 负边距 */
+                        margin-right: -15px;      /* 抵消 Bootstrap 的默认 gutter 负边距 */
+                    }
+                </style>
+                <div class="custom-parent">
+
+                    <div class="row placeholders justify-content-center">
+
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <!== <button id="hushimin"> ==>
+                                <img src="images/hushimin.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                                <h4><font style="font-size:14px;font-weight:600;">胡事民</font> <font style="font-size:14px;font-weight:400;">院士</font></h4>
+                                <span class="text-muted" style="font-size:12px;font-weight:600;">清华大学</span>
+                            <!== </button> ==>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <!== <button id="liuyigang"> ==>
+                                <img src="images/liuligang.png" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                                <h4><font style="font-size:14px;font-weight:600;">刘利刚</font> <font style="font-size:14px;font-weight:400;">GDC专委主任</font></h4>
+                                <span class="text-muted" style="font-size:12px;font-weight:600;">中国科学技术大学</span>
+                            <!== </button> ==>
+                        </div>
+                        
+                    </div>
+                </div> -->
+
+                <h4 style="color:#4bbdd0;">讲者报告</h4>
+
+                <br>
+                
+                <div class="row placeholders">
+
+                    <!-- <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="zhangweihong">
+                            <img src="images/zhangweihong.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">张卫红</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">西北工业大学</span>
+                        </button>
+                    </div> -->
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="zhangweisheng">
+                            <img src="images/zhangweisheng.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">张维生</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">大连理工大学</span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="niubin">
+                            <img src="images/niubin.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">牛斌</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">大连理工大学</span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="gaojie">
+                            <img src="images/gaojie.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">高杰</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">华中科技大学</span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="yibing">
+                            <img src="images/yibing.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">易兵</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">中南大学</span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="liming">
+                            <img src="images/liming.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">李明</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">浙江大学</span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="lvlin">
+                            <img src="images/lvlin.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">吕琳</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">山东大学</span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="liubingshan">
+                            <img src="images/liubingshan.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">刘兵山</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">中国空间应用中心</span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="liuke">
+                            <img src="images/liuke.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">刘珂</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">北京大学</span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="lidawei">
+                            <img src="images/lidawei.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">李大伟</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">南京理工大学</span>
+                        </button>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <button id="zhengxiaoyang">
+                            <img src="images/zhengxiaoyang.jpg" width="146" height="146" class="img coverImg" alt="Generic placeholder thumbnail">
+                            <h4><font style="font-size:14px;font-weight:600;">郑销阳</font></h4>
+                            <span class="text-muted" style="font-size:12px;font-weight:600;">东京大学</span>
+                        </button>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+                <!-- <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="zhangweihong_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>---</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>张卫红，西北工业大学</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>
+                    </li><br>
+                    <!== <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="https://faculty.fudan.edu.cn/ZhouXiangdong/zh_CN/">https://faculty.fudan.edu.cn/ZhouXiangdong/zh_CN/</a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>xdzhou@fudan.edu.cn</li> ==>
+                </ul> -->
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="zhangweisheng_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>机器学习驱动的几何感知Filter：设计交互的拓扑优化新方法</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>张维生，大连理工大学</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>提出了一种机器学习赋能的Geometry Filter，用于提升基于SIMP方法的拓扑优化设计能力。该方法通过重构传统密度过滤功能范式，构建了具有几何特征调控能力的过滤格式，实现了人工设计意图与拓扑优化过程的有效交互。为了达到这一目的，通过机器学习构建了多模态几何特征匹配指标，将显式几何元素、抽象风格特征及直觉化概念等人工设计意图均转化为可嵌入优化流程的数学表征。通过建立几何特征与密度场的动态映射机制，使得Filter不仅仅再是抑制优化不稳定性的数值手段，而成为了具备几何特征主动调控能力的拓扑优化功能部分。由于人工设计意图直接构建于Filter，因此无需引入额外的复杂特征约束，这显著降低了优化问题的复杂度。数值算例表明，该方法能够灵活的生成具有多样化几何特征的结构，可有效实现设计意图与结构力学性能的人机交互。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>大连理工大学工程力学系教授、博导，中国力学学会理事、计算力学专业委员会主任。国家自然科学基金杰出青年基金、优秀青年基金获得者，国家重点研发计划首席科学家。目前主要从事智算力学、结构拓扑优化等研究。已在CMAME、IJNME等国际计算力学优秀期刊发表论文60余篇（包括多篇ESI热点、高被引论文），SCI他引4500余次。曾获国家自然科学二等奖、教育部“高等学校科学研究优秀成果奖（自然科学）”一等奖，获钱令希计算力学青年奖、大连市杰出青年科技人才、辽宁省优秀科技工作者、辽宁省 “青年拔尖人才”等称号。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="https://faculty.dlut.edu.cn/weisheng/zh_CN/index.htm">https://faculty.dlut.edu.cn/weisheng/zh_CN/index.htm</a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>weishengzhang@dlut.edu.cn</li>
+                </ul>
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="niubin_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>多维多尺度结构建模与优化设计</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>牛斌，大连理工大学</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>以点阵材料为代表的多维多尺度结构具有轻质、高比强度/高比刚度、多功能集成等诸多优势，展现出广阔应用前景。本报告将介绍多维多尺度结构的建模和优化设计方面的近期研究进展，包括：几何-材料耦合模型，集成设计和制造信息的点阵材料零件建模软件工具，面向刚度、强度、频率、动响应等多种设计目标的多尺度拓扑优化设计方法，以及多个工程应用案例等。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>牛斌，大连理工大学机械工程学院教授、博士生导师。国家重点研发计划项目负责人，国家级高层次青年人才，大连理工大学青年科学家科研创新团队负责人。主要研究方向为：材料结构功能一体化设计、结构动力学拓扑优化、复合材料结构等。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="https://faculty.dlut.edu.cn/niu/zh_CN">https://faculty.dlut.edu.cn/niu/zh_CN</a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>niubin@dlut.edu.cn</li>
+                </ul>
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="gaojie_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>T样条驱动的复杂薄壳气动拓扑优化设计研究</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>高杰，华中科技大学</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>为应对复杂薄壳结构在多物理场耦合设计中的挑战，本文提出一套面向复杂薄壳的气动结构一体化设计框架。研究首先发展了一种T样条驱动的等几何拓扑优化（T-ITO）方法，结合Bézier提取技术构建统一的几何表征模型，采用Kirchhoff-Love壳体理论构建等几何壳单元，建立了通用的数值实现框架，实现了T样条在复杂域内的有效数值表达。该方法通过在局部Bézier单元中构造光滑密度分布函数，在保持结构边界连续性的同时有效避免了传统NURBS多补丁拼接与修剪处理中的局限性。随后，研究进一步拓展至单向弱耦合气动拓扑优化问题，建立了基于T样条的高阶面板法，用于三维势流条件下的气动响应快速求解，并通过Bézier基函数构造速度势函数，实现了气动力场的高精度表达与计算稳定性提升。在该统一框架下，构建了适用于复杂壳体结构的气动拓扑优化数学模型，推导了完整的灵敏度分析表达式，并在多个典型工程算例中验证了方法在复杂几何适应性、计算精度与优化效率方面的显著优势。本研究不仅提升了拓扑优化在真实复杂结构中的适用性，也为壳体类工程结构的多物理场一体化设计提供了理论基础与技术路径。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>高杰，华中科技大学副教授、博士生导师，入选中国科协青年人才托举工程、湖北省海外高层次人才BR计划、武汉市英才之优秀青年人才与华中学者。主要从事复杂薄壳气动结构一体化设计、等几何粒子流拓扑优化方法与应用等研究。截止目前，出版英文专著一部（第一作者）、教育部战略规划教材一部，在Mater. Sci. Eng. R-Rep. (IF: 31)、Comput. Meth. Appl. Mech. Eng.等国际顶级期刊上发表论文近50篇，其中一作/通讯30余篇，谷歌学术引用2300余次，已授权发明专利10余项。主持国家自然科学基金（面上、青年项目）、KGJ基础加强项目课题、国家重点研发计划子课题等。现任《机械工程学报（英文版）》、《宇航学报（英文版）》青年编委、中国机械工程学会机械设计分会青年委员。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="https://ae.hust.edu.cn/info/1093/3092.htm">https://ae.hust.edu.cn/info/1093/3092.htm</a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>JieGao@hust.edu.cn</li>
+                </ul>
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="yibing_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>可装配可组装超材料结构拓扑优化设计</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>易兵，中南大学</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>机械超结构因其优异的力学性能和轻质特性，在工程领域受到广泛关注。然而，受限于制造技术与高昂成本，实现大尺寸超材料结构的设计与制造仍面临诸多挑战。报告重点介绍了一种可装配和可组装扩展的超材料结构的拓扑优化设计方法，旨在实现超材料单元的模块化设计与批量制造及装配集成。该方法通过同时优化组装单元的整体拓扑结构及连接接头的位置，实现了超材料在大尺寸结构中的高效组装与力学性能的提升，并通过力学实验验证了所优化的组装结构在性能上的显著优势。此外，通过不同角度折叠优化后的二维超材料单元，进一步构建了多个具有超材料性能的大尺寸结构，验证了该方法在低成本批量生产、灵活装配集成和功能可扩展的超材料大结构设计制造一体化方面的突出优势。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>易兵，中南大学交通运输工程学院副教授、博士生导师。博士毕业于浙江大学机械工程学院，师从谭建荣院士。于2017-2019年在密歇根大学拓扑优化领域开拓者Kikuchi院士和Saitou教授课题组合作交流两年。主要研究聚焦于数字样机、数字孪生、拓扑优化和人机共融协作智能制造等领域。相关成果已发表高水平论文70余篇，其中高水平SCI论文50余篇，获陆增镛CAD&CG高科技三等奖。主持国家自然科学基金项目青年和面上项目，湖南省创新引领计划科技攻关项目和科技厅自然科学基金项目等多项国家和省部级项目。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="https://faculty.csu.edu.cn/yibing/zh_CN/index.htm">https://faculty.csu.edu.cn/yibing/zh_CN/index.htm</a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>bingyi@csu.edu.cn</li>
+                </ul>
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="liming_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>大规模微孔结构的一体化设计方法探究
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>李明，浙江大学</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>微孔结构具有优异的力热复合特性，已经在航空、航天、医疗等领域凸显出重要的工业价值。在实际工程应用中，微孔结构往往包含千万级杆件和复杂自由外壳，如何实现此大规模复杂微孔结构的高效建模、仿真和工业应用面临着巨大挑战。以STL为中心的传统几何表示和处理方案，往往涉及复杂的模型格式转化，难以满足此苛刻要求，而新兴的以“隐式建模”为中心的技术方案，也面临着细节丢失、与后续流程难兼容等方面的技术挑战。报告汇报团队在大规模微孔结构一体化设计方面的研究探索，含微孔结构的几何建模、多尺度仿真、大规模渲染和面向三维打印的切片等方面的研究工作。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>李明，浙江大学计算机学院、计算机辅助设计与图形系统全国重点实验室副教授、博士生导师。软件工程系副主任，中国图学学会微观几何设计与制造专委会秘书长，第22届中国计算机辅助设计与图形学大会（CAD&CG 2019）程序委员会共同主席，第16届全国几何设计与计算大会(GDC 2024)程序委员会共同主席。主要聚焦CAD、CAD/CAE一体化、微孔结构设计等方向的研究，研究工作发表于JCAD、CMAME、ACM TOG等国际顶级期刊60余篇，作为项目负责人，主持基金委面上、科技部重点研发等项目20余项，研究成果服务于中航西飞、陕飞、中科院空间中心、泊松等重要单位和关键型号研发。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="http://www.cad.zju.edu.cn/home/liming/">http://www.cad.zju.edu.cn/home/liming/</a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>liming@cad.zju.edu.cn</li>
+                </ul>
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="lvlin_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>功能驱动的结构智能生成方法</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>吕琳，山东大学</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>本报告将结合近期工作，探讨功能驱动的结构智能生成方法。在微结构逆向设计中，通过潜在扩散模型与物理感知约束，初步实现了性能与几何的高效对齐，生成误差低于0.3%，适用于复杂异质化微结构填充场景。在双流体换热器结构优化中，采用隐式函数表征与极小曲面优化技术，有效提升了流动性能。这些方法在一定程度上突破了传统设计的局限，为航空航天关键构件的设计优化提供了一种新的思路。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>吕琳，山东大学计算机科学与技术学院教授，博导，2011年获得香港大学计算机科学博士学位。主要研究方向为计算机图形学、面向智能制造的几何计算。在ACM TOG、IEEE TVCG、CAD、AM等期刊发表论文八十余篇，出版专著一部，获授权国家发明专利40余项并已转化应用6项，主持国家自然科学基金四项。获国际实体与物理造型会议（SPM 2020）最佳论文一等奖、2020年度山东省自然科学一等奖、2021年度吴文俊人工智能自然科学奖二等奖。曾担任第十六届全国几何设计与计算学术会议(GDC 2024) 、第十四届几何造型与处理国际会议(Geometric Modeling and Processing, GMP 2020)等程序委员会共同主席。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="https://irc.cs.sdu.edu.cn/~lulin/">https://irc.cs.sdu.edu.cn/~lulin/</a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>llu@sdu.edu.cn</li>
+                </ul>
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="liubingshan_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>先进陶瓷增材制造技术与应用</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>刘兵山，中国科学院空间应用工程与技术中心
+                        </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>以光固化工艺为主，介绍了本实验室在先进陶瓷增材制造技术方面的研究进展，包括打印材料、工艺、装备等。探讨了先进陶瓷增材制造技术在航空、航天、军工等领域的应用，以及这些应用对大规模复杂模型建模、数据管理、数据处理、分析与优化等方面的需求。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>刘兵山，男，博士，研究员。1975年11月生，毕业于北京航空航天大学，2006年起在中科院空间应用中心工作。主要研究方向为先进陶瓷增材制造技术，在光固化陶瓷3D打印方面取得了突破性成果，开发出系列化高精度陶瓷3D打印装备，在航空航天等多个方向已开始试应用，有望成为解决高速、高温、透波等极端技术难题的有力手段。研制的太空3D打印设备于2020年5月随CZ-5B进入太空，开展了全球第一次在轨高精度陶瓷3D打印试验。先后承担载人航天、科技部、装发、JKW、中科院仪器研制等项目，曾负责载人航天工程重大设施总体设计与试验等工作。
+                    </li><br>
+                    <!-- <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="https://faculty.fudan.edu.cn/ZhouXiangdong/zh_CN/">https://faculty.fudan.edu.cn/ZhouXiangdong/zh_CN/</a></li>
+                    <br> -->
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                            <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>liubingshan@csu.ac.cn</li>
+                </ul>
+                
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="liuke_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>神经进化驱动的材料微结构设计</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>刘珂，北京大学                        
+                        </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>材料不同力学性能之间的权衡是工程材料设计的难题。虽然基于梯度的优化设计方法在寻找特定设计和性能方面卓有成效，但它们在广泛探索超材料设计空间和性能边界时并不高效。在本工作中，我们将多个相互竞争的材料性能的同步搜索表述为一个多目标优化问题，并采用一种神经进化算法来高效求解。通过使用一种特殊的小型神经网络CPPN作为隐式生成模型，实现了无损的几何编码。经过改进的增强拓扑神经进化算法（NEAT）可充分推动种群进化，从而在多目标优化问题的帕累托前沿上创建多样且丰富的超材料设计，揭示了不同弹性性能组合的可行边界。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>刘珂，北京大学先进制造与机器人学院研究员，国家级青年人才，经血管植入器械全国重点实验室学术顾问。2013年于浙江大学获学士学位，2019 年获得美国佐治亚理工学院博士学位，师从美国工程院院士Glaucio H. Paulino教授。2019年至2021年任美国加州理工学院任博士后研究员。主要研究方向为柔性结构与软体机器，包括柔性结构力学、软体机器人、可展结构、超材料、人工智能设计算法等。入选爱思唯尔2024全球前2%顶尖科学家“年度影响力”榜单。以第一作者或通讯作者在Science、Science Robotics、Advanced Materials、Nature Communications、Advanced Science、PRL等国际期刊发文。2022 年荣获美国机械工程师协会（ASME）授予的梅尔维尔奖章（Melville Medal），2023年获熊有伦智湖优秀青年学者奖。主持十四五国家重点研发计划“智能机器人”专项青年科学家项目。担任International Journal for Computational Methods in Engineering Science & Mechanics编委、《固体力学学报（英文版）》客座编辑、《动力学与控制学报》《机器人》青年编委。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="http://www.liukepku.com">www.liukepku.com</a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                            <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>liuke@pku.edu.cn</li>
+                </ul>
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="lidawei_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>三维电磁吸波超材料结构设计与展望</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>李大伟，南京理工大学                        
+                        </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>三维电磁吸波超材料通过其精心设计的几何结构，能够高效、精确地调控电磁波，在雷达隐身和电磁兼容等领域具有重要的应用价值。然而，其三维结构的复杂性带来了庞大的设计空间和难以预测的“构效关系”，使传统的试凑法设计面临巨大挑战。为突破这一瓶颈，以自然仿生为灵感、以数据驱动为核心的新型智能设计方法提供了全新的解决方案。该方法通过借鉴生物结构或利用数据快速建立结构参数与吸波性能之间的高维映射，极大地提升了吸波结构的设计效率和性能可预测性，对推动新一代隐身技术的发展和航空航天领域新质生产力的提升具有重要的应用前景。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>李大伟，南京理工大学/航空宇航系/微纳卫星设计与整体制造研究中心，主要从事空间目标多功能超材料结构设计技术研究，主持国家自然科学基金、基础加强重点基金、前沿创新项目3项，为主参研基础加强重点项目、前沿创新重大重点项目、国家重点研发青年科学家项目等3项；参与研制卫星2颗，并担任分系统主任设计师；在Advanced Materials、Advanced Functional Materials、Composites Part B: Engineering等高水平期刊发表论文30余篇，其中ESI全球高被引论文2篇，参与获得“江苏省科学技术一等奖”、“技术发明一等奖”各1项，指导本科生获国家级、省级等优秀毕业论文8项，并参与完成战略性新兴领域“十四五”教材建设1部。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="https://www.metastructure.tech/">https://www.metastructure.tech/ 
+                    </a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                            <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>ldw@njust.edu.cn</li>
+                </ul>
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                
+                <ul style="text-align:left;padding-left:20px;">
+                    <a id="zhengxiaoyang_position" style="position:relative; top:-72px;   display: block; height: 0;"></a>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">题目: </font>AI驱动的力学超材料设计与应用</li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">讲者: </font>郑销阳，东京大学                        
+                        </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">摘要: </font>力学超材料因其材料与结构在空间中的精细设计，展现出自然界材料所不具备的优异力学性能。传统的力学超材料设计往往依赖于设计者的经验或自然界的启发，其性能评估通常需要依靠耗时费力的实验或反复的数值模拟。近年来，人工智能的发展正逐步革新力学超材料的设计流程，使得在缺乏先验知识的情况下也能实现性能预测与几何结构生成。同时，深度生成模型的引入也显著加速了超材料的逆向设计过程。本次报告将结合报告人的前期研究，介绍如何利用人工智能模型（如生成对抗网络（GAN）、变分自编码器（VAE）、扩散模型（Diffusion Model）以及大型语言模型（LLM）等）进行力学超材料的设计，并进一步探讨其在机器人等领域的潜在应用。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">个人简介: </font>日本东京大学大学院工学系研究科助理教授。2023年在日本筑波大学取得工学博士学位，随后在日本物质材料研究机构（NIMS）和瑞士洛桑联邦理工学院（EPFL）从事博士后研究。主要研究方向为材料设计与计算模拟，尤其专注于AI驱动的力学超材料设计及其应用。在 Advanced Materials 等国际期刊发表论文30余篇，总引用次数超过1000次。现任 Materials & Design 期刊编委，并担任 Nature Machine Intelligence 等20余种国际期刊的审稿人。
+                    </li><br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                        <font style="color:#4bbdd0;font-weight:500;">主页: </font> <a style="color:#000000;" href="https://sites.google.com/view/xiaoyang-zheng">https://sites.google.com/view/xiaoyang-zheng</a></li>
+                    <br>
+                    <li style="font-size:16px;font-style:normal;font-weight:300;">
+                            <font style="color:#4bbdd0;font-weight:500;">E-mail: </font>xzheng@g.ecc.u-tokyo.ac.jp</li>
+                </ul>
+
+
+                <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+                <a id="zuzhijiegou_position" style="position:relative; top:-72px;  display: block; height: 0;"></a>
+                <br>
+                <h4 style="color:#4bbdd0;">组织机构</h4>
+                <br>
+                <ul style="text-align:left;padding-left:20px;">
+                    <!-- <li>
+                        <p>
+                            <font style="color:#4bbdd0;font-weight:500;">会议主席：</font>
+                            <font style="color:#000000;font-weight:400;">刘利刚</font>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <font style="color:#4bbdd0;font-weight:500;">程序主席：</font>
+                            <font style="color:#000000;font-weight:400;">曹&nbsp&nbsp&nbsp娟</font>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <font style="color:#4bbdd0;font-weight:500;">组织主席：</font>
+                            <font style="color:#000000;font-weight:400;">陈中贵</font>
+                        </p>
+                    </li> -->
+                    <li>
+                        <p>
+                            <font style="color:#4bbdd0;font-weight:500;">主办单位：</font>
+                            <font style="color:#000000;font-weight:400;">中国工业与应用数学学会 (CSIAM)</font>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <font style="color:#4bbdd0;font-weight:500;">承办单位：</font>
+                            <font style="color:#000000;font-weight:400;">CSIAM 几何设计与计算（GDC）专委会</font>
+                        </p>
+                        <p style="color:#000000;font-weight:400;; text-align:justify;text-indent: 5.4em; ">
+                            安徽省图形计算与感知交互省重点实验室</p>
+                    </li>
+                    <li>
+                        <p>
+                            <font style="color:#4bbdd0;font-weight:500;">协办单位：</font>
+                            <font style="color:#000000;font-weight:400;">中国图学学会微观几何设计与制造专业委员会</font>
+                            </p>
+                    </li>
+                    <li>
+                        <p>
+                            <font style="color:#4bbdd0;font-weight:500;">赞助企业：</font>
+                            <font style="color:#000000;font-weight:400;">拓竹科技有限公司</font>
+                            </p>
+                            <p style="color:#000000;font-weight:400;; text-align:justify;text-indent: 5.4em; ">
+                                苏州培风图南半导体有限公司</p>
+                            <p style="color:#000000;font-weight:400;; text-align:justify;text-indent: 5.4em; ">
+                                上海柏楚电子科技股份有限公司</p>
+                    </li>
+
+
+
+
+
+
+                </ul>
+
+            </div>
+
+
+
+            <footer class="footer"> 
+                <p>&copy; 2025 USTC --- CSIAM GDC “智能结构设计” 研讨会</p>
+            </footer>
+
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/vendor/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+
+</body>
+
+</html>
