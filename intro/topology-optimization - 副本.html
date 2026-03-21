@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Topology Optimization, USTC, TopOpt Group">
+    <meta name="description" content="Topology Optimization – USTC TopOpt Group">
+    <title>Topology Optimization – USTC-TopOpt</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../style.css?version=1.0.23" rel="stylesheet">
+    <script src="../js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../research.html" class="active">Research</a></li>
+                <li><a href="../publication.html">Publications</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <div class="page-title-bar">
+            <span class="page-title-eyebrow">Research Area</span>
+            <h1>Topology Optimization</h1>
+            <p>Mathematically rigorous methods to find optimal material distributions for maximum structural performance.</p>
+        </div>
+
+        <div class="intro-section" style="margin-bottom: 40px;">
+            <p class="intro-lead">Topology optimization determines the optimal layout of material within a given design domain by solving a large-scale mathematical programming problem governed by partial differential equations.</p>
+            <p>Unlike classical shape or size optimization, topology optimization allows the emergence of complex, counterintuitive geometries—including holes, branches, and internal channels—that a human designer would never conceive. Our group develops and extends the frontier of topology optimization in three main directions:</p>
+        </div>
+
+        <div class="research-grid" style="margin-bottom: 40px;">
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-drafting-compass"></i></div>
+                <h3>Density-based Methods</h3>
+                <p>SIMP (Solid Isotropic Material with Penalization) and related approaches that parameterize the design using a continuous density field, enabling efficient gradient-based optimization via adjoint sensitivity analysis.</p>
+                <div class="card-tags">
+                    <span class="tag">SIMP</span>
+                    <span class="tag">BESO</span>
+                    <span class="tag">Adjoint Method</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-wave-square"></i></div>
+                <h3>Level-set Methods</h3>
+                <p>Implicit representation of structural boundaries via signed distance functions, enabling precise control of geometric features and smooth interfaces between material phases.</p>
+                <div class="card-tags">
+                    <span class="tag">Level-set</span>
+                    <span class="tag">MMC</span>
+                    <span class="tag">Shape Sensitivity</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>Self-supporting Structures</h3>
+                <p>Incorporating overhang and printability constraints directly into the optimization loop to produce structures that are manufacturable by additive manufacturing without support material.</p>
+                <div class="card-tags">
+                    <span class="tag">Overhang Control</span>
+                    <span class="tag">AM Constraints</span>
+                    <span class="tag">B-splines</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="content-divider">
+
+        <h2 class="team-section-title">Representative Works</h2>
+        <ul class="news-list">
+            <li class="news-item">
+                <div class="news-date">
+                    <span class="news-month">CMAME</span>
+                    <span class="news-year">2024</span>
+                </div>
+                <div class="news-content">
+                    <h4>Topology Optimization of Differentiable Microstructures</h4>
+                    <p>Xiaoya Zhai, Weiming Wang, Falai Chen, Jun Wu. <em>Computer Methods in Applied Mechanics and Engineering</em>, 2024.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <div class="news-date">
+                    <span class="news-month">CAD</span>
+                    <span class="news-year">2023</span>
+                </div>
+                <div class="news-content">
+                    <h4>Topology Optimization of Self-supporting Porous Structures Based on Triply Periodic Minimal Surfaces</h4>
+                    <p>Xiaoya Zhai et al. <em>Computer-Aided Design</em>, 2023.</p>
+                </div>
+            </li>
+            <li class="news-item" style="border-bottom: none;">
+                <div class="news-date">
+                    <span class="news-month">CMAME</span>
+                    <span class="news-year">2024</span>
+                </div>
+                <div class="news-content">
+                    <h4>Porous Structure Optimization via Non-uniform Thermal Diffusion</h4>
+                    <p>Xiaoya Zhai et al. <em>Computer Methods in Applied Mechanics and Engineering</em>, 2024.</p>
+                </div>
+            </li>
+        </ul>
+
+        <hr class="content-divider">
+
+        <!-- ══════════════════════════════════════════════════════════
+             学术视角：为什么选择拓扑优化
+             ══════════════════════════════════════════════════════════ -->
+        <span class="page-title-eyebrow" style="display:block; margin-bottom:8px;">深入了解</span>
+        <h2 class="team-section-title">让材料自己找到答案</h2>
+        <div class="intro-section" style="margin-bottom: 36px;">
+            <p class="intro-lead">大自然花了几亿年演化出骨骼内部的蜂窝网格——在承受最大力的方向上密集排布骨小梁，在不受力的地方果断留空，把每一克钙质都用在了刀刃上。拓扑优化，正是试图让计算机用几个小时完成同样的事。</p>
+            <p>我们把设计区域离散成数百万个微元（类似像素点），每个微元被赋予一个 0 至 1 的密度变量。算法在反复求解有限元方程的过程中，不断调整这些密度值，最终涌现出形状奇异却力学上近乎完美的结构——它不是人设计的，<strong>它是在物理规律的压力下自己"长"出来的</strong>。那个最终的形状，往往像骨头、像珊瑚、像某种从未见过的生物器官。这正是它迷人的地方。</p>
+        </div>
+
+        <!-- ── 三大应用场景 ──────────────────────────────────────── -->
+        <h2 class="team-section-title">真实应用场景</h2>
+        <div class="research-grid" style="margin-bottom: 40px;">
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                <h3>航空航天：每克都算钱</h3>
+                <p>SpaceX 猎鹰9号部分零件经拓扑优化后减重近 40%，维持原有强度——航天发射每减少 1 公斤，潜在节省可达数万元。空客 A320 机舱支架优化后每架飞机年节省燃油约 500 升，乘以全球航班总量，是惊人的碳排放缺口。</p>
+                <div class="card-tags">
+                    <span class="tag">SpaceX</span>
+                    <span class="tag">空客 A320</span>
+                    <span class="tag">减重 40%</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-bone"></i></div>
+                <h3>生物医学：让骨头与金属融为一体</h3>
+                <p>传统实心金属髋关节假体因"应力屏蔽"导致周围骨骼退化萎缩。拓扑优化设计的多孔支架弹性模量接近真实骨骼，孔隙同时为骨细胞生长预留通道——字面意义上让金属与骨骼融为一体，实现更佳的骨整合效果。</p>
+                <div class="card-tags">
+                    <span class="tag">骨科植入物</span>
+                    <span class="tag">多孔支架</span>
+                    <span class="tag">仿生设计</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-car"></i></div>
+                <h3>汽车制造：安全与轻量化并进</h3>
+                <p>白车身结构设计中，拓扑优化已是工业标配。某主流车型 B 柱经优化后减重超 20%，碰撞安全性不降反升。增材制造（3D 打印）的成熟打破了"优化出来的形状造不出来"的困境，算法的想象力第一次被完整地制造了出来。</p>
+                <div class="card-tags">
+                    <span class="tag">白车身</span>
+                    <span class="tag">增材制造</span>
+                    <span class="tag">轻量化</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="content-divider">
+
+        <!-- ── 课题组研究前沿 ────────────────────────────────────── -->
+        <h2 class="team-section-title">课题组研究前沿</h2>
+        <div class="intro-section" style="margin-bottom: 32px;">
+            <p>这个方向正处在"理论成熟 + 制造革命 + 需求爆炸"的交汇点上。课题组目前在三条研究线上并行深入推进，兼顾方法论创新与工程实际需求：</p>
+        </div>
+        <div class="research-grid" style="margin-bottom: 40px;">
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-fire-alt"></i></div>
+                <h3>多物理场耦合优化</h3>
+                <p>真实工程结构从不只受力——它同时传热、导电、承受流体冲击。我们在统一优化框架下同步处理结构刚度、热传导与流固耦合（流体与固体相互作用的力学问题），让设计结果更接近工程真实场景，而不是理想化的纯力学假设。</p>
+                <div class="card-tags">
+                    <span class="tag">热-力耦合</span>
+                    <span class="tag">流固耦合</span>
+                    <span class="tag">多目标优化</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-brain"></i></div>
+                <h3>数据驱动拓扑优化</h3>
+                <p>传统方法每次设计需运行数百次有限元计算，耗时数小时乃至数天。我们训练神经网络来"预测"最优拓扑，目标是将设计周期压缩至秒级——不是用 AI 替代力学，而是让物理规律以更高效的形式编码进模型里。</p>
+                <div class="card-tags">
+                    <span class="tag">深度学习</span>
+                    <span class="tag">生成模型</span>
+                    <span class="tag">代理模型</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-atom"></i></div>
+                <h3>超材料与点阵结构设计</h3>
+                <p>超材料（Metamaterials）靠结构而非材料本身获得异常力学性质，例如负泊松比结构（受压时横向亦收缩）。我们用拓扑优化系统性地"逆向设计"此类结构，为软体机器人和可穿戴设备提供新的功能单元，探索结构设计的理论边界。</p>
+                <div class="card-tags">
+                    <span class="tag">超材料</span>
+                    <span class="tag">负泊松比</span>
+                    <span class="tag">逆向设计</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="content-divider">
+
+        <!-- ══════════════════════════════════════════════════════════
+             科普视角：加入我们
+             ══════════════════════════════════════════════════════════ -->
+        <h2 class="team-section-title">加入我们</h2>
+
+        <!-- 学长/学姐引言 -->
+        <div style="background: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%); border-radius: 12px; padding: 28px 36px; margin-bottom: 36px; border-left: 4px solid #6366f1; position: relative;">
+            <i class="fas fa-quote-left" style="font-size: 28px; color: #c7d2fe; position: absolute; top: 20px; right: 28px;"></i>
+            <p style="font-size: 17px; color: #374151; line-height: 1.9; margin: 0 0 12px;">
+                我当初进组的时候，力学课才刚及格，编程水平停留在"能运行就行"，对拓扑优化的全部了解是：这个词听起来很厉害。现在两年过去，我觉得自己找到了一件真正让我觉得<strong style="color: #4f46e5;">「哇，我在做有意思的事」</strong>的事情。
+            </p>
+            <p style="font-size: 15px; color: #6b7280; margin: 0;">—— 来自课题组在读研究生</p>
+        </div>
+
+        <!-- 课题组日常 -->
+        <h3 style="font-size: 21px; font-weight: 700; color: var(--text-dark); margin-bottom: 18px;">课题组的日常是什么样的？</h3>
+        <div class="research-grid" style="margin-bottom: 40px;">
+            <div class="research-card card-hover">
+                <div class="card-icon" style="background: linear-gradient(135deg, #059669, #0d9488);"><i class="fas fa-code"></i></div>
+                <h3>写代码 &amp; 跑仿真</h3>
+                <p>MATLAB 或 Python 实现优化算法，配合 ANSYS/ABAQUS 分析结构受力。程序一跑就是十几分钟乃至数小时——你会习得一项重要技能：<em>提交任务，然后悠然去泡一杯茶</em>。有时候一个 Bug 找了两小时，发现是个分号的问题，那一刻你会理解什么叫"人类的脆弱"。</p>
+                <div class="card-tags">
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">ANSYS</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon" style="background: linear-gradient(135deg, #d97706, #dc2626);"><i class="fas fa-chart-line"></i></div>
+                <h3>看结果 &amp; 发现规律</h3>
+                <p>优化迭代一步步收敛，材料密度图从一坨灰色慢慢"生长"出骨架状结构。那个过程你可能看了几百次，每次还是会觉得：<em>这玩意儿真的在自己想答案</em>。这是这个方向最让人上瘾的部分。</p>
+                <div class="card-tags">
+                    <span class="tag">可视化</span>
+                    <span class="tag">迭代收敛</span>
+                    <span class="tag">结果分析</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon" style="background: linear-gradient(135deg, #7c3aed, #2563eb);"><i class="fas fa-users"></i></div>
+                <h3>组会 &amp; 头脑风暴</h3>
+                <p>每周组会轮流汇报进展、拆解最新论文。一个问题能聊两小时，最后发现打开了全新方向。氛围轻松，不存在鄙视链——问蠢问题没关系，组里每个人都犯过，包括你未来的学长学姐。</p>
+                <div class="card-tags">
+                    <span class="tag">论文研读</span>
+                    <span class="tag">学术讨论</span>
+                    <span class="tag">合作氛围</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 收获技能 -->
+        <h3 style="font-size: 21px; font-weight: 700; color: var(--text-dark); margin-bottom: 18px;">加入后你会收获什么</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px;">
+            <div style="padding: 24px 28px; background: #f9fafb; border-radius: 10px; border: 1px solid var(--border-color);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+                    <i class="fas fa-tools" style="color: #6366f1; font-size: 22px;"></i>
+                    <strong style="font-size: 18px; color: var(--text-dark);">扎实的技能树</strong>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px;">
+                    <li style="font-size: 15.5px; color: var(--text-light);"><span style="color: #6366f1; font-weight: 700;">✦</span> <strong>MATLAB / Python</strong> — 解决真实问题的代码能力，不是玩具程序</li>
+                    <li style="font-size: 15.5px; color: var(--text-light);"><span style="color: #6366f1; font-weight: 700;">✦</span> <strong>有限元分析</strong> — ANSYS/ABAQUS 工业实战经验</li>
+                    <li style="font-size: 15.5px; color: var(--text-light);"><span style="color: #6366f1; font-weight: 700;">✦</span> <strong>优化理论</strong> — 梯度方法、启发式算法、数学规划</li>
+                    <li style="font-size: 15.5px; color: var(--text-light);"><span style="color: #6366f1; font-weight: 700;">✦</span> <strong>深度学习</strong> — AI 与科学计算的真实交叉融合</li>
+                </ul>
+            </div>
+            <div style="padding: 24px 28px; background: #f9fafb; border-radius: 10px; border: 1px solid var(--border-color);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+                    <i class="fas fa-globe" style="color: #6366f1; font-size: 22px;"></i>
+                    <strong style="font-size: 18px; color: var(--text-dark);">视野与成长</strong>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px;">
+                    <li style="font-size: 15.5px; color: var(--text-light);"><span style="color: #6366f1; font-weight: 700;">✦</span> 接触 <strong>顶级期刊</strong>（CMAME、SMO）的前沿成果</li>
+                    <li style="font-size: 15.5px; color: var(--text-light);"><span style="color: #6366f1; font-weight: 700;">✦</span> 参与 <strong>国际学术合作</strong>，了解全球最新动态</li>
+                    <li style="font-size: 15.5px; color: var(--text-light);"><span style="color: #6366f1; font-weight: 700;">✦</span> 培养 <strong>独立科研</strong> 能力与批判性思维</li>
+                    <li style="font-size: 15.5px; color: var(--text-light);"><span style="color: #6366f1; font-weight: 700;">✦</span> 就业 &amp; 升学双路径竞争力，工业界学术界通吃</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA 招募框 -->
+        <div style="background:
+                radial-gradient(ellipse 55% 80% at 0% 50%,   rgba(99,102,241,0.15) 0%, transparent 65%),
+                radial-gradient(ellipse 45% 65% at 100% 15%, rgba(139,92,246,0.12) 0%, transparent 65%),
+                radial-gradient(ellipse 35% 50% at 55% 100%, rgba(99,102,241,0.10) 0%, transparent 60%),
+                #f4f5fb;
+             border-radius: 14px; padding: 44px 48px; text-align: center; border: 1px solid #e0e7ff; margin-bottom: 8px;">
+            <h3 style="font-size: 26px; font-weight: 700; color: #1e1b4b; margin-bottom: 16px;">我们欢迎什么样的人？</h3>
+            <p style="font-size: 17px; color: #4b5563; max-width: 640px; margin: 0 auto 26px; line-height: 1.85;">
+                你不需要已经会有限元，不需要会编程，不需要读过优化理论的教材。<br>
+                <strong>好奇心和韧劲，比任何基础都重要。基础可以补，热情装不出来。</strong>
+            </p>
+            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px;">
+                <span class="tag" style="background: #e0e7ff; color: #4338ca; padding: 8px 16px; font-size: 15px;">看到镂空结构会好奇「这怎么设计出来的」</span>
+                <span class="tag" style="background: #e0e7ff; color: #4338ca; padding: 8px 16px; font-size: 15px;">喜欢用程序解决真实问题</span>
+                <span class="tag" style="background: #e0e7ff; color: #4338ca; padding: 8px 16px; font-size: 15px;">对轻量化 / 仿生 / 3D 打印心动过</span>
+                <span class="tag" style="background: #e0e7ff; color: #4338ca; padding: 8px 16px; font-size: 15px;">遇到问题第一反应是想把它弄清楚</span>
+            </div>
+            <p style="font-size: 15.5px; color: #6b7280; margin: 0 0 18px;">
+                本科生（大二及以上）和研究生均欢迎。有意者请发邮件联系，说说你为什么感兴趣就好——不需要自我介绍得很完美。
+            </p>
+            <p style="font-size: 17px; font-style: italic; color: #6366f1; margin: 0; font-weight: 600;">
+                结构在力的作用下找到自己的形状。我希望你也是。
+            </p>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-brand"><i class="fas fa-brain"></i><span>USTC TopOpt Group</span></div>
+                    <p style="margin: 3px 0 0;">&copy; 2026 TopOpt Group. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>

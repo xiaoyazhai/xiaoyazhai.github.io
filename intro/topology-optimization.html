@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Topology Optimization, USTC, TopOpt Group">
+    <meta name="description" content="Topology Optimization – USTC TopOpt Group">
+    <title>Topology Optimization – USTC-TopOpt</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../style.css?version=1.0.23" rel="stylesheet">
+    <script src="../js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+        .essay-body p {
+            font-size: 17px;
+            color: var(--text-light);
+            line-height: 1.85;
+            margin-bottom: 1.2em;
+        }
+        .essay-body p strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .essay-section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 0.04em;
+            margin: 2.2em 0 0.7em;
+        }
+        .essay-callout {
+            border-left: 3px solid #a5b4fc;
+            padding: 16px 24px;
+            margin: 2em 0;
+            background: #fafafa;
+        }
+        .essay-callout p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../research.html" class="active">Research</a></li>
+                <li><a href="../publication.html">Publications</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <div class="page-title-bar">
+            <span class="page-title-eyebrow">Research Area</span>
+            <h1>拓扑优化/结构设计</h1>
+            <p>这些计算方法能够依靠物理学原理而非直觉来确定材料应放置的位置.</p>
+        </div>
+
+        <!-- ── 正文主体 ─────────────────────────────────────────── -->
+        <div class="essay-body">
+
+            <!-- 一、问题的本质 -->
+            <p class="intro-lead">在工程设计的历史长河中，"用最少的材料实现最卓越的性能"始终是驱动结构创新的核心命题。传统的工程直觉倚重经验积累与安全裕度的叠加，所设计的结构往往保守而厚重。然而自然界给出的答案迥异于此：骨骼的内部网格在承受最大应力的方向上密集排布骨小梁，在卸载区域果断留空；贝壳的层状微结构在脆性材料中实现了令人惊叹的韧性；树木的年轮顺应力流自然生长——数亿年的演化，将每一克材料都置于最有价值的位置。</p>
+
+            <p>拓扑优化（Topology Optimization）正是这一自然法则的数学化与计算化。与经典的形状优化（调整边界曲线）或尺寸优化（改变截面参数）不同，拓扑优化不预设结构的连接方式——孔洞可以自发涌现，分支可以在迭代中生长，内部通道可以无中生有。它回答的是一个更根本的问题：<strong>在给定的设计空间与约束条件下，材料究竟应当存在于何处？</strong></p>
+
+            <p>方法论上，主流路径是将设计域离散为数十万乃至数百万个有限元，以每个单元的密度变量（取值 0 至 1）描述材料分布。基于 SIMP（固体各向同性惩罚材料）的密度法通过引入惩罚因子驱动密度向 0/1 两极收敛，辅以伴随灵敏度分析实现高效的梯度计算；水平集方法以隐式有向距离函数表示结构边界，在保持几何光滑性方面具有天然优势；面向增材制造的约束方法则将悬挑角度与可打印性要求直接嵌入优化循环，使算法产生的复杂几何得以借助金属 3D 打印被完整制造出来。三类方法各有适用场景，亦是课题组持续深耕的核心方法论基础。</p>
+
+            <hr class="content-divider">
+
+            <!-- 二、工程应用 -->
+            <h2 class="team-section-title">从数学到现实</h2>
+
+            <p>拓扑优化已在多个关键领域实现了范式层面的跃迁，其工程价值远非停留在学术论文中。</p>
+
+            <p>在航空航天领域，结构减重是永恒的工程命题。SpaceX 猎鹰9号火箭的若干承力构件经拓扑优化重新设计后，在维持原有强度的前提下减重约 40%；空客将该方法引入 A320 机舱支架的设计，每架飞机每年节省燃油约 500 升——乘以全球商业航班的总运营规模，这是一个不可忽视的碳排放缺口。每克重量在航天发射中折算为数万元的成本，使拓扑优化成为结构工程师最锋利的轻量化工具之一。</p>
+
+            <p>在生物医学领域，拓扑优化的价值超越了单纯的减重逻辑。传统实心金属髋关节假体因弹性模量远高于皮质骨，导致"应力屏蔽效应"——假体承担了本应由骨骼传递的应力，周围骨组织因失去力学刺激而逐渐退化萎缩。以拓扑优化方法设计的多孔点阵支架，可将有效弹性模量精确调控至与自然骨匹配的范围，同时孔隙网络为骨细胞的长入与血管化提供必要通道——从力学适配与生物相容性两个维度，重新定义了骨科植入物的设计标准。</p>
+
+            <p>在汽车行业，轻量化与碰撞安全性的协同优化是典型的多约束问题，拓扑优化已成为白车身开发流程的工业标配。增材制造技术的成熟是这一应用领域近年来最重要的使能因素：过去，优化算法产生的复杂几何形态因超出传统切削加工的工艺边界而停留在"概念设计"阶段；如今，金属粉末床熔融技术可以忠实地将那些仿佛生物骨骼般的镂空结构制造为实体零件——算法的想象力第一次被完整地物质化了。</p>
+
+            <hr class="content-divider">
+
+            <!-- 三、研究方向 -->
+            <h2 class="team-section-title">课题组的研究方向</h2>
+
+            <p>结构拓扑优化的经典问题——单载荷工况下弹性体的柔顺度最小化——在方法论层面已相当成熟。真正具有挑战性的前沿，在于如何让优化框架回应更复杂、更真实的工程现实。课题组当前的研究兴趣聚焦于以下三个交叉方向。</p>
+
+            <p><strong>多物理场耦合拓扑优化。</strong>工程结构在实际服役中绝非仅承受机械载荷——热流、电场、流体压力往往与结构变形深度耦合。以热-力耦合为例，结构在高温梯度下产生的热应力与机械载荷相互叠加，传统纯力学优化结果在热环境中可能显著偏离最优。我们致力于在统一的变分框架下同步处理结构刚度、热传导效率与流固界面上的压力分布，目标是在多物理场约束的真实设计空间中求解最优材料布局，而非在理想化的单物理场假设下给出局部最优解。</p>
+
+            <p><strong>数据驱动与机器学习加速的拓扑优化。</strong>传统基于迭代有限元的优化流程每次设计求解需要数十乃至数百次完整的正向分析，计算代价限制了其在实时设计与大规模参数空间探索中的应用。我们探索将深度生成模型（如变分自编码器、扩散模型）用于拓扑结果的快速预测与生成，本质上是将大量历史优化数据中蕴含的物理规律编码进神经网络的隐空间，从而在保持物理可解释性的前提下将设计周期压缩至秒级。这一方向并非以数据驱动取代力学推演，而是在两者之间建立高效的协同机制。</p>
+
+            <p><strong>超材料与功能梯度点阵结构设计。</strong>超材料（Metamaterials）通过几何构型而非材料本身的化学属性实现宏观尺度上的异常力学响应——负泊松比、近零剪切模量、超宽带隔振等特性，均可通过对微结构拓扑的精确设计来实现。课题组的工作聚焦于如何利用拓扑优化系统性地"逆向设计"具有目标等效性质的微结构单元，并进一步研究功能梯度点阵中微结构到宏观结构的跨尺度连接问题，为软体机器人、可穿戴设备与新型吸能防护结构提供设计方法论支撑。</p>
+
+   
+
+        <!-- ── 致有志于此的研究者 ──────────────────────────────── -->
+        <div class="essay-body">
+            <hr class="content-divider">
+
+            <h2 class="team-section-title">致有志于此的研究者</h2>
+
+            <p>拓扑优化是一个罕见地兼具数学深度与工程重量的方向。它的核心是变分原理与偏微分方程约束下的大规模优化问题，其工具链横跨有限元分析、数值优化、计算几何与机器学习；它的结果——那些仿佛从物理规律中自然生长出来的镂空形态——在力学意义上往往逼近理论极值，在视觉上却常令人想起生物骨骼或珊瑚虫的骨架，散发着某种无法用功利主义完全解释的美感。</p>
+
+            <p>在这个课题组，我们希望培养的不是能够熟练调用工具箱的使用者，而是对问题本身保有真实好奇心的研究者——能够在读完一篇论文后追问"为什么他们要这样建模，有没有更本质的视角"；在看到一个仿真结果时不满足于"跑通了"，而是想弄清楚那个奇怪的形态背后究竟隐藏着什么物理直觉。</p>
+
+            <p>从能力构成的角度来看，你将系统接触有限元力学分析（ANSYS/ABAQUS）、数值优化算法（梯度法、启发式方法）、科学计算编程（MATLAB/Python），以及数据驱动方法在计算力学中的前沿应用。这些能力无论面向学术深造还是工业就业，均构成扎实的竞争基础。更重要的是，你将逐步建立一种处理复杂工程问题的思维方式：将模糊的设计需求转化为精确的数学规划，再将优化结果还原为可解释的工程洞见。</p>
+
+            <p>我们欢迎大二及以上本科生与各类入学方式的研究生加入。对数学基础与编程能力的具体要求因人而异，可入学后逐步补充——但有一点无法替代：<strong>对问题本身的真实兴趣。</strong>如果你曾对骨骼的内部结构感到困惑，或对"机器如何自动设计出比人更好的形状"这个问题感到着迷，我们欢迎你来聊聊。</p>
+
+           
+
+        </div><!-- end essay-body -->
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="../script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>

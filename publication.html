@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Xiaoya Zhai, USTC, TU Delft, CUHK, TopOpt Group, Topology optimization, publications">
+    <meta name="description" content="Publications – USTC TopOpt Group">
+    <title>Publications – USTC-TopOpt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css?version=1.0.23" rel="stylesheet">
+    <link href="Mobile_style2.css?version=1.0.23" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        .faculty-card {
+            grid-template-columns: 240px 1fr;
+            margin-bottom: 16px;
+        }
+        .faculty-left {
+            padding: 14px 14px;
+        }
+        .faculty-right {
+            padding: 14px 20px;
+        }
+
+        .year-index {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+        .year-index a {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .year-index a:hover {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./team.html">Team</a></li>
+                <li><a href="./research.html">Research</a></li>
+                <li><a href="./publication.html" class="active">Publications</a></li>
+                <li><a href="./teaching.html">Teaching</a></li>
+                <li><a href="./resources.html">Resources</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Publication Scroll Banner -->
+    <div class="pub-scroll-banner">
+        <div class="pub-scroll-mask-left"></div>
+        <div class="pub-scroll-mask-right"></div>
+        <div class="pub-scroll-viewport">
+            <div class="pub-scroll-track">
+                <!-- Items -->
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#6366f1,#8b5cf6);">🔬</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">Nature Communications · 2026</div>
+                        <div class="pub-scroll-title">Data-driven Inverse Design of Multifunctional Bicontinuous Multiscale Structures</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#0891b2,#0e7490);">🧩</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">CMAME · 2025</div>
+                        <div class="pub-scroll-title">Constructing Boundary-identical Microstructures by Guided Diffusion for Fast Multiscale Designs</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#d97706,#b45309);">🔷</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">Advanced Science · 2024</div>
+                        <div class="pub-scroll-title">Near-isotropic, Extreme-stiffness, Continuous 3D Mechanical Metamaterial Sequences Using Implicit Neural Representation</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#059669,#065f46);">🦴</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">CMAME · 2024</div>
+                        <div class="pub-scroll-title">Porous Structure Optimization via Non-uniform Thermal Diffusion</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#7c3aed,#4c1d95);">🐚</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">CAD · 2024</div>
+                        <div class="pub-scroll-title">Isogeometric Topology Optimization of Multi-patch Shell Structures</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#db2777,#9d174d);">🔧</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">CMAME · 2023</div>
+                        <div class="pub-scroll-title">Topology Optimization of Differentiable Microstructures</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#0284c7,#075985);">💻</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">SMO · 2023</div>
+                        <div class="pub-scroll-title">An Optimized, Easy-to-use, Open-source GPU Solver for Large-scale Inverse Homogenization Problems</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#16a34a,#14532d);">⚙️</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">Computer Graphics Forum · 2022</div>
+                        <div class="pub-scroll-title">Large-Scale Worst-Case Topology Optimization</div>
+                    </div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#6366f1,#8b5cf6);">🔬</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">Nature Communications · 2026</div>
+                        <div class="pub-scroll-title">Data-driven Inverse Design of Multifunctional Bicontinuous Multiscale Structures</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#0891b2,#0e7490);">🧩</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">CMAME · 2025</div>
+                        <div class="pub-scroll-title">Constructing Boundary-identical Microstructures by Guided Diffusion for Fast Multiscale Designs</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#d97706,#b45309);">🔷</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">Advanced Science · 2024</div>
+                        <div class="pub-scroll-title">Near-isotropic, Extreme-stiffness, Continuous 3D Mechanical Metamaterial Sequences Using Implicit Neural Representation</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#059669,#065f46);">🦴</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">CMAME · 2024</div>
+                        <div class="pub-scroll-title">Porous Structure Optimization via Non-uniform Thermal Diffusion</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#7c3aed,#4c1d95);">🐚</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">CAD · 2024</div>
+                        <div class="pub-scroll-title">Isogeometric Topology Optimization of Multi-patch Shell Structures</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#db2777,#9d174d);">🔧</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">CMAME · 2023</div>
+                        <div class="pub-scroll-title">Topology Optimization of Differentiable Microstructures</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#0284c7,#075985);">💻</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">SMO · 2023</div>
+                        <div class="pub-scroll-title">An Optimized, Easy-to-use, Open-source GPU Solver for Large-scale Inverse Homogenization Problems</div>
+                    </div>
+                </div>
+                <div class="pub-scroll-item">
+                    <div class="pub-scroll-thumb">
+                        <div class="pub-scroll-thumb-grad" style="background: linear-gradient(135deg,#16a34a,#14532d);">⚙️</div>
+                    </div>
+                    <div class="pub-scroll-info">
+                        <div class="pub-scroll-venue">Computer Graphics Forum · 2022</div>
+                        <div class="pub-scroll-title">Large-Scale Worst-Case Topology Optimization</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="page-body">
+
+        <!-- Year Index -->
+        <nav class="year-index">
+            <a href="#year-2026">2026</a>
+            <a href="#year-2025">2025</a>
+            <a href="#year-2024">2024</a>
+            <a href="#year-2023">2023</a>
+            <a href="#year-2022">2022</a>
+            <a href="#year-earlier">Earlier</a>
+        </nav>
+
+        <!-- 2026 -->
+        <h2 class="team-section-title" id="year-2026">2026</h2>
+        <div class="publications-list">
+
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2026-giga.png" alt="Bicontinuous Multiscale" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">46. Designing 3D Thermal Metamaterials at Gigavoxel Resolution on a Single Computer via Hybrid CPU-GPU Architectures</div>
+                    <div class="publication-authors">Tianjie Chen, Yuchen Quan, Xiao-Ming Fu, Ligang Liu, <strong>Xiaoya Zhai*</strong></div>
+                    <div class="publication-venue">International Journal for Numerical Methods in Engineering, 2026</div>
+                    <div class="publication-links">
+                        <a href="" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2026-ReviewAnisotropic.png" alt="Bicontinuous Multiscale" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">45. Designing Anisotropic Mechanical Metamaterials and Metastructures: A Review </div>
+                    <div class="publication-authors"> Zhongkai Ji, Dawei Li*, <strong>Xiaoya Zhai</strong>, Jie Gao, Yunlong Tang, Ning Dai, Wenhe Liao, Yong Zhao*, Yi Min Xie*</div>
+                    <div class="publication-venue">Thin-Walled Structures, 2026</div>
+                    <div class="publication-links">
+                        <a href="https://pan.ustc.edu.cn/share/index/8d5070bd7779495bb139" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2026-Guide.png" alt="Bicontinuous Multiscale" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">44. Guided Diffusion for Fast Inverse Design of Voxel-based Mechanical Metamaterials</div>
+                    <div class="publication-authors">Yanyan Yang, Lili Wang, <strong>Xiaoya Zhai*</strong>, Kai Chen, Wenming Wu, Yunkai Zhao, Falai Chen, Ligang Liu, Xiao-Ming Fu*</div>
+                    <div class="publication-venue">Smart Materials in Manufacturing, 2026</div>
+                    <div class="publication-links">
+                        <a href="https://pan.ustc.edu.cn/share/index/0847ea08170c4301b92b" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <!------>
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-openTM.png" alt="Bicontinuous Multiscale" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">43. OpenTM: An Open-source, Single-GPU, Large-scale Thermal Microstructure Design Framework</div>
+                    <div class="publication-authors">Yuchen Quan, <strong>Xiaoya Zhai*</strong>, Xiao-Ming Fu</div>
+                    <div class="publication-venue">Smart Materials in Manufacturing, 2026</div>
+                    <div class="publication-links">
+                        <a href="https://pan.ustc.edu.cn/share/index/4ac8a19f690147bb8514" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2025-Bicontinuous.png" alt="Bicontinuous Multiscale" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">42. Data-driven Inverse Design of Multifunctional Bicontinuous Multiscale Structures</div>
+                    <div class="publication-authors">Lili Wang, Jingxuan Feng, <strong>Xiaoya Zhai*</strong>, Jiacheng Han, Kai Chen, Winston Wai Shing Ma, Ligang Liu, Xiao-Ming Fu</div>
+                    <div class="publication-venue">Nature Communications, 2026</div>
+                    <div class="publication-links">
+                        <a href="https://xiaoyazhai.github.io/publications.html" class="publication-link"><i class="fas fa-globe"></i> Project</a>
+                        <a href="https://xiaoyazhai.github.io/publications.html" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2025-Per.png" alt="Hydrodynamic Metamaterials" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">41. High-Efficiency Design of 3D Hydrodynamic Metamaterials with Tailored Permeability</div>
+                    <div class="publication-authors">Qingyu Xu, Xiao-Ming Fu, Ligang Liu, <strong>Xiaoya Zhai*</strong></div>
+                    <div class="publication-venue">Computers and Structures, 2026</div>
+                    <div class="publication-links">
+                        <a href="https://pan.ustc.edu.cn/share/index/1fcda8b370ef4ba38ccd" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2025 -->
+        <h2 class="team-section-title" id="year-2025">2025</h2>
+        <div class="publications-list">
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2025-carvewood.png" alt="Wood Carving Art" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">40. Computational multi-layered wood carving art</div>
+                    <div class="publication-authors">Haochen Liu, Zhi Li, Kang Wu*, Youcheng Cai, <strong>Xiaoya Zhai</strong>, Ketian Zhang, Ligang Liu, Yi Min Xie, Xiao-Ming Fu</div>
+                    <div class="publication-venue">Computers &amp; Graphics, 2025</div>
+                    <div class="publication-links">
+                        <a href="https://pan.ustc.edu.cn/share/index/cdde4d3b81f1439db523" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2025-casting.png" alt="Concrete Casting" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">39. Process simulation-informed topology optimization for formwork-based concrete casting</div>
+                    <div class="publication-authors">Wei Tong, <strong>Xiaoya Zhai</strong>, Yiwei Weng*, Jun Wu</div>
+                    <div class="publication-venue">Structural and Multidisciplinary Optimization, 2025</div>
+                    <div class="publication-links">
+                        <a href="https://pan.ustc.edu.cn/share/index/cdde4d3b81f1439db523" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2025-postCAD.png" alt="Density to CAD" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">38. From Density to CAD: Automatic and Robust CAD Model Generation of Topology Optimization Results via Sparse Optimization</div>
+                    <div class="publication-authors">Zepeng Wen, <strong>Xiaoya Zhai</strong>, Hongmei Kang</div>
+                    <div class="publication-venue">Advances in Engineering Software, 2025</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/6b2cd470-73fd-11f0-8772-2f11bff1f90e" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2025-ImplicitSupport.png" alt="Self-Supporting Structures" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">37. Efficient Worst-Case Topology Optimization of Self-Supporting Structures for Additive Manufacturing</div>
+                    <div class="publication-authors">Nan Zheng, <strong>Xiaoya Zhai*</strong>, Falai Chen</div>
+                    <div class="publication-venue">Computer Aided Geometric Design, 2025</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/23c339d0-2237-11f0-a8ed-4125e7c760ab" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/NanXYZH/RobustOptSpline3D" class="publication-link"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2025-thermal.png" alt="Thermal Microstructures" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">36. Topology Optimization of Compatible Thermal Microstructures</div>
+                    <div class="publication-authors">Tianjie Chen, <strong>Xiaoya Zhai*</strong>, Ligang Liu, Xiao-Ming Fu</div>
+                    <div class="publication-venue">International Journal of Heat and Mass Transfer, 2025</div>
+                    <div class="publication-links">
+                        <a href="./project/2025-thermal.html" class="publication-link"><i class="fas fa-globe"></i> Project</a>
+                        <a href="https://rec.ustc.edu.cn/share/79b6d430-1de4-11f0-9322-8d2b5aa30d49" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/cas-ustc-meow/2025CompatibleThermalMicrostructures" class="publication-link"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2025-INPR.png" alt="INPR Connector" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">35. INPR-Connector: Interlocking Negative Poisson's Ratio Connectors Design for Deployable Energy Absorption Structures</div>
+                    <div class="publication-authors">Wenpeng Xu, Mengyu Zhang, Hao Xu, Menglin Yu, Liuchao Jin*, <strong>Xiaoya Zhai*</strong>, Jingchao Jiang</div>
+                    <div class="publication-venue">Composites Part B: Engineering, 2025</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/8d7eaf20-0174-11f0-b233-637a65765b64" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-2diffmat.png" alt="Guided Diffusion Microstructures" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">34. Constructing Boundary-identical Microstructures by Guided Diffusion for Fast Multiscale Designs</div>
+                    <div class="publication-authors">Jingxuan Feng<sup>+</sup>, Lili Wang<sup>+</sup>, <strong>Xiaoya Zhai*</strong>, Kai Chen, Wenming Wu, Ligang Liu, Xiao-Ming Fu*</div>
+                    <div class="publication-venue">Computer Methods in Applied Mechanics and Engineering, 2025</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/da8ed6e0-d8cf-11ef-b6b6-edc5d54cce1e" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-zong.png" alt="Metamaterial Intelligent Design" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">33. 超材料的智能设计研究进展</div>
+                    <div class="publication-authors">代铁琳, 金刘超, 尚宸, <strong>翟晓雅*</strong>, 傅孝明, 刘利刚</div>
+                    <div class="publication-venue">计算机辅助设计与图形学学报, 2025</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/833bd000-d8cf-11ef-a5af-dbe8f0bf9d4e" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/ML4SR.png" alt="Soft Robots Review" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">32. Finite element analysis, machine learning, and digital twins for soft robots: state-of-arts and perspectives</div>
+                    <div class="publication-authors">Liuchao Jin, <strong>Xiaoya Zhai</strong>, Wenbo Xue, Jingchao Jiang, Kang Zhang, Wei-Hsin Liao*</div>
+                    <div class="publication-venue">Smart Materials and Structures, 2025</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/048a3f40-e77c-11ef-9063-4b1001da4a57" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2024 -->
+        <h2 class="team-section-title" id="year-2024">2024</h2>
+        <div class="publications-list">
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-Near.png" alt="Near-isotropic Metamaterials" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">31. Near-isotropic, Extreme-stiffness, Continuous 3D Mechanical Metamaterial Sequences Using Implicit Neural Representation</div>
+                    <div class="publication-authors">Yunkai Zhao<sup>+</sup>, Lili Wang<sup>+</sup>, <strong>Xiaoya Zhai*</strong>, Jiacheng Han, Winston Wai Shing Ma, Junhao Ding, Yonggang Gu, Xiao-Ming Fu</div>
+                    <div class="publication-venue">Advanced Science, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/99971080-acb0-11ef-9507-79b0321c1298" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-Disk.png" alt="Disk B-splines Metamaterials" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">30. Shape Optimization of Tunable Poisson's Ratio Metamaterials with Disk B-splines</div>
+                    <div class="publication-authors">Yihui Ye, Nan Zheng, <strong>Xiaoya Zhai*</strong>, Hongmei Kang, Falai Chen</div>
+                    <div class="publication-venue">International Journal for Numerical Methods in Engineering, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/d62ad500-b559-11ef-93e1-e7f41517c5dd" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/pht-shell.png" alt="PHT-splines Shell" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">29. Adaptive Isogeometric Topology Optimization of Shell Structures based on PHT-splines</div>
+                    <div class="publication-authors">Zepeng Wen, Qiong Pan, <strong>Xiaoya Zhai*</strong>, Hongmei Kang*, Falai Chen</div>
+                    <div class="publication-venue">Computers &amp; Structures, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/037ab910-8ce7-11ef-9ce2-2d5ecab2e3a1" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-Inverse.png" alt="Sequential Metamaterials" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">28. Inverse-designed 3D Sequential Metamaterials Achieving Extreme Stiffness</div>
+                    <div class="publication-authors">Jiacheng Han, <strong>Xiaoya Zhai*</strong>, Lili Wang, Di Zhang, Junhao Ding, Winston Wai Shing Ma, Xu Song, Wei-Hsin Liao, Ligang Liu, Jun Wu, Xiao-Ming Fu</div>
+                    <div class="publication-venue">Materials &amp; Design, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/2a8e6f30-8ce7-11ef-a214-918ab90d5878" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-splineMicro.png" alt="Functionally Graded Materials" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">27. Tailored Functionally Graded Materials Design and Concurrent Topology Optimization with Implicit Fields</div>
+                    <div class="publication-authors">Lingfeng Li, Qiong Pan, <strong>Xiaoya Zhai*</strong>, Falai Chen</div>
+                    <div class="publication-venue">Computer Methods in Applied Mechanics and Engineering, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/8956c270-7233-11ef-a5a3-edeb69479c2f" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-con-diff.png" alt="Concurrent Topology Optimization" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">26. Concurrent Topology Optimization of Multiscale Composites with Differentiable Microstructure</div>
+                    <div class="publication-authors">Jie Gao, Zepeng Wen, <strong>Xiaoya Zhai*</strong>, Falai Chen, Hongmei Kang</div>
+                    <div class="publication-venue">Computer Methods in Applied Mechanics and Engineering, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/c9b385c0-5270-11ef-8549-37db9dba23e8" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-shell-TO-IGA.png" alt="IGA Shell Topology" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">25. Density-based isogeometric topology optimization of shell structures</div>
+                    <div class="publication-authors">Qiong Pan, <strong>Xiaoya Zhai*</strong>, Falai Chen</div>
+                    <div class="publication-venue">Computer-Aided Design, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/9927f1f0-6928-11ef-ba98-dd9488ff0b84" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-aniso.png" alt="Anisotropic Thermal Diffusion" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">24. Differentiable Microstructures Design via Anisotropic Thermal Diffusion</div>
+                    <div class="publication-authors">Qi Wang, Qing Fang, <strong>Xiaoya Zhai*</strong>, Ligang Liu, Xiao-Ming Fu</div>
+                    <div class="publication-venue">Computers &amp; Graphics, 2024 &nbsp;/&nbsp; Shape Modeling International (SMI), 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/8392dd60-5270-11ef-a23b-5b335003ef48" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-spline-support.png" alt="Self-supporting B-spline" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">23. Topology Optimization of Self-supporting Structures for Additive Manufacturing via Implicit B-spline Representations</div>
+                    <div class="publication-authors">Nan Zheng, <strong>Xiaoya Zhai*</strong>, Jingchao Jiang, Falai Chen</div>
+                    <div class="publication-venue">Computer-Aided Design, 2024 &nbsp;/&nbsp; Symposium on Solid and Physical Modeling (SPM), 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/2b882620-5270-11ef-a4ba-6fd8bdcd2fa6" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/NanXYZH/TopOptSpline3D" class="publication-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://rec.ustc.edu.cn/share/fb2931d0-6a9a-11ef-86c0-9d803191cd19" class="publication-link"><i class="fas fa-chalkboard-teacher"></i> Slides</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-bone.png" alt="Porous Thermal Diffusion" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">22. Porous Structure Optimization via Non-uniform Thermal Diffusion</div>
+                    <div class="publication-authors">Hang Dong, Di Zhang, <strong>Xiaoya Zhai*</strong>, Jian-Nan Xiao, Xiao-Ming Fu</div>
+                    <div class="publication-venue">Computer Methods in Applied Mechanics and Engineering, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/039cc140-5270-11ef-b943-812ffdb2f5d5" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://rec.ustc.edu.cn/share/dd9fb1b0-526f-11ef-9aab-ad0ac373a561" class="publication-link"><i class="fas fa-cube"></i> Model</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-multi.png" alt="Multi-patch Shell" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">21. Isogeometric Topology Optimization of Multi-patch Shell Structures</div>
+                    <div class="publication-authors">Qiong Pan, <strong>Xiaoya Zhai*</strong>, Hongmei Kang, Xiaoxiao Du, Falai Chen</div>
+                    <div class="publication-venue">Computer-Aided Design, 2024 &nbsp;/&nbsp; Symposium on Solid and Physical Modeling (SPM), 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/6fad9350-526f-11ef-a1ec-471cd9a22a21" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/QiongPan/Multipatch_shell_structure_design" class="publication-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="https://rec.ustc.edu.cn/share/519a7090-5271-11ef-ac7b-c58d32ec131e" class="publication-link"><i class="fas fa-chalkboard-teacher"></i> Slides</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-npj.jpg" alt="4D Printed ML" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">20. Machine learning-driven forward prediction and inverse design for 4D printed hierarchical architecture with arbitrary shapes</div>
+                    <div class="publication-authors">Liuchao Jin, Jianxiang Cheng, Haitao Ye, <strong>Xiaoya Zhai</strong>, Jingchao Jiang, Kang Zhang, Mahdi Bodaghi, Shouyi Yu, Qi Ge*, Wei-Hsin Liao*</div>
+                    <div class="publication-venue">Applied Materials Today, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/91f3bc60-55fc-11ef-a450-795c38135b1c" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-WeaveX.png" alt="Interlaced Printing" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">19. Nature-inspired interlaced printing strategies for additive manufacturing highly improved mechanical properties</div>
+                    <div class="publication-authors">Wenpeng Xu<sup>+</sup>, Hao Xu<sup>+</sup>, <strong>Xiaoya Zhai</strong>, Jingchao Jiang*</div>
+                    <div class="publication-venue">Additive Manufacturing, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/a8975150-5270-11ef-845c-5ddbdc45f1e3" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-review_DT.png" alt="Digital Twin AM Review" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">18. Big Data, Machine Learning, and Digital Twin Assisted Additive Manufacturing: A Review</div>
+                    <div class="publication-authors">Liuchao Jin, <strong>Xiaoya Zhai</strong>, Kang Wang, Kang Zhang, Dazhong Wu, Aamer Nazir, Jingchao Jiang*, Wei-Hsin Liao*</div>
+                    <div class="publication-venue">Materials &amp; Design, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/68b96970-5270-11ef-82ee-3fbae09438d0" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-jin.png" alt="LMPA Extrusion AM" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">17. Unlocking the Potential of Low-Melting-Point Alloys Integrated Extrusion Additive Manufacturing: Insights into Mechanical Behavior, Energy Absorption, and Electrical Conductivity</div>
+                    <div class="publication-authors">Liuchao Jin, <strong>Xiaoya Zhai</strong>, Kang Zhang, Jingchao Jiang*</div>
+                    <div class="publication-venue">Progress in Additive Manufacturing, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/2f44feb0-6e84-11ef-a36a-491ce648a656" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/lmpa_robo.png" alt="LMPA Soft Robots" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">16. 3D printing low-melting-point alloys integrated soft robots</div>
+                    <div class="publication-authors">Liuchao Jin, <strong>Xiaoya Zhai</strong>, Kang Zhang, Jingchao Jiang, Wei-Hsin Liao*</div>
+                    <div class="publication-venue">Materials Science in Additive Manufacturing, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/c2f7d350-6a99-11ef-b6cd-a3336d9c77f2" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/self-healing .png" alt="Self-healing Auxetic Foam" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">15. High energy dissipation and self-healing auxetic foam by integrating shear thickening gel</div>
+                    <div class="publication-authors">Kang Zhang<sup>+</sup>, Qiang Gao<sup>+</sup>, Jingchao Jiang, Meishan Chan, <strong>Xiaoya Zhai</strong>, Liuchao Jin, Jiangfan Zhang, Jifan Li*, Wei-Hsin Liao*</div>
+                    <div class="publication-venue">Composites Science and Technology, 2024</div>
+                    <div class="publication-links">
+                        <a href="https://rec.ustc.edu.cn/share/512ba080-526f-11ef-8ddd-8143a45eccc5" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2023 -->
+        <h2 class="team-section-title" id="year-2023">2023</h2>
+        <div class="publications-list">
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/G_voxel_path.png" alt="Voxel Path Planning" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">14. Voxel-based variable width continuous spiral path planning for 3D printing</div>
+                    <div class="publication-authors">Wenpeng Xu, Qiuge Li, Hao Xu, <strong>Xiaoya Zhai*</strong>, Jingchao Jiang*</div>
+                    <div class="publication-venue">Journal of Manufacturing Processes, 2023</div>
+                    <div class="publication-links">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S152661252300991X" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/1277156581/Voxel-based-variable-width-continuous-spiral-path-planning-for-3D-printing" class="publication-link"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/TO_Differentiable.png" alt="Differentiable Microstructures" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">13. Topology Optimization of Differentiable Microstructures</div>
+                    <div class="publication-authors"><strong>Xiaoya Zhai</strong>, Weiming Wang, Falai Chen, Jun Wu*</div>
+                    <div class="publication-venue">Computer Methods in Applied Mechanics and Engineering, 2023</div>
+                    <div class="publication-links">
+                        <a href="./project/2023-DiffMicro.html" class="publication-link"><i class="fas fa-globe"></i> Project</a>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0045782523006540" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/3DMicro-gallery.jpg" alt="GPU Inverse Homogenization" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">12. An Optimized, Easy-to-use, Open-source GPU Solver for Large-scale Inverse Homogenization Problems</div>
+                    <div class="publication-authors">Di Zhang, <strong>Xiaoya Zhai*</strong>, Ligang Liu, Xiao-Ming Fu</div>
+                    <div class="publication-venue">Structural and Multidisciplinary Optimization, 2023</div>
+                    <div class="publication-links">
+                        <a href="./project/2023-GPU3Dmicro.html" class="publication-link"><i class="fas fa-globe"></i> Project</a>
+                        <a href="https://link.springer.com/article/10.1007/s00158-023-03657-y" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/lavenklau/homo3d" class="publication-link"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/lmpa.png" alt="LMPA Additive Manufacturing" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">11. Low-melting-point alloys integrated extrusion additive manufacturing</div>
+                    <div class="publication-authors">Jingchao Jiang<sup>+</sup>, <strong>Xiaoya Zhai<sup>+</sup></strong>, Kang Zhang<sup>+</sup>, Liuchao Jin, Qitao Lu, Zhichao Shen, Wei-Hsin Liao* &nbsp;(<sup>+</sup>Equal contribution)</div>
+                    <div class="publication-venue">Additive Manufacturing, 2023</div>
+                    <div class="publication-links">
+                        <a href="./project/2023-LMPA.html" class="publication-link"><i class="fas fa-globe"></i> Project</a>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S2214860423002464" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/tpms_free_support.png" alt="TPMS Self-supporting" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">10. Topology Optimization of Self-supporting Porous Structures Based on Triply Periodic Minimal Surfaces</div>
+                    <div class="publication-authors">Nan Zheng, <strong>Xiaoya Zhai*</strong>, Falai Chen</div>
+                    <div class="publication-venue">Computer-Aided Design, 2023</div>
+                    <div class="publication-links">
+                        <a href="./paper/2023TPMS-self-support.pdf" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/IGA-MMC.png" alt="IGA Auxetic MMC" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">9. Isogeometric topology optimization of auxetic materials based on moving morphable components method</div>
+                    <div class="publication-authors"><strong>Xiaoya Zhai</strong>, Yundong Gai*, Liuchao Jin, Wei-Hsin Liao*, Falai Chen, Ping Hu</div>
+                    <div class="publication-venue">Mechanics of Advanced Materials and Structures, 2023</div>
+                    <div class="publication-links">
+                        <a href="https://www.mrforum.com/product/9781644902592-19/" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://github.com/xiaoyazhai/TOP-IGA-MMC-Micro" class="publication-link"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/overhang.png" alt="Reversed AM LMPA" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">8. Design for Reversed Additive Manufacturing Low-Melting-Point Alloys</div>
+                    <div class="publication-authors">Jingchao Jiang, <strong>Xiaoya Zhai</strong>, Liuchao Jin, Kang Zhang, Jun Chen, Qitao Lu, Wei-Hsin Liao*</div>
+                    <div class="publication-venue">Journal of Engineering Design, 2023</div>
+                    <div class="publication-links">
+                        <a href="https://www.tandfonline.com/doi/abs/10.1080/09544828.2023.2261096" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2022 -->
+        <h2 class="team-section-title" id="year-2022">2022</h2>
+        <div class="publications-list">
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2022_review.png" alt="AM Survey" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">7. A survey of additive manufacturing reviews</div>
+                    <div class="publication-authors"><strong>Xiaoya Zhai</strong>, Liuchao Jin, Jingchao Jiang*</div>
+                    <div class="publication-venue">Materials Science in Additive Manufacturing, 2022</div>
+                    <div class="publication-links">
+                        <a href="./paper/2022Review.pdf" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/worst_no_boundary.png" alt="Worst-case Topology" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">6. Large-Scale Worst-Case Topology Optimization</div>
+                    <div class="publication-authors">Di Zhang, <strong>Xiaoya Zhai*</strong>, Xiao-Ming Fu, Heming Wang, Ligang Liu</div>
+                    <div class="publication-venue">Computer Graphics Forum (Pacific Graphics), 2022</div>
+                    <div class="publication-links">
+                        <a href="https://diglib.eg.org/handle/10.1111/cgf14698" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                        <a href="https://rec.ustc.edu.cn/share/7e1d47f0-7595-11ee-8bb9-aff66ea025db" class="publication-link"><i class="fas fa-chalkboard-teacher"></i> Slides</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/IGA_TO_Stress.png" alt="IGA Stress Topology" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">5. Alternating Optimization Method for Isogeometric Topology Optimization with Stress Constraints</div>
+                    <div class="publication-authors"><strong>Xiaoya Zhai*</strong></div>
+                    <div class="publication-venue">Journal of Computational Mathematics, 2022</div>
+                    <div class="publication-links">
+                        <a href="./paper/2022JCM.pdf" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Earlier -->
+        <h2 class="team-section-title" id="year-earlier">Earlier</h2>
+        <div class="publications-list">
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/stress_admm.png" alt="Stress-constrained Topology" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">4. Alternating Optimization of Design and Stress for Stress-Constrained Topology Optimization</div>
+                    <div class="publication-authors"><strong>Xiaoya Zhai</strong>, Falai Chen, Jun Wu*</div>
+                    <div class="publication-venue">Structural and Multidisciplinary Optimization, 2021</div>
+                    <div class="publication-links">
+                        <a href="./paper/2021Alter.pdf" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/chen_energy.png" alt="Wind Turbine Wake" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">3. Dynamic Wind Turbine Wake Reconstruction: A Koopman-linear Flow Estimator</div>
+                    <div class="publication-authors">Zhenyu Chen, Zhongwei Lin*, <strong>Xiaoya Zhai</strong></div>
+                    <div class="publication-venue">Energy, 2021</div>
+                    <div class="publication-links">
+                        <a href="./paper/2021Engery.pdf" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/path_porous.png" alt="Porous Path Planning" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">2. Path Planning of A Type of Porous Structures for Additive Manufacturing</div>
+                    <div class="publication-authors"><strong>Xiaoya Zhai</strong>, Falai Chen*</div>
+                    <div class="publication-venue">Computer-Aided Design, 2019</div>
+                    <div class="publication-links">
+                        <a href="./paper/2019Path.pdf" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 3px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/fractal.png" alt="Fractal 3D Printing" style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="faculty-right">
+                    <div class="publication-title">1. 3D Printing Path Planning of Fractal Models</div>
+                    <div class="publication-authors"><strong>Xiaoya Zhai</strong>, Falai Chen*</div>
+                    <div class="publication-venue">Journal of Computer-Aided Design and Computer Graphics, 2018</div>
+                    <div class="publication-links">
+                        <a href="./paper/2018Fractal.pdf" class="publication-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>

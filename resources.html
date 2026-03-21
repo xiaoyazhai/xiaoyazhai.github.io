@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Xiaoya Zhai, USTC, TopOpt Group, resources, software, tutorials, topology optimization">
+    <meta name="description" content="Resources – USTC TopOpt Group">
+    <title>Resources – USTC-TopOpt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css?version=1.0.23" rel="stylesheet">
+    <link href="Mobile_style2.css?version=1.0.23" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./team.html">Team</a></li>
+                <li><a href="./research.html">Research</a></li>
+                <li><a href="./publication.html">Publications</a></li>
+                <li><a href="./teaching.html">Teaching</a></li>
+                <li><a href="./resources.html" class="active">Resources</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <!-- Open Source Code & Data -->
+        <h2 class="team-section-title">Open Source Code &amp; Data</h2>
+        <div class="opensource-grid" style="margin-bottom: 40px; grid-template-columns: 1fr;">
+
+
+            <div class="opensource-card card-hover" style="display: flex; gap: 28px; align-items: center;">
+                <div class="opensource-card-img">
+                    <img src="indexpics/2025-Per.png" alt="GPU Solver for Inverse Homogenization">
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                    <div class="opensource-header">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <i class="fab fa-github"></i>
+                            <h3 style="margin: 0;">OpenPM for Hydrodynamic Microsturcture Design </h3>
+                        </div>
+                        <span class="opensource-stats"><i class="fas fa-code-branch"></i> C++ / CUDA</span>
+                    </div>
+                    <p>OpenPM: High-Efficiency Design of 3D Hydrodynamic Metamaterials with Tailored Permeability. For more information pls refer <a href="https://pan.ustc.edu.cn/share/index/1fcda8b370ef4ba38ccd">work</a>.</p>
+                    <div class="card-tags">
+                        <span class="tag">GPU</span>
+                        <span class="tag">Homogenization</span>
+                        <span class="tag">Hydrodynamic microstructure</span>
+                    </div>
+                    <a href="https://github.com/liamxu1/OpenPM" target="_blank" class="card-link" style="margin-top: 12px; display: inline-flex;">GitHub <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="opensource-card card-hover" style="display: flex; gap: 28px; align-items: center;">
+                <div class="opensource-card-img">
+                    <img src="indexpics/2024-openTM.png" alt="GPU Solver for Inverse Homogenization">
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                    <div class="opensource-header">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <i class="fab fa-github"></i>
+                            <h3 style="margin: 0;">OpenTM for Thermal Microstructures Design</h3>
+                        </div>
+                        <span class="opensource-stats"><i class="fas fa-code-branch"></i> C++ / CUDA</span>
+                    </div>
+                    <p>OpenTM：An Open-source, Single-GPU, Large-scale Thermal Microstructure Design Framework. For more information pls refer <a href="https://arxiv.org/pdf/2405.19991">work</a>.  </p>
+                    <div class="card-tags">
+                        <span class="tag">GPU</span>
+                        <span class="tag">Homogenization</span>
+                        <span class="tag">Thermal microstructure</span>
+                    </div>
+                    <a href="https://github.com/quanyuchen2000/OPENTM" target="_blank" class="card-link" style="margin-top: 12px; display: inline-flex;">GitHub <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+
+            <div class="opensource-card card-hover" style="display: flex; gap: 28px; align-items: center;">
+                <div class="opensource-card-img">
+                    <img src="indexpics/3DMicro-gallery.jpg" alt="GPU Solver for Inverse Homogenization">
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                    <div class="opensource-header">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <i class="fab fa-github"></i>
+                            <h3 style="margin: 0;">OpenMM for Mechanical Microstructures Design</h3>
+                        </div>
+                        <span class="opensource-stats"><i class="fas fa-code-branch"></i> C++ / CUDA</span>
+                    </div>
+                    <p>High-performance GPU solver for designing high-resolution 3D microstructures. Runs 512³ ≈ 134M finite elements in under 40 s/iteration on an NVIDIA GTX 1080Ti, with fewer than 20 lines of user code.</p>
+                    <div class="card-tags">
+                        <span class="tag">GPU</span>
+                        <span class="tag">Homogenization</span>
+                        <span class="tag">Mechanical microstructure</span>
+                    </div>
+                    <a href="https://github.com/lavenklau/homo3d" target="_blank" class="card-link" style="margin-top: 12px; display: inline-flex;">GitHub <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="opensource-card card-hover" style="display: flex; gap: 28px; align-items: center;">
+                <div class="opensource-card-img">
+                    <img src="indexpics/worst_no_boundary.png" alt="Large-Scale Worst-Case Topology Optimization">
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                    <div class="opensource-header">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <i class="fab fa-github"></i>
+                            <h3 style="margin: 0;">Large-Scale Worst-Case Topology Optimization</h3>
+                        </div>
+                        <span class="opensource-stats"><i class="fas fa-code-branch"></i> C++ / CUDA</span>
+                    </div>
+                    <p>Efficiently minimizes maximum compliance under uncertain loads for high-resolution models via a modified power method. Handles 512×170×170 meshes with 69,934 loading nodes in ~50 min on an NVIDIA GTX 1080Ti.</p>
+                    <div class="card-tags">
+                        <span class="tag">GPU</span>
+                        <span class="tag">Robust Design</span>
+                        <span class="tag">TopOpt</span>
+                    </div>
+                    <a href="https://github.com/lavenklau/robtop" target="_blank" class="card-link" style="margin-top: 12px; display: inline-flex;">GitHub <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <hr class="content-divider">
+
+        <!-- Introductory Reading -->
+        <h2 class="team-section-title">Introductory Reading</h2>
+        <p style="font-size: 18px; color: var(--text-light); margin-bottom: 24px; line-height: 1.75;">A curated list of accessible articles and reviews for students new to our research areas. No prior specialization required.</p>
+        <div style="display: flex; flex-direction: column; gap: 0; margin-bottom: 40px; border-top: 1px solid var(--border-color);">
+
+            <div style="display: flex; align-items: baseline; gap: 28px; padding: 18px 4px; border-bottom: 1px solid var(--border-color);">
+                <div style="flex-shrink: 0; width: 72px; text-align: right;">
+                    <span style="font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary-color);">TopOpt</span>
+                </div>
+                <div style="flex: 1;">
+                    <a href="https://doi.org/10.1007/s001580050176" target="_blank" style="font-size: 18px; font-weight: 600; color: var(--text-dark); text-decoration: none;">Topology optimization: theory, methods, and applications</a>
+                    <div style="font-size: 16px; color: var(--text-light); margin-top: 3px;">Bendsøe &amp; Sigmund &nbsp;·&nbsp; Springer, 2003 &nbsp;·&nbsp; The definitive textbook introduction to density-based topology optimization.</div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: baseline; gap: 28px; padding: 18px 4px; border-bottom: 1px solid var(--border-color);">
+                <div style="flex-shrink: 0; width: 72px; text-align: right;">
+                    <span style="font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary-color);">TopOpt</span>
+                </div>
+                <div style="flex: 1;">
+                    <a href="https://doi.org/10.1007/s00158-000-0153-4" target="_blank" style="font-size: 18px; font-weight: 600; color: var(--text-dark); text-decoration: none;">A 99 line topology optimization code written in Matlab</a>
+                    <div style="font-size: 16px; color: var(--text-light); margin-top: 3px;">Sigmund &nbsp;·&nbsp; Struct. Multidisc. Optim., 2001 &nbsp;·&nbsp; A compact, self-contained implementation ideal for beginners.</div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: baseline; gap: 28px; padding: 18px 4px; border-bottom: 1px solid var(--border-color);">
+                <div style="flex-shrink: 0; width: 72px; text-align: right;">
+                    <span style="font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #7c3aed;">IGA</span>
+                </div>
+                <div style="flex: 1;">
+                    <a href="https://doi.org/10.1016/j.cma.2004.10.008" target="_blank" style="font-size: 18px; font-weight: 600; color: var(--text-dark); text-decoration: none;">Isogeometric analysis: CAD, finite elements, NURBS, exact geometry and mesh refinement</a>
+                    <div style="font-size: 16px; color: var(--text-light); margin-top: 3px;">Hughes, Cottrell &amp; Bazilevs &nbsp;·&nbsp; CMAME, 2005 &nbsp;·&nbsp; The founding paper of isogeometric analysis.</div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="content-divider">
+
+        <!-- Useful Links -->
+        <h2 class="team-section-title">Useful Links</h2>
+        <ul class="alumni-list" style="margin-bottom: 40px;">
+            <li>
+                <span class="alumni-name"><i class="fas fa-globe" style="color: var(--primary-color); margin-right: 6px;"></i>TopOpt Group, DTU</span>
+                <span class="alumni-meta">The leading topology optimization group at the Technical University of Denmark — <a href="https://www.topopt.mek.dtu.dk" target="_blank" style="color: var(--primary-color);">topopt.mek.dtu.dk</a></span>
+            </li>
+            <li>
+                <span class="alumni-name"><i class="fas fa-globe" style="color: var(--primary-color); margin-right: 6px;"></i>ToPy</span>
+                <span class="alumni-meta">Open-source Python topology optimization framework — <a href="https://github.com/williamhunter/topy" target="_blank" style="color: var(--primary-color);">github.com/williamhunter/topy</a></span>
+            </li>
+            <li>
+                <span class="alumni-name"><i class="fas fa-globe" style="color: var(--primary-color); margin-right: 6px;"></i>FEniCS Project</span>
+                <span class="alumni-meta">Open-source platform for solving PDEs with the finite element method — <a href="https://fenicsproject.org" target="_blank" style="color: var(--primary-color);">fenicsproject.org</a></span>
+            </li>
+            <li>
+                <span class="alumni-name"><i class="fas fa-globe" style="color: var(--primary-color); margin-right: 6px;"></i>TopWebinar TUDelft</span>
+                <span class="alumni-meta">Topology Optimization Webinar — the primary international webinar in our field — <a href="https://topwebinar.weblog.tudelft.nl/" target="_blank" style="color: var(--primary-color);">topwebinar.weblog.tudelft.nl</a></span>
+            </li>
+        </ul>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>

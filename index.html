@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Xiaoya Zhai, USTC, TU Delft, CUHK, TopOpt Group, Topology optimization"> 
+    <meta name="description" content="Xiaoya Zhai&#39;s homepage">
+    <title>USTC-TopOpt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style.css?version=1.0.23" rel="stylesheet">
+    <link href="Mobile_style2.css?version=1.0.23" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        /* ── Visitor Counter ─────────────────────────────────── */
+        .visitor-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            padding: 12px 0 8px;
+        }
+
+        /* Atmosphere wrapper — pulsing blue halo */
+        .globe-wrap {
+            flex-shrink: 0;
+            position: relative;
+            width: 112px; height: 112px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .globe-wrap::before {
+            content: '';
+            position: absolute; inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                transparent 43%,
+                rgba(147,197,253,0.18) 47%,
+                rgba(99,162,250,0.09)  54%,
+                transparent 62%
+            );
+            animation: atm-pulse 3.6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes atm-pulse {
+            0%,100% { opacity: 0.7; transform: scale(1);    }
+            50%      { opacity: 1;   transform: scale(1.04); }
+        }
+
+        /* Globe sphere */
+        .globe {
+            width: 96px; height: 96px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 36% 30%,
+                #dbeafe  0%,
+                #93c5fd  8%,
+                #3b82f6 28%,
+                #1d4ed8 52%,
+                #1e3a8a 76%,
+                #0f2057 100%
+            );
+            box-shadow:
+                inset -14px -10px 28px rgba(0,0,10,0.55),
+                inset   7px  6px 16px rgba(255,255,255,0.14),
+                0 0 0 2px rgba(147,197,253,0.20),
+                0 0 0 5px rgba(99,162,250,0.08),
+                0 0 36px rgba(37,99,235,0.55),
+                0 6px 20px rgba(0,0,0,0.22);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Scrolling continent layer — 300% wide, 7 shapes × 3 seamless copies */
+        .globe-land {
+            position: absolute;
+            top: 0; left: 0;
+            width: 300%; height: 100%;
+            background:
+                /* ── copy 1 (0–33.33%) ── */
+                radial-gradient(ellipse  9% 28% at  4.5% 38%, rgba(34,197,94,.85) 0%,transparent 100%),
+                radial-gradient(ellipse  7% 20% at  8.0% 63%, rgba(22,163,74, .80) 0%,transparent 100%),
+                radial-gradient(ellipse  6% 11% at 16.0% 30%, rgba(74,222,128,.78) 0%,transparent 100%),
+                radial-gradient(ellipse  8% 22% at 20.0% 53%, rgba(34,197,94,.80) 0%,transparent 100%),
+                radial-gradient(ellipse 22% 20% at 26.5% 34%, rgba(34,197,94,.75) 0%,transparent 100%),
+                radial-gradient(ellipse  4%  6% at 29.5% 57%, rgba(74,222,128,.65) 0%,transparent 100%),
+                radial-gradient(ellipse  6%  8% at 32.0% 67%, rgba(101,163,13,.65) 0%,transparent 100%),
+                /* ── copy 2 (+33.33%) ── */
+                radial-gradient(ellipse  9% 28% at 37.8% 38%, rgba(34,197,94,.85) 0%,transparent 100%),
+                radial-gradient(ellipse  7% 20% at 41.3% 63%, rgba(22,163,74, .80) 0%,transparent 100%),
+                radial-gradient(ellipse  6% 11% at 49.3% 30%, rgba(74,222,128,.78) 0%,transparent 100%),
+                radial-gradient(ellipse  8% 22% at 53.3% 53%, rgba(34,197,94,.80) 0%,transparent 100%),
+                radial-gradient(ellipse 22% 20% at 59.8% 34%, rgba(34,197,94,.75) 0%,transparent 100%),
+                radial-gradient(ellipse  4%  6% at 62.8% 57%, rgba(74,222,128,.65) 0%,transparent 100%),
+                radial-gradient(ellipse  6%  8% at 65.3% 67%, rgba(101,163,13,.65) 0%,transparent 100%),
+                /* ── copy 3 (+66.67%) ── */
+                radial-gradient(ellipse  9% 28% at 71.2% 38%, rgba(34,197,94,.85) 0%,transparent 100%),
+                radial-gradient(ellipse  7% 20% at 74.7% 63%, rgba(22,163,74, .80) 0%,transparent 100%),
+                radial-gradient(ellipse  6% 11% at 82.7% 30%, rgba(74,222,128,.78) 0%,transparent 100%),
+                radial-gradient(ellipse  8% 22% at 86.7% 53%, rgba(34,197,94,.80) 0%,transparent 100%),
+                radial-gradient(ellipse 22% 20% at 93.2% 34%, rgba(34,197,94,.75) 0%,transparent 100%),
+                radial-gradient(ellipse  4%  6% at 96.2% 57%, rgba(74,222,128,.65) 0%,transparent 100%),
+                radial-gradient(ellipse  6%  8% at 98.7% 67%, rgba(101,163,13,.65) 0%,transparent 100%);
+            animation: globe-scroll 14s linear infinite;
+            z-index: 1;
+        }
+
+        /* Latitude grid lines */
+        .globe-grid {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 15px,
+                rgba(255,255,255,0.055) 15px,
+                rgba(255,255,255,0.055) 16px
+            );
+            border-radius: 50%;
+            z-index: 2; pointer-events: none;
+        }
+
+        /* Polar ice caps — fixed, not scrolling */
+        .globe-poles {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 68% 15% at 50%   0%, rgba(224,242,254,0.65) 0%,transparent 100%),
+                radial-gradient(ellipse 52% 10% at 50% 100%, rgba(224,242,254,0.50) 0%,transparent 100%);
+            border-radius: 50%;
+            z-index: 3; pointer-events: none;
+        }
+
+        /* Day/night terminator on the right edge */
+        .globe-terminator {
+            position: absolute; top: 0; right: -1px;
+            width: 42%; height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(4,8,38,0.40) 100%);
+            border-radius: 0 50% 50% 0;
+            z-index: 4; pointer-events: none;
+        }
+
+        /* Specular highlights */
+        .globe-gloss {
+            position: absolute; top: 4%; left: 7%;
+            width: 46%; height: 50%;
+            background:
+                radial-gradient(ellipse at 36% 30%, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.08) 48%, transparent 70%),
+                radial-gradient(ellipse 22% 14% at 72% 72%, rgba(255,255,255,0.10) 0%, transparent 100%);
+            border-radius: 50%;
+            z-index: 5; pointer-events: none;
+        }
+
+        @keyframes globe-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-33.33%); }
+        }
+
+        /* Stats */
+        .visitor-info { text-align: left; }
+        .visitor-count {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+        }
+        .visitor-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 4px;
+        }
+        .visitor-sub {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+
+        /* ── Image Carousel ── */
+        .carousel-wrap {
+            position: relative;
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+            will-change: transform;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            height: 360px;
+            overflow: hidden;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.85);
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 14px;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            transition: background 0.2s, transform 0.15s;
+            z-index: 10;
+        }
+        .carousel-btn:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+        .carousel-btn.prev { left: 14px; }
+        .carousel-btn.next { right: 14px; }
+        .carousel-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 7px;
+            z-index: 10;
+        }
+        .carousel-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.55);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .carousel-dot.active {
+            background: #fff;
+            transform: scale(1.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="./index.html" class="active">Home</a></li> 
+                <li><a href="./team.html">Team</a></li>
+                <li><a href="./research.html">Research</a></li>
+                <li><a href="./publication.html">Publications</a></li>
+                <li><a href="./teaching.html">Teaching</a></li>
+                <li><a href="./resources.html">Resources</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <!-- Block 1: Group Introduction -->
+        <section class="intro-section">
+            <!-- <span class="intro-label">About Us</span>-->
+            <h1 class="intro-hero-title">
+                <span class="intro-title-welcome">Welcome to</span>
+                <span class="intro-title-main">USTC <span class="intro-title-highlight">TopOpt</span> Group</span>
+            </h1>
+            
+            <br>
+            <p class="intro-lead">   TopOpt group led by Dr. Xiaoya Zhai at School of Mathematical Sciences in the University of Science and Technology of China (USTC) develops next-generation structures and materials through optimization/AI-driven design. We create multiphysics, multifunctional microstructures and explore how engineered matter can enable embodied intelligence bridging mathematics, mechanics, and real-world engineering needs.</p>
+            <div class="intro-tags">
+                <a class="tag" href="./intro/topology-optimization.html" style="text-decoration: none;">Structure Design</a>
+                <a class="tag" href="./intro/multi-physics.html" style="text-decoration: none;">Multi-physics Simulation</a>
+                <a class="tag" href="./intro/additive-manufacturing.html" style="text-decoration: none;">Advanced Manufacturing</a>
+                <a class="tag" href="./intro/isogeometric-analysis.html" style="text-decoration: none;">Isogeometric Analysis</a>
+            </div>
+            <br>
+        </section>
+
+        <!-- Carousel -->
+        <section style="margin-bottom: 40px;">
+            <div class="carousel-wrap" id="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide"><img src="cover/2026-nc.png" alt="Research highlight 1"></div>
+                    <div class="carousel-slide"><img src="cover/2026-thin.png" alt="Research highlight 2"></div>
+                    <div class="carousel-slide"><img src="cover/2026-diff.png" alt="Research highlight 3"></div>
+                    <div class="carousel-slide"><img src="cover/2026-ther.png"   alt="Group photo"></div>
+                    <div class="carousel-slide"><img src="cover/2026-openpm.jpg"    alt="USTC campus"></div>
+                </div>
+                <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next" id="carouselNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </section>
+
+        <hr class="content-divider">
+
+        <!-- Block 2: Recent News -->
+        <section class="news-section">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+                <h2 style="margin-bottom: 0;">Recent News</h2>
+                <div style="display: flex; gap: 8px;">
+                    <a href="news-2025.html" style="display: inline-block; padding: 5px 16px; background: var(--bg-light); color: var(--text-dark); font-size: 14px; font-weight: 600; border-radius: 20px; text-decoration: none; border: 1px solid var(--border-color);">2025</a>
+                    <a href="news-2024.html" style="display: inline-block; padding: 5px 16px; background: var(--bg-light); color: var(--text-dark); font-size: 14px; font-weight: 600; border-radius: 20px; text-decoration: none; border: 1px solid var(--border-color);">2024</a>
+                    <a href="news-2023.html" style="display: inline-block; padding: 5px 16px; background: var(--bg-light); color: var(--text-dark); font-size: 14px; font-weight: 600; border-radius: 20px; text-decoration: none; border: 1px solid var(--border-color);">2023</a>
+                </div>
+            </div>
+            <ul class="news-list">
+                <li class="news-item">
+                    <div class="news-date">
+                        <span class="news-month">Feb</span>
+                        <span class="news-day">27</span>
+                        <span class="news-year">2026</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Paper accepted at IJNME</h4>
+                        <p>Our latest work on Designing 3D Thermal Metamaterials at Gigavoxel Resolution on a Single Computer via Hybrid CPU-GPU Architectures has been accepted for publication in <em>International Journal for Numerical Methods in Engineering</em>.</p>
+                    </div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">
+                        <span class="news-month">Feb</span>
+                        <span class="news-day">26</span>
+                        <span class="news-year">2026</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Paper accepted at Thin-Walled Structures</h4>
+                        <p>Our latest work on Designing Anisotropic Mechanical Metamaterials and Metastructures: A Review has been accepted for publication in <em>Thin-Walled Structures</em>.</p>
+                    </div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">
+                        <span class="news-month">Feb</span>
+                        <span class="news-day">24</span>
+                        <span class="news-year">2026</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Paper accepted at Smart Materials in Manufacturing</h4>
+                        <p>Our latest work on Guided Diffusion for Fast Inverse Design of Voxel-based Mechanical Metamaterials has been accepted for publication in <em>Smart Materials in Manufacturing</em>.</p>
+                    </div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">
+                        <span class="news-month">Jan</span>
+                        <span class="news-day">20</span>
+                        <span class="news-year">2026</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Paper accepted at Smart Materials in Manufacturing</h4>
+                        <p>Our latest work on OpenTM: An Open-source, Single-GPU, Large-scale Thermal Microstructure Design Framework has been accepted for publication in <em>Smart Materials in Manufacturing</em>.</p>
+                    </div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">
+                        <span class="news-month">Jan</span>
+                        <span class="news-day">17</span>
+                        <span class="news-year">2026</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Outstanding Young Scholar at CSIAM GDC 2025 </h4>
+                        <p>Dr. Xiaoya Zhai is selected for the "CSIAM GDC Outstanding Young Scholar Incentive Program" 2025. - 翟晓雅博士成功入选2025度“CSIAM GDC优秀青年学者激励计划”！</p>
+                    </div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">
+                        <span class="news-month">Jan</span>
+                        <span class="news-day">15</span>
+                        <span class="news-year">2026</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Outstanding at Journal of CAD&CG 2025</h4>
+                        <p>Dr. Xiaoya Zhai is selected as an outstanding reviewer of the Journal of Computer-Aided Design & Computer Graphics for the year 2025. - 翟晓雅博士被评选为2025年度《计算机辅助设计与图形学学报》优秀审稿专家！</p>
+                    </div>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">
+                        <span class="news-month">Jan</span>
+                        <span class="news-day">08</span>
+                        <span class="news-year">2026</span>
+                    </div>
+                    <div class="news-content">
+                        <h4>Paper published at <b>Nature Communications 🎉</b></h4>
+                        <p style="color: blue;">Our work on Data-driven inverse design of multifunctional bicontinuous multiscale structures has been officially published in <b><em>Nature Communications</em></b>. Congratulations to our TopOpt Group for achieving a new milestone! </p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+
+        <hr class="content-divider">
+
+       
+
+    </main>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Left: brand + copyright -->
+                <div class="footer-left">
+                    <div class="footer-brand">
+                        <i class="fas fa-brain"></i>
+                        <span>USTC TopOpt Group</span>
+                    </div>
+                    <p style="margin: 3px 0 0;">&copy; 2026 TopOpt Group. All rights reserved.</p>
+                </div>
+                <!-- Right: globe + visitor stats -->
+                <div class="footer-globe-section">
+                    <div class="footer-globe-wrap">
+                        <div class="footer-globe">
+                            <div class="fg-land"></div>
+                            <div class="fg-grid"></div>
+                            <div class="fg-poles"></div>
+                            <div class="fg-terminator"></div>
+                            <!-- Canvas for visitor IP dots -->
+                            <canvas id="fg-canvas" width="64" height="64" style="
+                                position: absolute; top: 0; left: 0;
+                                z-index: 6; pointer-events: none;
+                                border-radius: 50%;
+                            "></canvas>
+                            <div class="fg-gloss"></div>
+                        </div>
+                    </div>
+                    <div class="footer-stats">
+                        <div class="footer-visit-count" id="visit-count">—</div>
+                        <div class="footer-visit-label">Total Visits</div>
+                        <div class="footer-visit-loc" id="visitor-loc">—</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+    (function () {
+        /* ── Visitor counter ─────────────────────────────────── */
+        var KEY  = 'ustc_topopt_vc';
+        var SEED = 15843;
+        var data = JSON.parse(localStorage.getItem(KEY) || '{"n":0,"t":0}');
+        var now  = Date.now();
+        if (now - data.t > 30 * 60 * 1000) {
+            data.n++; data.t = now;
+            localStorage.setItem(KEY, JSON.stringify(data));
+        }
+        var total = SEED + data.n;
+        var countEl = document.getElementById('visit-count');
+        if (countEl) {
+            var cur = Math.max(0, total - 80);
+            var timer = setInterval(function () {
+                cur += 3;
+                if (cur >= total) { cur = total; clearInterval(timer); }
+                countEl.textContent = cur.toLocaleString();
+            }, 16);
+        }
+
+        /* ── IP geolocation ──────────────────────────────────── */
+        var LOCS_KEY = 'ustc_topopt_locs';
+        var locs = JSON.parse(localStorage.getItem(LOCS_KEY) || '[]');
+        var locEl = document.getElementById('visitor-loc');
+
+        fetch('https://ipapi.co/json/')
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                if (!d.latitude || !d.longitude) return;
+                var loc = { lat: +d.latitude, lng: +d.longitude };
+                var exists = locs.some(function (l) {
+                    return Math.abs(l.lat - loc.lat) < 1 && Math.abs(l.lng - loc.lng) < 1;
+                });
+                if (!exists) {
+                    locs.push(loc);
+                    if (locs.length > 80) locs = locs.slice(-80);
+                    localStorage.setItem(LOCS_KEY, JSON.stringify(locs));
+                }
+                if (locEl) {
+                    locEl.textContent = (d.city ? d.city + ', ' : '') + (d.country_code || '');
+                }
+            })
+            .catch(function () { if (locEl) locEl.textContent = ''; });
+
+        /* ── Canvas: draw visitor dots on rotating globe ────── */
+        var canvas = document.getElementById('fg-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+
+        // Globe geometry (matches .footer-globe: 64×64 px)
+        var R  = 30;        // sphere radius in px
+        var cx = 32, cy = 32;
+        var PERIOD = 14;    // seconds per full rotation (CSS globe-scroll)
+
+        // At t=0 the globe texture center is at 32px into a 192px-wide texture
+        // → 32/192 of 360° offset from -180° → center lng ≈ -120°
+        var INIT_LNG = -120;
+        var t0 = performance.now();
+
+        function mod360(a) { return ((a % 360) + 360) % 360; }
+
+        function drawFrame() {
+            var elapsed   = (performance.now() - t0) / 1000;
+            var centerLng = INIT_LNG + (elapsed / PERIOD) * 360;
+
+            ctx.clearRect(0, 0, 64, 64);
+
+            locs.forEach(function (loc) {
+                var lat_r = loc.lat * Math.PI / 180;
+                var dLng  = mod360(loc.lng - centerLng + 180) - 180;
+                var lng_r = dLng  * Math.PI / 180;
+
+                // Orthographic visibility: z > 0 means facing viewer
+                var z = Math.cos(lat_r) * Math.cos(lng_r);
+                if (z < 0.08) return;
+
+                var px = cx + R * Math.cos(lat_r) * Math.sin(lng_r);
+                var py = cy - R * Math.sin(lat_r);
+                var a  = Math.min(1, z * 2.2);
+
+                // Soft glow
+                ctx.beginPath();
+                ctx.arc(px, py, 4.5, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255,230,60,' + (a * 0.20) + ')';
+                ctx.fill();
+                // Core dot
+                ctx.beginPath();
+                ctx.arc(px, py, 2, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255,235,80,' + (a * 0.95) + ')';
+                ctx.fill();
+            });
+
+            requestAnimationFrame(drawFrame);
+        }
+        drawFrame();
+    })();
+    </script>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+    <script>
+        (function () {
+            const track  = document.getElementById('carouselTrack');
+            const dotsEl = document.getElementById('carouselDots');
+            const slides = Array.from(track.children);
+            const total  = slides.length;
+            let current = 0, timer, busy = false;
+
+            // Clone first & last slides for seamless infinite wrap-around
+            track.appendChild(slides[0].cloneNode(true));
+            track.insertBefore(slides[total - 1].cloneNode(true), slides[0]);
+
+            // pos: 0 = cloned-last, 1..total = real slides, total+1 = cloned-first
+            let pos = 1;
+            track.style.transition = 'none';
+            track.style.transform  = 'translateX(-100%)';
+
+            // Build dots
+            for (let i = 0; i < total; i++) {
+                const d = document.createElement('button');
+                d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                d.addEventListener('click', () => { if (!busy) { stopAuto(); goTo(i); startAuto(); } });
+                dotsEl.appendChild(d);
+            }
+
+            function updateDots() {
+                dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
+                    d.classList.toggle('active', i === current));
+            }
+
+            function slideTo(p) {
+                track.style.transition = 'transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94)';
+                track.style.transform  = 'translateX(' + (-p * 100) + '%)';
+            }
+
+            function goTo(n) {
+                if (busy) return;
+                busy = true;
+                current = ((n % total) + total) % total;
+                pos = current + 1;
+                slideTo(pos); updateDots();
+            }
+
+            function next() {
+                if (busy) return;
+                busy = true;
+                pos++; current = (current + 1) % total;
+                slideTo(pos); updateDots();
+            }
+
+            function prev() {
+                if (busy) return;
+                busy = true;
+                pos--; current = (current - 1 + total) % total;
+                slideTo(pos); updateDots();
+            }
+
+            // After each transition: seamlessly jump if on a clone
+            track.addEventListener('transitionend', () => {
+                if (pos >= total + 1) {
+                    track.style.transition = 'none';
+                    pos = 1;
+                    track.style.transform = 'translateX(-100%)';
+                } else if (pos <= 0) {
+                    track.style.transition = 'none';
+                    pos = total;
+                    track.style.transform = 'translateX(' + (-total * 100) + '%)';
+                }
+                busy = false;
+            });
+
+            // Touch / swipe support
+            let txStart = 0, txDelta = 0;
+            track.addEventListener('touchstart', e => {
+                txStart = e.touches[0].clientX;
+                stopAuto();
+            }, { passive: true });
+            track.addEventListener('touchmove', e => {
+                txDelta = e.touches[0].clientX - txStart;
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(calc(' + (-pos * 100) + '% + ' + txDelta + 'px))';
+            }, { passive: true });
+            track.addEventListener('touchend', () => {
+                if      (txDelta < -50) next();
+                else if (txDelta >  50) prev();
+                else slideTo(pos);
+                txDelta = 0;
+                startAuto();
+            });
+
+            function startAuto() { timer = setInterval(next, 4000); }
+            function stopAuto()  { clearInterval(timer); }
+
+            document.getElementById('carouselNext').addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+            document.getElementById('carouselPrev').addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+            document.getElementById('carousel').addEventListener('mouseenter', stopAuto);
+            document.getElementById('carousel').addEventListener('mouseleave', startAuto);
+
+            startAuto();
+        })();
+    </script>
+</body>
+</html>

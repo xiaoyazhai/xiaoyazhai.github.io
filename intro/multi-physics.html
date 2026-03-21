@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Multi-physics, Thermal, Fluid, Metamaterials, USTC, TopOpt Group">
+    <meta name="description" content="多物理场超材料 – USTC TopOpt Group">
+    <title>Multi-physics – USTC-TopOpt</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../style.css?version=1.0.23" rel="stylesheet">
+    <script src="../js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+        .essay-body p {
+            font-size: 17px;
+            color: var(--text-light);
+            line-height: 1.85;
+            margin-bottom: 1.2em;
+        }
+        .essay-body p strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .essay-section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 0.04em;
+            margin: 2.2em 0 0.7em;
+        }
+        .essay-callout {
+            border-left: 3px solid #a5b4fc;
+            padding: 16px 24px;
+            margin: 2em 0;
+            background: #fafafa;
+        }
+        .essay-callout p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../research.html" class="active">Research</a></li>
+                <li><a href="../publication.html">Publications</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <div class="page-title-bar">
+            <span class="page-title-eyebrow">Research Area</span>
+            <h1>多物理场超材料</h1>
+            <p>当热、力、流体在同一块材料中同时登场，几何构型便成为调控多个物理世界的唯一语言。</p>
+        </div>
+
+        <!-- ── 正文主体 ─────────────────────────────────────────── -->
+        <div class="essay-body">
+
+            <!-- 一、引言 -->
+            <p class="intro-lead">想象一块安装在卫星外壁上的多孔板。阳光直射面的温度逼近 150°C，背阴面跌至 −120°C，二百余度的温差在板内驱动着剧烈的热流；与此同时，发射阶段残留的振动载荷仍在结构中回荡，而冷却管路中的流体正以设定的流量穿过这些孔隙。热传导、弹性变形、粘性渗流——三个物理场在同一块几何中同时运作，彼此影响。如果这块板的微结构仅针对热管理做过优化，机械疲劳会在应力集中处率先撕开裂纹；如果仅针对承力做过设计，封闭的骨架将阻断冷却通道，导致局部温度失控。工程中最危险的失效，从来不源于某个物理场的孤立崩溃，而是多场耦合在那些被单独设计的结构中引发了设计者从未预见的连锁反应。</p>
+
+            <p>面对这一困境，传统的策略是在化学层面做文章——换一种导热系数更匹配的合金，或选用渗透率更低的陶瓷基体。这条路在过去一百年里走得很远，但终究受限于自然界已有材料的性质边界。<strong>超材料（Metamaterials）提出了一个根本不同的思路：不改变材料本身的化学组分，而是通过设计微观几何构型，让宏观性质突破天然材料的固有限制。</strong>一块普通的钛合金，经过拓扑优化生成的周期性微结构重新组织后，可以表现出负泊松比——拉伸时横向膨胀而非收缩；一个由均质固体雕刻出的热斗篷，能够将热流弯曲引导绕过内部保护区域，使其温度场纹丝不动。这些看似违反直觉的宏观行为，其物理根源无一例外地藏在微结构的几何拓扑之中。</p>
+
+            <p>单物理场超材料——只调控力学、或只调控热学、或只调控流体——的逆向设计已逐渐成熟。而我们关心的问题更进一步：<strong>能否在同一个微结构中，同时赋予热导率张量、弹性模量张量、渗透率张量各自独立的目标值，让一块几何在多个物理世界里同时表现最优？</strong>这就是多物理场超材料的核心命题。答案并非显然——不同物理场对几何的需求往往相互矛盾，而这种矛盾恰恰构成了这个方向最深刻的科学挑战。</p>
+
+            <hr class="content-divider">
+
+            <!-- 二、几何即性质 -->
+            <h2 class="team-section-title">几何即性质：均匀化的视角</h2>
+
+            <p>要理解超材料为何有效，需要接受一个初看反直觉的数学事实。当观察尺度远大于微结构的特征周期时，一个内部千疮百孔的复杂多孔体，与一块性质均匀的等效连续体，在宏观物理行为上完全不可区分。这是均匀化理论（Homogenization Theory）的核心定理，也是整个超材料设计的数学地基。</p>
+
+            <p>具体而言：给定一个由固相与空相交织而成的周期性微结构单胞，均匀化方法通过在代表体元（RVE）上求解一组辅助边值问题，将微观几何的全部信息压缩为一个宏观等效性质张量。对热传导问题，这个张量是等效热导率 <strong>K<sub>eff</sub></strong>——一个二阶对称张量，其六个独立分量完全由微结构的拓扑形态决定。让孔道倾斜 30°，K<sub>eff</sub> 的主轴随之旋转；让固相骨架从三维网格退化为平行层片，各向同性的热导率就变成极端各向异性的。弹性均匀化给出的是四阶弹性模量张量（21 个独立分量），Stokes 流均匀化给出渗透率张量——同样的方法论框架，不同的控制方程，不同的物理含义，但共享同一套"从几何到张量"的映射逻辑。</p>
+
+            <p>单物理场的逆向设计——"给定目标张量，反求微结构几何"——本质上是在这套映射的原像空间中做优化搜索。困难但已有大量成功案例。而多物理场设计的根本瓶颈在于：热导张量、弹性张量与渗透率张量三者的联合可行域，远小于它们各自可行域的简单组合。高渗透率要求开放连通的孔道网络，高刚度要求致密连续的固相骨架——这两个几何需求在三维空间中存在深层的拓扑冲突。并非所有"理想"的性质组合都能由同一个微结构同时实现，而确定哪些组合是可达的、哪些不是，本身就是一个尚未被完整回答的基础理论问题。</p>
+
+            <hr class="content-divider">
+
+            <!-- 三、耦合的代价与价值 -->
+            <h2 class="team-section-title">耦合的代价与价值</h2>
+
+            <p>一个自然的疑问是：既然多场联合设计如此困难，为什么不在每个物理场中分别做优化，再取折中？答案很简单——因为物理场不做折中。温度改变弹性模量，应力改变孔隙形态，孔隙形态改变渗流路径，渗流带走或带来热量——在真实服役条件下，这些作用链环环相扣，没有任何一环可以被冻结后单独处理。</p>
+
+            <p>分离设计的代价在工程实践中有过惨痛的教训。纯热优化倾向于在高热流区域铺设细密的固相骨架以最大化热导通面积，但这些几何细节恰恰在力学上构成严重的应力集中源，在交变载荷下率先萌生疲劳裂纹。反过来，纯力学优化追求的粗壮承力桁架往往封堵了流体通道，在高功率密度的电子封装或换热器场景中造成不可接受的局部过热。文献表明，在热-力耦合工况下，分离设计与联合设计之间的性能差距有时超过 30%。对于航天热防护、芯片散热、核反应堆堆芯等精密系统而言，这个差距足以决定设计的成败。</p>
+
+            <p>计算层面的困难同样不容回避。拓扑优化依赖伴随灵敏度分析来高效计算目标函数对数十万设计变量的梯度——求解一个与正向问题同维的伴随方程，即可一次性获得全部梯度信息。但在多物理场耦合系统中，正向问题本身由多组相互嵌套的偏微分方程构成，伴随方程的推导必须追踪场间的交叉耦合项，其代数复杂度与实现难度随耦合物理场的数量急剧上升。热-力-流三场全耦合情形下的伴随推导，本身便是一项精细而容易出错的数学工程。</p>
+
+            <p>制造端的约束更为具体。多物理场微结构的几何必须同时满足三重条件：孔道网络对流体连通（否则无法渗流）、固相骨架对力学连通（否则结构坍塌）、以及增材制造要求的几何自支撑（否则无法打印）。这三个条件在三维空间中彼此掣肘，不存在通用的几何解——它们必须在优化建模阶段被显式表达为数学约束，否则算法给出的最优解只能存在于论文之中。</p>
+
+        </div><!-- end essay-body section -->
+
+
+        <!-- ── 致有志于此的研究者 ──────────────────────────────── -->
+        <div class="essay-body">
+            <hr class="content-divider">
+
+            <h2 class="team-section-title">致有志于此的研究者</h2>
+
+            <p>多物理场超材料是一个对研究者的知识谱系要求很宽的方向。它的地基是连续介质力学——弹性力学、傅里叶热传导、Stokes 流——以及将它们统一表达的偏微分方程数值方法；它的核心工具是数值优化理论，尤其是约束优化中的伴随方法与一阶/二阶算法；它的天花板则延伸至均匀化理论的数学深处、GPU 并行计算的工程实践、以及机器学习方法论的前沿探索。<b>没有人在入学时就准备好了所有这些——重要的不是你现在掌握了多少，而是你是否愿意在一个问题上持续投入足够长的时间，直到那些原本陌生的数学结构变成你自己的思维工具。</b></p>
+
+            <p>如果你是本科生，建议优先建立以下基础：对张量与本构关系的物理直觉（材料力学或弹性力学课程可以提供这个）、有限元方法的至少一门系统训练、以及 Python 或 MATLAB 环境下的科学计算编程能力。这三样东西构成了进入这个领域的最小工具包，其余的可以在研究过程中逐步补充。</p>
+
+            <p>如果你来自物理或应用数学背景，不必顾虑工程经验的欠缺。均匀化理论本身是一门严格的渐近分析理论，偏微分方程约束优化中的许多深层结构问题——可行域的几何性质、灵敏度的正则性、多目标问题中 Pareto 前沿的拓扑——恰恰是受过纯数学训练的研究者更容易提出好问题的领域。这个方向的跨学科门槛，远比它表面上看起来要低。</p>
+
+            <p>我们寻找的是对问题本身保有真实好奇心的人——<strong>那种看到热流在超材料中弯曲时会追问"为什么这个几何能让热流转弯"的人，那种不满足于"仿真跑通了"而想弄清楚结果背后物理直觉的人，那种听到"不可能同时优化两个矛盾的目标"时第一反应不是接受而是怀疑的人。</strong>如果你在这些描述中认出了自己，我们欢迎你来聊聊。</p>
+
+
+
+        </div><!-- end essay-body -->
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="../script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>

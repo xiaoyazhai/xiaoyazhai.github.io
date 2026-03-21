@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script src="../zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="超材料机器人, Metamaterial Robotics, 可编程力学超材料, 声学超材料, 磁控超材料, USTC, TopOpt Group">
+    <meta name="description" content="超材料机器人方向深度介绍 – USTC TopOpt Group">
+    <title>超材料机器人：当材料开始承载智能 – USTC-TopOpt</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../style.css?version=1.0.23" rel="stylesheet">
+    <script src="../js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+        /* 长文排版基础 */
+        /* 长文排版基础 */
+        .article-body p {
+            margin-bottom: 22px;
+            line-height: 1.95;
+            color: var(--text-dark);
+        }
+        /* 二级子标题：带主色左边框 */
+        .article-h3 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 40px 0 14px;
+            padding-left: 14px;
+            border-left: 3px solid var(--primary-color);
+        }
+        /* 核心定义 / 引用块 */
+        .article-note {
+            background: #f4f7ff;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+            padding: 20px 24px;
+            margin: 30px 0;
+            color: var(--text-dark);
+            line-height: 1.9;
+        }
+        .article-note em {
+            font-style: normal;
+            font-weight: 600;
+        }
+        /* 数据高亮行 */
+        .data-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 28px 0;
+        }
+        .data-item {
+            flex: 1;
+            min-width: 160px;
+            background: #f9fafb;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 18px 20px;
+            text-align: center;
+        }
+        .data-item .data-num {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.2;
+            display: block;
+        }
+        .data-item .data-label {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 4px;
+            display: block;
+            line-height: 1.5;
+        }
+        /* 分支路径列表 */
+        .path-list {
+            list-style: none;
+            margin: 20px 0 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .path-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 18px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            line-height: 1.75;
+        }
+        .path-list li .path-bg {
+            flex-shrink: 0;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: #dbeafe;
+            border-radius: 6px;
+            padding: 3px 10px;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+        /* 招募CTA */
+        .recruit-cta {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 44px 0 56px;
+        }
+        .recruit-cta p {
+            margin: 0 0 10px;
+            line-height: 1.85;
+            color: var(--text-dark);
+        }
+        .recruit-cta p:last-child { margin-bottom: 0; }
+        .recruit-cta .cta-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+        .recruit-cta .cta-sub {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../research.html" class="active">Research</a></li>
+                <li><a href="../publication.html">Publications</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <div class="page-title-bar">
+            <span class="page-title-eyebrow">方向深度介绍 | Research Introduction</span>
+            <h1>超材料机器人：当材料开始承载智能</h1>
+            <p>面向本科生与研究者的系统性介绍 · Metamaterial Robotics</p>
+        </div>
+
+        <span class="intro-label" style="display: block; margin-bottom: 20px;">Metamaterial Robotics · 超材料机器人</span>
+
+        <!-- ═══════════════════════════════════════════
+             §1  引言
+             ═══════════════════════════════════════════ -->
+
+        <h2 class="team-section-title">引言：一个关于"身体"的问题</h2>
+
+        <div class="article-body">
+
+            <p class="intro-lead">2025年，人工智能可以生成诗歌、预测蛋白质折叠、在围棋与蛋白质设计的棋盘上全面超越人类——然而，多数机器人的躯体仍然依赖着半个世纪前确立的物理范式：刚性金属骨架、集中式电控系统、传感器-芯片-执行器的信号链路。这一架构将"智能"与"物质"彻底隔离：材料只是传递力的被动介质，感知与计算始终是叠加在结构之上的外挂层。认知能力与物理能力之间的鸿沟，从未像今天这样清晰。</p>
+
+            <p>这种割裂并非没有代价。集中式控制架构意味着响应速度受制于信号往返延迟；密集的传感器布线与精密的机械传动系统使制造成本居高不下、可靠性难以保障；更根本的是，当机器人需要在非结构化环境中完成高度柔顺的操作——例如握持脆弱的生物组织，或穿越狭窄的体腔——传统的"先感知、后规划、再执行"流程所固有的延迟与刚性，构成了难以逾越的物理壁垒。</p>
+
+            <p>然而，生物系统早已给出了一个截然不同的答案。章鱼的八条腕足各自携带约三分之二的神经元，在无需中央大脑指令的情况下完成复杂的局部感知与操控；皮肤的梅克尔触觉小体与帕西尼小体在形态学层面就已对不同类型的力学刺激做出频率区分；肌肉的弹性势能在运动中直接充当储能与缓冲机制。<strong>感知、驱动与计算在生物体内从未真正分离，它们共同内嵌于材料的物理结构之中。</strong>超材料机器人（Metamaterial Robotics）正是以这一生物学事实为出发点，试图在工程系统中实现同样的融合。</p>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════
+             §2  超材料的设计哲学
+             ═══════════════════════════════════════════ -->
+
+        <h2 class="team-section-title">超材料：以结构定义性质的设计哲学</h2>
+
+        <div class="article-body">
+
+            <p>理解超材料机器人，首先需要理解"超材料"这一概念的深层逻辑。传统材料科学的工作模式是<strong>发现性</strong>的：我们在自然界中寻找满足特定需求的材料，或通过冶金、化学合成来改变组分，从而调控性质。这一范式在过去数百年间成效卓著，却也存在内在的边界——可用的元素和化合物终归是有限的，许多工程上需要的性质组合（例如同时具备轻质、高刚度、高阻尼与负泊松比的材料），在自然界中根本不存在。</p>
+
+            <p>超材料将这一工作模式颠覆为<strong>设计性</strong>的：与其寻找"恰好满足需求的材料"，不如直接设计一种微观/介观几何结构，使其在宏观层面表现出目标物理属性。负折射率光学超材料（2001年由Shelby等首次实验验证）通过亚波长金属谐振单元阵列实现了自然界不存在的电磁响应；声学超材料通过局域共振结构在低于布拉格极限的频率范围打开了声学带隙；力学超材料通过拉胀（auxetic）几何实现了负泊松比——这些性质均与材料化学成分无关，完全由几何形状决定。</p>
+
+            <div class="article-note">
+                <em>超材料的核心设计原则</em>：性质由结构决定，而非由成分决定。几何形状的参数空间远比元素周期表更为广阔，这赋予了超材料设计前所未有的自由度——只要力学/电磁/声学方程允许，任何性质原则上都可以被"设计出来"。
+            </div>
+
+            <p>将这一原则推广至机器人系统，便得到超材料机器人的核心命题：<strong>通过对材料微观/介观结构的精密设计，将感知、驱动、计算与控制等功能直接编码进材料的几何构型与力学响应之中，使结构本身成为机器人"智能"的物质基底。</strong>如果传统机器人是"大脑发号施令、四肢奉命行事"，超材料机器人追求的则是"思维融入每一寸肌肤"——运动的逻辑、感知的机制与部分决策的规则，均内嵌于材料几何之中，随结构的制造而一并"出厂"。2024—2025年间，普林斯顿大学"metabot"系统的概念验证、哈佛大学本体感知超材料机器人（proprioceptive metamaterial robot）的实验演示，以及多个课题组实现的实时形态控制超材料（real-time morphological metamaterial），标志着这一理念正在从思想实验走向可重复的工程实践。</p>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════
+             §3  三条技术路线
+             ═══════════════════════════════════════════ -->
+
+        <h2 class="team-section-title">三条技术路线的深度解析</h2>
+
+        <div class="article-body">
+
+            <h3 class="article-h3">一、可编程力学超材料：将运动指令写入几何</h3>
+
+            <p>设想这样一个物体：它静静地折叠成一块比手掌略大的薄片，放在桌上毫不起眼。对它施加一个特定方向的外力，或者通过局部加热引发非均匀膨胀，它开始按照预定顺序缓缓展开——先伸出前臂结构，再逐节展开关节，最终形成一个具备多个自由度的完整机械臂。整个过程没有任何电机、液压系统或气动装置介入。驱动这一切的，只是被精心设计进折叠图案之中的力学。这不是魔术，而是<strong>折纸超材料（Origami Metamaterials）</strong>与<strong>剪纸超材料（Kirigami Metamaterials）</strong>在机器人系统中的直接应用。</p>
+
+            <p>折纸/剪纸超材料的设计逻辑本质上是一种<strong>运动学编程</strong>：通过在平面薄片上布置折叠线（crease pattern）与切割图案（cut pattern），设计者将材料在三维空间中的展开路径预先约束为特定的运动学曲线。更深刻的是，通过将折纸单元设计为具有两个或多个势能极小值的<strong>多稳态（multistable）</strong>结构，可以在不同稳定构型之间实现快速跳变——类似于双稳态的弹性跳板在越过势垒后骤然翻转。这种跳变速度远超传统执行器的响应带宽，且无需持续供能维持状态，与神经元动作电位的"全或无"触发机制在功能逻辑上高度相似。</p>
+
+            <p>刚度各向异性的精确调控是可编程力学超材料另一重要的设计维度。传统均质弹性体的泊松比范围受连续介质力学约束在 −1 至 0.5 之间，弯曲刚度与扭转刚度之比也难以超出较小的倍数范围。而特定的三维折纸构型可以在设计层面彻底解耦这两种刚度——实验已证明，某些构型的扭转刚度可达弯曲刚度的 <strong>52倍</strong>，为机械臂设计提供了传统材料无法企及的参数空间：需要扭转时极硬、需要弯曲时极软的"定向刚度"末端执行器，在这一框架内成为可能。</p>
+
+            <h3 class="article-h3">二、声学超材料与分布式感知：让材料"倾听"</h3>
+
+            <p>机器人皮肤面临一个长期未解的工程矛盾：要实现真正意义上的全身触觉感知，传感器的分辨率与覆盖面积之间存在根本性冲突——密集的传感器阵列意味着庞大的走线系统、繁复的信号处理链路与难以避免的电磁干扰。声学超材料为这一困境提供了一条绕行路径：将感知的"工作"前移到材料的几何结构中，通过材料对声/振动信号的选择性响应，实现无需密集电子元件的分布式感知。</p>
+
+            <p>这一方法的物理基础在于声学超材料独特的频率选择特性。亥姆霍兹共鸣腔（Helmholtz resonator）是其中最具代表性的基础单元：由颈管与腔体构成的亚波长共振结构，能够对特定频率的声波产生强烈的局域共振响应，将该频率附近的声能高效吸收或反射，同时对其他频率几乎透明。将不同谐振频率的腔体阵列嵌入机器人皮肤，外部力学刺激（接触、压力、滑移）在材料中激发的振动响应将被不同腔体以"频率指纹"的形式编码——中央处理器只需分析一路振动信号的频谱，即可重建出分布于整个皮肤表面的力学状态图，而无需逐点读取成千上万个传感器的输出。</p>
+
+            <div class="data-row">
+                <div class="data-item">
+                    <span class="data-num">98.96%</span>
+                    <span class="data-label">触觉感知精度<br>（标准测试条件）</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-num">4.2 dB</span>
+                    <span class="data-label">环境噪声抑制量<br>（同一结构兼顾降噪）</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-num">52×</span>
+                    <span class="data-label">折纸构型的扭转/<br>弯曲刚度各向异性比</span>
+                </div>
+            </div>
+
+            <p>上述方法同时带来了一个颇具意义的副产品：同一超材料结构在提供高精度感知的同时，也对环境噪声表现出显著的抑制效果——已有实验体系中，两者之间可达 <strong>4.2 dB</strong> 的降噪量与 <strong>98.96%</strong> 的感知精度并存。然而，感知带宽与频率选择性之间本质上存在权衡关系：共振腔的品质因子越高，对特定频率的感知越灵敏，对宽带信号的响应则越差。如何在宽频传感能力、定点感知精度与环境噪声鲁棒性三者之间实现协同优化，是该方向当前最核心的设计挑战之一。</p>
+
+            <h3 class="article-h3">三、磁控与多场响应超材料：用不可见的场编程运动</h3>
+
+            <p>想象一个医疗场景：一个直径仅数百微米的微型机器人在血管中游动，无需携带电池，无需体内导线，仅凭体外磁场的远程引导，就能穿越复杂的血管网络，精准定位到肿瘤组织旁边，按指令释放药物，随后降解消失。这不是遥远的科幻，而是磁控超材料机器人领域正在实验室中逐步验证的技术路线——其物质基础，是在弹性聚合物基体中嵌入铁磁性颗粒（ferromagnetic particles）所形成的<strong>硬磁软材料（hard-magnetic soft materials）</strong>。</p>
+
+            <p>硬磁软材料的核心设计自由度在于<strong>磁化分布的编程</strong>。在制备阶段，通过在材料尚未固化时施加特定的空间非均匀磁场，可以将不同区域的颗粒磁矩方向"冻结"成预设图案。固化后，当外部施加均匀磁场时，各区域的安培力矩因局部磁矩方向不同而产生差异性形变，驱动整个结构沿预设路径弯曲、扭转或游动——运动轨迹在制备阶段就已写入材料之中。通过实时调节外部磁场的方向、强度与空间分布，可以对材料形变路径进行动态重编程，实现从"单一固定动作"到"实时可编程形态控制"的跃升。</p>
+
+            <p>除磁场外，温度场（形状记忆聚合物的热驱动）、电场（介电弹性体的麦克斯韦应力）与气压（气动网络结构）均已被用于构建多场响应超材料的驱动机制。多场协同——例如磁场控制宏观形态、气压调节局部刚度——则进一步拓展了可实现的运动学空间，为软体机器人提供了刚柔切换、多模态运动等传统执行器难以实现的特性。这类系统由于不依赖机械传动链路，在深海探测、微创手术等传统机电系统难以进入的极端环境中展现出独特优势。</p>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════
+             §4  开放的科学问题
+             ═══════════════════════════════════════════ -->
+
+        <h2 class="team-section-title">前沿挑战：三个尚待解答的核心命题</h2>
+
+        <div class="article-body">
+
+            <p>超材料机器人方向的学术魅力，很大程度上来自它正处于"知识生产的最前沿"——大量基础问题尚无公认答案，许多工具尚待发明，许多理论框架尚未成形。以下三个命题是当前领域内公认的核心挑战，也是最值得青年研究者深度投入的方向。</p>
+
+            <h3 class="article-h3">一、AI 驱动的逆向结构设计</h3>
+
+            <p>超材料设计的正问题——给定几何，预测性质——在有限元等数值方法的支撑下已相对成熟。然而，工程师真正需要的往往是逆问题：<strong>给定目标性质，自动生成满足约束的几何结构</strong>。这一逆向设计（inverse design）问题，在传统拓扑优化框架下面临计算成本高昂（每次梯度迭代均需完整的有限元求解）与多解性（相同性质对应的几何形式往往不唯一）的双重制约，难以实用化。</p>
+
+            <p>深度生成模型——特别是基于扩散过程（diffusion-based generative models）和几何深度学习（geometric deep learning）的方法——为逆向设计开辟了新路径：通过从大规模结构-性质数据库中学习隐式映射，模型能够在秒级时间内生成具备目标性质的候选结构，其推理效率比传统拓扑优化快出数个数量级。然而，一个深刻的张力尚未解决：<strong>生成模型的统计泛化能力，与物理约束的严格性之间存在根本性冲突。</strong>满足数据分布的生成样本，不一定满足连续介质力学方程；具有高多样性的采样空间，往往意味着难以保证的制造可行性。如何将物理先验硬性嵌入生成过程（physics-informed generation）而非事后过滤，是当前AI辅助超材料设计领域最核心的开放问题。</p>
+
+            <h3 class="article-h3">二、分布式控制理论</h3>
+
+            <p>传统机器人控制以集中式架构为主流：所有传感器数据汇聚至中央控制器，统一计算控制指令后下发至各执行器。这一架构在超材料机器人中面临根本性的扩展性瓶颈：当系统由数百乃至数千个具有局部感知与局部驱动能力的超材料单元构成时，全局通信的带宽需求与延迟问题将使集中式方案不可行。</p>
+
+            <p>真正的超材料机器人需要一种截然不同的控制哲学：<strong>仅依靠局部信息（邻居状态、局部力学量）的局部控制律，涌现出整体系统的目标行为</strong>。这一问题的数学本质横跨非线性动力学、图上的分布式算法与多智能体强化学习，目前既无统一的理论框架，也缺乏系统性的分析工具。既有分布式控制理论主要针对线性或弱非线性系统，对超材料单元之间强烈的几何非线性耦合缺乏处理能力；数据驱动方法在状态空间庞大、物理约束隐含的设置下又面临样本效率与可解释性的双重困境。这是超材料机器人走向真正自主的关键理论瓶颈，也是控制理论领域向材料科学提出的一道新命题。</p>
+
+            <h3 class="article-h3">三、多材料制造与跨尺度集成</h3>
+
+            <p>超材料机器人的功能实现，在制造层面要求将至少三个量级的特征尺度整合于同一系统：亚毫米级的传感谐振结构、毫米至厘米级的可编程力学单元，以及厘米至分米级的承载骨架与外形。这一跨尺度集成的难度，远超单一尺度的精密制造。</p>
+
+            <p>现有多材料增材制造（multi-material additive manufacturing）技术——包括PolyJet打印、直写式打印（DIW）与双光子聚合（two-photon polymerization）——在不同尺度与材料系统上均展现出局部能力，但将高精度微结构、功能性软硬材料界面与宏观结构完整性在单一制造流程中统一实现，目前仍是系统级工程挑战。具体而言，三个子问题尤为突出：刚性传感单元与柔性驱动基体之间的界面结合强度不足，往往在有限次循环变形后发生分层失效；微尺度结构的尺寸精度受制于打印分辨率，导致声学谐振频率的实测值与设计值存在系统性偏差；以及多材料打印中不同材料固化收缩率差异引发的残余应力与翘曲，这在大幅面多稳态结构中尤为棘手。</p>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════
+             §5  研究机遇
+             ═══════════════════════════════════════════ -->
+
+        <h2 class="team-section-title">研究机遇：为什么是现在，为什么是你</h2>
+
+        <div class="article-body">
+
+            <p>一个研究方向的最佳入场时机，往往不是它已成熟完善之时，而是它刚刚具备足够工具基础、核心问题开始清晰、但答案尚未写定之际。超材料机器人恰好处于这样的节点。"Metamaterial Robotics"作为一个明确的研究子领域，2020年前后才开始在顶级期刊中频繁出现；<em>Science Robotics</em>、<em>Nature Materials</em>、<em>Advanced Materials</em> 等刊物在过去三年间发表的相关综述性文章本身就指示了一个新的学科细分正在成形。这意味着：今天加入这一方向的研究者，有机会定义它的基础概念、建立它的分析范式，而不仅仅是在已有框架内做增量工作。</p>
+
+            <p>这个方向另一个不多见的特质，是它真正的跨学科开放性——这里的"跨学科"不是指需要同时精通所有领域，而是指不同知识背景的人可以在各自擅长的切面上做出实质贡献，并且这些切面之间存在真实的协作需求。</p>
+
+            <ul class="path-list">
+                <li>
+                    <span class="path-bg">力学 / 材料</span>
+                    可编程结构的力学建模、多稳态单元的能量分析、各向异性刚度的拓扑优化，是该方向的理论核心，需要扎实的连续介质力学与结构力学基础。
+                </li>
+                <li>
+                    <span class="path-bg">物理</span>
+                    声学超材料的波动理论、拓扑力学（topological mechanics）中受保护的边界态、硬磁软材料的磁弹耦合场方程，均需要深厚的物理直觉与数学工具。
+                </li>
+                <li>
+                    <span class="path-bg">电气 / 自控</span>
+                    分布式感知的信号处理与融合、多场驱动系统的闭环控制、多智能体协同控制律的设计，是将材料智能转化为系统级功能的关键工程环节。
+                </li>
+                <li>
+                    <span class="path-bg">计算机 / AI</span>
+                    逆向结构设计中的生成模型、物理信息神经网络（PINN）在非线性力学中的应用、强化学习在分布式控制中的探索，为该方向提供了日益重要的算法支撑。
+                </li>
+                <li>
+                    <span class="path-bg">实验 / 制造</span>
+                    多材料 3D 打印工艺的开发、磁化编程流程的建立、力学表征与高速摄影的实验方法，是将理论方案转化为可测试样机的核心能力。
+                </li>
+            </ul>
+
+            <p>从应用端来看，超材料技术的产业转化在过去三年间明显加速。软体机器人与超材料抓手已开始出现在工业分拣与外科辅助设备的原型验证中；磁控微型机器人的体内导航实验已进入动物实验阶段；声学超材料降噪面板正被纳入新一代静音建筑与精密测量室的设计规范；轻量化折纸结构在航空航天可展开机构中的探索也在持续推进。这意味着，在这个方向接受的系统性训练——结构设计、多物理场分析、实验表征、智能算法——兼具坚实的学术深度与清晰的工业出口，无论最终走向学术研究还是技术开发，均构成竞争力显著的核心能力组合。</p>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════
+             §6  课题组招募
+             ═══════════════════════════════════════════ -->
+
+        <h2 class="team-section-title">加入我们</h2>
+
+        <div class="article-body" style="margin-bottom: 36px;">
+
+            <p><strong>【课题组名称】</strong>长期专注于超材料机器人这一前沿交叉领域，依托完善的实验平台与计算基础设施，当前重点推进以下方向：<strong>【主要研究方向1】</strong>、<strong>【主要研究方向2】</strong>、<strong>【主要研究方向3】</strong>。课题组与国内外顶尖研究机构保持深度合作，在 <em>Nature</em> 系列、<em>Science Robotics</em>、<em>Advanced Materials</em>、<em>CMAME</em> 等一流期刊持续发表研究成果，并承担多项国家级重大科研任务，为成员提供充分的学术展示与成长平台。</p>
+
+            <p>我们诚挚邀请具备力学、材料、物理、电气、计算机等相关背景的<strong>【招募对象：本科生/硕士生/博士生】</strong>加入。超材料机器人是一个值得用数年时光深耕的方向——它足够年轻，使你有机会提出真正原创的问题；它足够广阔，使来自不同背景的你能够找到属于自己的切入点；它足够重要，使你的工作有机会影响机器人技术乃至材料科学未来几十年的走向。大脑与身体的界限正在消融，材料与计算的融合正在发生——这是一个足以定义一代研究者学术生涯的历史节点。</p>
+
+            <p style="color: var(--text-light);">有一种机器人，它的身体就是它的大脑。如果这句话也让你心动，欢迎联系我们。</p>
+
+        </div>
+
+        <div class="recruit-cta">
+            <p class="cta-title">联系与加入</p>
+            <p class="cta-sub">"我们研究的不只是材料，而是智能的边界究竟在哪里。"</p>
+            <p>招募对象：<strong>【招募对象：本科生/硕士生/博士生】</strong></p>
+            <p>联系方式：<strong>【联系方式：邮箱/微信】</strong></p>
+            <p>课题组主页：<strong>【实验室网站链接】</strong></p>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="../script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>

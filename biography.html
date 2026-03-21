@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Xiaoya Zhai, USTC, TU Delft, CUHK, biography, TopOpt Group">
+    <meta name="description" content="Biography of Xiaoya Zhai – USTC TopOpt Group">
+    <title>Biography – Xiaoya Zhai</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css?version=1.0.23" rel="stylesheet">
+    <link href="Mobile_style2.css?version=1.0.23" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        .bio-section { margin-bottom: 48px; }
+        .bio-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.10em;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .bio-entry {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            align-items: start;
+        }
+        .bio-entry:first-of-type { border-top: none; }
+        .bio-entry-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+        .bio-entry-role {
+            font-size: 15px;
+            color: var(--primary-color);
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+        .bio-entry-detail {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        .bio-entry-detail a {
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .bio-entry-detail a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        .bio-entry-year {
+            font-size: 13px;
+            color: var(--text-light);
+            white-space: nowrap;
+            padding-top: 3px;
+        }
+        .bio-award-list {
+            border-top: 1px solid var(--border-color);
+        }
+        .bio-award-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .bio-award-item::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+        .bio-service-group { margin-bottom: 24px; }
+        .bio-service-group-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        .bio-service-text {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        .bio-service-text a {
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .bio-service-text a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        .bio-interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .bio-interest-tag {
+            padding: 6px 16px;
+            background: #dbeafe;
+            color: #2563eb;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+        @media (max-width: 768px) {
+            .bio-entry { grid-template-columns: 1fr; gap: 4px; }
+            .bio-entry-year { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./team.html" class="active">Team</a></li>
+                <li><a href="./research.html">Research</a></li>
+                <li><a href="./publication.html">Publications</a></li>
+                <li><a href="./teaching.html">Teaching</a></li>
+                <li><a href="./resources.html">Resources</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <div class="page-title-bar">
+            <h1>Xiaoya Zhai</h1>
+            <p>Assistant Professor &nbsp;·&nbsp; School of Mathematical Sciences, University of Science and Technology of China</p>
+        </div>
+
+        <!-- Research Interests -->
+        <div class="bio-section">
+            <p class="bio-section-title">Overall introduction</p>
+              <!-- About Me Image -->
+            <div class="bio-section" style="text-align: center;">
+                <img src="cover/aboutMe.png" alt="About Me" style="width: 100%; max-width: 1000px; height: auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); display: block; margin: 0 auto;">
+            </div>
+        </div>
+
+      
+
+        <!-- Employment -->
+        <div class="bio-section">
+            <p class="bio-section-title">Employment</p>
+
+            <div class="bio-entry">
+                <div>
+                    <div class="bio-entry-title">Graphics &amp; Geometric Computing Laboratory, School of Mathematical Sciences, USTC</div>
+                    <div class="bio-entry-role">Assistant Professor</div>
+                    <div class="bio-entry-detail">Topic: AI for Microstructures design; Computer aided geometric design</div>
+                </div>
+                <div class="bio-entry-year">Aug. 2023 – Present</div>
+            </div>
+
+            <div class="bio-entry">
+                <div>
+                    <div class="bio-entry-title">Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong</div>
+                    <div class="bio-entry-role">Research Associate</div>
+                    <div class="bio-entry-detail">Cooperation Supervisor: <a href="https://scholar.google.com.hk/citations?user=mv9ZdOsAAAAJ&hl=zh-TW">Prof. Wei-Hsin Liao</a><br>Topic: Negative Poisson's ratio structure design</div>
+                </div>
+                <div class="bio-entry-year">Sep. 2022 – Aug. 2023</div>
+            </div>
+
+            <div class="bio-entry">
+                <div>
+                    <div class="bio-entry-title">Graphics &amp; Geometric Computing Laboratory, School of Mathematical Sciences, USTC</div>
+                    <div class="bio-entry-role">Postdoctoral Fellow</div>
+                    <div class="bio-entry-detail">Cooperation Supervisors: <a href="https://scholar.google.com/citations?user=NsYjSNcAAAAJ&hl=en">Prof. Falai Chen</a>, <a href="https://www.researchgate.net/profile/Linghui-He-3/research">Prof. Linghui He</a><br>Topic: Microstructures design</div>
+                </div>
+                <div class="bio-entry-year">May. 2021 – Aug. 2023</div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="bio-section">
+            <p class="bio-section-title">Education</p>
+
+            <div class="bio-entry">
+                <div>
+                    <div class="bio-entry-title">Graphics &amp; Geometric Computing Laboratory, School of Mathematical Sciences, USTC</div>
+                    <div class="bio-entry-role">Ph.D.</div>
+                    <div class="bio-entry-detail">Supervisor: <a href="https://scholar.google.com/citations?user=NsYjSNcAAAAJ&hl=en">Prof. Falai Chen</a><br>Topic: Structural Design and Path Planning in Additive Manufacturing</div>
+                </div>
+                <div class="bio-entry-year">Jul. 2015 – May. 2021</div>
+            </div>
+
+            <div class="bio-entry">
+                <div>
+                    <div class="bio-entry-title">Department of Sustainable Design Engineering, Delft University of Technology, The Netherlands</div>
+                    <div class="bio-entry-role">Joint Doctoral Training</div>
+                    <div class="bio-entry-detail">Supervisor: <a href="http://homepage.tudelft.nl/z0s1z/">Prof. Jun Wu</a><br>Topic: Topology optimization of differentiable microstructures</div>
+                </div>
+                <div class="bio-entry-year">Sep. 2019 – Mar. 2021</div>
+            </div>
+
+            <div class="bio-entry">
+                <div>
+                    <div class="bio-entry-title">Science of Information &amp; Computation, Northeastern University</div>
+                    <div class="bio-entry-role">Bachelor's Degree</div>
+                </div>
+                <div class="bio-entry-year">Sep. 2011 – Mar. 2015</div>
+            </div>
+        </div>
+
+        <!-- Honors & Awards -->
+        <div class="bio-section">
+            <p class="bio-section-title">Honors &amp; Awards</p>
+            <div class="bio-award-list">
+                <div class="bio-award-item">入选中国工业与应用数学学会几何计算专委会（CSIAM GDC）优秀青年学者激励计划, 2026 </div>
+                <div class="bio-award-item">入选中国工业与应用数学学会青年人才托举项目（合作导师：包刚院士）, 2025 </div>
+                <div class="bio-award-item">入选中国科学技术大学仲英青年学者项目, 2025 </div>
+                <div class="bio-award-item">Outstanding Ph.D. Thesis Award of Chinese Academy of Sciences, 2022 <span style="color: var(--text-light); margin-left: 6px; font-size: 14px;">（中国科学院百篇优博论文）</span></div>
+                <div class="bio-award-item">Outstanding Graduates of USTC, 2021 <span style="color: var(--text-light); margin-left: 6px; font-size: 14px;">（中国科学技术大学优秀毕业生）</span></div>
+                <div class="bio-award-item">Ph.D. Dissertation Excellence Program, 2020 <span style="color: var(--text-light); margin-left: 6px; font-size: 14px;">（中国科学技术大学博士论文创优计划）</span></div>
+                <div class="bio-award-item">National Scholarship in China, 2017 &amp; 2014</div>
+                <div class="bio-award-item">Meritorious Winner of MCM/ICM, 2014</div>
+            </div>
+        </div>
+
+        <!-- Academic Services -->
+        <div class="bio-section">
+            <p class="bio-section-title">Academic Services</p>
+
+            <div class="bio-service-group">
+                <div class="bio-service-group-label">Reviewer for Journals</div>
+                <div class="bio-service-text">
+                    <a href="https://www.sciencedirect.com/journal/computer-aided-design">CAD</a>,
+                    <a href="https://www.sciencedirect.com/journal/computer-methods-in-applied-mechanics-and-engineering">CMAME</a>,
+                    <a href="https://www.sciencedirect.com/journal/additive-manufacturing">AM</a>,
+                    <a href="https://onlinelibrary.wiley.com/journal/10970207">IJNME</a>,
+                    <a href="https://www.springer.com/journal/158">SMO</a>,
+                    <a href="https://www.springer.com/journal/366">EC</a>,
+                    <a href="https://www.springer.com/journal/371">VC</a>,
+                    <a href="https://www.tandfonline.com/journals/nvpp20">VPP</a>, etc.
+                </div>
+            </div>
+
+            <div class="bio-service-group">
+                <div class="bio-service-group-label">Organizations</div>
+                <div class="bio-service-text" style="margin-bottom: 8px;">
+                    <a href="http://gcl.ustc.edu.cn/Courses/SummerSchool_2023/index.html">Topology Optimization Section of Advances in Computer Graphics</a>, USTC, 2023
+                    <span style="color: var(--text-light);">（中国科学技术大学《计算机图形学前沿》课程）</span>
+                </div>
+                <div class="bio-service-text">
+                    Seminar on Frontiers of Mathematics and Interdisciplinarity, USTC, 2023
+                    <span style="color: var(--text-light);">（中国科学技术大学《数学与交叉学科前沿研讨会》）</span>
+                </div>
+            </div>
+
+            <div class="bio-service-group">
+                <div class="bio-service-group-label">Membership</div>
+                <div class="bio-service-text" style="margin-bottom: 6px;">Member of Geometric Design and Calculation Committee of China Society of Industrial and Applied Mathematics <span style="color: var(--text-light);">（中国工业与应用数学学会几何设计与计算专业委员会委员 / GDC专委）</span></div>
+                <div class="bio-service-text" style="margin-bottom: 6px;">Executive Member, CCF Professional Committee <span style="color: var(--text-light);">（CCF专业委员会执行委员 / CAD&amp;CG专委）</span></div>
+                <div class="bio-service-text" style="margin-bottom: 6px;">GAMES: Graphics And Mixed Environment Symposium, Professional Committee <span style="color: var(--text-light);">（GAMES执行委员）</span></div>
+                <div class="bio-service-text">安徽省图形计算与感知交互重点实验室，秘书长</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>

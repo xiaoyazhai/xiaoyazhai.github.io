@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="zoom-init.js"></script>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Xiaoya Zhai, USTC, TU Delft, CUHK, TopOpt Group, Topology optimization"> 
+    <meta name="description" content="Xiaoya Zhai&#39;s homepage">
+    <title>Team-USTC-TopOpt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="style.css?version=1.0.23" rel="stylesheet">
+    <link href="Mobile_style2.css?version=1.0.23" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        .group-photo-section { margin-top: 8px; }
+
+        .group-photo-wrap {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 36px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.08);
+            line-height: 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .group-photo-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.5s ease;
+        }
+
+        .group-photo-wrap:hover img {
+            transform: scale(1.015);
+        }
+
+        .group-photo-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 28px 28px 20px;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.20) 60%, transparent 100%);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 1.4;
+        }
+
+        .group-photo-caption i {
+            font-size: 18px;
+            opacity: 0.85;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+
+        /* Avatar positioning adjustments */
+        .avatar-move-down img {
+            object-position: center 15% !important;
+        }
+        .avatar-move-up img {
+            object-position: center 85% !important;
+        }
+        .avatar-center img {
+            object-position: center center !important;
+        }
+        .avatar-zoom-in img {
+            transform: scale(1.15) !important;
+        }
+        .avatar-zoom-in-lg img {
+            transform: scale(1.25) !important;
+        }
+        .avatar-shrink img {
+            transform: scale(0.85) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./team.html" class="active">Team</a></li>
+                <li><a href="./research.html">Research</a></li>
+                <li><a href="./publication.html">Publications</a></li>
+                <li><a href="./teaching.html">Teaching</a></li>
+                <li><a href="./resources.html">Resources</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <!-- Principal Investigator -->
+        <h2 class="team-section-title">Faculty</h2>
+        <div class="faculty-card">
+            <div class="faculty-left">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-teachers/Xiaoya Zhai.png" alt="Xiaoya Zhai" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Xiaoya Zhai</h4>
+                <span class="team-role">Assistant Professor, USTC</span>
+                <span class="faculty-dept">School of Mathematical Sciences</span>
+                <div class="team-links">
+                    <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" title="Homepage"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+            <div class="faculty-right">
+                <p class="faculty-bio">Dr. Xiaoya Zhai advances high-performance, manufacturable architectures that also provide rich physical sensing and interaction, integrating materials, structures, and intelligence toward a more sustainable future. Her work has led to 40+ publications in leading journals, including <b><i>Nature Communications</i></b>, <b><i>Advanced Science</i></b>, <b><i>Composite Part B</i></b>, <b><i>CMAME</i></b>, etc.</p>
+                <div class="faculty-info-grid">
+                    <div class="faculty-info-item">
+                        <span class="faculty-info-label"><i class="fas fa-flask"></i> Research Interests</span>
+                        <span class="faculty-info-value">Topology Optimization, Isogeometric Analysis, Additive Manufacturing, Machine Learning for Design</span>
+                    </div>
+                    <div class="faculty-info-item">
+                        <span class="faculty-info-label"><i class="fas fa-graduation-cap"></i> Education</span>
+                        <span class="faculty-info-value">Postdoc, CUHK (2023) · Ph.D., TU Delft&USTC (2021)</span>
+                    </div>
+                </div>
+                <div style="margin-top: 24px; display: flex; justify-content: flex-start;">
+                    <a href="./biography.html" style="display: inline-flex; align-items: center; gap: 7px; padding: 8px 18px; background: var(--primary-color); color: #fff; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; letter-spacing: 0.02em; box-shadow: 0 2px 8px rgba(101, 147, 245, 0.22); transition: background 0.2s, transform 0.15s;" onmouseover="this.style.background='#1d4ed8';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--primary-color)';this.style.transform='none'">
+                        Detailed biography <i class="fas fa-arrow-right" style="font-size: 11px;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Collaborating Faculty -->
+        <h2 class="team-section-title" style="margin-top: 40px;">Collaborating Faculty</h2>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px;">
+
+
+
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-teachers/Falai Chen.jpg" alt="Falai Chen" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Falai Chen</h4>
+                <span class="team-role">Professor · USTC</span>
+                <div class="team-links">
+                    <a href="mailto:chenfl@ustc.edu.cn" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="http://staff.ustc.edu.cn/~chenfl/" title="Homepage" target="_blank"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-teachers/Ligang Liu.png" alt="Ligang Liu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Ligang Liu</h4>
+                <span class="team-role">Professor · USTC</span>
+                <div class="team-links">
+                    <a href="mailto:lgliu@ustc.edu.cn" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="http://staff.ustc.edu.cn/~lgliu/" title="Homepage" target="_blank"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+
+            
+
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-teachers/Bin Xu.png" alt="Bin Xu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Bin Xu</h4>
+                <span class="team-role">Professor · USTC</span>
+                <div class="team-links">
+                    <a href="bxu@ustc.edu.cn" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://faculty.ustc.edu.cn/xubin1/zh_CN/index.htm/" title="Homepage" target="_blank"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+
+
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-teachers/Xiao-Ming Fu.jpg" alt="Xiao-Ming Fu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Xiao-Ming Fu</h4>
+                <span class="team-role">Associate Professor · USTC</span>
+                <div class="team-links">
+                    <a href="mailto:fuxm@ustc.edu.cn" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://ustc-gcl-f.github.io/" title="Homepage" target="_blank"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- PhD Students -->
+        <h2 class="team-section-title">PhD Students</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Jiacheng Han.png" alt="Jiacheng Han" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Jiacheng Han</h4>
+                <span class="team-role">PhD Student · 2023–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Lili Wang.png" alt="Lili Wang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Lili Wang</h4>
+                <span class="team-role">PhD Student · 2022–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Tianjie Chen.jpg" alt="Tianjie Chen" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Tianjie Chen</h4>
+                <span class="team-role">PhD Student · 2025–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Qingyu Xu.jpg" alt="Qingyu Xu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Qingyu Xu</h4>
+                <span class="team-role">PhD Student · 2025–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Zenghao Xu.jpg" alt="Zenghao Xu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Zenghao Xu</h4>
+                <span class="team-role">PhD Student · 2020–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Yajun Zeng.jpg" alt="Yajun Zeng" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Yajun Zeng</h4>
+                <span class="team-role">PhD Student · 2024–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Jing Zhang.jpg" alt="Jing Zhang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Jing Zhang</h4>
+                <span class="team-role">PhD Student · 2024–</span>
+            </div>
+        </div>
+
+        <!-- Master Students -->
+        <h2 class="team-section-title">Master Students</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Tianyu Li.jpg" alt="Tianyu Li" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Tianyu Li</h4>
+                <span class="team-role">Master Student · 2024–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Tianyang Sun.jpg" alt="Tianyang Sun" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Tianyang Sun</h4>
+                <span class="team-role">Master Student · 2023–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Enhao Zhang.jpg" alt="Enhao Zhang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Enhao Zhang</h4>
+                <span class="team-role">Master Student · 2024–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Jiayu Hu.jpg" alt="Jiayu Hu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Jiayu Hu</h4>
+                <span class="team-role">Master Student · 2023–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-center avatar-zoom-in"><img src="picture-students/Xinhan Yuan.jpg" alt="Xinhan Yuan" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Xinhan Yuan</h4>
+                <span class="team-role">Master Student · 2023–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Tielin Dai.jpg" alt="Tielin Dai" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Tielin Dai</h4>
+                <span class="team-role">Master Student · 2023–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Tianxiang Fu.jpg" alt="Tianxiang Fu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Tianxiang Fu</h4>
+                <span class="team-role">Master Student · 2024–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Chang Liu.jpg" alt="Chang Liu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Chang Liu</h4>
+                <span class="team-role">Master Student · 2025–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Bingqian An.jpg" alt="Bingqian An" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Bingqian An</h4>
+                <span class="team-role">Master Student · 2025–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-move-up avatar-zoom-in"><img src="picture-students/Zhangrui Wu.jpg" alt="Zhangrui Wu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Zhangrui Wu</h4>
+                <span class="team-role">Master Student · 2025–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Chen Shang.jpg" alt="Chen Shang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Chen Shang</h4>
+                <span class="team-role">Master Student · 2023–</span>
+            </div>
+        </div>
+
+        <h2 class="team-section-title">Bachelor Students</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Yifeng Hu.jpg" alt="Yifeng Hu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Yifeng Hu</h4>
+                <span class="team-role">Bachelor Student · 2023–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Chong Jiang.jpg" alt="Chong Jiang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Chong Jiang</h4>
+                <span class="team-role">Bachelor Student · 2022–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Baobin Shao.jpg" alt="Baobin Shao" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Baobin Shao</h4>
+                <span class="team-role">Bachelor Student · 2022–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Tianjian Zhou.jpg" alt="Tianjian Zhou" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Tianjian Zhou</h4>
+                <span class="team-role">Bachelor Student · 2022–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Yanfu Wang.jpg" alt="Yanfu Wang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Yanfu Wang</h4>
+                <span class="team-role">Bachelor Student · 2022–</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Yang Shen.jpg" alt="Yang Shen" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <h4>Yang Shen</h4>
+                <span class="team-role">Bachelor Student · 2024–</span>
+            </div>
+        </div>
+
+        <h2 class="team-section-title">Alumni</h2>
+        <ul class="alumni-list">
+            <li><span class="alumni-name">Qiong Pan</span><span class="alumni-meta">PhD · 2021–2025</span></li>
+            <li><span class="alumni-name">Di Zhang</span><span class="alumni-meta">PhD · 2021–2025</span></li>
+            <li><span class="alumni-name">Yihui Ye</span><span class="alumni-meta">Master · 2023–2025</span></li>
+            <li><span class="alumni-name">Lingfeng Li</span><span class="alumni-meta">Master · 2023–2025</span></li>
+            <li><span class="alumni-name">Jingxuan Feng</span><span class="alumni-meta">Master · 2022–2025</span></li>
+            <li><span class="alumni-name">Nan Zheng</span><span class="alumni-meta">PhD · 2021–2024</span></li>
+            <li><span class="alumni-name">Hang Dong</span><span class="alumni-meta">Master · 2022–2024</span></li>
+        </ul>
+
+
+        
+        <hr class="content-divider">
+
+        <section class="group-photo-section">
+            <h2 class="team-section-title">Group Photo</h2>
+            <div class="group-photo-wrap">
+                <img src="cover/group.png" alt="USTC TopOpt Group Photo">
+                <div class="group-photo-caption">
+                    <i class="fas fa-users"></i>
+                    USTC TopOpt Group · 2025
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>

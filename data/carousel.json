@@ -1,0 +1,39 @@
+{
+  "slides": [
+    {
+      "id": 1,
+      "image": "./indexpics/3D micro.png",
+      "title": "GPU-Accelerated Inverse Homogenization Solver",
+      "description": "High-performance GPU solver for designing high-resolution 3D microstructures. Optimizes 512³ ≈ 134.2 million finite elements in less than 40 seconds per iteration with only 9 GB GPU memory.",
+      "date": "2023-10"
+    },
+    {
+      "id": 2,
+      "image": "./indexpics/2023-surface_ana.png",
+      "title": "Differentiable Microstructures Design",
+      "description": "Novel approach for designing 2D/3D differentiable microstructures with continuous volume fractions. Achieving bulk modulus very close to the Hashin-Shtrikman upper bound.",
+      "date": "2024-03"
+    },
+    {
+      "id": 3,
+      "image": "./indexpics/LMPA_HIGH.png",
+      "title": "Low-Melting-Point Alloys 3D Printing",
+      "description": "Innovative extrusion additive manufacturing strategy for fabricating complex LMPA components. First successful fabrication of very complex structures using dual-nozzle system.",
+      "date": "2023-08"
+    },
+    {
+      "id": 4,
+      "image": "./indexpics/2024-Near.png",
+      "title": "Near-Isotropic Extreme-Stiffness Metamaterials",
+      "description": "Three continuous 3D mechanical metamaterial sequences achieving over 98% of the Hashin-Shtrikman upper bounds. Represented by implicit neural functions for resolution-free design.",
+      "date": "2024-06"
+    },
+    {
+      "id": 5,
+      "image": "./indexpics/teaser2.png",
+      "title": "Topology Optimization Research Overview",
+      "description": "Comprehensive research on topology optimization, microstructures design, and advanced manufacturing techniques. Bridging computational design and physical fabrication.",
+      "date": "2024-01"
+    }
+  ]
+}
