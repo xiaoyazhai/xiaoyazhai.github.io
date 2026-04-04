@@ -1,0 +1,574 @@
+/* ============================================================
+   Mobile_style2.css  –  Mobile / Responsive Overrides
+   Breakpoints: 768px (tablet), 480px (phone), 360px (small phone)
+   ============================================================ */
+
+/* ── 1. Hamburger Menu (critical – missing in style.css) ─────── */
+@media (max-width: 768px) {
+
+    /* Show the toggle button, remove browser default padding */
+    .nav-toggle {
+        display: block;
+        padding: 0;
+        line-height: 1;
+    }
+
+    /* Hide nav by default on mobile */
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0 16px;
+        z-index: 999;
+    }
+
+    /* Show when .active is toggled by JS */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 12px 24px;
+        font-size: 17px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-menu a::after {
+        display: none;
+    }
+
+    /* Navbar container must be relative so the dropdown positions correctly */
+    .navbar .container {
+        position: relative;
+    }
+}
+
+/* ── 2. Body & Global ────────────────────────────────────────── */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    /* align navbar content with page-body edge (12px margin each side) */
+    .container {
+        padding: 0 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* page-body goes full-width with 16px inner padding → match here */
+    .container {
+        padding: 0 16px;
+    }
+}
+
+/* ── 3. Page Body (sub-pages) ────────────────────────────────── */
+@media (max-width: 768px) {
+    .page-body {
+        width: calc(100% - 24px);
+        padding: 28px 20px;
+        margin: 12px auto 32px;
+        border-radius: 6px;
+    }
+
+    .page-body-standalone {
+        margin-top: 74px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-body {
+        width: 100%;
+        border-radius: 0;
+        margin: 0 auto 24px;
+        padding: 20px 16px;
+    }
+
+    .page-body-standalone {
+        margin-top: 62px;
+    }
+}
+
+/* ── 4. Sub-page Title Bar ───────────────────────────────────── */
+@media (max-width: 768px) {
+    .page-title-bar {
+        margin: -28px -20px 32px;
+        padding: 32px 20px 28px;
+    }
+
+    .page-title-bar h1 {
+        font-size: 28px;
+        letter-spacing: -0.2px;
+    }
+
+    .page-title-bar p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title-bar {
+        margin: -20px -16px 24px;
+        padding: 24px 16px 20px;
+    }
+
+    .page-title-bar h1 {
+        font-size: 24px;
+    }
+}
+
+/* ── 5. Hero Section ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 16px 60px;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+        letter-spacing: -0.3px;
+        margin-bottom: 16px;
+    }
+
+    .hero .tagline {
+        font-size: 18px;
+        margin-bottom: 24px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .keywords {
+        gap: 8px;
+    }
+
+    .chip {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero .tagline {
+        font-size: 16px;
+    }
+}
+
+/* ── 6. Sections ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .section {
+        padding: 48px 0;
+    }
+
+    .section h2 {
+        font-size: 26px;
+    }
+
+    .section-header {
+        margin-bottom: 32px;
+    }
+}
+
+/* ── 7. Team Grid ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .faculty-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── 8. Research / Teaching / OpenSource Grids ───────────────── */
+
+/* Desktop: 4-column research grid (replaces inline style) */
+.research-grid-4col {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .research-grid-4col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .research-grid,
+    .research-grid-4col,
+    .opensource-grid,
+    .teaching-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .research-card {
+        padding: 24px 20px;
+    }
+}
+
+/* ── 9. Publications ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .publication-item {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .pub-thumb {
+        width: 100%;
+        height: 160px;
+    }
+
+    .publication-title {
+        font-size: 16px;
+    }
+}
+
+/* ── 9b. Research Highlights (faculty-card used as highlight row) ── */
+@media (max-width: 768px) {
+    .faculty-card {
+        grid-template-columns: 1fr;
+    }
+
+    .faculty-left {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 20px;
+    }
+
+    .faculty-right {
+        padding: 20px 20px 24px;
+    }
+}
+
+/* ── 10. Biography / Biosketch ───────────────────────────────── */
+@media (max-width: 768px) {
+    .biosketch-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .biosketch-image .image-placeholder {
+        width: 100%;
+        max-width: 260px;
+        height: 260px;
+        margin: 0 auto;
+    }
+
+    .biosketch-content h3 {
+        font-size: 22px;
+    }
+
+    .biosketch-content .lead {
+        font-size: 18px;
+    }
+
+    .stats-row {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .stat-number {
+        font-size: 30px;
+    }
+}
+
+/* ── 11. Contact Grid ────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+/* ── 12. Footer ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .footer-left {
+        text-align: center;
+    }
+
+    .visitor-section {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+/* ── 13. Zoom Controls – hide on touch devices ───────────────── */
+@media (max-width: 768px) {
+    .zoom-controls {
+        display: none;
+    }
+}
+
+/* ── 13c. Resources page ─────────────────────────────────────── */
+
+/* — Opensource cards: keep left-right layout on mobile — */
+@media (max-width: 768px) {
+    .opensource-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Keep horizontal layout, shrink image */
+    .oc-card-inner {
+        flex-direction: row;
+        gap: 14px;
+        align-items: stretch;
+    }
+
+    .opensource-card:has(.oc-card-inner) {
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .opensource-card-img {
+        width: 110px;
+        flex-shrink: 0;
+        align-self: stretch;
+    }
+
+    .opensource-card-img img {
+        width: 110px;
+        height: 100%;
+        min-height: 130px;
+        object-fit: cover;
+        border-radius: 0;
+        display: block;
+    }
+
+    .opensource-card:has(.oc-card-inner) .opensource-card-body {
+        padding: 12px 14px 12px 0;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .opensource-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        margin-bottom: 6px;
+    }
+
+    .oc-title-row {
+        gap: 6px;
+    }
+
+    .oc-title-row i {
+        font-size: 16px;
+    }
+
+    .opensource-card h3 {
+        font-size: 14px;
+        line-height: 1.4;
+        margin-bottom: 4px;
+    }
+
+    .opensource-card p {
+        font-size: 12px;
+        line-height: 1.6;
+        margin-bottom: 8px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .opensource-stats {
+        font-size: 12px;
+    }
+
+    .card-tags {
+        gap: 4px;
+    }
+
+    .opensource-card .tag {
+        font-size: 11px;
+        padding: 2px 8px;
+    }
+
+    .oc-github-btn {
+        display: inline-flex;
+        margin-top: 8px;
+        font-size: 13px;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    .opensource-card-img {
+        width: 90px;
+    }
+
+    .opensource-card-img img {
+        width: 90px;
+    }
+}
+
+/* — Introductory Reading: stack label above link — */
+@media (max-width: 640px) {
+    .reading-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        padding: 14px 4px !important;
+    }
+
+    .reading-label {
+        width: auto !important;
+        text-align: left !important;
+    }
+
+    .reading-content a {
+        font-size: 15px !important;
+    }
+
+    .reading-content > div {
+        font-size: 14px !important;
+    }
+}
+
+/* — Useful Links: stack name above URL — */
+@media (max-width: 640px) {
+    .alumni-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+    }
+
+    .alumni-name {
+        min-width: unset;
+        font-size: 15px;
+    }
+
+    .alumni-meta {
+        font-size: 14px;
+        word-break: break-word;
+    }
+}
+
+/* ── 13b. Back-to-top – mobile position ──────────────────────── */
+@media (max-width: 768px) {
+    #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+}
+
+/* ── 14. Publication Scroll Banner ──────────────────────────── */
+@media (max-width: 600px) {
+    .pub-scroll-banner {
+        display: none;
+    }
+}
+
+/* ── 15. Intro / Project pages ───────────────────────────────── */
+@media (max-width: 768px) {
+    /* intro pages typically use a 2-col layout */
+    .intro-grid,
+    .project-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* wide images inside page body */
+    .page-body img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* tables that overflow */
+    .page-body table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* ── 16. Buttons / CTAs ──────────────────────────────────────── */
+@media (max-width: 480px) {
+    .btn,
+    .cta-btn,
+    .hero-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* ── 17. News items ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .news-item {
+        padding: 16px;
+    }
+
+    .news-grid,
+    .news-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── 18. News archive pages (news-2023/24/25) ────────────────── */
+@media (max-width: 480px) {
+    .news-item-header {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+/* ── 19. Small phone fine-tuning (≤ 360px) ───────────────────── */
+@media (max-width: 360px) {
+    body {
+        font-size: 15px;
+    }
+
+    .page-title-bar h1 {
+        font-size: 22px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .nav-brand span {
+        font-size: 15px;
+    }
+}

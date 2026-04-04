@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Xiaoya Zhai, USTC, TopOpt Group, contact">
+    <meta name="description" content="Contact – USTC TopOpt Group">
+    <title>Contact – USTC-TopOpt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css?version=1.0.23" rel="stylesheet">
+    <link href="Mobile_style2.css?version=1.0.23" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        .contact-overline {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.10em;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* ── Detail list (email / office / hours) ── */
+        .contact-detail-list {
+            border-top: 1px solid var(--border-color);
+        }
+        .contact-detail-item {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 24px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-color);
+            align-items: start;
+        }
+        .contact-detail-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: var(--text-light);
+            padding-top: 3px;
+        }
+        .contact-detail-value {
+            font-size: 16px;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+        .contact-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .contact-link:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* ── Academic profile links ── */
+        .contact-profile-list {
+            border-top: 1px solid var(--border-color);
+        }
+        .contact-profile-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 17px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.18s;
+        }
+        .contact-profile-item:hover { color: var(--primary-color); }
+        .contact-profile-item i {
+            font-size: 12px;
+            color: var(--text-light);
+            transition: color 0.18s;
+        }
+        .contact-profile-item:hover i { color: var(--primary-color); }
+
+        /* ── Join rows ── */
+        .join-row {
+            display: grid;
+            grid-template-columns: 210px 1fr;
+            gap: 48px;
+            padding: 36px 0;
+            border-bottom: 1px solid var(--border-color);
+            align-items: start;
+        }
+        .join-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            padding-top: 2px;
+            line-height: 1.4;
+        }
+        .join-body p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+        .join-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: 0.01em;
+        }
+        .join-link:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+            .join-row { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
+            .contact-detail-item { grid-template-columns: 90px 1fr; gap: 16px; }
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./team.html">Team</a></li>
+                <li><a href="./research.html">Research</a></li>
+                <li><a href="./publication.html">Publications</a></li>
+                <li><a href="./teaching.html">Teaching</a></li>
+                <li><a href="./resources.html">Resources</a></li>
+                <li><a href="./contact.html" class="active">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <!-- Contact info -->
+        <h2 class="team-section-title" style="margin-bottom: 4px;">Xiaoya Zhai</h2>
+        <p style="font-size: 16px; color: var(--text-light); margin-bottom: 32px;">Principal Investigator &nbsp;·&nbsp; Assistant Professor &nbsp;·&nbsp; USTC</p>
+
+        <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-bottom: 72px; align-items: start;">
+
+            <!-- Left: PI details -->
+            <div>
+                <div class="contact-detail-list">
+                    <div class="contact-detail-item">
+                        <span class="contact-detail-label">Email</span>
+                        <span class="contact-detail-value">
+                            <a href="mailto:xiaoyazhai@ustc.edu.cn" class="contact-link">xiaoyazhai@ustc.edu.cn</a>
+                        </span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <span class="contact-detail-label">Office</span>
+                        <span class="contact-detail-value">Room 604, School of Mathematical Sciences,<br>University of Science and Technology of China<br>96 Jinzhai Road, Hefei, Anhui 230026</span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <span class="contact-detail-label">Hours</span>
+                        <span class="contact-detail-value">Workday, 14:00 – 16:00<br><span style="color: var(--text-light); font-size: 15px;">or by appointment</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Map -->
+            <div>
+                <p class="contact-overline">Location</p>
+                <img src="cover/ustc.jpg" alt="University of Science and Technology of China"
+                     style="width: 100%; height: 155px; border-radius: 10px; border: 1px solid var(--border-color); display: block; margin-bottom: 14px; object-fit: cover;">
+                <a href="https://surl.amap.com/56z2Sa291Ay" target="_blank" style="display: block; margin-bottom: 14px;">
+                    <img src="cover/map.png" alt="University of Science and Technology of China"
+                         style="width: 100%; height: 155px; border-radius: 10px; border: 1px solid var(--border-color); display: block; object-fit: cover; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;">
+                </a>
+                <a href="https://surl.amap.com/56z2Sa291Ay"
+                   target="_blank"
+                   style="margin-top: 10px; font-size: 13px; color: var(--text-light); text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
+                    <i class="fas fa-up-right-from-square" style="font-size: 11px;"></i> Open in Gaode Maps
+                </a>
+            </div>
+
+        </div>
+
+
+        <hr class="content-divider">
+
+        <!-- Opening -->
+        <h2 class="team-section-title" style="margin-bottom: 8px;">Opening</h2>
+        <p style="font-size: 17px; color: var(--text-light); line-height: 1.75; margin-bottom: 36px;">We are always looking for motivated individuals. If you are interested in working with us, please read below and get in touch.</p>
+
+        <ul class="news-list">
+            <!-- Row 1: Students -->
+            <li class="news-item" style="border-left: none; border-radius: 0;">
+                <div class="news-date" style="background: none; padding: 10px 6px; min-width: 58px; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                    <span style="font-size: 22px; line-height: 1;">🎓</span>
+                    <span class="news-month">Student</span>
+                </div>
+                <div class="news-content">
+                    <h4>Undergraduate / Master / PhD Student</h4>
+                    <p>-- Research training (SRTP) and mentorship for mathematical modeling competitions (MCM/ICM).</p>
+                    <p>-- Students from mathematics, computer science, mechanical engineering, mechanics, aerospace engineering, and related fields are encouraged to apply for Master’s and PhD positions.</p>
+                    <p>-- Our group offers a supportive and collaborative research environment, strong academic mentoring, opportunities to attend leading conferences, and support for international visits and joint training programs.</p>
+                </div>
+            </li>
+
+            <!-- Row 2: Postdoc -->
+            <li class="news-item" style="border-bottom: none; border-left: none; border-radius: 0;">
+                <div class="news-date" style="background: none; padding: 10px 6px; min-width: 58px; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                    <span style="font-size: 22px; line-height: 1;">🏛️</span>
+                    <span class="news-month">Postdoc</span>
+                </div>
+                <div class="news-content">
+                    <h4>Postdoctoral Fellow</h4>
+                    <p>PhD in computational mechanics, applied mathematics, or a related field. Competitive package and opportunities for international collaboration.</p>
+                </div>
+            </li>
+        </ul>
+
+        <p style="margin: 20px 0 0; font-size: 15px; color: var(--text-light);">
+            To apply, send your CV to
+            <a href="mailto:xiaoyazhai@ustc.edu.cn" style="color: var(--primary-color); font-weight: 600; text-decoration: none;">xiaoyazhai@ustc.edu.cn</a>
+            with the subject <em>"Application — [Position]"</em>.
+        </p>
+
+        <hr class="content-divider">
+        
+        <!-- Slogan Module -->
+        <div class="slogan-section" style="margin-top: 72px; text-align: center; position: relative;">
+            <div style="position: relative; display: inline-block; width: 100%; max-width: 900px;">
+                <!-- Glow effect background -->
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120%; height: 140%; background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 70%); z-index: -1;"></div>
+                
+                <!-- Main slogan image -->
+                <img src="cover/slogan.png" alt="Slogan" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06); display: block; position: relative; z-index: 1; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06)';">
+                
+                <!-- Decorative corner accents -->
+                <div style="position: absolute; top: -2px; left: -2px; width: 60px; height: 60px; border-top: 3px solid linear-gradient(135deg, #3b82f6, #8b5cf6); border-left: 3px solid; border-image: linear-gradient(135deg, #3b82f6, #8b5cf6) 1; border-radius: 16px 0 0 0; pointer-events: none;"></div>
+                <div style="position: absolute; bottom: -2px; right: -2px; width: 60px; height: 60px; border-bottom: 3px solid; border-right: 3px solid; border-image: linear-gradient(315deg, #3b82f6, #8b5cf6) 1; border-radius: 0 0 16px 0; pointer-events: none;"></div>
+            </div>
+            
+            <!-- Subtitle text -->
+            <p style="margin-top: 28px; font-size: 16px; color: var(--text-light); letter-spacing: 0.03em; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Innovation through <span style="color: var(--primary-color); font-weight: 600;">isogeometric analysis</span> ·
+                <span style="color: var(--primary-color); font-weight: 600;">topology optimization</span> ·
+                <span style="color: var(--primary-color); font-weight: 600;">advanced manufacturing</span> ·
+                <span style="color: var(--primary-color); font-weight: 600;">hardware design</span>
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>

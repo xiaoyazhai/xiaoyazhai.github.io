@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script src="../zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="增材制造, 3D打印, 聚合物复合材料, USTC, TopOpt Group">
+    <meta name="description" content="增材制造 – USTC TopOpt Group">
+    <title>增材制造 – USTC-TopOpt</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../style.css?version=1.0.23" rel="stylesheet">
+    <link href="../Mobile_style2.css?version=1.0.23" rel="stylesheet">
+    <script src="../js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+        .essay-body p {
+            font-size: 17px;
+            color: var(--text-light);
+            line-height: 1.85;
+            margin-bottom: 1.2em;
+        }
+        .essay-body p strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .essay-section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 0.04em;
+            margin: 2.2em 0 0.7em;
+        }
+        .essay-callout {
+            border-left: 3px solid #a5b4fc;
+            padding: 16px 24px;
+            margin: 2em 0;
+            background: #fafafa;
+        }
+        .essay-callout p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../research.html" class="active">Research</a></li>
+                <li><a href="../publication.html">Publications</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <!-- ── Page Header ──────────────────────────────────────── -->
+        <div class="page-title-bar">
+            <span class="page-title-eyebrow">研究领域</span>
+            <h1>增材制造</h1>
+            <p>从设计到制造——将制造约束与新型材料集成到优化循环中。</p>
+        </div>
+
+
+        <!-- ═══════════════════════════════════════════════════════════
+             研究方向深度导读
+             ═══════════════════════════════════════════════════════════ -->
+        <hr class="content-divider">
+        <span class="page-title-eyebrow">研究方向导读</span>
+        <h2 class="team-section-title">聚合物与复合材料增材制造：工艺机理、开放挑战与研究路径</h2>
+        <p style="color:#6b7280;font-size:16px;margin:4px 0 20px">面向本科生及研究工作者 · 聚合物与复合材料增材制造课题组</p>
+
+        <!-- 一、背景与研究定位 -->
+        <h3 class="essay-section-title">一、背景与研究定位</h3>
+        <p>增材制造（Additive Manufacturing，AM）以逐层堆积的方式将数字模型直接转化为实体结构，从根本上改变了制造范式。传统减材制造受制于刀具路径与夹具约束，在几何复杂度上存在天然上限；增材制造则在原理层面消除了这一边界，使内嵌点阵、梯度材料分布、随形冷却流道等复杂结构得以直接成形，真正实现设计与制造的一体化闭环。这一特性不仅压缩了从设计概念到实物验证的周期，更为基础研究提供了前所未有的结构可控实验平台。</p>
+
+        <p>在 AM 全技术谱系中，聚合物与复合材料方向兼具材料体系丰富、工艺窗口宽泛与应用场景多元的特点，是当前市场增速最快、科学问题最密集的分支。据 Wohlers Report 数据，全球增材制造市场规模已于 2023 年达到约 <strong>190 亿美元</strong>，预计至 2030 年将超过 <strong>500 亿美元</strong>；其中聚合物材料（含短纤维与连续纤维复合体系）贡献了最大份额的增量。然而，快速商业化的表象之下，工艺参数与打印件最终力学性能之间的定量映射关系至今仍不透明，制约了高性能应用的工程置信度。</p>
+
+        <p>本课题组以<strong>工艺—微结构—性能多尺度关联</strong>为核心研究主线，聚焦于揭示打印过程中热—力—化学耦合机制对材料组织形成的支配规律，建立具备物理可解释性的工艺预测模型，并在此基础上探索连续纤维增强复合材料打印（CFR-AM）的主动调控方法。</p>
+
+        <!-- 二、工艺体系与技术边界 -->
+        <h3 class="essay-section-title">二、工艺体系与技术边界</h3>
+        <p>聚合物增材制造已形成多条并行技术路线，各自具有不同的成形机制、适用材料体系与性能特征。理解各路线的技术边界，是选择研究切入点的前提。</p>
+
+        <ul style="list-style:disc;padding-left:1.5em;color:#6b7280;font-size:16px;line-height:1.8">
+            <li><strong style="color:#111827">FDM（熔融沉积成型）</strong>：通过加热喷嘴将热塑性长丝熔融后按路径挤出，逐层堆积成形。可加工材料涵盖 PLA、ABS、PETG、PC 乃至高性能工程塑料 PEEK、PEI 等；设备成本低、工艺可定制性强，是实验室规模研究最普及的平台。其主要局限在于层间结合质量受热历史控制精度约束，制件各向异性显著，Z 向强度通常仅为 XY 向的 50%–80%。</li>
+            <li><strong style="color:#111827">SLA/DLP（光固化成型）</strong>：利用紫外激光逐点扫描（SLA）或数字光投影（DLP）引发液态光敏树脂的自由基聚合反应，实现逐层固化。该路线突出优势是精度高（特征分辨率可达数十微米）、表面质量好，适用于微流控器件、医疗植入物原型及光学功能结构等精密应用场景。主要限制在于固化体积收缩引入残余应力，以及制件在辐照下存在后固化效应，长期尺寸稳定性需专门考量。</li>
+            <li><strong style="color:#111827">连续纤维增强打印（CFR-AM）</strong>：在 FDM 框架内引入连续碳纤维、玻璃纤维或芳纶纤维束，与热塑性基体同步挤出沉积，使纤维按预设路径连续嵌入基体中。该路线打印件的比强度可接近铝合金，为聚合物 AM 拓展了航空航天、高端运动装备等承力结构应用的可能性，是<strong style="color:#111827">本课题组的核心研究方向</strong>。纤维取向控制精度、界面结合质量及转角处断丝问题，目前仍是制约工程可靠性的关键瓶颈。</li>
+            <li><strong style="color:#111827">SLS（选区激光烧结，聚合物方向）</strong>：以激光选择性熔融粉末床中的聚合物颗粒（PA12/PA11、TPU 等）逐层固化成形，无需支撑结构，粉末自支撑特性使之尤其适合复杂内腔件的批量制造。主要挑战在于粉末老化与循环利用率控制、烧结密度均匀性以及对结晶性聚合物热历史的精确管理。</li>
+        </ul>
+
+        <p>本课题组以 FDM 与 SLA/DLP 为核心实验平台，以连续纤维增强复合材料打印为重点研究方向，围绕上述工艺的共性科学问题开展系统研究。</p>
+
+        <!-- 三、核心科学挑战 -->
+        <h3 class="essay-section-title">三、核心科学挑战</h3>
+
+        </div>
+
+        <div class="research-grid" style="margin-bottom: 28px;">
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>层间结合强度与各向异性</h3>
+                <p>FDM 制件的层间结合本质上是受热历史支配的高分子链扩散—缠结过程：新沉积熔体与下方已冷却层接触后，界面局部温度决定链段迁移率，进而控制扩散深度与缠结密度，最终映射至层间断裂韧性。这一机制使 Z 向强度对打印温度、层厚与冷却速率极为敏感，且不同参数组合在时间—温度等效原理框架下存在内在关联。当前文献已建立若干半经验模型，但多局限于单一材料体系。尚未解决的问题包括：如何在多层堆积的动态热场中实时预测任意界面的扩散状态；基板预热与红外辅助加热等主动热历史设计策略的最优控制律；以及层间断裂由粘接破坏向内聚破坏转变的临界条件。</p>
+                <div class="card-tags">
+                    <span class="tag">各向异性</span>
+                    <span class="tag">界面微结构</span>
+                    <span class="tag">热历史</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-diagram-project"></i></div>
+                <h3>连续纤维取向控制</h3>
+                <p>CFR-AM 中，纤维束随喷嘴路径铺放，理想状态下纤维取向与路径切线方向一致。然而实际成形中，路径曲率变化引发纤维束内外侧张力差，喷嘴出口处的剪切流场进一步使纤维发生偏转，导致实际取向与设计取向存在系统性偏差；在小曲率半径转角区域，纤维可能发生局部屈曲甚至断丝，形成取向失效区。现有研究主要依赖截面显微表征进行事后评估，在线感知与实时补偿能力极为有限。开放问题集中于：建立路径曲率—喷嘴张力—取向偏差的定量力学模型；开发基于视觉或声发射信号的在线反馈控制系统；以及探索弯曲路径的预补偿算法，使取向误差系统性降至 &plusmn;5&deg; 以内。</p>
+                <div class="card-tags">
+                    <span class="tag">纤维取向</span>
+                    <span class="tag">路径规划</span>
+                    <span class="tag">在线监控</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-gears"></i></div>
+                <h3>工艺—性能数据驱动建模</h3>
+                <p>FDM 工艺参数空间维度极高，仅主要参数（打印温度、床温、层厚、线宽、填充角度、打印速度、冷却风量等）即超过 30 个，各参数间存在复杂交互效应，传统全因子实验设计在资源约束下不可行。数据驱动方法（高斯过程回归、神经网络代理模型等）在降低实验成本方面展示出潜力，但小样本条件下模型的外推可靠性与物理一致性缺乏保证。当前亟需发展的方向包括：将热扩散方程、聚合物流变本构等物理约束嵌入代理模型（Physics-Informed 框架），以补偿数据稀疏带来的泛化不足；利用贝叶斯优化与主动学习策略在参数空间中自适应采样；以及构建可迁移的跨材料体系参数—性能数据库，支持小数据场景下的迁移学习。</p>
+                <div class="card-tags">
+                    <span class="tag">代理模型</span>
+                    <span class="tag">贝叶斯优化</span>
+                    <span class="tag">主动学习</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 四、本课题组研究进展 -->
+        <div class="essay-body">
+            <h3 class="essay-section-title">四、本课题组研究进展</h3>
+            <p>在<strong>层间结合强度</strong>方向，我们建立了基于时间—温度等效原理的界面扩散动力学模型，将打印温度、层厚与冷却速率的组合效应统一纳入"等效扩散时间"参数，实现了对层间断裂能的定量预测，预测误差在 PLA 与 PETG 体系中均低于 12%。在此基础上，我们引入基板主动预热与局部红外辅助加热策略，在不改变打印速度的前提下将界面附近的热历史窗口延长约 60%，最终使层间拉伸强度较基准工况提升约 35%，实验结果已通过扫描电镜断口形貌分析得到微结构层面的印证。</p>
+
+            <p>在<strong>连续纤维取向控制</strong>方向，我们正在开发一套基于路径曲率预补偿与视觉在线反馈的双闭环控制系统。离线阶段，通过建立纤维张力—曲率—取向偏差的力学预测模型，对路径切线方向进行自适应补偿；在线阶段，利用同轴相机捕捉沉积纤维束的实时图像，提取取向角并反馈至运动控制器。目前实验室样机已在直线与低曲率路径段实现了纤维取向误差稳定控制在 &plusmn;8&deg; 以内，正进一步向目标精度 &plusmn;5&deg; 推进。相关工作已与国内头部航空制造企业开展联合攻关，面向承力构件的工程验证正在推进。</p>
+
+            <p>在<strong>多材料界面相容性</strong>方向，我们已应用差示扫描量热（DSC）与纳米压痕技术系统表征了 PLA/TPU 及 PC/ABS 双材料界面的热力学混溶区间与模量梯度分布，初步建立了界面层厚度与剪切强度之间的定量关联。基于实验数据，我们正在构建耦合热扩散与粘弹性力学的有限元模型，以预测打印冷却过程中界面残余应力的空间分布，为后续多材料路径设计提供定量准则。</p>
+
+            <!-- 五、应用场景与工程价值 -->
+            <h3 class="essay-section-title">五、应用场景与工程价值</h3>
+            <p>连续纤维增强 AM 制件的比强度已能够在特定加载方向上接近 6061 铝合金水平，使其在航空航天领域的非主承力结构件、无人机机架与卫星支撑构件中具备切实的减重潜力。该方向的研究价值不仅在于工程替代，更在于为各向异性结构优化理论提供可控实验载体。</p>
+
+            <p>SLA/DLP 工艺结合生物相容性光敏树脂，可直接打印患者个性化骨科植入物原型、药物缓释支架及体外诊断微流控芯片；精度与表面质量优势使之成为医疗器械原型设计的重要工具，同时为研究细胞—基底相互作用提供了几何可控的实验平台。</p>
+
+            <p>在新能源汽车领域，AM 支持在电池热管理模组中集成随形冷却流道，结合拓扑优化可在减重约束下最大化散热均匀性；聚合物基复合材料的低导热系数与低密度特性，使其在隔热结构件中具有明确的应用逻辑，相关研究同时推动了轻量化设计方法论的发展。</p>
+
+            <p>从更基础的视角看，增材制造作为一种结构可编程的实验工具，使研究者能够以前所未有的精度系统改变试样的孔隙率、填充角度与纤维铺层顺序，从而在单一实验平台上开展控制变量的材料科学研究——这一属性正在使 AM 成为聚合物力学与断裂物理研究的新型基础设施。</p>
+
+            <!-- 六、加入课题组 -->
+            <h3 class="essay-section-title">六、加入课题组</h3>
+            <p>课题组长期招募对聚合物与复合材料增材制造感兴趣的本科生（三年级及以上）、硕士及博士研究生，欢迎具有不同专业背景的同学加入。</p>
+
+            <hr class="content-divider">
+
+        </div>
+
+        <div class="essay-body">
+            <p>如有意向，请将个人简历（含成绩单）及简短的研究兴趣说明发送至以下邮箱，课题组将在两周内给予回复。</p>
+
+            <p><i class="fas fa-envelope" style="color:#2563eb;margin-right:6px"></i><a href="mailto:lab@example.com" style="color:#2563eb">lab@example.com</a> &emsp;&emsp; <i class="fas fa-location-dot" style="color:#2563eb;margin-right:6px"></i>[实验室地址占位]</p>
+
+            <p style="color:#6b7280;margin-top:16px">增材制造领域的核心科学问题尚处于早期阶段，工艺机理与性能预测之间仍存在大量未经探明的关联。这正是加入这一方向最有价值的时间窗口。</p>
+
+        </div>
+
+    </main>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="../script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>

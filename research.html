@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Xiaoya Zhai, USTC, TU Delft, CUHK, TopOpt Group, Topology optimization">
+    <meta name="description" content="Research - USTC TopOpt Group">
+    <title>Research – USTC-TopOpt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css?version=1.0.23" rel="stylesheet">
+    <link href="Mobile_style2.css?version=1.0.23" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./team.html">Team</a></li>
+                <li><a href="./research.html" class="active">Research</a></li>
+                <li><a href="./publication.html">Publications</a></li>
+                <li><a href="./teaching.html">Teaching</a></li>
+                <li><a href="./resources.html">Resources</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <!-- Our Vision
+        <h2 class="team-section-title">Our Vision</h2>
+        <div class="intro-section" style="margin-bottom: 0;">
+            <p class="intro-lead">We bridge the gap between computational mechanics, mathematical optimization, and artificial intelligence to fundamentally transform how engineered structures and systems are designed.</p>
+           <br>
+            <div class="intro-tags">
+                <span class="tag vision-tag tag-active" data-img="cover/vision.png" data-alt="Topology Optimization" style="cursor:pointer;">Structure Design</span>
+                <span class="tag vision-tag" data-img="cover/vision1.png" data-alt="Isogeometric Analysis" style="cursor:pointer;">Advanced Manufacturing</span>
+                <span class="tag vision-tag" data-img="cover/vision2.png" data-alt="Additive Manufacturing" style="cursor:pointer;">Engineering Application</span>
+                <span class="tag vision-tag" data-img="cover/vision3.png" data-alt="AI for Design" style="cursor:pointer;">Hardware Design</span>
+            </div>
+            <div class="intro-image">
+                <img id="vision-img" src="cover/vision.png" alt="Topology Optimization">
+            </div>
+            <br>
+        </div>
+
+        <hr class="content-divider"> -->
+
+        <!-- Research Areas -->
+        <h1 class="team-section-title">Research Areas</h1>
+        <div class="research-grid research-grid-4col" style="margin-bottom: 40px; gap: 16px;">
+
+            <a href="./intro/topology-optimization.html" style="text-decoration: none; display: block;">
+            <div class="research-card card-hover" style="padding: 20px 24px;">
+                <div class="card-icon" style="width: 44px; height: 44px; border-radius: 10px; margin-bottom: 14px;">
+                    <i class="fas fa-brain" style="font-size: 22px;"></i>
+                </div>
+                <h3 style="font-size: 17px; margin-bottom: 8px;">Intelligent Design</h3>
+                <p style="font-size: 13px; margin-bottom: 12px;">Topology optimization, data-driven methods, and generative AI for structure and microstructure design.</p>
+                <div class="card-tags">
+                    <span class="tag">Topology Optimization</span>
+                    <span class="tag">AI-driven Design</span>
+                    <span class="tag">Microstructure</span>
+                </div>
+            </div>
+            </a>
+
+            <a href="./intro/additive-manufacturing.html" style="text-decoration: none; display: block;">
+            <div class="research-card card-hover" style="padding: 20px 24px;">
+                <div class="card-icon" style="width: 44px; height: 44px; border-radius: 10px; margin-bottom: 14px;">
+                    <i class="fas fa-industry" style="font-size: 22px;"></i>
+                </div>
+                <h3 style="font-size: 17px; margin-bottom: 8px;">Intelligent Manufacturing</h3>
+                <p style="font-size: 13px; margin-bottom: 12px;">Additive manufacturing constraints, path planning, and LMPA composite fabrication for manufacturing-oriented design.</p>
+                <div class="card-tags">
+                    <span class="tag">Additive Manufacturing</span>
+                    <span class="tag">Path Planning</span>
+                    <span class="tag">LMPA</span>
+                </div>
+            </div>
+            </a>
+
+            <a href="./intro/ai-for-design.html" style="text-decoration: none; display: block;">
+            <div class="research-card card-hover" style="padding: 20px 24px;">
+                <div class="card-icon" style="width: 44px; height: 44px; border-radius: 10px; margin-bottom: 14px;">
+                    <i class="fas fa-robot" style="font-size: 22px;"></i>
+                </div>
+                <h3 style="font-size: 17px; margin-bottom: 8px;">Embodied Intelligence</h3>
+                <p style="font-size: 13px; margin-bottom: 12px;">Soft robots and mechanical metamaterials with programmable responses for structural intelligence and self-actuated systems.</p>
+                <div class="card-tags">
+                    <span class="tag">Soft Robots</span>
+                    <span class="tag">Structural Intelligence</span>
+                </div>
+            </div>
+            </a>
+
+            <a href="./intro/isogeometric-analysis.html" style="text-decoration: none; display: block;">
+            <div class="research-card card-hover" style="padding: 20px 24px;">
+                <div class="card-icon" style="width: 44px; height: 44px; border-radius: 10px; margin-bottom: 14px;">
+                    <i class="fas fa-shapes" style="font-size: 22px;"></i>
+                </div>
+                <h3 style="font-size: 17px; margin-bottom: 8px;">Isogeometric Analysis</h3>
+                <p style="font-size: 13px; margin-bottom: 12px;">CAD-integrated finite element framework for exact-geometry shell topology optimization and high-fidelity simulation.</p>
+                <div class="card-tags">
+                    <span class="tag">Isogeometric Analysis</span>
+                    <span class="tag">Shell Optimization</span>
+                </div>
+            </div>
+            </a>
+
+        </div>
+
+        <!-- Research Highlights -->
+        <h2 class="team-section-title" style="margin-top: 8px;">Research Highlights</h2>
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
+
+            <!-- Highlight 1 -->
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/3D micro.png" alt="GPU Solver" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #2563eb; text-align: center;">SMO · 2023</div>
+                </div>
+                <div class="faculty-right">
+                    <p class="faculty-bio" style="margin-bottom: 8px;">
+                        <a href="./project/2023-GPU3Dmicro.html" style="color: var(--text-dark); text-decoration: none;"><strong>An Optimized, Easy-to-use, Open-source GPU Solver for Large-scale Inverse Homogenization Problems</strong></a>
+                    </p>
+                    <p style="font-size: 13px; color: var(--text-light); margin-bottom: 10px;">Di Zhang, <strong>Xiaoya Zhai*</strong>, Ligang Liu, Xiao-Ming Fu</p>
+                    <p class="faculty-bio">We propose a high-performance GPU solver for inverse homogenization problems to design high-resolution 3D microstructures. Practical examples with 512³ ≈ 134.2 million finite elements run in less than 40 seconds per iteration on an NVIDIA GTX 1080Ti, with an easy-to-use framework requiring fewer than 20 lines of user code.</p>
+                    <div class="card-tags" style="margin-top: 12px;">
+                        <span class="tag">GPU Solver</span>
+                        <span class="tag">Inverse Homogenization</span>
+                        <span class="tag">Multi-scale</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlight 2 -->
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2023-surface_ana.png" alt="Differentiable Microstructures" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #7c3aed; text-align: center;">CMAME / M&amp;D · 2024</div>
+                </div>
+                <div class="faculty-right">
+                    <p class="faculty-bio" style="margin-bottom: 8px;">
+                        <a href="./project/2023-DiffMicro.html" style="color: var(--text-dark); text-decoration: none;"><strong>Topology Optimization of Differentiable Microstructures</strong></a>
+                    </p>
+                    <p style="font-size: 13px; color: var(--text-light); margin-bottom: 10px;">
+                        2D: <strong>Xiaoya Zhai</strong>, Weiming Wang, Falai Chen, Jun Wu* &nbsp;|&nbsp;
+                        3D: Jiacheng Han, <strong>Xiaoya Zhai*</strong>, Lili Wang, et al.
+                    </p>
+                    <p class="faculty-bio">Several 2D/3D differentiable microstructures with bulk modulus close to the Hashin-Shtrikman upper bound are proposed for the first time. Discontinuities are avoided via a novel heat-equation-based regularization, enabling continuously parameterized microstructure families across the full density range.</p>
+                    <div class="card-tags" style="margin-top: 12px;">
+                        <span class="tag">Differentiable Microstructures</span>
+                        <span class="tag">Homogenization</span>
+                        <span class="tag">Topology Optimization</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlight 3 -->
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/LMPA_HIGH.png" alt="LMPA Additive Manufacturing" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #0891b2; text-align: center;">Additive Mfg · 2023</div>
+                </div>
+                <div class="faculty-right">
+                    <p class="faculty-bio" style="margin-bottom: 8px;">
+                        <a href="./project/2023-LMPA.html" style="color: var(--text-dark); text-decoration: none;"><strong>Low-melting-point Alloys Integrated Extrusion Additive Manufacturing</strong></a>
+                    </p>
+                    <p style="font-size: 13px; color: var(--text-light); margin-bottom: 10px;">Jingchao Jiang<sup>+</sup>, <strong>Xiaoya Zhai<sup>+</sup></strong>, Kang Zhang<sup>+</sup>, et al., Wei-Hsin Liao* <em>(equal contribution)</em></p>
+                    <p class="faculty-bio">A novel dual-nozzle extrusion strategy successfully fabricates complex low-melting-point alloy (LMPA) components for the first time, enabling composite parts with improved mechanical properties and integrated circuit manufacturing for smart structures, electromagnetic shielding, and energy harvesting.</p>
+                    <div class="card-tags" style="margin-top: 12px;">
+                        <span class="tag">LMPA</span>
+                        <span class="tag">Additive Manufacturing</span>
+                        <span class="tag">Smart Structures</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlight 4 -->
+            <div class="faculty-card">
+                <div class="faculty-left" style="justify-content: center; gap: 12px;">
+                    <div style="border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color); width: 100%;">
+                        <img src="./indexpics/2024-Near.png" alt="Near-isotropic Metamaterials" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #d97706; text-align: center;">Advanced Science · 2024</div>
+                </div>
+                <div class="faculty-right">
+                    <p class="faculty-bio" style="margin-bottom: 8px;">
+                        <strong style="color: var(--text-dark);">Near-isotropic, Extreme-stiffness, Continuous 3D Mechanical Metamaterial Sequences Using Implicit Neural Representation</strong>
+                    </p>
+                    <p style="font-size: 13px; color: var(--text-light); margin-bottom: 10px;">Yunkai Zhao<sup>+</sup>, Lili Wang<sup>+</sup>, <strong>Xiaoya Zhai*</strong>, Jiacheng Han, et al.</p>
+                    <p class="faculty-bio">Three near-isotropic, extreme-stiffness, continuous 3D metamaterial sequences are proposed by combining topology optimization and data-driven design, achieving over 98% of the Hashin-Shtrikman upper bounds across densities from 0.2 to 1. Sequences are represented as implicit neural functions for resolution-free continuous density variation.</p>
+                    <div class="card-tags" style="margin-top: 12px;">
+                        <span class="tag">Mechanical Metamaterials</span>
+                        <span class="tag">Neural Representation</span>
+                        <span class="tag">Extreme Stiffness</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+        document.querySelectorAll('.vision-tag').forEach(function(tag) {
+            tag.addEventListener('click', function() {
+                document.querySelectorAll('.vision-tag').forEach(function(t) {
+                    t.classList.remove('tag-active');
+                });
+                tag.classList.add('tag-active');
+                var img = document.getElementById('vision-img');
+                img.style.opacity = '0';
+                setTimeout(function() {
+                    img.src = tag.dataset.img;
+                    img.alt = tag.dataset.alt;
+                    img.style.opacity = '1';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>

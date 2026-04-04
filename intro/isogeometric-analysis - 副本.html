@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Isogeometric Analysis, IGA, NURBS, USTC, TopOpt Group">
+    <meta name="description" content="Isogeometric Analysis – USTC TopOpt Group">
+    <title>Isogeometric Analysis – USTC-TopOpt</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../style.css?version=1.0.23" rel="stylesheet">
+    <script src="../js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        .essay-body p {
+            font-size: 17px;
+            color: var(--text-light);
+            line-height: 1.85;
+            margin-bottom: 1.2em;
+        }
+        .essay-body p strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .essay-section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 0.04em;
+            margin: 2.2em 0 0.7em;
+        }
+        .essay-callout {
+            border-left: 3px solid #a5b4fc;
+            padding: 16px 24px;
+            margin: 2em 0;
+            background: #fafafa;
+        }
+        .essay-callout p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../research.html" class="active">Research</a></li>
+                <li><a href="../publication.html">Publications</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <div class="page-title-bar">
+            <span class="page-title-eyebrow">Research Area</span>
+            <h1>Isogeometric Analysis</h1>
+            <p>精确几何，精准计算——用同一套数学统一几何建模与有限元分析。</p>
+        </div>
+
+        <!-- ── 正文主体（学术视角）─────────────────────────────── -->
+        <div class="essay-body">
+
+            <!-- 一、问题的起点 -->
+            <p class="intro-lead">2003年，Hughes教授在一份内部报告中写下这样一个问题："我们为什么要为同一个几何体建立两套描述系统？"任何一位工程仿真从业者都清楚，当一款汽车车身的NURBS设计稿移交到仿真部门时，工程师面临的第一项工作不是"开始计算"，而是"重新建模"。在复杂工程项目中，网格划分和几何修复往往占据整个仿真流程60%到80%的时间——工程师不是在计算，而是在"翻译"。</p>
+
+            <div class="essay-callout">
+                <p>传统有限元方法，是在用折纸艺术模拟流线型雕塑。每折一刀，精度提高一些；折纸的密度趋向无穷，才能逼近原物。这不是计算方法的问题，而是几何表达方式的根本性错配。</p>
+            </div>
+
+            <p>这种割裂的根源在于：CAD软件用NURBS（非均匀有理B样条）精确描述几何形状，而传统有限元分析（FEA）将光滑曲面切碎成三角形或四边形网格，几何误差从此永久嵌入后续所有计算。Hughes的那个问题，正是等几何分析（Isogeometric Analysis，IGA）的起点。</p>
+
+            <hr class="content-divider">
+
+            <!-- 二、IGA 的数学魅力 -->
+            <h2 class="team-section-title">IGA 的数学魅力</h2>
+
+            <p>IGA的核心思想出奇地简洁：既然CAD软件已经用NURBS精确描述了几何形状，为什么不直接将NURBS基函数作为有限元的形函数？如此一来，几何表示和物理场的近似空间统一为同一套数学框架。这不是工程上的妥协，而是数学上的自然选择。</p>
+
+            <p><strong>精确几何表示。</strong>圆、球面、椭球面——所有二次曲面——可以被NURBS精确表示，而非近似表示。这意味着IGA网格中不存在几何误差这一概念；离散化只作用于物理场的近似，不引入额外的几何截断误差。</p>
+
+            <p><strong>高阶连续性的红利。</strong>B样条基函数在节点处自然具有 C<sup><em>k</em>−1</sup> 连续性，其中 <em>k</em> 为多项式阶次。以Kirchhoff-Love薄壳方程为例，其弱形式要求形函数具备 C<sup>1</sup> 连续性——传统有限元为此开发了专门的单元（如DKT单元），代价巨大。而在IGA框架中，三次NURBS天然满足 C<sup>2</sup> 连续性，C<sup>1</sup> 是免费附赠的。</p>
+
+            <p><strong>k 精化的超收敛。</strong>IGA独有的细化策略区别于传统h细化（加密节点）和p细化（提升阶次）：k精化在提升多项式阶次的同时保持高阶连续性，形成真正意义上的高阶高连续性基。数值实验表明，相同自由度数下，k精化所得解的精度往往显著高于传统方法，在波传播、振动分析等对频谱精度敏感的问题中尤为突出。</p>
+
+            <p><strong>与边界元法的天然契合。</strong>边界元法（BEM）只需在边界上离散，将三维体积问题降为二维表面问题。NURBS曲面正是对边界的精确描述——IGA与BEM的结合（IGABEM）几乎不需要任何几何近似，计算效率和精度均有显著提升，在声学、弹性力学等领域已有大量应用。</p>
+
+        </div><!-- end essay-body block 1 -->
+
+        <!-- ── 研究方向卡片 ──────────────────────────────────────── -->
+        <div class="research-grid" style="margin-bottom: 40px;">
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>IGA Topology Optimization</h3>
+                <p>Density-based and level-set topology optimization formulated entirely within the IGA framework, yielding smooth, CAD-compatible optimized geometries for shell and solid structures.</p>
+                <div class="card-tags">
+                    <span class="tag">NURBS</span>
+                    <span class="tag">IGA-TopOpt</span>
+                    <span class="tag">Shell Structures</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3>Adaptive Refinement</h3>
+                <p>PHT-spline based adaptive isogeometric topology optimization that locally refines the computational mesh in regions of high design complexity, dramatically reducing computational cost.</p>
+                <div class="card-tags">
+                    <span class="tag">PHT-splines</span>
+                    <span class="tag">Adaptive Mesh</span>
+                    <span class="tag">Local Refinement</span>
+                </div>
+            </div>
+            <div class="research-card card-hover">
+                <div class="card-icon"><i class="fas fa-bezier-curve"></i></div>
+                <h3>Multi-patch Structures</h3>
+                <p>Topology optimization of complex engineering components represented as assemblies of multiple NURBS patches, with compatible interfaces and patch coupling enforced throughout the design process.</p>
+                <div class="card-tags">
+                    <span class="tag">Multi-patch</span>
+                    <span class="tag">T-splines</span>
+                    <span class="tag">CAD Integration</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── 课题组方向 / 训练 / 招募 ────────────────────────── -->
+        <div class="essay-body">
+
+            <h2 class="team-section-title">课题组研究方向</h2>
+
+            <p><strong>IGA 壳体分析。</strong>薄壳结构广泛存在于航空、汽车、土木工程中。课题组深入研究Kirchhoff-Love壳与Reissner-Mindlin壳的IGA实现，探索大变形几何非线性问题中的数值格式稳定性、闭锁现象的消除策略，以及多片NURBS曲面间的耦合方法。</p>
+
+            <p><strong>IGA 拓扑优化。</strong>传统拓扑优化结果往往是像素化的灰度图像，需要大量后处理才能转化为可制造的几何形状。IGA框架中，高阶连续的密度场天然抑制棋盘格效应，优化结果可直接表达为光滑的NURBS几何，与3D打印、CAD软件无缝衔接——从数学结果到可制造形状，中间不再需要"翻译"。</p>
+
+            <p><strong>多尺度方法与局部细化。</strong>标准NURBS只支持全局细化，而实际问题往往需要局部加密。课题组研究T样条、LR样条、PHT样条等具有局部细化能力的样条空间，探索其线性无关性、近似性质和高效计算格式。等几何配点法（IGA Collocation）以配点取代数值积分，显著降低计算成本，是实现工业规模计算的重要途径。</p>
+
+            <p>上述方向在《Computer Methods in Applied Mechanics and Engineering》（CMAME）、《International Journal for Numerical Methods in Engineering》（IJNME）等期刊上保持持续的高质量发表。各方向并非孤立——壳体分析的数值格式研究为拓扑优化提供计算基础，局部细化技术反过来支撑壳体问题的自适应求解。</p>
+
+            <hr class="content-divider">
+
+            <h2 class="team-section-title">你将获得的训练</h2>
+
+            <p><strong>数学基础。</strong>泛函分析提供"函数空间"的视角，帮助你理解有限元误差的本质；样条理论（包括de Boor算法、B样条的递归定义、节点向量的设计）构成IGA实现的数学骨架；数值代数则处理大规模线性系统、特征值问题的高效求解。这些数学工具相互支撑，学一遍能用终身。</p>
+
+            <p><strong>编程能力。</strong>课题组鼓励从零实现NURBS几何内核——不是调用现成库，而是自己写出节点插入、阶次提升、曲面求值的每一行代码。这个过程费力，但收益是对数据结构和算法的深层理解。在此基础上，你将接触有限元程序框架的组装逻辑，以及STEP/IGES等工业格式的解析接口。</p>
+
+            <p><strong>工程洞察。</strong>课题组的研究问题大多有明确的工程背景，你将逐渐学会判断：哪些数学特性对工程问题真正重要？在什么条件下高阶连续性带来的精度提升值得付出计算成本？这种判断力，是从事应用数学研究不可或缺的。</p>
+
+            <hr class="content-divider">
+
+            <h2 class="team-section-title">我们在寻找谁</h2>
+
+            <p>课题组欢迎来自以下背景的同学：计算数学、固体力学、科学计算、机械工程、航空航天、土木工程。学科背景不是硬性门槛，真正重要的是：<strong>对数学美感有感受力</strong>——不要求已经精通所有工具，但希望你在推导出一个干净结论时能感受到某种满足；<strong>有独立解决问题的习惯</strong>——遇到卡点不立即放弃，愿意查文献、看源码、动手验证；<strong>愿意写代码</strong>——IGA是计算方法，数值实验是验证理论的基本手段。</p>
+
+            <hr class="content-divider">
+
+            <h2 class="team-section-title">Representative Works</h2>
+
+        </div><!-- end essay-body block 2 -->
+
+        <ul class="news-list">
+            <li class="news-item">
+                <div class="news-date">
+                    <span class="news-month">CAD</span>
+                    <span class="news-year">2024</span>
+                </div>
+                <div class="news-content">
+                    <h4>Density-based Isogeometric Topology Optimization of Shell Structures</h4>
+                    <p>Xiaoya Zhai et al. <em>Computer-Aided Design</em>, 2024.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <div class="news-date">
+                    <span class="news-month">C&amp;S</span>
+                    <span class="news-year">2024</span>
+                </div>
+                <div class="news-content">
+                    <h4>Adaptive Isogeometric Topology Optimization of Shell Structures Based on PHT-splines</h4>
+                    <p>Xiaoya Zhai et al. <em>Computers &amp; Structures</em>, 2024.</p>
+                </div>
+            </li>
+            <li class="news-item" style="border-bottom: none;">
+                <div class="news-date">
+                    <span class="news-month">IJNME</span>
+                    <span class="news-year">2024</span>
+                </div>
+                <div class="news-content">
+                    <h4>Shape Optimization of Tunable Poisson's Ratio Metamaterials with Disk B-splines</h4>
+                    <p>Xiaoya Zhai et al. <em>International Journal for Numerical Methods in Engineering</em>, 2024.</p>
+                </div>
+            </li>
+        </ul>
+
+        <!-- ── 科普招募软文 ───────────────────────────────────────── -->
+        <div class="essay-body">
+
+            <hr class="content-divider">
+
+            <h2 class="team-section-title">设计师和工程师吵了五十年，这个数学方法终于让他们握手言和</h2>
+
+            <p class="intro-lead">拿起你的手机，看看屏幕的四个角。那个圆润的弧度，不是设计师用手画出来的，也不是靠"感觉"调出来的。它背后是一套严格的数学语言，叫做NURBS——非均匀有理B样条曲线。你可能已经摸了好几年这条曲线，但不知道的是：同样的数学，此刻也在描述某架正在风洞里接受测试的飞机机翼；某位患者髋关节里的人工关节球面；某款尚未上市的电动车流线型车身。</p>
+
+            <h2 class="essay-section-title">两个部门之间的"战争"</h2>
+
+            <p>一家汽车公司，设计师团队花了整整三个月，在专业软件里精心雕琢出一款新车的车身曲面。每一条线的曲率都经过反复推敲，造型团队和空气动力学团队来回打磨，最终定稿。文件移交给仿真团队的那一天，仿真工程师打开文件，沉默了三秒，然后说：<strong>"我们得重新建模。"</strong></p>
+
+            <p>不是软件版本不对，也不是文件损坏了。而是：设计用的数学语言，和仿真用的数学语言，根本不一样。CAD软件描述几何，用的是NURBS曲面——光滑、精确、数学上非常"高级"。但有限元仿真软件需要的是"网格"——把光滑曲面切碎成成千上万个小三角形或小方块，用这些碎片来近似原来的形状。</p>
+
+            <p>这就像你写了一篇论文，交给编辑，编辑说："我们系统不认识Word格式，麻烦您把全文一字一字重新录入到我们的系统里。"更糟糕的是，"录入"过程中还会出错——原本光滑连续的曲面被切成碎片之后，在边缘处出现了缝隙、不连续、几何误差，这些误差之后永远在里面，怎么算都消不掉。在很多项目里，整个仿真流程<strong>80%的时间</strong>就耗在这里——不是在计算，是在"翻译"。</p>
+
+            <h2 class="essay-section-title">桥接者的诞生——IGA 故事</h2>
+
+            <p>2003年，德克萨斯大学奥斯汀分校，计算力学领域的大牛Thomas Hughes教授，写下了这么一个问题："我们为什么要为同一个几何体建立两套描述系统？"Hughes的想法其实很朴素：CAD里已经有NURBS了，这套数学本来就是用来精确描述几何的。那为什么不直接把NURBS拿来，既用它描述几何，又用它做计算？</p>
+
+            <p>这个想法的名字，叫做<strong>等几何分析（IGA）</strong>。"等几何"的意思是：用来描述几何形状的数学工具，和用来近似物理量（比如应力、位移、温度）的数学工具，是同一套。不切网格了，不翻译了，设计稿直接就是计算模型。但故事还没完，因为这个方法带来了一些意料之外的好处——NURBS曲线曲面本身非常光滑，天然具有高阶连续性，而很多力学问题偏偏对这种光滑性有严格要求。更少的计算量，更高的精度，鱼和熊掌居然可以兼得。2005年，Hughes团队在顶级期刊发表了IGA的奠基论文，至今引用量超过一万次。</p>
+
+            <h2 class="essay-section-title">我们在做的几件"酷事"</h2>
+
+            <p><strong>不撞车的碰撞分析。</strong>汽车碰撞安全测试，传统流程是：设计完车身→重新建网格→仿真→发现问题→改设计→再重建网格→再仿真……一个来回可能要好几周。用IGA，CAD文件直接进仿真，设计迭代的速度可以大幅加快，省掉的不只是时间，还有数以千万计的实车测试成本。</p>
+
+            <p><strong>让飞机结构更轻的数学"减肥师"。</strong>有一种技术叫做拓扑优化——给定结构需要承受的力，让计算机自动找出"哪些地方需要材料，哪些地方可以去掉"，得到最优的材料分布方案。传统方法得到的结果是像素化的黑白图像，还要经过复杂的后处理才能变成可以加工的形状。但IGA框架下做拓扑优化，结果直接就是光滑的NURBS曲面——相当于草稿直接变成了精装稿，可以立刻送去3D打印或者加工。</p>
+
+            <p><strong>给人工关节做"数字体检"。</strong>人工髋关节的核心部件是个球形结构，使用寿命直接关系患者安全。球形曲面，NURBS可以精确表示（这件事传统有限元做不到，只能近似）。用IGA做有限元分析，可以更准确地预测关节在反复运动下的疲劳寿命，为临床设计提供可靠的数值依据。</p>
+
+            <h2 class="essay-section-title">加入之后，你会经历什么</h2>
+
+            <p><strong>刚加入时：</strong>NURBS是个很难念的词（你可以念"拿呢不四"，我们不会笑你）。有限元是个听说过但不知道干嘛用的词。没关系，所有人都从这里开始。<strong>第一个月：</strong>你开始写代码，从最简单的B样条开始——给定几个控制点，让程序画出一条光滑曲线。当那条曲线第一次出现在屏幕上的时候，会有一种奇妙的满足感：这不是调库调出来的，是你自己从数学推到代码推出来的。</p>
+
+            <p><strong>三个月后：</strong>你能读英文论文了。不只是能翻译，而是能看出哪里作者的推导跳步了，哪里的数值实验数据稍微"美化"了一下，哪里是真正的创新、哪里是换汤不换药的重复。<strong>一年后：</strong>你和数学系的同学聊，可以讨论近似空间的收敛性分析；和机械系的同学聊，可以聊壳体分析的工程背景和应用约束。你成了一个能在两种语言之间切换的人——而这，恰好是IGA这个领域本身的气质。</p>
+
+            <p>关于你的背景：数学基础好但没学过力学？完全没关系，力学可以学。学机械但觉得自己数学"还行"？没关系，我们来一起推导。会Python或者MATLAB就够了吗？差不多——编程基础有了，其余的在做中学。</p>
+
+            <div class="essay-callout">
+                <p>你不需要现在就知道NURBS是什么，也不需要已经学过有限元，更不需要提前读完几篇论文来"证明"自己适合这个方向。你只需要有一点点好奇心——对那个手机圆角背后的数学，对"精确"究竟意味着什么，对用代码让一个数学结构活起来的过程。如果你有这一点好奇心，剩下的，我们一起来。欢迎来找我们聊聊，不用准备什么，带着问题就够了。</p>
+            </div>
+
+        </div><!-- end essay-body block 3 -->
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-brand"><i class="fas fa-brain"></i><span>USTC TopOpt Group</span></div>
+                    <p style="margin: 3px 0 0;">&copy; 2026 TopOpt Group. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>

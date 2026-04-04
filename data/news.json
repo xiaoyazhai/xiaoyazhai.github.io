@@ -1,0 +1,44 @@
+{
+  "news": [
+    {
+      "date": "2025-01-15",
+      "title": "Paper accepted at SIGGRAPH 2025",
+      "description": "Our work on topology optimization of differentiable microstructures has been accepted at SIGGRAPH 2025."
+    },
+    {
+      "date": "2024-12-20",
+      "title": "New graduate student joined the lab",
+      "description": "Welcome to our research group! We look forward to exploring structural design together."
+    },
+    {
+      "date": "2024-11-05",
+      "title": "Paper published in Advanced Science",
+      "description": "Our paper on near-isotropic, extreme-stiffness metamaterial sequences has been published in Advanced Science."
+    },
+    {
+      "date": "2024-09-18",
+      "title": "Invited talk at CAD/Graphics 2024",
+      "description": "Gave an invited talk on GPU-accelerated topology optimization at CAD/Graphics 2024 conference."
+    },
+    {
+      "date": "2024-08-10",
+      "title": "Research grant awarded",
+      "description": "Received funding from NSFC for research on AI-driven microstructure design."
+    },
+    {
+      "date": "2024-06-25",
+      "title": "Paper accepted at CMAME",
+      "description": "Our work on 2D differentiable microstructures has been accepted by Computer Methods in Applied Mechanics and Engineering."
+    },
+    {
+      "date": "2024-05-12",
+      "title": "Summer school announcement",
+      "description": "Organizing topology optimization section for USTC Summer School on Computer Graphics 2024."
+    },
+    {
+      "date": "2024-03-08",
+      "title": "Collaboration with TU Delft",
+      "description": "Started new collaboration project with Prof. Jun Wu's group at TU Delft on advanced manufacturing."
+    }
+  ]
+}

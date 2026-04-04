@@ -1,0 +1,56 @@
+{
+  "publications": [
+    {
+      "title": "Near-isotropic, Extreme-stiffness, Continuous 3D Mechanical Metamaterial Sequences Using Implicit Neural Representation",
+      "authors": "Yunkai Zhao+, Lili Wang+, Xiaoya Zhai*, Jiacheng Han, Winston Wai Shing Ma, Junhao Ding, Yonggang Gu, Xiao-Ming Fu",
+      "venue": "Advanced Science",
+      "year": 2024,
+      "links": {
+        "paper": "#",
+        "project": "./project/2024-Near.html"
+      }
+    },
+    {
+      "title": "Topology Optimization of Differentiable Microstructures (3D cases)",
+      "authors": "Jiacheng Han, Xiaoya Zhai*, Lili Wang, Di Zhang, Junhao Ding, Winston Wai Shing Ma, Xu Song, Wei-Hsin Liao, Ligang Liu, Jun Wu, Xiao-Ming Fu",
+      "venue": "Mechanism and Machine Theory",
+      "year": 2024,
+      "links": {
+        "paper": "#",
+        "project": "./project/2023-DiffMicro.html"
+      }
+    },
+    {
+      "title": "Topology Optimization of Differentiable Microstructures (2D cases)",
+      "authors": "Xiaoya Zhai, Weiming Wang, Falai Chen, Jun Wu*",
+      "venue": "Computer Methods in Applied Mechanics and Engineering (CMAME)",
+      "year": 2024,
+      "links": {
+        "paper": "#",
+        "code": "#",
+        "project": "./project/2023-DiffMicro.html"
+      }
+    },
+    {
+      "title": "An Optimized, Easy-to-use, Open-source GPU Solver for Large-scale Inverse Homogenization Problems",
+      "authors": "Di Zhang, Xiaoya Zhai*, Ligang Liu, Xiao-Ming Fu",
+      "venue": "Structural and Multidisciplinary Optimization (SMO)",
+      "year": 2023,
+      "links": {
+        "paper": "#",
+        "code": "#",
+        "project": "./project/2023-GPU3Dmicro.html"
+      }
+    },
+    {
+      "title": "Low-melting-point Alloys Integrated Extrusion Additive Manufacturing",
+      "authors": "Jingchao Jiang+, Xiaoya Zhai+, Kang Zhang+, Liuchao Jin, Qitao Lu, Zhichao Shen, Wei-Hsin Liao*",
+      "venue": "Additive Manufacturing",
+      "year": 2023,
+      "links": {
+        "paper": "#",
+        "project": "./project/2023-LMPA.html"
+      }
+    }
+  ]
+}

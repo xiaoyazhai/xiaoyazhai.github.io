@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Isogeometric Analysis, IGA, NURBS, USTC, TopOpt Group">
+    <meta name="description" content="Isogeometric Analysis – USTC TopOpt Group">
+    <title>Isogeometric Analysis – USTC-TopOpt</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../style.css?version=1.0.23" rel="stylesheet">
+    <link href="../Mobile_style2.css?version=1.0.23" rel="stylesheet">
+    <script src="../js/ie-emulation-modes-warning.js?version=1.0.23"></script>
+    <style>
+        #back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.2s;
+            z-index: 999;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+        .essay-body p {
+            font-size: 17px;
+            color: var(--text-light);
+            line-height: 1.85;
+            margin-bottom: 1.2em;
+        }
+        .essay-body p strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .essay-section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 0.04em;
+            margin: 2.2em 0 0.7em;
+        }
+        .essay-callout {
+            border-left: 3px solid #a5b4fc;
+            padding: 16px 24px;
+            margin: 2em 0;
+            background: #fafafa;
+        }
+        .essay-callout p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../research.html" class="active">Research</a></li>
+                <li><a href="../publication.html">Publications</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone">
+
+        <div class="page-title-bar">
+            <span class="page-title-eyebrow">Research Area</span>
+            <h1>Isogeometric Analysis</h1>
+            <p>Unifying CAD geometry and finite element analysis through spline-based representations.</p>
+        </div>
+
+        <!-- ── 正文 ────────────────────────────────────────────── -->
+        <div class="essay-body">
+
+            <!-- 一、问题的根源 -->
+            <p class="intro-lead">等几何分析（Isogeometric Analysis，IGA）的诞生，源于一个看似简单却触及计算力学根基的追问。2003年，Thomas J. R. Hughes在德克萨斯大学奥斯汀分校的研究报告中写道："我们为什么要为同一个几何体建立两套描述系统？"这个问题所指向的，是工程计算领域数十年来默然接受的一个结构性矛盾：计算机辅助设计（CAD）与有限元分析（FEA）各自演化出了独立的数学语言体系，两者描述同一物理对象，却在数学上互不相认。工业级CAD软件以NURBS（非均匀有理B样条）为核心表示工具，精确刻画从航空发动机叶片到汽车车身的复杂自由曲面；传统有限元方法则建立在分段低阶多项式的基础上，以离散网格逼近连续几何体。两套体系并行运作，彼此之间没有直接的数学通路。</p>
+
+            <p>在工程实践中，这道壁垒的代价远比通常认知的更为沉重。每当一份CAD设计文件进入仿真部门，工程师面对的首要任务不是"开始计算"，而是"重新建模"——将精确的参数化曲面重新离散为分析用的有限元网格，处理曲面相交、几何退化与网格质量控制。工业调查表明，这一前处理流程在复杂工程项目中消耗了整体仿真工时的60%至80%。更根本的问题在于：网格化过程必然将几何近似误差引入计算模型，曲率连续性被截断，曲面间的精确拼接关系被多边形近似取代。这些建模误差随后永久嵌入所有后续分析环节，无法通过提高单元阶次或加密网格来消除，只能以更精细的网格重建予以缓解——而后者意味着重启前处理的全部代价。对于壳体屈曲、接触力学、流固耦合等对几何精度高度敏感的问题，建模误差与数值离散误差的混叠往往使经典的收敛性分析在实际中丧失意义。</p>
+
+            <div class="essay-callout">
+                <p>传统有限元以分段多项式逐步逼近精确几何：网格愈密，近似愈优，但几何误差的内在性质并不因加密而根本消除，只是被数值稀释。等几何分析从另一个方向重新定义了这个问题——既然工业设计的标准数学语言已经存在，为何不直接以它作为分析的基础，从根本上消除几何与分析之间的数学鸿沟？</p>
+            </div>
+
+            <hr class="content-divider">
+
+            <!-- 二、从等参思想到等几何框架 -->
+            <h2 class="team-section-title">从等参思想到等几何框架</h2>
+
+            <p>有限元方法的等参思想（isoparametric concept），是理解等几何分析的逻辑起点。在经典等参单元中，用于描述几何映射（从参考域到物理域的坐标变换）与用于近似物理量（位移、温度、压力等场变量）的基函数是同一套——"几何表示与场近似共享同一基"，正是"等参"命名的由来。等参思想的吸引力在于其自洽性：当几何表示与场近似基于同一多项式空间时，参考域上的积分与物理域上的积分通过雅可比变换自然对应，分析程序获得了高度的形式统一性。然而，有限元方法在成型年代所能借助的几何工具，是Lagrange插值多项式——一套以节点值为参数的低阶多项式基，在描述一般曲线与曲面时只能给出近似，而无法做到精确。几何表示的精度天花板，因此被牢牢锁定在有限元插值空间的阶次之内。</p>
+
+            <p>IGA将等参思想推进到了其逻辑上的自然终点。NURBS（Non-Uniform Rational B-Splines，非均匀有理B样条）是当代工业CAD软件的数学基础：B样条基函数由节点向量递归定义，具有局部支撑性、非负性与单位分解性；经齐次坐标的有理化推广，NURBS在保留上述优良性质的同时，具备精确表示所有圆锥曲线——圆、椭圆、抛物线、双曲线——及其张成的旋转曲面的能力。这意味着NURBS不仅是几何近似工具，更是若干重要几何基元的精确代数表示。将NURBS基函数同时作为有限元形函数，等参框架便在完全不引入几何误差的前提下得以实现："等参"与"精确几何"这两个在传统有限元中相互矛盾的目标，在IGA框架内首次同时成立。</p>
+
+            <p>Hughes与Cottrell、Bazilevs合作于2005年在《Computer Methods in Applied Mechanics and Engineering》上发表的奠基论文标志着IGA作为独立计算方法的正式诞生，"等几何分析"（Isogeometric Analysis）一词由此定名，至今该论文引用量已逾万次，成为计算力学领域近二十年来影响最为深远的方法论工作之一。此后的二十年间，IGA迅速从单一论文演化为一个完整的研究生态：从线弹性静力学到几何非线性动力学，从单场问题到流固耦合，从均匀NURBS到T样条、PHT样条等局部细化空间，再到IGA与拓扑优化、边界元法、机器学习的系统融合，这一方向持续吸引着计算数学、固体力学与几何建模领域的顶级研究者。</p>
+
+            <hr class="content-divider">
+
+            <!-- 三、数学优势 -->
+            <h2 class="team-section-title">核心数学优势</h2>
+
+            <p>等几何分析的意义远不止于消除前处理瓶颈。NURBS基函数与有限元框架的深度融合，内在地带来了若干传统多项式基所不具备的数值优势，这些优势在特定问题类型中产生了方法论层面的质变。</p>
+
+            <p><strong>精确几何表示。</strong>NURBS能够精确表示所有有理曲线和二次旋转面，包括圆、球面、环面、抛物面、椭球面等工程中频繁出现的几何基元。在IGA框架内，几何本身不受离散误差的影响，有限化过程只对物理场的近似空间产生截断。对于依赖精确几何信息的问题——壳体的弯曲刚度矩阵由曲率张量决定，接触问题的间隙函数依赖于法向量的精确求值，流体力学中的壁面剪切应力对曲面曲率高度敏感——精确几何表示从根本上消除了一类系统性建模误差，使有限元误差分析能够在真正意义上只考察数值离散误差，而非数值误差与几何误差的混叠量。</p>
+
+            <p><strong>高阶全局连续性。</strong>B样条基函数在节点处自然具有 C<sup><em>k</em>−1</sup> 连续性，其中 <em>k</em> 为多项式阶次；与之对比，传统Lagrange插值基在单元边界处仅能保证 C<sup>0</sup> 连续性。这一差异在若干力学问题中不仅是精度层面的优势，更直接决定了方法的可行性。Kirchhoff-Love薄壳方程的弱形式要求试探函数空间具备 C<sup>1</sup> 连续性——在一般弯曲网格上构造满足此要求的协调Lagrange单元至今仍是有限元理论的难点之一，现有协调单元往往仅适用于特殊几何或特定网格拓扑。三次NURBS天然满足 C<sup>2</sup> 连续性，使Kirchhoff-Love壳的IGA实现在形式上与理论完全吻合，无需任何特殊处理。对于梯度弹性、应变梯度塑性、Cahn-Hilliard相场模型等需要四阶偏微分方程弱形式的高阶力学理论，高连续性的IGA近似空间同样提供了传统有限元难以企及的格式简洁性。</p>
+
+            <p><strong>k 精化与谱精度。</strong>IGA引入了有限元框架所不具备的第三类细化策略——k精化——区别于经典的h精化（插入节点、细分单元）和p精化（提升多项式阶次）。在标准p精化中，阶次提升伴随着单元边界处连续性维持在 C<sup>0</sup>：新引入的高阶Lagrange节点位于单元内部，不改变跨边界的连续性等级。而在k精化中，阶次提升与连续性提升同步进行，从而构造出真正的 C<sup><em>k</em>−1</sup> 高连续性高阶近似空间。谱分析表明，k精化基在描述高频本征模态方面显著优于同阶 C<sup>0</sup> 连续的Lagrange基：在弹性力学特征值问题中，经典有限元近似谱中存在的"光学支"（optical branches，即无物理对应的虚假高频模态）在 C<sup><em>k</em>−1</sup> 连续基下完全消失，谱近似的精度均匀性随之大幅提升。这一特性对于结构动力学、弹性波传播与声振耦合分析具有实质性的工程价值，因为高频模态的虚假污染在上述问题中会直接影响瞬态响应的计算精度。</p>
+
+            <p><strong>与边界元法的天然结合。</strong>边界积分方程方法（BEM）通过Green公式将控制方程转化为物体表面上的积分方程，仅需对边界而非体积进行离散，可将三维问题的计算维度降低一个量级，在无限域问题（如声学散射、弹性波传播、势流分析）中具有天然优势。IGA与BEM的结合（IGABEM）在数学层面高度自洽：NURBS曲面本身即是对物体边界的精确参数化描述，可直接作为边界积分的计算基，在几何层面无需任何额外的近似层。精确几何对IGABEM的意义尤为突出——三维弹性力学中，应力集中区域的精度对局部曲率极为敏感，精确曲面法向量的可用性使高精度奇异积分处理成为可能，而这恰恰是BEM方法在工程应力分析中最核心的竞争场景。</p>
+
+        </div><!-- end essay-body block 1 -->
+
+
+        <!-- ── 研究方向（正文）────────────────────────────────── -->
+        <div class="essay-body">
+
+            <h2 class="team-section-title">课题组研究方向</h2>
+
+            <p>等几何分析的基础理论在其诞生后十余年间已趋于完备：线弹性静力问题的IGA格式、误差估计、最优收敛阶的证明均已建立在坚实的数学基础之上。真正具有挑战性的前沿，在于如何让IGA框架回应工程计算的真实复杂性——非线性、大变形、多物理场耦合、大规模计算与设计驱动的正逆向一体化。课题组的工作聚焦于以下三个相互支撑、有机关联的研究方向。</p>
+
+            <p><strong>IGA 薄壳结构分析。</strong>薄壳是工程中最重要且力学行为最复杂的结构类型之一：以极少的材料承载面内力与弯矩的复杂组合，其数值格式设计历来是有限元方法的试金石。Kirchhoff-Love壳理论忽略横向剪切变形，模型简洁但要求 C<sup>1</sup> 连续的近似空间——这一要求在传统有限元中极难满足，IGA的高连续性基函数将其化为自然条件；Reissner-Mindlin壳理论引入横向剪切自由度，放宽了连续性要求，但代之以剪切闭锁与膜闭锁的双重数值病态。课题组在两类模型的IGA实现中均深入工作，探索大变形几何非线性壳体的数值格式稳定性、混合变分原理对闭锁现象的消除机制，以及多片NURBS曲面在任意拼接角度下的全局 C<sup>1</sup> 光滑耦合策略。壳体分析的高精度与几何精确性，也为后续的拓扑优化与形状优化提供了可靠的力学求解基础。</p>
+
+            <p><strong>IGA 拓扑优化。</strong>结构拓扑优化的经典输出是离散网格上的材料密度分布，其结果天然继承了有限元网格的像素化特征，与下游的CAD建模和增材制造工艺链之间存在显著的格式断层。IGA框架从根本上改变了这一现状：密度场或水平集函数直接定义于NURBS参数域，高阶连续性天然抑制棋盘格等数值伪影；优化收敛后，结果在参数域上即为光滑连续函数，可直接表达为CAD可用的NURBS几何，无需任何几何重建步骤，真正实现了从优化结果到可制造几何的无缝衔接。课题组在SIMP密度法与水平集方法的IGA实现均有深入积累，工作对象涵盖薄壳结构（包括大曲率自由曲面壳体）、多材料组合体与可调泊松比超材料，已在CMAME、CAD、C&amp;S等顶级期刊发表系列成果。</p>
+
+            <p><strong>局部细化样条与高效计算方法。</strong>标准张量积NURBS的细化操作具有全局传播性——在任意方向插入节点，都会导致整个参数域的控制网格扩展，无法实现真正的局部细化。这与结构分析中误差往往局部集中（应力奇异区、几何突变处）的特点构成根本矛盾。T样条、LR样条与PHT样条（多项式样条的层次T样条）分别从不同角度提供局部细化能力，但各自在线性无关性、嵌套近似空间、高效组装等方面面临不同的理论挑战——T样条线性相关问题的局部判定、LR样条的覆盖条件、PHT样条的层次结构对自适应策略的制约，均是尚未完全解决的数学问题。课题组在样条空间数学性质的分析与自适应IGA算法的设计两个层面协同推进。在计算效率方向，等几何配点法（Isogeometric Collocation）以强形式配点替代Galerkin弱形式积分，将组装代价由每个自由度 O(<em>p</em><sup><em>d</em></sup>) 次Gauss点积分压缩至每点一次函数求值，在保持IGA几何精度优势的同时大幅降低计算成本，是面向工业规模计算的重要技术路径。</p>
+
+            <hr class="content-divider">
+
+            <!-- 四、研究前沿 -->
+            <h2 class="team-section-title">研究前沿与开放问题</h2>
+
+            <p>IGA自2005年诞生以来，二十年间已从一个方法论构想演化为涵盖理论分析、算法开发与工程应用的完整研究生态。然而，其核心数学问题远未走向封闭，若干基础性挑战至今仍处于活跃争论之中。多片NURBS曲面之间的全局光滑连接，是IGA走向工程实际不可回避的核心难题：工业CAD模型通常由数百乃至数千个NURBS片构成，如何在任意拼接拓扑下构造满足全局 C<sup>1</sup> 乃至 C<sup>2</sup> 连续性的分析适用样条空间，既是逼近论的深层问题，又对实际数值格式的设计有直接影响。相关工作在代数几何（G<sup>1</sup> 连续参数化的几何条件）与样条函数论（满足光滑条件的自由度计数与基构造）两个方向同时进行，至今仍是计算几何与计算力学交叉领域最活跃的研究主题之一。</p>
+
+            <p>在算法层面，IGA数值积分的高成本是制约其大规模应用的主要障碍：高阶NURBS单元每个Gauss点的函数求值代价远高于低阶Lagrange单元，使得单元数目相近时IGA的组装开销显著更大。最优积分规则（Optimal Gauss-type Quadrature for IGA）、点积分方法与等几何配点法的系统比较，以及面向GPU并行架构的IGA稀疏矩阵高效组装，均是当前研究的重要课题。与此同时，IGA与机器学习的结合正在开辟新的可能性：将神经网络嵌入IGA的参数域或解空间，以数据驱动方式加速反复求解的参数化问题，或以IGA的高精度解作为物理信息神经网络的监督信号，是正在快速发展的交叉方向。这些开放问题意味着，等几何分析仍然是一个在数学与工程双重驱动下持续演化的活跃前沿，而非一个封闭成型的历史成果。</p>
+
+            <hr class="content-divider">
+
+            <!-- 五、研究培养 -->
+            <h2 class="team-section-title">研究训练与能力培养</h2>
+
+            <p>等几何分析处于计算数学、固体力学与几何建模的深度交叉地带，从事这一方向的研究者需要建立真正跨学科的知识体系，而非在单一领域的纵深上无限延伸。课题组的培养路径以"从理论到实现的完整链条"为核心：我们期望每一位成员不仅理解方法的数学推导，还能将这种理解体现为独立实现的有效代码，并最终将代码结果翻译回工程物理语言。这三个层次的能力互为支撑，缺失任何一个，研究者在这一交叉方向上的工作深度都会受到本质限制。</p>
+
+            <p><strong>数学工具与理论素养。</strong>泛函分析为理解有限元误差的本质提供必要的语言框架——Sobolev空间的定义与嵌入定理，Lax-Milgram定理对双线性型强制性的要求，Cea引理所建立的最优近似误差与有限元误差之间的关系，这些不是抽象的数学符号，而是理解"为什么这个格式收敛、收敛到什么"的基本词汇。样条理论构成IGA实现的数学骨架，涵盖B样条基函数的递归定义（Cox-de Boor公式）、节点向量设计对基函数支撑域与连续性的控制、NURBS的射影几何诠释，以及T样条线性相关性的局部判定条件。数值线性代数贯穿整个计算流程——大规模稀疏线性系统的存储格式与迭代求解，IGA刚度矩阵的带宽结构对直接求解器的影响，以及结构动力学中广义特征值问题的高效处理。</p>
+
+            <p><strong>程序实现能力。</strong>课题组鼓励从底层独立实现NURBS几何内核：节点插入（Oslo算法）、阶次提升（Bézier提取与重建）、曲线/曲面求值，以及从参数域到物理域的雅可比变换，均以自主编写代码的方式加以掌握。这一过程的意义不在于实现本身，而在于：当你必须将数学定义转化为对每个控制点、每段节点区间的精确操作时，你对算法中每一个设计决策的理解深度，是阅读任何教材所无法替代的。在此基础上，课题组成员将系统接触有限元程序的全局组装逻辑（包括数值积分方案的选取对精度与效率的权衡、边界条件的强形式与弱形式施加方式的适用场景），以及STEP、IGES等工业CAD格式的几何内核解析，从而具备与工业计算软件系统直接对接的实际能力。</p>
+
+            <p><strong>跨域工程判断力。</strong>等几何分析是一个应用驱动的研究方向，数学精度的追求服务于对真实工程问题的深刻回应。课题组注重培养研究者在两种语境中流畅切换的能力：在数学报告中，以近似空间的逼近阶次、误差的先验与后验估计来精确表述方法的理论性质；在力学讨论中，以刚度矩阵的病态来源、薄壳闭锁的力学机制、接触问题的离散化对称性来把握问题的工程本质。这种跨域判断力——识别哪些数学性质对于特定工程问题具有真实的数值价值，以及哪些理论上的精化在实践中被其他因素所遮蔽——是从事高水平交叉研究不可或缺的核心素养，也是课题组培养目标中最难量化却最为重要的一项。</p>
+
+            <hr class="content-divider">
+
+            <!-- 六、招募 -->
+            <h2 class="team-section-title">致有志于此的研究者</h2>
+
+            <p>等几何分析是一个罕见地兼具数学内在深度与工程外在重量的方向。它的理论基础根植于样条逼近论、变分原理与偏微分方程分析的交叉地带；它处理的工程对象——精密薄壳结构、多尺度超材料、CAD-仿真-制造一体化设计流程——在航空、汽车、生物医学等产业中具有直接的量化价值。这种双重属性使它成为一个既对数学训练有切实要求、又对真实工程问题保有持续牵引力的研究方向；既适合以理论分析为志趣的研究者深耕其数学基础，也适合以工程问题为导向的研究者在其框架内推动面向应用的方法创新。</p>
+
+            <p>课题组欢迎来自计算数学、固体力学、科学计算、机械工程、航空航天与土木工程等背景的本科生与研究生加入。学科背景本身不构成核心筛选标准——IGA的跨学科性质决定了不同训练背景的研究者均能找到自身知识结构的切入点，力学基础的不足可以通过系统阅读补足，编程能力的差距可以在实践中快速弥合。真正无法在短期内后天培养的，是对问题本身的真实好奇心：不满足于"格式收敛了"，而想追问"为什么这个载荷工况下收敛阶次发生了退化"；不满足于"代码跑通了"，而想弄清楚"数值积分方案的选取对刚度矩阵条件数究竟有多大影响"。这种由问题驱动、而非由完成任务驱动的研究习惯，比任何先修课程的完成度更能预测一个研究者在这个方向上能走多深。</p>
+
+            <div class="essay-callout">
+                <p>等几何分析诞生于一个简单的问题，而那个问题背后，是几何建模与计算力学数十年来真实存在的裂隙。二十年过去，IGA已从一篇论文生长为一个完整的研究生态，但大量核心问题仍然开放：多片光滑连接的代数几何条件、最优积分规则的构造、IGA与数据驱动方法的系统融合……每一个尚未解决的问题背后，都是一片有待探索的数学与工程的交叉疆域。我们不承诺一条笔直的研究道路，但承诺你在这里遭遇的每一次困惑，都指向真实的科学问题；你写下的每一行代码，都在推进对某个数学结构的具体理解。如果读到这里，你仍然认为这件事值得做，我们期待与你进一步交流。</p>
+            </div>
+
+
+        </div><!-- end essay-body -->
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span>USTC TopOpt Group</span>
+                </div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="../script.js"></script>
+    <script>
+        const btn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
+            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        });
+    </script>
+</body>
+</html>
