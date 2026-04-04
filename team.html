@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <script src="zoom-init.js"></script>
@@ -59,26 +59,6 @@
             font-size: 18px;
             opacity: 0.85;
         }
-        #back-to-top {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s, transform 0.2s;
-            z-index: 999;
-        }
-        #back-to-top:hover { transform: translateY(-3px); }
-
         /* Avatar positioning adjustments */
         .avatar-move-down img {
             object-position: center 15% !important;
@@ -129,15 +109,17 @@
         <h2 class="team-section-title">Faculty</h2>
         <div class="faculty-card">
             <div class="faculty-left">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-teachers/Xiaoya Zhai.png" alt="Xiaoya Zhai" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-teachers/Xiaoya Zhai.png" alt="Xiaoya Zhai" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Xiaoya Zhai</h4>
                 <span class="team-role">Assistant Professor, USTC</span>
                 <span class="faculty-dept">School of Mathematical Sciences</span>
                 <div class="team-links">
-                    <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" title="Homepage"><i class="fas fa-globe"></i></a>
+                    <a href="mailto:xiaoyazhai@ustc.edu.cn" title="Email" data-email-link="xiaoyazhai@ustc.edu.cn"><i class="fas fa-envelope"></i></a>
+                    <a href="https://scholar.google.com/citations?user=WilK8ngAAAAJ&hl=zh-CN" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://www.researchgate.net/profile/Xiaoya-Zhai" title="ResearchGate" target="_blank"><i class="fab fa-researchgate"></i></a>
+                    <a href="https://github.com/xiaoyazhai" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/xiaoya-zhai-b0078616a/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="./biography.html" title="Homepage"><i class="fas fa-globe"></i></a>
                 </div>
             </div>
             <div class="faculty-right">
@@ -162,26 +144,26 @@
 
         <!-- Collaborating Faculty -->
         <h2 class="team-section-title" style="margin-top: 40px;">Collaborating Faculty</h2>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px;">
+        <div class="team-collab-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px;">
 
 
 
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-teachers/Falai Chen.jpg" alt="Falai Chen" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-teachers/Falai Chen.jpg" alt="Falai Chen" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Falai Chen</h4>
                 <span class="team-role">Professor · USTC</span>
                 <div class="team-links">
-                    <a href="mailto:chenfl@ustc.edu.cn" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:chenfl@ustc.edu.cn" title="Email" data-email-link="chenfl@ustc.edu.cn"><i class="fas fa-envelope"></i></a>
                     <a href="http://staff.ustc.edu.cn/~chenfl/" title="Homepage" target="_blank"><i class="fas fa-globe"></i></a>
                 </div>
             </div>
 
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-teachers/Ligang Liu.png" alt="Ligang Liu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-teachers/Ligang Liu.png" alt="Ligang Liu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Ligang Liu</h4>
                 <span class="team-role">Professor · USTC</span>
                 <div class="team-links">
-                    <a href="mailto:lgliu@ustc.edu.cn" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:lgliu@ustc.edu.cn" title="Email" data-email-link="lgliu@ustc.edu.cn"><i class="fas fa-envelope"></i></a>
                     <a href="http://staff.ustc.edu.cn/~lgliu/" title="Homepage" target="_blank"><i class="fas fa-globe"></i></a>
                 </div>
             </div>
@@ -189,23 +171,23 @@
             
 
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-teachers/Bin Xu.png" alt="Bin Xu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-teachers/Bin Xu.png" alt="Bin Xu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Bin Xu</h4>
                 <span class="team-role">Professor · USTC</span>
                 <div class="team-links">
-                    <a href="bxu@ustc.edu.cn" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:bxu@ustc.edu.cn" title="Email" data-email-link="bxu@ustc.edu.cn"><i class="fas fa-envelope"></i></a>
                     <a href="https://faculty.ustc.edu.cn/xubin1/zh_CN/index.htm/" title="Homepage" target="_blank"><i class="fas fa-globe"></i></a>
                 </div>
             </div>
 
 
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-teachers/Xiao-Ming Fu.jpg" alt="Xiao-Ming Fu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-teachers/Xiao-Ming Fu.jpg" alt="Xiao-Ming Fu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Xiao-Ming Fu</h4>
                 <span class="team-role">Associate Professor · USTC</span>
                 <div class="team-links">
-                    <a href="mailto:fuxm@ustc.edu.cn" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://ustc-gcl-f.github.io/" title="Homepage" target="_blank"><i class="fas fa-globe"></i></a>
+                    <a href="mailto:fuxm@ustc.edu.cn" title="Email" data-email-link="fuxm@ustc.edu.cn"><i class="fas fa-envelope"></i></a>
+                    <a href="http://staff.ustc.edu.cn/~fuxm/" title="Homepage" target="_blank"><i class="fas fa-globe"></i></a>
                 </div>
             </div>
 
@@ -216,37 +198,37 @@
         <h2 class="team-section-title">PhD Students</h2>
         <div class="team-grid">
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Jiacheng Han.png" alt="Jiacheng Han" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-students/Jiacheng Han.png" alt="Jiacheng Han" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Jiacheng Han</h4>
                 <span class="team-role">PhD Student · 2023–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Lili Wang.png" alt="Lili Wang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Lili Wang.png" alt="Lili Wang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Lili Wang</h4>
                 <span class="team-role">PhD Student · 2022–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Tianjie Chen.jpg" alt="Tianjie Chen" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-students/Tianjie Chen.jpg" alt="Tianjie Chen" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Tianjie Chen</h4>
                 <span class="team-role">PhD Student · 2025–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Qingyu Xu.jpg" alt="Qingyu Xu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-students/Qingyu Xu.jpg" alt="Qingyu Xu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Qingyu Xu</h4>
                 <span class="team-role">PhD Student · 2025–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Zenghao Xu.jpg" alt="Zenghao Xu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Zenghao Xu.jpg" alt="Zenghao Xu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Zenghao Xu</h4>
                 <span class="team-role">PhD Student · 2020–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Yajun Zeng.jpg" alt="Yajun Zeng" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Yajun Zeng.jpg" alt="Yajun Zeng" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Yajun Zeng</h4>
                 <span class="team-role">PhD Student · 2024–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Jing Zhang.jpg" alt="Jing Zhang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-students/Jing Zhang.jpg" alt="Jing Zhang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Jing Zhang</h4>
                 <span class="team-role">PhD Student · 2024–</span>
             </div>
@@ -256,57 +238,57 @@
         <h2 class="team-section-title">Master Students</h2>
         <div class="team-grid">
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Tianyu Li.jpg" alt="Tianyu Li" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Tianyu Li.jpg" alt="Tianyu Li" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Tianyu Li</h4>
                 <span class="team-role">Master Student · 2024–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Tianyang Sun.jpg" alt="Tianyang Sun" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Tianyang Sun.jpg" alt="Tianyang Sun" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Tianyang Sun</h4>
                 <span class="team-role">Master Student · 2023–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Enhao Zhang.jpg" alt="Enhao Zhang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Enhao Zhang.jpg" alt="Enhao Zhang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Enhao Zhang</h4>
                 <span class="team-role">Master Student · 2024–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Jiayu Hu.jpg" alt="Jiayu Hu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Jiayu Hu.jpg" alt="Jiayu Hu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Jiayu Hu</h4>
                 <span class="team-role">Master Student · 2023–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-center avatar-zoom-in"><img src="picture-students/Xinhan Yuan.jpg" alt="Xinhan Yuan" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-center avatar-zoom-in"><img loading="lazy" src="picture-students/Xinhan Yuan.jpg" alt="Xinhan Yuan" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Xinhan Yuan</h4>
                 <span class="team-role">Master Student · 2023–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Tielin Dai.jpg" alt="Tielin Dai" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Tielin Dai.jpg" alt="Tielin Dai" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Tielin Dai</h4>
                 <span class="team-role">Master Student · 2023–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Tianxiang Fu.jpg" alt="Tianxiang Fu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Tianxiang Fu.jpg" alt="Tianxiang Fu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Tianxiang Fu</h4>
                 <span class="team-role">Master Student · 2024–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Chang Liu.jpg" alt="Chang Liu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Chang Liu.jpg" alt="Chang Liu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Chang Liu</h4>
                 <span class="team-role">Master Student · 2025–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Bingqian An.jpg" alt="Bingqian An" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Bingqian An.jpg" alt="Bingqian An" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Bingqian An</h4>
                 <span class="team-role">Master Student · 2025–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-move-up avatar-zoom-in"><img src="picture-students/Zhangrui Wu.jpg" alt="Zhangrui Wu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-up avatar-zoom-in"><img loading="lazy" src="picture-students/Zhangrui Wu.jpg" alt="Zhangrui Wu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Zhangrui Wu</h4>
                 <span class="team-role">Master Student · 2025–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Chen Shang.jpg" alt="Chen Shang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-students/Chen Shang.jpg" alt="Chen Shang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Chen Shang</h4>
                 <span class="team-role">Master Student · 2023–</span>
             </div>
@@ -315,32 +297,32 @@
         <h2 class="team-section-title">Bachelor Students</h2>
         <div class="team-grid">
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Yifeng Hu.jpg" alt="Yifeng Hu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Yifeng Hu.jpg" alt="Yifeng Hu" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Yifeng Hu</h4>
                 <span class="team-role">Bachelor Student · 2023–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-zoom-in"><img src="picture-students/Chong Jiang.jpg" alt="Chong Jiang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-zoom-in"><img loading="lazy" src="picture-students/Chong Jiang.jpg" alt="Chong Jiang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Chong Jiang</h4>
                 <span class="team-role">Bachelor Student · 2022–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Baobin Shao.jpg" alt="Baobin Shao" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-students/Baobin Shao.jpg" alt="Baobin Shao" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Baobin Shao</h4>
                 <span class="team-role">Bachelor Student · 2022–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Tianjian Zhou.jpg" alt="Tianjian Zhou" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-students/Tianjian Zhou.jpg" alt="Tianjian Zhou" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Tianjian Zhou</h4>
                 <span class="team-role">Bachelor Student · 2022–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Yanfu Wang.jpg" alt="Yanfu Wang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-students/Yanfu Wang.jpg" alt="Yanfu Wang" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Yanfu Wang</h4>
                 <span class="team-role">Bachelor Student · 2022–</span>
             </div>
             <div class="team-card">
-                <div class="team-avatar avatar-move-down avatar-zoom-in"><img src="picture-students/Yang Shen.jpg" alt="Yang Shen" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
+                <div class="team-avatar avatar-move-down avatar-zoom-in"><img loading="lazy" src="picture-students/Yang Shen.jpg" alt="Yang Shen" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-user\'></i>'"></div>
                 <h4>Yang Shen</h4>
                 <span class="team-role">Bachelor Student · 2024–</span>
             </div>
@@ -364,7 +346,7 @@
         <section class="group-photo-section">
             <h2 class="team-section-title">Group Photo</h2>
             <div class="group-photo-wrap">
-                <img src="cover/group.png" alt="USTC TopOpt Group Photo">
+                <img loading="lazy" src="cover/group.png" alt="USTC TopOpt Group Photo">
                 <div class="group-photo-caption">
                     <i class="fas fa-users"></i>
                     USTC TopOpt Group · 2025
@@ -393,10 +375,21 @@
     </button>
     <script src="script.js"></script>
     <script>
-        const btn = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            btn.style.opacity = window.scrollY > 300 ? '1' : '0';
-            btn.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+        document.querySelectorAll('[data-email-link]').forEach((link) => {
+            link.addEventListener('click', async (event) => {
+                const email = link.getAttribute('data-email-link');
+                event.preventDefault();
+
+                try {
+                    window.location.href = `mailto:${email}`;
+                    if (navigator.clipboard) {
+                        await navigator.clipboard.writeText(email);
+                        alert(`Email address copied: ${email}`);
+                    }
+                } catch (error) {
+                    window.location.href = `mailto:${email}`;
+                }
+            });
         });
     </script>
 </body>
