@@ -279,7 +279,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <i class="fas fa-brain"></i>
+                <img src="cover/topopt-logo.png" alt="TopOpt Group logo">
                 <span>TopOpt Group</span>
             </div>
             <ul class="nav-menu">
@@ -308,12 +308,14 @@
             </h1>
             
             <br>
-            <p class="intro-lead">   TopOpt group led by Dr. Xiaoya Zhai at School of Mathematical Sciences in the University of Science and Technology of China (USTC) develops next-generation structures and materials through optimization/AI-driven design. We create multiphysics, multifunctional microstructures and explore how engineered matter can enable embodied intelligence bridging mathematics, mechanics, and real-world engineering needs.</p>
+            <p class="intro-lead">   TopOpt group led by <a href="./biography.html">Dr. Xiaoya Zhai</a> at School of Mathematical Sciences in the University of Science and Technology of China (USTC) develops next-generation structures and materials through optimization/AI-driven design. We create multiphysics, multifunctional microstructures and explore how engineered matter can enable embodied intelligence bridging mathematics, mechanics, and real-world engineering needs.</p>
             <div class="intro-tags">
-                <a class="tag" href="./intro/topology-optimization.html" style="text-decoration: none;">Structure Design</a>
-                <a class="tag" href="./intro/multi-physics.html" style="text-decoration: none;">Multi-physics Simulation</a>
-                <a class="tag" href="./intro/additive-manufacturing.html" style="text-decoration: none;">Advanced Manufacturing</a>
-                <a class="tag" href="./intro/isogeometric-analysis.html" style="text-decoration: none;">Isogeometric Analysis</a>
+                <a class="tag" href="" style="text-decoration: none;">AI for Science</a> <!--./intro/topology-optimization.html-->
+                <a class="tag" href="" style="text-decoration: none;">AI for Industry</a> <!--    <a class="tag" href="" style="text-decoration: none;">AI for Robotics</a> ./intro/multi-physics.html-->
+                <a class="tag" href="" style="text-decoration: none;">AI for Robotics</a>
+                <a class="tag" href="" style="text-decoration: none;">Topology Optimization</a>
+                <a class="tag" href="" style="text-decoration: none;">Multiphysics Simulation</a>
+                <a class="tag" href="" style="text-decoration: none;">Intelligent Design</a>
             </div>
             <br>
         </section>
@@ -509,7 +511,7 @@
                 <!-- Left: brand + copyright -->
                 <div class="footer-left">
                     <div class="footer-brand">
-                        <i class="fas fa-brain"></i>
+                        <img src="cover/topopt-logo.png" alt="TopOpt Group logo">
                         <span>USTC TopOpt Group</span>
                     </div>
                     <p style="margin: 3px 0 0; color: rgba(15, 23, 42, 0.58);">
@@ -535,7 +537,7 @@
                         </div>
                     </div>
                     <div class="footer-stats">
-                        <div class="footer-visit-count" id="visit-count">—</div>
+                        <div class="footer-visit-count" id="busuanzi_site_pv">—</div>
                         <div class="footer-visit-label">Total Visits</div>
                         <div class="footer-visit-loc" id="visitor-loc">—</div>
                     </div>
@@ -545,26 +547,6 @@
     </footer>
     <script>
     (function () {
-        /* ── Visitor counter ─────────────────────────────────── */
-        var KEY  = 'ustc_topopt_vc';
-        var SEED = 15843;
-        var data = JSON.parse(localStorage.getItem(KEY) || '{"n":0,"t":0}');
-        var now  = Date.now();
-        if (now - data.t > 30 * 60 * 1000) {
-            data.n++; data.t = now;
-            localStorage.setItem(KEY, JSON.stringify(data));
-        }
-        var total = SEED + data.n;
-        var countEl = document.getElementById('visit-count');
-        if (countEl) {
-            var cur = Math.max(0, total - 80);
-            var timer = setInterval(function () {
-                cur += 3;
-                if (cur >= total) { cur = total; clearInterval(timer); }
-                countEl.textContent = cur.toLocaleString();
-            }, 16);
-        }
-
         /* ── IP geolocation ──────────────────────────────────── */
         var LOCS_KEY = 'ustc_topopt_locs';
         var locs = JSON.parse(localStorage.getItem(LOCS_KEY) || '[]');
@@ -755,5 +737,6 @@
             startAuto();
         })();
     </script>
+    <script src="visitor-counter.js"></script>
 </body>
 </html>

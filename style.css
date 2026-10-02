@@ -397,9 +397,12 @@ body {
     color: var(--text-dark);
 }
 
-.nav-brand i {
-    font-size: 28px;
-    color: var(--primary-color);
+.nav-brand img {
+    display: block;
+    width: 64px;
+    height: 38px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .nav-menu {
@@ -1271,9 +1274,13 @@ body {
     color: var(--text-dark);
 }
 
-.footer-brand i {
-    font-size: 20px;
-    color: var(--primary-color);
+.footer-brand img {
+    display: block;
+    width: 44px;
+    height: 27px;
+    object-fit: contain;
+    flex-shrink: 0;
+    mix-blend-mode: multiply;
 }
 
 .footer p {
@@ -1494,10 +1501,17 @@ body {
 .pub-scroll-track {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 0 20px;
+    width: max-content;
     animation: pub-marquee 35s linear infinite;
     will-change: transform;
+}
+
+.pub-scroll-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-right: 14px;
+    flex: 0 0 auto;
 }
 
 .pub-scroll-track:hover {
@@ -1514,7 +1528,7 @@ body {
     display: flex;
     align-items: center;
     gap: 13px;
-    width: 295px;
+    width: 335px;
     padding: 10px 13px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.09);
@@ -1530,32 +1544,88 @@ body {
     transform: translateY(-2px);
 }
 
-.pub-scroll-thumb {
-    width: 70px;
-    height: 70px;
-    border-radius: 8px;
-    flex-shrink: 0;
-    overflow: hidden;
+.pub-scroll-journal {
+    --cover-bg: #edf1f7;
+    --cover-accent: #9aabc4;
+    --cover-ink: #203653;
+    width: 58px;
+    height: 72px;
+    box-sizing: border-box;
+    flex: 0 0 58px;
+    padding: 8px 6px 6px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    border-radius: 4px;
+    border: 1px solid var(--cover-accent);
+    border-top: 5px solid var(--cover-accent);
+    background: var(--cover-bg);
+    color: var(--cover-ink);
 }
 
-.pub-scroll-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.pub-scroll-journal[data-journal="C&S"] {
+    --cover-bg: #e8f1fa;
+    --cover-accent: #83a9cc;
+    --cover-ink: #294c6b;
+}
+.pub-scroll-journal[data-journal="IJMS"] {
+    --cover-bg: #fff0e5;
+    --cover-accent: #d8a47f;
+    --cover-ink: #75513a;
+}
+.pub-scroll-journal[data-journal="AES"] {
+    --cover-bg: #f0eafb;
+    --cover-accent: #a790ce;
+    --cover-ink: #584778;
+}
+.pub-scroll-journal[data-journal="CAGD"] {
+    --cover-bg: #e8f5ec;
+    --cover-accent: #8ab69a;
+    --cover-ink: #365c45;
+}
+.pub-scroll-journal[data-journal="CMAME"] {
+    --cover-bg: #e8f4f7;
+    --cover-accent: #82b4c2;
+    --cover-ink: #315b68;
+}
+.pub-scroll-journal[data-journal="IJNME"] {
+    --cover-bg: #faf2dc;
+    --cover-accent: #c9ad70;
+    --cover-ink: #695532;
+}
+.pub-scroll-journal[data-journal="TWS"] {
+    --cover-bg: #faecef;
+    --cover-accent: #cc9ca8;
+    --cover-ink: #704a54;
+}
+.pub-scroll-journal[data-journal="SMM"] {
+    --cover-bg: #e6f4f1;
+    --cover-accent: #82b5aa;
+    --cover-ink: #356056;
+}
+.pub-scroll-journal[data-journal="NC"] {
+    --cover-bg: #ebedfa;
+    --cover-accent: #929dcc;
+    --cover-ink: #454e7b;
 }
 
-.pub-scroll-thumb-grad {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    border-radius: 8px;
+.pub-scroll-journal-label {
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.pub-scroll-journal-code {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    white-space: nowrap;
+}
+
+.pub-scroll-journal-year {
+    font-size: 9px;
+    letter-spacing: 0.06em;
 }
 
 .pub-scroll-info {
@@ -1612,6 +1682,18 @@ body {
     background: transparent;
     border: none;
     box-shadow: none;
+}
+
+.research-intro {
+    gap: 24px;
+    padding: 24px 0 36px;
+}
+
+.research-intro .intro-lead {
+    max-width: 940px;
+    margin: 0 auto;
+    text-align: center;
+    text-wrap: pretty;
 }
 
 .intro-hero-title {
@@ -1692,8 +1774,17 @@ body {
 .intro-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 16px;
     justify-content: center;
+}
+
+.intro-tags > .tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .intro-image img {
@@ -1702,6 +1793,107 @@ body {
     border-radius: 8px;
     display: block;
     box-shadow: var(--shadow-md);
+}
+
+.research-vision-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #e6ebf2;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 12px 32px -22px rgba(25, 47, 84, 0.38);
+}
+
+.research-vision-image img {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+}
+
+.research-vision-image:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .research-intro {
+        gap: 18px;
+        padding: 12px 0 28px;
+    }
+
+    .research-intro .intro-lead {
+        text-align: left;
+    }
+
+    .research-vision-image {
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin;
+    }
+
+    .research-vision-image img {
+        min-width: 960px;
+        max-width: none;
+    }
+}
+
+.research-area-links {
+    margin-top: 10px;
+}
+
+.research-area-label {
+    margin: 0 0 14px;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.research-area-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.research-area-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid #cbdcf2;
+    border-radius: 999px;
+    background: #f7faff;
+    color: #24558b;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.research-area-buttons a:hover {
+    background: #e8f2ff;
+    border-color: #8fb5e8;
+    transform: translateY(-2px);
+}
+
+.research-area-buttons a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.research-area-buttons a span {
+    font-size: 12px;
 }
 
 .content-divider {

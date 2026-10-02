@@ -1,157 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="keywords" content="L-BOM, bicontinuous multiscale structures, inverse design, active learning, additive manufacturing" />
-  <meta name="description" content="L-BOM enables fast inverse design of multifunctional bicontinuous multiscale structures with broad property coverage and guaranteed boundary compatibility." />
-  <link rel="shortcut icon" href="myIcon.ico" />
-  <link rel="stylesheet" type="text/css" href="project.css" />
-  <title>L-BOM | Bicontinuous Multiscale Structures</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="L-BOM, bicontinuous multiscale structures, inverse design, active learning, Nature Communications">
+  <meta name="description" content="L-BOM: data-driven inverse design of multifunctional bicontinuous multiscale structures. Nature Communications, 2026.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Data-driven inverse design of multifunctional bicontinuous multiscale structures">
+  <meta property="og:description" content="L-BOM datasets for boundary-compatible bicontinuous multiscale design.">
+  <meta property="og:image" content="https://xiaoyazhai.github.io/cover/2026-nc.png">
+  <link rel="canonical" href="https://xiaoyazhai.github.io/project/2026-L-BOM.html">
+  <link rel="icon" type="image/png" href="../cover/topopt-logo.png">
+  <link rel="stylesheet" href="2026-L-BOM.css">
+  <title>L-BOM: Data-driven inverse design of bicontinuous multiscale structures</title>
   <script>
     (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,"script","https://www.google-analytics.com/analytics.js","ga");
-
     ga("create", "UA-87320911-1", "auto");
     ga("send", "pageview");
   </script>
 </head>
 <body>
-  <div class="page-shell">
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">Nature Communications, 2025</span>
-        <h1>
-          <span class="title-main">Data-driven Inverse Design of</span>
-          <span class="title-break">Multifunctional Bicontinuous Multiscale Structures</span>
-        </h1>
-        <p class="lead">
-          L-BOM is a data-driven framework for the inverse design of bicontinuous open-cell multiscale structures
-          with shared boundaries, broad property coverage, and practical manufacturability.
-        </p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="topbar" aria-label="Site navigation">
+    <a href="../research.html">← Back to Research</a>
+    <span class="group-name">TopOpt Group</span>
+  </nav>
+
+  <main id="main">
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>Data-driven inverse design of multifunctional bicontinuous multiscale structures</h1>
         <p class="authors">
-          Lili Wang+, Jingxuan Feng+, <strong><a href="https://xiaoyazhai.github.io/index.html">Xiaoya Zhai*</a></strong>,
-          Jiacheng Han, Kai Chen, Winston WaiShing Ma,
-          <a href="http://staff.ustc.edu.cn/~lgliu/">Ligang Liu</a>,
-          <a href="https://ustc-gcl-f.github.io/">Xiao-Ming Fu</a>
+          <span class="author">Lili Wang<sup>1,2†</sup>,</span>
+          <span class="author">Jingxuan Feng<sup>1†</sup>,</span>
+          <span class="author"><a href="../biography.html">Xiaoya Zhai</a><sup>1*</sup>,</span>
+          <span class="author">Jiacheng Han<sup>1</sup>,</span>
+          <span class="author">Kai Chen<sup>3</sup>,</span>
+          <span class="author">Winston Wai Shing Ma<sup>4</sup>,</span>
+          <span class="author">Ligang Liu<sup>1</sup>,</span>
+          <span class="author">Xiao-Ming Fu<sup>1</sup></span>
         </p>
-        <p class="citation-line">
-          A scalable route from microstructure dataset construction to rapid multiscale design for implants and
-          lightweight porous systems.
-        </p>
-      </div>
-      <div class="summary-box">
-        <h2>At a Glance</h2>
-        <div class="summary-grid">
-          <article class="summary-item">
-            <strong>404,355</strong>
-            <span>microstructures in the final datasets</span>
-          </article>
-          <article class="summary-item">
-            <strong>4 masks</strong>
-            <span>boundary-identical families for direct assembly</span>
-          </article>
-          <article class="summary-item">
-            <strong>Active learning</strong>
-            <span>efficient expansion of the accessible property space</span>
-          </article>
-          <article class="summary-item">
-            <strong>Hours to minutes</strong>
-            <span>substantial acceleration of multiscale design</span>
-          </article>
+        <div class="affiliations">
+          <span><sup>1</sup> School of Mathematical Sciences, University of Science and Technology of China</span>
+          <span><sup>2</sup> School of Mathematical Sciences, Xinjiang Normal University</span>
+          <span><sup>3</sup> Zhongguancun Institute of Artificial Intelligence</span>
+          <span><sup>4</sup> Department of Mechanical Engineering, Hong Kong Polytechnic University</span>
+        </div>
+        <p class="author-note"><sup>†</sup> Equal contribution &nbsp; <sup>*</sup> Corresponding author</p>
+        <p class="venue">Nature Communications 2026</p>
+        <div class="publication-links">
+          <a href="https://www.nature.com/articles/s41467-025-68089-2" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+          <a href="#bibtex">BibTeX ↓</a>
         </div>
       </div>
+    </header>
+
+    <figure class="teaser">
+      <img src="../cover/2026-nc.png" width="2000" height="669" alt="L-BOM dataset, bicontinuous structures, and femoral implant design" decoding="async">
+    </figure>
+
+    <section class="section abstract" id="abstract" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p>Bicontinuous multiscale structures combine mechanical support with continuous pathways for transport, but inverse design is difficult when neighboring microstructures must remain connected. This work introduces L-BOM (Large-range, Boundary-identical, Bicontinuous Open-cell Microstructure): four datasets of three-dimensional microstructures that share prescribed boundary masks while spanning a broad range of properties.</p>
+      <p>Starting from optimized structures, a boundary-conditioned generative model and active learning expand the datasets while retaining connected solid and void phases. These compatible building blocks can be assembled directly in multiscale designs. The paper demonstrates applications in bone implants, chair components, and multifunctional structures with tunable elasticity and permeability.</p>
     </section>
 
-    <section class="panel image-panel">
-      <img src="./pics/2026-L-BOM-Figure1-pipeline.png" alt="L-BOM motivation and workflow" />
-      <p class="caption">
-        <strong>Figure 1.</strong> L-BOM connects dataset construction, active learning, and multiscale assembly
-        into one practical inverse design pipeline.
-      </p>
+    <section class="section" id="pipeline" aria-labelledby="pipeline-title">
+      <h2 id="pipeline-title">Pipeline</h2>
+      <p class="section-intro">The approach begins with bicontinuous open-cell microstructures, builds boundary-compatible datasets through optimization and active learning, and selects building blocks for a target multiscale design.</p>
+      <figure class="research-figure">
+        <a class="figure-image" href="pics/2026-L-BOM-Figure1-pipeline.png" target="_blank" rel="noopener noreferrer" aria-label="Open pipeline figure at full resolution">
+          <img src="pics/2026-L-BOM-Figure1-pipeline.png" width="8000" height="3888" alt="Bicontinuous structures, connectivity constraints, L-BOM dataset construction, and a bone implant application" loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Figure 1.</strong> Motivation, connectivity challenge, L-BOM dataset, and a femoral implant example. Click the figure for the full-resolution version.</figcaption>
+      </figure>
     </section>
 
-    <section class="panel">
-      <div class="section-heading">
-        <span class="section-tag">Overview</span>
-        <h2>Abstract</h2>
-      </div>
-      <p class="single-text">
-        Bicontinuous multiscale structures offer attractive mechanical and transport properties, but their design is
-        challenging because global connectivity must be preserved while exploring a large property space. L-BOM addresses
-        this problem with a large-range, boundary-identical dataset of bicontinuous open-cell microstructures and a
-        boundary-aware active learning strategy. The resulting framework enables fast retrieval and assembly of compatible
-        building blocks for multiscale design.
-      </p>
+    <section class="section" id="datasets" aria-labelledby="datasets-title">
+      <h2 id="datasets-title">Dataset construction</h2>
+      <p class="section-intro">Four boundary masks define separate microstructure families. A boundary-conditioned diffusion model proposes new structures; finite-element analysis and connectivity checks determine which candidates extend the initial optimization sets. The final datasets contain 404,355 microstructures, each discretized into 128<sup>3</sup> elements.</p>
+      <figure class="research-figure figure-narrow">
+        <a class="figure-image" href="pics/2026-L-BOM-Figure2-datasets.png" target="_blank" rel="noopener noreferrer" aria-label="Open dataset figure at full resolution">
+          <img src="pics/2026-L-BOM-Figure2-datasets.png" width="8000" height="8696" alt="Active-learning workflow and initial and final L-BOM datasets under four boundary masks" loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Figure 2.</strong> Initial optimization sets, active-learning workflow, and the resulting datasets under four boundary masks. Click the figure for the full-resolution version.</figcaption>
+      </figure>
     </section>
 
-    <section class="panel">
-      <div class="section-heading">
-        <span class="section-tag">Methodology</span>
-        <h2>Framework</h2>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <h3>Large property coverage</h3>
-          <p>Optimization and active learning jointly expand the accessible elastic and geometric design space.</p>
-        </article>
-        <article class="feature-card">
-          <h3>Guaranteed compatibility</h3>
-          <p>All microstructures in each dataset share identical boundaries, enabling direct multiscale assembly.</p>
-        </article>
-        <article class="feature-card">
-          <h3>Bicontinuous open-cell geometry</h3>
-          <p>Connected solid and void phases support both structural performance and transport functionality.</p>
-        </article>
-        <article class="feature-card">
-          <h3>Manufacturing-ready outputs</h3>
-          <p>Open channels simplify resin or powder removal and support additive manufacturing workflows.</p>
-        </article>
-      </div>
+    <section class="section" id="application" aria-labelledby="application-title">
+      <h2 id="application-title">Femoral implant design</h2>
+      <p class="section-intro">The paper uses the dataset to match elastic response and pore architecture in a porous femoral implant. Selected cells are assembled into a connected structure and compared with representative IWP, BCC truss, and spinodal architectures.</p>
+      <figure class="research-figure figure-narrow">
+        <a class="figure-image" href="pics/2026-L-BOM-Figure3-bone.png" target="_blank" rel="noopener noreferrer" aria-label="Open femoral implant figure at full resolution">
+          <img src="pics/2026-L-BOM-Figure3-bone.png" width="8000" height="10821" alt="Femoral implant optimization, microstructure matching, and comparison with reference lattices" loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Figure 4.</strong> Femoral implant case study, including property matching, assembly, and comparison with reference porous architectures. Figure numbering follows the published paper.</figcaption>
+      </figure>
     </section>
 
-    <section class="panel image-panel">
-      <img src="./pics/2026-L-BOM-Figure2-datasets.png" alt="L-BOM datasets under different boundary masks" />
-      <p class="caption">
-        <strong>Figure 2.</strong> Four boundary-consistent datasets constructed through optimization and boundary-aware active learning.
-      </p>
+    <section class="section bibtex" id="bibtex" aria-labelledby="bibtex-title">
+      <h2 id="bibtex-title">BibTeX</h2>
+      <pre><code>@article{wang2026lbom,
+  title   = {Data-driven inverse design of multifunctional bicontinuous multiscale structures},
+  author  = {Wang, Lili and Feng, Jingxuan and Zhai, Xiaoya and Han, Jiacheng and Chen, Kai and Ma, Winston Wai Shing and Liu, Ligang and Fu, Xiao-Ming},
+  journal = {Nature Communications},
+  volume  = {17},
+  pages   = {1335},
+  year    = {2026},
+  doi     = {10.1038/s41467-025-68089-2}
+}</code></pre>
+      <p class="doi">DOI: <a href="https://doi.org/10.1038/s41467-025-68089-2">10.1038/s41467-025-68089-2</a></p>
     </section>
+  </main>
 
-    <section class="panel">
-      <div class="section-heading">
-        <span class="section-tag">Results</span>
-        <h2>Applications</h2>
-      </div>
-      <div class="application-list">
-        <article class="application-card">
-          <h3>Bone implants</h3>
-          <p>
-            Match stiffness, pore size, and porosity while preserving connectivity across the assembled implant.
-          </p>
-        </article>
-        <article class="application-card">
-          <h3>Lightweight structural components</h3>
-          <p>
-            Reuse compatible microstructures to generate high-performance multiscale parts without costly post-processing.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="panel image-panel">
-      <img src="./pics/2026-L-BOM-Figure3-bone.png" alt="Bone implant design with L-BOM" />
-      <p class="caption">
-        <strong>Figure 3.</strong> L-BOM enables compact and cancellous bone implant design with matched mechanical and pore characteristics.
-      </p>
-    </section>
-
-    <section class="footer-panel">
-      <h2>Contact and Citation</h2>
-      <p>Please cite this work if it is relevant to your research or application.</p>
-      <p>For questions, contact <a href="mailto:xiaoyazhai@ustc.edu.cn">xiaoyazhai@ustc.edu.cn</a>.</p>
-    </section>
-  </div>
+  <footer class="footer">
+    <a href="../index.html">TopOpt Group</a> · <a href="../research.html">Research</a> ·
+    <a href="mailto:xiaoyazhai@ustc.edu.cn">Contact</a>
+  </footer>
+  <script src="../visitor-counter.js"></script>
 </body>
 </html>

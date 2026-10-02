@@ -1,0 +1,129 @@
+/* Compact teaching rows and section spacing. */
+.teaching-page {
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
+.teaching-page .team-section-title {
+    margin-top: 22px;
+    margin-bottom: 6px;
+    padding-bottom: 7px;
+    font-size: 24px;
+}
+
+.teaching-page .team-section-title:first-of-type {
+    margin-top: 0;
+}
+
+.teaching-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.teaching-period {
+    flex-shrink: 0;
+    width: 100px;
+    text-align: left;
+    padding-left: 4px;
+}
+
+.teaching-period-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.teaching-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.teaching-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+}
+
+.teaching-tags {
+    flex-shrink: 0;
+    display: flex;
+    gap: 8px;
+}
+
+.teaching-page .tag {
+    padding: 3px 10px;
+    font-size: 13px;
+}
+
+.course-note {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+    .teaching-page {
+        padding: 24px 20px;
+    }
+
+    .teaching-row {
+        gap: 12px;
+    }
+
+    .teaching-period {
+        width: 90px;
+    }
+}
+
+@media (max-width: 640px) {
+    .teaching-page {
+        padding: 20px 16px;
+    }
+
+    .teaching-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 3px 8px;
+        padding: 14px 4px;
+    }
+
+    .teaching-period {
+        grid-column: 1 / -1;
+        width: auto;
+        padding-left: 0;
+    }
+
+    .teaching-period-label {
+        font-size: 13px;
+    }
+
+    .teaching-details {
+        grid-column: 1 / -1;
+        overflow-wrap: anywhere;
+    }
+
+    .teaching-details a {
+        overflow-wrap: anywhere;
+    }
+
+    .teaching-tags {
+        grid-column: 1 / -1;
+        margin-top: 3px;
+    }
+
+    .teaching-page .tag {
+        font-size: 11px;
+        padding: 2px 8px;
+    }
+
+    .course-note {
+        margin-left: 6px;
+    }
+}

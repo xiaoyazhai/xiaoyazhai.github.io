@@ -203,73 +203,87 @@ async function loadPublications() {
     }
 }
 
-// Load publication scroll banner
-async function loadPubScrollBanner() {
-    const banner = document.getElementById('pub-scroll-banner');
-    const track  = document.getElementById('pub-scroll-track');
-    if (!track) return;
+// Build the banner from the current year's publication cards on this page.
+function loadPubScrollBanner() {
+    const banner = document.querySelector('.pub-scroll-banner');
+    const track = banner && banner.querySelector('.pub-scroll-track');
+    const yearHeading = document.getElementById('year-2026');
+    if (!track || !yearHeading) return;
 
-    try {
-        const response = await fetch('data/publications.json');
-        const data = await response.json();
-        const pubs = data.publications;
-
-        if (!pubs || pubs.length === 0) {
-            banner.style.display = 'none';
-            return;
-        }
-
-        const gradients = [
-            'linear-gradient(135deg,#2563eb,#7c3aed)',
-            'linear-gradient(135deg,#0891b2,#0d9488)',
-            'linear-gradient(135deg,#7c3aed,#c026d3)',
-            'linear-gradient(135deg,#059669,#0891b2)',
-            'linear-gradient(135deg,#dc2626,#ea580c)',
-            'linear-gradient(135deg,#d97706,#84cc16)',
-            'linear-gradient(135deg,#6366f1,#8b5cf6)',
-        ];
-        const icons = ['📄','🔬','🧠','⚙️','🏗️','📊','🔧'];
-
-        // Duplicate items for seamless infinite loop
-        const items = [...pubs, ...pubs];
-
-        items.forEach((pub, i) => {
-            const idx  = i % pubs.length;
-            const grad = gradients[idx % gradients.length];
-            const icon = icons[idx % icons.length];
-
-            const link = pub.links && pub.links.paper ? pub.links.paper : '#';
-
-            let thumbHTML;
-            if (pub.image) {
-                thumbHTML = `<img src="${pub.image}" alt=""
-                    onerror="this.parentElement.innerHTML='<div class=\\'pub-scroll-thumb-grad\\'
-                    style=\\'background:${grad}\\'>${icon}</div>'">`;
-            } else {
-                thumbHTML = `<div class="pub-scroll-thumb-grad" style="background:${grad}">${icon}</div>`;
-            }
-
-            const a = document.createElement('a');
-            a.className = 'pub-scroll-item';
-            a.href   = link;
-            a.target = (link !== '#') ? '_blank' : '_self';
-            a.rel    = 'noopener noreferrer';
-            a.innerHTML = `
-                <div class="pub-scroll-thumb">${thumbHTML}</div>
-                <div class="pub-scroll-info">
-                    <div class="pub-scroll-venue">${pub.venue} ${pub.year}${pub.award ? ' 🏆' : ''}</div>
-                    <div class="pub-scroll-title">${pub.title}</div>
-                </div>`;
-            track.appendChild(a);
-        });
-
-        // Adjust animation speed based on item count
-        track.style.animationDuration = (pubs.length * 10) + 's';
-
-    } catch (error) {
-        console.error('Error loading pub scroll banner:', error);
-        if (banner) banner.style.display = 'none';
+    const cards = [...yearHeading.nextElementSibling.querySelectorAll('.faculty-card')];
+    if (cards.length === 0) {
+        banner.style.display = 'none';
+        return;
     }
+
+    const journalCodes = {
+        'Computers & Structures': 'C&S',
+        'Computers and Structures': 'C&S',
+        'International Journal of Mechanical Sciences': 'IJMS',
+        'Advances in Engineering Software': 'AES',
+        'Computer Aided Geometric Design': 'CAGD',
+        'Computer Methods in Applied Mechanics and Engineering': 'CMAME',
+        'International Journal for Numerical Methods in Engineering': 'IJNME',
+        'Thin-Walled Structures': 'TWS',
+        'Smart Materials in Manufacturing': 'SMM',
+        'Nature Communications': 'NC'
+    };
+
+    const makeGroup = (duplicate) => {
+        const group = document.createElement('div');
+        group.className = 'pub-scroll-group';
+        if (duplicate) group.setAttribute('aria-hidden', 'true');
+
+        cards.forEach((card) => {
+            const title = card.querySelector('.publication-title').textContent.trim().replace(/^\d+\.\s*/, '');
+            const venue = card.querySelector('.publication-venue').textContent.trim();
+            const journal = venue.replace(/,\s*2026\s*$/, '');
+            const code = journalCodes[journal] || journal.split(/\s+/).map((word) => word[0]).join('').slice(0, 5).toUpperCase();
+            const paperLink = [...card.querySelectorAll('.publication-links a')]
+                .find((link) => link.textContent.trim() === 'Paper' && link.getAttribute('href'));
+
+            const item = document.createElement('a');
+            item.className = 'pub-scroll-item';
+            item.href = paperLink ? paperLink.getAttribute('href') : '#year-2026';
+            item.title = `${title} — ${venue}`;
+            if (paperLink && /^https?:\/\//.test(item.href)) {
+                item.target = '_blank';
+                item.rel = 'noopener noreferrer';
+            }
+            if (duplicate) item.tabIndex = -1;
+
+            const cover = document.createElement('div');
+            cover.className = 'pub-scroll-journal';
+            cover.dataset.journal = code;
+            cover.setAttribute('aria-hidden', 'true');
+            const coverLabel = document.createElement('span');
+            coverLabel.className = 'pub-scroll-journal-label';
+            coverLabel.textContent = 'JOURNAL';
+            const coverCode = document.createElement('span');
+            coverCode.className = 'pub-scroll-journal-code';
+            coverCode.textContent = code;
+            const coverYear = document.createElement('span');
+            coverYear.className = 'pub-scroll-journal-year';
+            coverYear.textContent = '2026';
+            cover.append(coverLabel, coverCode, coverYear);
+
+            const info = document.createElement('div');
+            info.className = 'pub-scroll-info';
+            const venueText = document.createElement('div');
+            venueText.className = 'pub-scroll-venue';
+            venueText.textContent = venue;
+            const titleText = document.createElement('div');
+            titleText.className = 'pub-scroll-title';
+            titleText.textContent = title;
+            info.append(venueText, titleText);
+            item.append(cover, info);
+            group.appendChild(item);
+        });
+        return group;
+    };
+
+    track.replaceChildren(makeGroup(false), makeGroup(true));
+    track.style.animationDuration = (cards.length * 8) + 's';
 }
 
 // Intersection Observer for fade-in animations
@@ -329,32 +343,9 @@ if (navToggle) {
     });
 })();
 
-// ── Footer globe: visitor counter + IP geolocation red dot ──────
+// ── Footer globe: IP geolocation red dot ──────
 (function initFooterGlobe() {
-    var KEY  = 'ustc_topopt_vc';
-    var SEED = 15843;
-    var data = JSON.parse(localStorage.getItem(KEY) || '{"n":0,"t":0}');
-    var now  = Date.now();
-    if (now - data.t > 30 * 60 * 1000) {
-        data.n++;
-        data.t = now;
-        localStorage.setItem(KEY, JSON.stringify(data));
-    }
-    var total = SEED + data.n;
-
-    function animateCount(el, target) {
-        var cur = Math.max(0, target - 60);
-        var timer = setInterval(function () {
-            cur += 2;
-            if (cur >= target) { cur = target; clearInterval(timer); }
-            el.textContent = cur.toLocaleString();
-        }, 16);
-    }
-
     document.addEventListener('DOMContentLoaded', function () {
-        var countEl = document.getElementById('visit-count');
-        if (countEl) animateCount(countEl, total);
-
         var dot   = document.getElementById('visitor-dot');
         var locEl = document.getElementById('visitor-loc');
 
