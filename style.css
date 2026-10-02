@@ -254,6 +254,26 @@ body {
     margin-bottom: 20px;
 }
 
+.research-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.research-highlights .faculty-card,
+.research-highlights .faculty-bio:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 769px) {
+    .research-highlights .faculty-left,
+    .research-highlights .faculty-right {
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+}
+
 .faculty-info-grid {
     display: flex;
     flex-direction: column;
