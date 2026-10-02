@@ -1,5 +1,12 @@
 /* Compact teaching rows and section spacing. */
+.teaching-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .teaching-page {
+    flex-grow: 1;
     padding-top: 34px;
     padding-bottom: 34px;
 }
