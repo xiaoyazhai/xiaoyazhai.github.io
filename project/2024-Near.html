@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Continuous near-isotropic, extreme-stiffness 3D mechanical metamaterial sequences represented with implicit neural functions.">
+  <link rel="canonical" href="https://xiaoyazhai.github.io/project/2024-Near.html">
+  <link rel="icon" type="image/png" href="../cover/topopt-logo.png">
+  <link rel="stylesheet" href="2026-L-BOM.css">
+  <link rel="stylesheet" href="2024-Near.css">
+  <title>Near-isotropic, Extreme-stiffness 3D Mechanical Metamaterial Sequences</title>
+  <script>
+    (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,"script","https://www.google-analytics.com/analytics.js","ga");
+    ga("create", "UA-87320911-1", "auto");
+    ga("send", "pageview");
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="topbar" aria-label="Site navigation">
+    <a href="../research.html">← Back to Research</a>
+    <span class="group-name">TopOpt Group</span>
+  </nav>
+
+  <main id="main">
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>Near-isotropic, Extreme-stiffness, Continuous 3D Mechanical Metamaterial Sequences Using Implicit Neural Representation</h1>
+        <p class="authors">
+          <span class="author">Yunkai Zhao<sup>+</sup>,</span>
+          <span class="author">Lili Wang<sup>+</sup>,</span>
+          <span class="author"><a href="../biography.html">Xiaoya Zhai</a><sup>*</sup>,</span>
+          <span class="author">Jiacheng Han,</span>
+          <span class="author">Winston Wai Shing Ma,</span>
+          <span class="author">Junhao Ding,</span>
+          <span class="author">Yonggang Gu,</span>
+          <span class="author">Xiao-Ming Fu</span>
+        </p>
+        <p class="author-note"><sup>+</sup> Equal contribution &nbsp; <sup>*</sup> Corresponding author</p>
+        <p class="venue">Advanced Science · 12(3), e2410428 (2025)<br>First published online November 27, 2024</p>
+        <div class="publication-links" aria-label="Publication links">
+          <a href="https://rec.ustc.edu.cn/share/99971080-acb0-11ef-9507-79b0321c1298" target="_blank" rel="noopener noreferrer">Paper PDF ↗</a>
+          <a href="https://doi.org/10.1002/advs.202410428" target="_blank" rel="noopener noreferrer">Publisher ↗</a>
+          <a href="#bibtex">BibTeX ↓</a>
+        </div>
+      </div>
+    </header>
+
+    <figure class="teaser">
+      <a class="figure-image" href="../indexpics/2024-Near.png" target="_blank" rel="noopener noreferrer" aria-label="Open metamaterial sequence overview at full resolution">
+        <img src="../indexpics/2024-Near.png" width="866" height="675" alt="Three near-isotropic metamaterial sequences with structures and stiffness indicators across relative densities" decoding="async">
+      </a>
+      <figcaption>Three continuous mechanical metamaterial sequences and their stiffness performance across relative densities.</figcaption>
+    </figure>
+
+    <section class="section abstract" id="abstract" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p>Designing continuous metamaterial sequences is challenging: as relative density changes, the geometry must vary smoothly while each design retains high stiffness in every direction. This work combines topology optimization and data-driven modeling to create three near-isotropic 3D sequence families. Across relative densities from 0.2 to 1, their stiffness exceeds 98% of the Hashin–Shtrikman upper bound in the least favorable direction. An implicit neural representation describes each sequence continuously, and experiments demonstrate that the designs can be manufactured and retain high stiffness.</p>
+      <p class="section-intro">Keywords: Extreme stiffness; implicit neural representation; isotropic metamaterials; metamaterial sequences.</p>
+    </section>
+
+    <section class="section" id="sequence-design" aria-labelledby="sequence-design-title">
+      <h2 id="sequence-design-title">Three metamaterial sequences</h2>
+      <p>The study combines topology optimization with data-driven design to construct three continuous families: SC–FCC, SC–BCC, and SC–OCT. The sequences are built from simple-cubic plates combined with face-centered-cubic, body-centered-cubic, or octahedral plate structures. Their geometries vary with relative density while maintaining near-isotropic mechanical behavior.</p>
+      <p>The designs target stiffness close to the Hashin–Shtrikman theoretical upper bounds over a broad density range. This lets a single sequence provide a continuum of structures for applications that need stiffness to change gradually through a part.</p>
+      <figure class="research-figure">
+        <a class="figure-image" href="pics/2024-Near-Figure1.png" target="_blank" rel="noopener noreferrer" aria-label="Open the paper's design workflow figure at full resolution">
+          <img src="pics/2024-Near-Figure1.png" width="1478" height="1129" alt="Paper workflow: plate lattice families, topology optimization, implicit neural representation, density-varying sequences, and a multiscale pillow-bracket example" loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Figure 1.</strong> Design workflow from the initial plate lattices through topology optimization and implicit neural representation to a multiscale component. Extracted from Zhao et al., <em>Advanced Science</em> 12, e2410428 (2025).</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="implicit-representation" aria-labelledby="implicit-representation-title">
+      <h2 id="implicit-representation-title">Implicit neural representation</h2>
+      <p>Each sequence is represented as a continuous implicit function rather than as a single fixed-resolution voxel model. A multilayer perceptron approximates the structure across spatial coordinates and relative density, so a design can be sampled at the resolution needed for analysis or fabrication. This representation supports smooth transitions between neighboring density levels.</p>
+    </section>
+
+    <section class="section" id="performance" aria-labelledby="performance-title">
+      <h2 id="performance-title">Stiffness and experimental validation</h2>
+      <p>Across relative densities from 0.2 to 1, all three sequences reach more than 98% of the Hashin–Shtrikman upper bounds in the least favorable direction. The comparison with plate and porous baselines also shows that the INR sequences retain near-isotropy and high normalized stiffness as density changes.</p>
+      <figure class="research-figure">
+        <a class="figure-image" href="pics/2024-Near-Figure2.png" target="_blank" rel="noopener noreferrer" aria-label="Open the sequence comparison figure at full resolution">
+          <img src="pics/2024-Near-Figure2.png" width="1477" height="1739" alt="Comparison of plate-lattice, implicit-neural-representation, and porous metamaterial sequences, including isotropy and stiffness metrics" loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Figure 2.</strong> Structural and mechanical comparison of plate, INR, and porous metamaterial sequences, including isotropy and normalized stiffness measures. Extracted from Zhao et al., <em>Advanced Science</em> 12, e2410428 (2025).</figcaption>
+      </figure>
+      <figure class="research-figure compact-figure">
+        <a class="figure-image" href="pics/2024-Near-Figure3.png" target="_blank" rel="noopener noreferrer" aria-label="Open the directional stiffness figure at full resolution">
+          <img src="pics/2024-Near-Figure3.png" width="1476" height="981" alt="Directional Young's modulus distributions for reference porous lattices and INR lattices, with strongest and weakest directional modulus by density" loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Figure 3.</strong> Directional Young's modulus for reference porous structures and the designed sequences, with modulus values in the strongest and weakest directions. Extracted from Zhao et al., <em>Advanced Science</em> 12, e2410428 (2025).</figcaption>
+      </figure>
+      <figure class="research-figure compact-figure">
+        <a class="figure-image" href="pics/2024-Near-Figure4.png" target="_blank" rel="noopener noreferrer" aria-label="Open the strain-energy comparison figure at full resolution">
+          <img src="pics/2024-Near-Figure4.png" width="1477" height="1722" alt="Strain-energy density maps and volume-fraction curves comparing INR and offset plate structures for SC-FCC, SC-BCC, and SC-OCT" loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Figure 4.</strong> Strain-energy density distributions and volume-fraction curves for the SC–FCC, SC–BCC, and SC–OCT sequences, compared with plate-offset structures. Extracted from Zhao et al., <em>Advanced Science</em> 12, e2410428 (2025).</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="experiments" aria-labelledby="experiments-title">
+      <h2 id="experiments-title">Experimental validation</h2>
+      <p>The authors fabricated lattice arrays using projection micro stereolithography and tested them in compression. The measured Young's moduli follow the simulated trends across the tested density range, supporting the manufacturability and mechanical response of the three sequence families.</p>
+      <figure class="research-figure compact-figure">
+        <a class="figure-image" href="pics/2024-Near-Figure5.png" target="_blank" rel="noopener noreferrer" aria-label="Open the fabrication and compression test figure at full resolution">
+          <img src="pics/2024-Near-Figure5.png" width="1476" height="1580" alt="Designed and printed metamaterial arrays, compression-test equipment and samples, and experimental versus simulated Young's modulus" loading="lazy" decoding="async">
+        </a>
+        <figcaption><strong>Figure 5.</strong> Designed and printed arrays, compression testing, and measured Young's modulus compared with simulation. Extracted from Zhao et al., <em>Advanced Science</em> 12, e2410428 (2025).</figcaption>
+      </figure>
+    </section>
+
+    <section class="section bibtex" id="bibtex" aria-labelledby="bibtex-title">
+      <h2 id="bibtex-title">BibTeX</h2>
+      <pre><code>@article{zhao2025nearIsotropic,
+  title   = {Near-Isotropic, Extreme-Stiffness, Continuous 3D Mechanical Metamaterial Sequences Using Implicit Neural Representation},
+  author  = {Zhao, Yunkai and Wang, Lili and Zhai, Xiaoya and Han, Jiacheng and Ma, Winston Wai Shing and Ding, Junhao and Gu, Yonggang and Fu, Xiao-Ming},
+  journal = {Advanced Science},
+  volume  = {12},
+  number  = {3},
+  pages   = {e2410428},
+  year    = {2025},
+  doi     = {10.1002/advs.202410428}
+}</code></pre>
+      <p class="doi">DOI: <a href="https://doi.org/10.1002/advs.202410428">10.1002/advs.202410428</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="../index.html">TopOpt Group</a> · <a href="../research.html">Research</a> ·
+    <a href="mailto:xiaoyazhai@ustc.edu.cn">Contact</a>
+  </footer>
+  <script src="../visitor-counter.js"></script>
+</body>
+</html>

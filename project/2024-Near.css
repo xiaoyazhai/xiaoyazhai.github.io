@@ -1,0 +1,19 @@
+/* Give the square sequence teaser less space than the wide L-BOM banner. */
+.teaser {
+  max-width: 740px;
+  margin-bottom: 48px;
+}
+
+.research-figure + .research-figure {
+  margin-top: 38px;
+}
+
+.research-figure {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.research-figure.compact-figure {
+  max-width: 760px;
+}
