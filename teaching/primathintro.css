@@ -81,6 +81,7 @@
 
 .primath-article {
     max-width: 830px;
+    margin-inline: auto;
 }
 
 .primath-section {
