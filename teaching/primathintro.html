@@ -8,7 +8,7 @@
     <title>PriMath 大学数学课程群教学智能体 – USTC TopOpt Group</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../Mobile_style2.css">
-    <link rel="stylesheet" href="primathintro.css?v=3">
+    <link rel="stylesheet" href="primathintro.css?v=5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="teaching-body">
@@ -33,24 +33,26 @@
 
     <main class="page-body page-body-standalone primath-page">
         <a class="primath-back" href="../teaching.html">← 返回 Teaching</a>
-        <header class="primath-heading">
-            <p class="primath-kind">项目介绍</p>
-            <h1>PriMath 大学数学课程群教学智能体</h1>
-            <p class="primath-lead">面向数学分析与线性代数教学，PriMath 将教材审核、课次准备、课堂探究、分层练习和反馈订正组织为连续的教学过程，让课程资源有出处、学习困难有线索、教学调整有依据。</p>
-            <p class="primath-status">已形成可在本地运行的原型，正在准备教学试点。</p>
-        </header>
+        <div class="primath-hero">
+            <header class="primath-heading">
+                <p class="primath-kind">项目介绍</p>
+                <h1>PriMath 大学数学课程群教学智能体</h1>
+                <p class="primath-lead">面向数学分析与线性代数教学，PriMath 将教材审核、课次准备、课堂探究、分层练习和反馈订正组织为连续的教学过程，让课程资源有出处、学习困难有线索、教学调整有依据。</p>
+                <p class="primath-status">已形成可在本地运行的原型，正在准备教学试点。</p>
+            </header>
 
-        <section class="primath-entry" aria-labelledby="primath-entry-title">
-            <div>
-                <h2 id="primath-entry-title">智能体入口</h2>
-                <p>本地原型已可运行，网页试用正在准备。</p>
-            </div>
-            <a href="primath.html">查看智能体入口 <span aria-hidden="true">→</span></a>
-        </section>
+            <section class="primath-entry" aria-labelledby="primath-entry-title">
+                <div>
+                    <h2 id="primath-entry-title">智能体入口</h2>
+                    <p>本地原型已可运行，网页试用正在准备。</p>
+                </div>
+                <a href="primath.html">查看智能体入口 <span aria-hidden="true">→</span></a>
+            </section>
 
-        <figure class="primath-cover">
-            <img src="pics/primath.png" alt="PriMath 大学数学课程群教学智能体，涵盖数学分析与线性代数" width="1672" height="941">
-        </figure>
+            <figure class="primath-cover">
+                <img src="pics/primath.png" alt="PriMath 大学数学课程群教学智能体，涵盖数学分析与线性代数" width="1672" height="941">
+            </figure>
+        </div>
 
         <div class="primath-article">
             <section class="primath-section">
@@ -61,9 +63,20 @@
 
             <section class="primath-section">
                 <h2>建设特色</h2>
-                <p><strong>教材依据可追溯。</strong>系统在本地读取教材 PDF，将原页与 OCR 识别结果并排呈现。教师逐节校对文字、公式和页码后，已审核的内容才可作为备课与练习的依据，使教学材料能够回到具体的教材来源。</p>
-                <p><strong>备课与发布由教师把关。</strong>教师确定课次范围和目标，编辑课件的文字、公式、备注及顺序，并逐页审核后导出 PPTX。分层练习可调整题量和题型，题目经审核后再入库、发布。系统协助准备材料，教师始终决定教什么、如何教以及何时发布。</p>
-                <p><strong>反馈关注学习过程。</strong>学生提交作答后，教师可查看本班练习与订正情况，复核步骤题和证明题，并针对概念条件、推导步骤或计算错误安排补讲与练习。学生则可以根据反馈回看任务和历史记录。</p>
+                <div class="primath-features">
+                    <div class="primath-feature">
+                        <h3>教材依据可追溯</h3>
+                        <p>系统在本地读取教材 PDF，将原页与 OCR 识别结果并排呈现。教师逐节校对文字、公式和页码后，已审核的内容才可作为备课与练习的依据，使教学材料能够回到具体的教材来源。</p>
+                    </div>
+                    <div class="primath-feature">
+                        <h3>备课与发布由教师把关</h3>
+                        <p>教师确定课次范围和目标，编辑课件的文字、公式、备注及顺序，并逐页审核后导出 PPTX。分层练习可调整题量和题型，题目经审核后再入库、发布。系统协助准备材料，教师始终决定教什么、如何教以及何时发布。</p>
+                    </div>
+                    <div class="primath-feature">
+                        <h3>反馈关注学习过程</h3>
+                        <p>学生提交作答后，教师可查看本班练习与订正情况，复核步骤题和证明题，并针对概念条件、推导步骤或计算错误安排补讲与练习。学生则可以根据反馈回看任务和历史记录。</p>
+                    </div>
+                </div>
                 <p class="primath-note">系统可按需接入大模型服务。接入时，仅将本次生成所需且已由教师审核的片段用于模型请求，教材 PDF 保留在本地；未接入时，系统按本地规则整理课件，并从已审核题库组题。</p>
             </section>
 

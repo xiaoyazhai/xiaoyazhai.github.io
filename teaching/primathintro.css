@@ -22,9 +22,21 @@
 .primath-back:hover { text-decoration: underline; }
 .primath-back:focus-visible { outline: 3px solid var(--primary-color); outline-offset: 3px; }
 
+.primath-hero {
+    display: grid;
+    grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+    grid-template-areas:
+        "heading cover"
+        "entry entry";
+    gap: 20px 44px;
+    align-items: start;
+    margin-bottom: 34px;
+}
+
 .primath-heading {
-    max-width: 820px;
-    margin-bottom: 30px;
+    grid-area: heading;
+    min-width: 0;
+    margin-bottom: 0;
 }
 
 .primath-kind {
@@ -36,7 +48,7 @@
 .primath-heading h1 {
     margin-bottom: 19px;
     color: #172335;
-    font-size: clamp(30px, 3.5vw, 42px);
+    font-size: clamp(30px, 3.2vw, 39px);
     font-weight: 650;
     letter-spacing: -.025em;
     line-height: 1.28;
@@ -44,10 +56,9 @@
 }
 
 .primath-lead {
-    max-width: 760px;
     color: #344256;
-    font-size: 19px;
-    line-height: 1.8;
+    font-size: 18px;
+    line-height: 1.75;
 }
 
 .primath-heading .primath-status {
@@ -57,8 +68,9 @@
 }
 
 .primath-cover {
-    max-width: 920px;
-    margin: 0 0 28px;
+    grid-area: cover;
+    min-width: 0;
+    margin: 0;
 }
 
 .primath-cover img {
@@ -115,14 +127,39 @@
 
 .primath-example p { margin: 0; }
 
+.primath-features { margin: 5px 0 18px; }
+
+.primath-feature {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 20px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.primath-feature:last-child { border-bottom: 1px solid var(--border-color); }
+
+.primath-feature h3 {
+    color: #213f68;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.primath-section .primath-feature p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
 .primath-entry {
+    grid-area: entry;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: 16px 28px;
-    max-width: 920px;
-    margin-bottom: 30px;
-    padding: 17px 0 19px;
+    gap: 12px 28px;
+    min-width: 0;
+    padding: 16px 0 18px;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
@@ -142,6 +179,7 @@
 }
 
 .primath-entry a {
+    display: inline-block;
     color: var(--primary-dark);
     font-size: 16px;
     font-weight: 600;
@@ -156,6 +194,19 @@
 .primath-placeholder .primath-status { font-size: 17px; }
 .primath-bottom-back { margin: 20px 0 0; }
 
+@media (max-width: 900px) {
+    .primath-hero {
+        grid-template-columns: 1fr;
+        grid-template-areas: "heading" "entry" "cover";
+        gap: 0;
+        margin-bottom: 28px;
+    }
+
+    .primath-heading { margin-bottom: 20px; }
+    .primath-entry { margin-bottom: 22px; }
+    .primath-cover { max-width: 740px; }
+}
+
 @media (min-width: 769px) and (max-width: 1100px) {
     .nav-brand { font-size: 19px; white-space: nowrap; }
     .nav-menu { gap: 10px; }
@@ -165,14 +216,14 @@
 @media (max-width: 640px) {
     .primath-page { padding: 24px 18px 36px; }
     .primath-back { margin-bottom: 28px; }
-    .primath-heading { margin-bottom: 22px; }
+    .primath-heading { margin-bottom: 20px; }
     .primath-heading h1 { font-size: 29px; }
     .primath-lead { font-size: 17px; }
-    .primath-cover { margin-bottom: 22px; }
     .primath-section { padding: 26px 0 28px; }
     .primath-section h2 { font-size: 22px; }
     .primath-section p { font-size: 16px; }
     .primath-example { padding-left: 15px; }
-    .primath-entry { grid-template-columns: 1fr; gap: 8px; margin-bottom: 22px; }
+    .primath-feature { grid-template-columns: 1fr; gap: 4px; padding: 15px 0; }
+    .primath-entry { grid-template-columns: 1fr; gap: 8px; }
     .primath-entry h2 { font-size: 18px; }
 }
