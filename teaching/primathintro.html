@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script src="../zoom-init.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PriMath 大学数学课程群教学智能体，面向数学分析与线性代数，支持教材审核、课程备课、课堂探究和学习反馈。">
+    <title>PriMath 大学数学课程群教学智能体 – USTC TopOpt Group</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../Mobile_style2.css">
+    <link rel="stylesheet" href="primathintro.css?v=3">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="teaching-body">
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../cover/topopt-logo.png" alt="TopOpt Group logo">
+                <span>TopOpt Group</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../publication.html">Publications</a></li>
+                <li><a href="../teaching.html" class="active">Teaching</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="打开导航菜单"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <main class="page-body page-body-standalone primath-page">
+        <a class="primath-back" href="../teaching.html">← 返回 Teaching</a>
+        <header class="primath-heading">
+            <p class="primath-kind">项目介绍</p>
+            <h1>PriMath 大学数学课程群教学智能体</h1>
+            <p class="primath-lead">面向数学分析与线性代数教学，PriMath 将教材审核、课次准备、课堂探究、分层练习和反馈订正组织为连续的教学过程，让课程资源有出处、学习困难有线索、教学调整有依据。</p>
+            <p class="primath-status">已形成可在本地运行的原型，正在准备教学试点。</p>
+        </header>
+
+        <section class="primath-entry" aria-labelledby="primath-entry-title">
+            <div>
+                <h2 id="primath-entry-title">智能体入口</h2>
+                <p>本地原型已可运行，网页试用正在准备。</p>
+            </div>
+            <a href="primath.html">查看智能体入口 <span aria-hidden="true">→</span></a>
+        </section>
+
+        <figure class="primath-cover">
+            <img src="pics/primath.png" alt="PriMath 大学数学课程群教学智能体，涵盖数学分析与线性代数" width="1672" height="941">
+        </figure>
+
+        <div class="primath-article">
+            <section class="primath-section">
+                <h2>项目定位与建设目标</h2>
+                <p>大学数学课程既要求准确掌握概念，也重视证明、运算和知识之间的联系。数学分析中的量词顺序、线性代数中的矩阵变换与解的结构，往往不能只用答案对错来评价。PriMath 从这类教学需求出发，为教师提供能够回溯教材依据、组织课堂活动并查看学生推理过程的课程工具。</p>
+                <p>项目采用“课程群平台＋课程智能体”的组织方式。平台统一管理账号、教学班、选课和任务；数学分析与线性代数两个课程智能体分别管理教材、课次、题库、知识地图和交互工作台。建设目标是减少教材整理与备课中的重复工作，帮助学生说明思路、及时订正，并为教师调整教学积累过程记录。</p>
+            </section>
+
+            <section class="primath-section">
+                <h2>建设特色</h2>
+                <p><strong>教材依据可追溯。</strong>系统在本地读取教材 PDF，将原页与 OCR 识别结果并排呈现。教师逐节校对文字、公式和页码后，已审核的内容才可作为备课与练习的依据，使教学材料能够回到具体的教材来源。</p>
+                <p><strong>备课与发布由教师把关。</strong>教师确定课次范围和目标，编辑课件的文字、公式、备注及顺序，并逐页审核后导出 PPTX。分层练习可调整题量和题型，题目经审核后再入库、发布。系统协助准备材料，教师始终决定教什么、如何教以及何时发布。</p>
+                <p><strong>反馈关注学习过程。</strong>学生提交作答后，教师可查看本班练习与订正情况，复核步骤题和证明题，并针对概念条件、推导步骤或计算错误安排补讲与练习。学生则可以根据反馈回看任务和历史记录。</p>
+                <p class="primath-note">系统可按需接入大模型服务。接入时，仅将本次生成所需且已由教师审核的片段用于模型请求，教材 PDF 保留在本地；未接入时，系统按本地规则整理课件，并从已审核题库组题。</p>
+            </section>
+
+            <section class="primath-section">
+                <h2>典型教学应用</h2>
+                <p>PriMath 将交互操作放在具体的知识单元中使用：学生先观察变化、尝试解释，再通过练习与教师反馈检验自己的理解。交互提供直观经验，数学结论仍以定义、运算和证明为依据。</p>
+                <div class="primath-example">
+                    <h3>数学分析：数列极限</h3>
+                    <p>教师依据已审核教材准备条件辨析、ε–N 推导和课堂提问。学生通过调整 ε、观察数列尾项并检查 N 的选择，理解定义中“任意 ε &gt; 0”与“存在正整数 N”的关系，再完成分层练习。教师结合学生的解释与证明，辨别直观观察和严格推导之间的差距。</p>
+                </div>
+                <div class="primath-example">
+                    <h3>线性代数：矩阵的秩与线性方程组</h3>
+                    <p>教师组织行消元例题、步骤题和课堂检查。学生在工作台观察主元与自由变量，提交求解步骤并解释解的结构。教师据此判断学习困难来自初等变换、秩的判定，还是对解的结构的理解，并调整后续教学。</p>
+                </div>
+                <p>学生只能查看已发布的任务，答题前无法获取答案和评分细则；完成任务后，可依据教师反馈订正并回看作答记录。</p>
+            </section>
+
+            <section class="primath-section">
+                <h2>建设基础与阶段成果</h2>
+                <p>项目已形成可在本地运行的原型，打通课程群与双课程入口、账号与选课、课次备课、课件审核及 PPTX 导出，并具备任务发布、学生提交、教师反馈和订正的演示流程。数学分析主教材 215 页、线性代数主教材 289 页已完成逐页 OCR，为后续教师校对和素材积累提供了基础。</p>
+                <p>课程隔离、任务同步、教材审核条件、练习发布和学生权限等环节已开展自动化测试。现阶段成果体现为功能实现与流程验证，适合课程团队内部试用和小范围课堂试点；实际教学效果将在真实教学班中进一步评估。</p>
+            </section>
+
+            <section class="primath-section">
+                <h2>试点计划与推广前景</h2>
+                <p>下一阶段将组织任课教师逐节校对两门主教材，形成可追溯的审核素材集；选择具有代表性的知识单元，在真实教学班中开展前测、课堂使用、课后练习和订正。试点拟结合证明题评分、任务完成情况、学生访谈及教师修改记录，评估系统对备课效率和学习表现的影响。</p>
+                <p>课程群管理、教材审核、课次准备和任务反馈等模块具有跨课程复用的基础。完成试点验证后，可根据课程特点逐步扩展至高等数学、概率统计等课程。正式部署前，还需完善统一身份认证、数据安全、备份审计与教材授权管理。</p>
+            </section>
+        </div>
+        <a class="primath-back primath-bottom-back" href="../teaching.html">← 返回 Teaching</a>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand"><img src="../cover/topopt-logo.png" alt="TopOpt Group logo"><span>USTC TopOpt Group</span></div>
+                <p>&copy; 2026 TopOpt Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>

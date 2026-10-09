@@ -75,6 +75,52 @@
     margin-left: 8px;
 }
 
+.teaching-agent-section {
+    margin-top: 32px;
+}
+
+.teaching-agent-link {
+    display: block;
+    max-width: 760px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.teaching-agent-link:hover,
+.teaching-agent-link:focus-visible {
+    color: var(--primary-dark);
+}
+
+.teaching-agent-link:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.teaching-agent-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.teaching-agent-copy {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    padding: 13px 0 0;
+    font-size: 16px;
+}
+
+.teaching-agent-copy p {
+    color: var(--text-dark);
+}
+
+.teaching-agent-copy span {
+    color: var(--primary-dark);
+    font-size: 15px;
+}
+
 @media (max-width: 768px) {
     .teaching-page {
         padding: 24px 20px;
@@ -90,6 +136,15 @@
 }
 
 @media (max-width: 640px) {
+    .teaching-agent-copy {
+        display: block;
+    }
+
+    .teaching-agent-copy span {
+        display: inline-block;
+        margin-top: 4px;
+    }
+
     .teaching-page {
         padding: 20px 16px;
     }
