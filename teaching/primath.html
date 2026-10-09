@@ -4,11 +4,11 @@
     <script src="../zoom-init.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PriMath 大学数学课程群教学智能体入口。">
-    <title>PriMath 智能体入口 – USTC TopOpt Group</title>
+    <meta name="description" content="PriMath 公开交互演示：体验数列极限的 ε–N 检验与矩阵秩的行消元过程。">
+    <title>PriMath 公开演示 – USTC TopOpt Group</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../Mobile_style2.css">
-    <link rel="stylesheet" href="primathintro.css?v=7">
+    <link rel="stylesheet" href="primath-demo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="teaching-body">
@@ -31,15 +31,101 @@
         </div>
     </nav>
 
-    <main class="page-body page-body-standalone primath-page primath-placeholder">
-        <a class="primath-back" href="primathintro.html">← 返回 PriMath 介绍</a>
-        <header class="primath-heading">
-            <p class="primath-kind">PriMath</p>
-            <h1>智能体入口</h1>
-            <p class="primath-lead">PriMath 目前是本地可运行原型，网页试用尚未开放。</p>
-            <p class="primath-status">完成部署与教学试点准备后，此页将提供智能体访问入口。</p>
+    <main class="page-body page-body-standalone primath-demo-page">
+        <a class="demo-back" href="primathintro.html">← 返回 PriMath 项目介绍</a>
+        <header class="demo-hero">
+            <div class="demo-hero-copy">
+                <span class="demo-eyebrow">公开交互演示</span>
+                <h1>亲手试一试 PriMath 的课堂探究</h1>
+                <p class="demo-lead">调整一个误差范围，判断数列的尾项；跟随行消元，观察矩阵的主元与自由变量。两个样例展示 PriMath 如何把数学概念转化为可讨论的课堂活动。</p>
+                <p class="demo-disclosure">本页使用预设题目和浏览器本地计算，无需登录，不读取教材或真实教学记录，也不保存输入。完整课程群与教师、学生功能仍在教学试点准备阶段。</p>
+                <div class="demo-hero-links">
+                    <a href="#limit-lab">体验数列极限 <span aria-hidden="true">↓</span></a>
+                    <a href="#rank-lab">体验矩阵秩 <span aria-hidden="true">↓</span></a>
+                </div>
+            </div>
+            <img src="pics/primath.png" alt="PriMath 大学数学课程群教学智能体概念图" width="1672" height="941">
         </header>
-        <a class="primath-back primath-bottom-back" href="primathintro.html">阅读项目介绍 →</a>
+
+        <section class="demo-section" aria-labelledby="workflow-title">
+            <div class="demo-section-heading">
+                <span class="demo-index">教学流程</span>
+                <h2 id="workflow-title">从教材依据到反馈订正</h2>
+                <p>正式系统围绕课次组织材料和记录，教师审核内容后再用于教学；这里仅展示流程，不连接真实账号或班级。</p>
+            </div>
+            <ol class="demo-workflow">
+                <li><span>01</span><strong>核对教材</strong><p>对照原页、公式和识别结果，确认教学依据。</p></li>
+                <li><span>02</span><strong>准备课次</strong><p>明确目标，编辑课件并审核分层练习。</p></li>
+                <li><span>03</span><strong>课堂探究</strong><p>通过参数变化和逐步运算讨论概念。</p></li>
+                <li><span>04</span><strong>反馈订正</strong><p>查看作答过程，由教师复核并安排订正。</p></li>
+            </ol>
+        </section>
+
+        <section id="limit-lab" class="demo-section demo-lab" aria-labelledby="limit-title">
+            <div class="demo-section-heading">
+                <span class="demo-index">数学分析 · 交互样例</span>
+                <h2 id="limit-title">数列 1/n 的极限与 ε–N 定义</h2>
+                <p>任意给定 ε &gt; 0，试着选一个正整数 N，使所有 n &gt; N 的项都满足 1/n &lt; ε。图像帮助观察，结论仍要用不等式说明。</p>
+            </div>
+            <div class="demo-lab-grid">
+                <div class="demo-controls">
+                    <label for="epsilon">误差范围 ε <output id="epsilon-value" for="epsilon">0.10</output></label>
+                    <input id="epsilon" type="range" min="0.05" max="0.30" step="0.01" value="0.10">
+                    <label for="n-bound">你选择的正整数 N</label>
+                    <input id="n-bound" type="number" min="1" max="40" step="1" value="10" inputmode="numeric">
+                    <button id="check-limit" type="button">检验尾项</button>
+                    <p id="limit-feedback" class="demo-feedback" role="status" aria-live="polite"></p>
+                    <p class="demo-hint">判断依据：当 n &gt; N 时，1/n ≤ 1/(N+1)。</p>
+                </div>
+                <div class="demo-visual">
+                    <svg id="limit-chart" viewBox="0 0 680 280" role="img" aria-label="数列 1/n 的前四十项与 ε 邻域"></svg>
+                    <p class="demo-chart-caption">蓝色为所选 N 之前的项；绿色表示进入邻域的尾项，红色表示尚未满足条件的尾项。图中仅展示前 40 项。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="rank-lab" class="demo-section demo-lab" aria-labelledby="rank-title">
+            <div class="demo-section-heading">
+                <span class="demo-index">线性代数 · 交互样例</span>
+                <h2 id="rank-title">用初等行变换观察矩阵的秩</h2>
+                <p>先预测矩阵的秩，再逐步查看行消元。阶梯形中的主元数就是矩阵的秩；三列矩阵的自由变量数为 3 − r(A)。</p>
+            </div>
+            <div class="demo-lab-grid">
+                <div class="demo-controls">
+                    <label for="matrix-preset">选择示例矩阵</label>
+                    <select id="matrix-preset">
+                        <option value="dependent">两行相关的矩阵</option>
+                        <option value="full">满秩矩阵</option>
+                        <option value="single">只有一个主元的矩阵</option>
+                    </select>
+                    <fieldset class="demo-prediction">
+                        <legend>先预测 r(A)</legend>
+                        <div class="demo-prediction-options">
+                            <button type="button" data-rank="1">1</button>
+                            <button type="button" data-rank="2">2</button>
+                            <button type="button" data-rank="3">3</button>
+                        </div>
+                    </fieldset>
+                    <p id="rank-prediction-feedback" class="demo-feedback" role="status" aria-live="polite">选择一个秩，再看消元步骤。</p>
+                </div>
+                <div class="demo-visual demo-matrix-visual">
+                    <div class="demo-matrix-topline"><span id="matrix-step-count">步骤 1 / 1</span><span id="matrix-step-label">原矩阵</span></div>
+                    <div id="matrix-display" class="demo-matrix" aria-label="当前矩阵"></div>
+                    <p id="matrix-explanation" class="demo-matrix-explanation"></p>
+                    <div class="demo-step-actions">
+                        <button id="matrix-prev" type="button">← 上一步</button>
+                        <button id="matrix-next" type="button">下一步 →</button>
+                    </div>
+                    <p id="matrix-result" class="demo-result" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-footer-note" aria-labelledby="demo-note-title">
+            <h2 id="demo-note-title">关于这个演示</h2>
+            <p>这两个互动样例沿用 PriMath 本地原型中的数学主题，由浏览器直接计算。它们不代表完整的教师备课、教材审核、学生任务或模型问答服务；这些功能需要专门部署与身份管理。</p>
+            <a href="primathintro.html">阅读 PriMath 项目介绍 <span aria-hidden="true">→</span></a>
+        </section>
     </main>
 
     <footer class="footer">
@@ -51,5 +137,6 @@
         </div>
     </footer>
     <script src="../script.js"></script>
+    <script type="module" src="primath-demo.js"></script>
 </body>
 </html>
