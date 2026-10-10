@@ -8,7 +8,7 @@
     <title>PriMath 大学数学课程群教学智能体 – USTC TopOpt Group</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../Mobile_style2.css">
-    <link rel="stylesheet" href="primathintro.css?v=7">
+    <link rel="stylesheet" href="primathintro.css?v=8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="teaching-body">
@@ -44,9 +44,16 @@
             <section class="primath-entry" aria-labelledby="primath-entry-title">
                 <div>
                     <h2 id="primath-entry-title">智能体入口</h2>
-                    <p>统一访问码和个人账号流程已在本地接通，在线服务正在准备。</p>
+                    <p>输入访问测试码，通过验证后使用个人账号登录课程系统。</p>
+                    <p class="primath-entry-status" id="primath-entry-status" role="status">在线验证服务尚未上线，暂不接收访问测试码。</p>
                 </div>
-                <a href="primath.html">查看课程系统入口 <span aria-hidden="true">→</span></a>
+                <form class="primath-entry-form" action="#" method="post">
+                    <label for="primath-access-code">访问测试码</label>
+                    <div class="primath-entry-controls">
+                        <input id="primath-access-code" name="code" type="password" autocomplete="off" placeholder="请输入访问测试码" required disabled>
+                        <button type="submit" disabled>验证并进入 <span aria-hidden="true">→</span></button>
+                    </div>
+                </form>
             </section>
 
             <figure class="primath-cover">
