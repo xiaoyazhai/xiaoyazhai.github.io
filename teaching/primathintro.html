@@ -124,6 +124,17 @@
             </div>
         </div>
     </footer>
+    <script>
+        const accessResult = new URLSearchParams(window.location.search).get('access');
+        const accessInput = document.getElementById('primath-access-code');
+        const accessStatus = document.getElementById('primath-entry-status');
+        if (!accessInput.disabled && accessResult === 'invalid') {
+            accessStatus.textContent = '访问测试码无效，请检查后重试。';
+            accessInput.focus();
+        } else if (!accessInput.disabled && accessResult === 'limited') {
+            accessStatus.textContent = '尝试次数过多，请十分钟后重试。';
+        }
+    </script>
     <script src="../script.js"></script>
 </body>
 </html>
