@@ -45,7 +45,7 @@
                 <div>
                     <h2 id="primath-entry-title">智能体入口</h2>
                     <p>输入访问测试码，通过验证后使用个人账号登录课程系统。</p>
-                    <p class="primath-entry-status" id="primath-entry-status" role="status">在线验证服务尚未上线，暂不接收访问测试码。</p>
+                    <p class="primath-entry-status" id="primath-entry-status" role="status" hidden></p>
                 </div>
                 <form class="primath-entry-form" action="#" method="post">
                     <label for="primath-access-code">访问测试码</label>
@@ -130,9 +130,11 @@
         const accessStatus = document.getElementById('primath-entry-status');
         if (!accessInput.disabled && accessResult === 'invalid') {
             accessStatus.textContent = '访问测试码无效，请检查后重试。';
+            accessStatus.hidden = false;
             accessInput.focus();
         } else if (!accessInput.disabled && accessResult === 'limited') {
             accessStatus.textContent = '尝试次数过多，请十分钟后重试。';
+            accessStatus.hidden = false;
         }
     </script>
     <script src="../script.js"></script>
