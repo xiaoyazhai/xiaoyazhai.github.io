@@ -171,6 +171,16 @@
     color: #7b6243;
 }
 
+.primath-entry-link {
+    justify-self: end;
+    color: var(--primary-dark);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.primath-entry-link:hover { text-decoration: underline; }
+.primath-entry-link:focus-visible { outline: 3px solid var(--primary-color); outline-offset: 3px; }
+
 .primath-entry-form label {
     display: block;
     margin-bottom: 7px;
@@ -228,6 +238,7 @@
     .primath-heading { margin-bottom: 20px; }
     .primath-cover { margin-top: 22px; }
     .primath-entry { grid-template-columns: 1fr; }
+    .primath-entry-link { justify-self: start; }
 }
 
 @media (min-width: 769px) and (max-width: 1100px) {

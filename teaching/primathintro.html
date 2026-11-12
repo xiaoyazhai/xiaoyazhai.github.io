@@ -8,7 +8,7 @@
     <title>PriMath 大学数学课程群教学智能体 – USTC TopOpt Group</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../Mobile_style2.css">
-    <link rel="stylesheet" href="primathintro.css?v=8">
+    <link rel="stylesheet" href="primathintro.css?v=9">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="teaching-body">
@@ -44,16 +44,9 @@
             <section class="primath-entry" aria-labelledby="primath-entry-title">
                 <div>
                     <h2 id="primath-entry-title">智能体入口</h2>
-                    <p>输入访问测试码，通过验证后使用个人账号登录课程系统。</p>
-                    <p class="primath-entry-status" id="primath-entry-status" role="status" hidden></p>
+                    <p>进入课程系统后，使用教师或学生个人账号登录。</p>
                 </div>
-                <form class="primath-entry-form" action="https://47-84-16-4.sslip.io/access/redeem" method="post">
-                    <label for="primath-access-code">访问测试码</label>
-                    <div class="primath-entry-controls">
-                        <input id="primath-access-code" name="code" type="password" autocomplete="off" placeholder="请输入访问测试码" required>
-                        <button type="submit">验证并进入 <span aria-hidden="true">→</span></button>
-                    </div>
-                </form>
+                <a class="primath-entry-link" href="https://47.84.16.4/">进入课程系统 <span aria-hidden="true">→</span></a>
             </section>
 
             <figure class="primath-cover">
@@ -124,19 +117,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        const accessResult = new URLSearchParams(window.location.search).get('access');
-        const accessInput = document.getElementById('primath-access-code');
-        const accessStatus = document.getElementById('primath-entry-status');
-        if (!accessInput.disabled && accessResult === 'invalid') {
-            accessStatus.textContent = '访问测试码无效，请检查后重试。';
-            accessStatus.hidden = false;
-            accessInput.focus();
-        } else if (!accessInput.disabled && accessResult === 'limited') {
-            accessStatus.textContent = '尝试次数过多，请十分钟后重试。';
-            accessStatus.hidden = false;
-        }
-    </script>
     <script src="../script.js"></script>
 </body>
 </html>
