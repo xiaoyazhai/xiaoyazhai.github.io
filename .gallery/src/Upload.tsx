@@ -3,10 +3,7 @@ import { ImagePlus, Upload as UploadIcon, X } from 'lucide-react';
 import { Status, figureHref } from './components';
 import { errorText, FILE_LIMIT_MB, memberCode, type Category, type GalleryApi } from './model';
 
-type Fields = {
-  title: string; author: string; categoryId: string; recommendation: string; highlights: string;
-  paperTitle: string; journal: string; year: string; doi: string; sourceUrl: string;
-};
+type Fields = { author: string; categoryId: string };
 type Item = {
   id: string; file: File; preview: string; fields: Fields;
   status: 'ready' | 'sending' | 'done' | 'failed'; progress: number; error?: string;
@@ -67,10 +64,7 @@ export default function Upload({ api, categories, nickname, memberId, afterUploa
       previews.current.add(preview);
       next.push({
         id: crypto.randomUUID(), file, preview, status: 'ready', progress: 0,
-        fields: {
-          title: '', author: items[index]?.fields.author || nickname, categoryId: '', recommendation: '', highlights: '',
-          paperTitle: '', journal: '', year: '', doi: '', sourceUrl: '',
-        },
+        fields: { author: items[index]?.fields.author || nickname, categoryId: '' },
       });
     }
     setError(rejected.length ? '以下文件格式或大小不符合要求：' + rejected.join('、') : '');
@@ -81,7 +75,7 @@ export default function Upload({ api, categories, nickname, memberId, afterUploa
     }
   }
 
-  function change<K extends keyof Fields>(field: K, value: Fields[K]) {
+  function change(field: keyof Fields, value: string) {
     setItems(previous => previous.map((item, position) => position === index
       ? { ...item, error: undefined, fields: { ...item.fields, [field]: value } } : item));
   }
@@ -101,15 +95,11 @@ export default function Upload({ api, categories, nickname, memberId, afterUploa
     if (!queue.length) return;
     const invalid = items.findIndex(item => {
       if (item.status === 'done') return false;
-      const { title, author, categoryId, recommendation, highlights, sourceUrl, year } = item.fields;
-      const validLink = !sourceUrl.trim() || /^https?:\/\//i.test(sourceUrl.trim());
-      const validYear = !year || (/^\d{4}$/.test(year) && +year >= 1500 && +year <= 2200);
-      return ![title, author, recommendation, highlights].every(value => value.trim()) ||
-        !categories.some(category => category.id === categoryId) || !validLink || !validYear;
+      return !item.fields.author.trim() || !categories.some(category => category.id === item.fields.categoryId);
     });
     if (invalid !== -1) {
       setIndex(invalid);
-      setError('请补全必填项，并检查来源链接和出版年份。');
+      setError('请为每张待提交的图片填写展示昵称并选择分类。');
       return;
     }
     pending.current = true;
@@ -149,7 +139,7 @@ export default function Upload({ api, categories, nickname, memberId, afterUploa
   return <section className="inner-page upload-page">
     <a href="#" className="text-button back-link">返回图库</a>
     <h1>分享一张值得欣赏的科研图片</h1>
-    <p className="page-subtitle">推荐你最喜欢的作品，并告诉大家它好在哪里。首轮活动欢迎每位成员推荐 5 张图片。</p>
+    <p className="page-subtitle">选择图片，填写展示昵称并选择分类即可投稿。首轮活动欢迎每位成员分享 5 张图片。</p>
     <div className="upload-layout">
       <aside className="upload-sidebar">
         <input ref={files} type="file" multiple accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" hidden
@@ -165,7 +155,7 @@ export default function Upload({ api, categories, nickname, memberId, afterUploa
         <ul className="upload-queue">
           {items.map((item, position) => <li key={item.id} className={position === index ? 'queue-selected' : ''}>
             <button type="button" className="queue-item" onClick={() => setIndex(position)} aria-pressed={position === index}>
-              <img src={item.preview} alt="" /><span><strong>{item.fields.title || item.file.name}</strong>
+              <img src={item.preview} alt="" /><span><strong>{item.file.name}</strong>
               <small>{item.status === 'done' ? '已提交' : item.status === 'sending' ? '上传中 ' + item.progress + '%' :
                 item.status === 'failed' ? '提交失败' : '等待提交'}</small></span>
             </button>
@@ -179,8 +169,6 @@ export default function Upload({ api, categories, nickname, memberId, afterUploa
       {current ? <form className="upload-form form-stack" noValidate onSubmit={submit}>
         <figure className="upload-preview"><img src={current.preview} alt="待提交作品预览" /></figure>
         <fieldset disabled={!editable} className="form-stack fields">
-          <label>图片标题<input required maxLength={140} value={current.fields.title}
-            onChange={event => change('title', event.target.value)} /></label>
           <div className="field-pair">
             <div className="field-with-help">
               <label>展示昵称<input required maxLength={32} value={current.fields.author}
@@ -192,27 +180,6 @@ export default function Upload({ api, categories, nickname, memberId, afterUploa
               <option value="">请选择</option>{categories.map(category => <option key={category.id} value={category.id}>{category.name}</option>)}
             </select></label>
           </div>
-          <label>推荐理由<textarea required rows={3} maxLength={2000} value={current.fields.recommendation}
-            onChange={event => change('recommendation', event.target.value)} /></label>
-          <label>最值得学习的设计细节<textarea required rows={3} maxLength={1500} value={current.fields.highlights}
-            placeholder="例如构图、配色、视角、子图组织，或科学机理如何被表达。"
-            onChange={event => change('highlights', event.target.value)} /></label>
-          <details className="source-fields" open>
-            <summary>作品出处 <span>选填</span></summary>
-            <div className="form-stack">
-              <label>论文名称<input maxLength={240} value={current.fields.paperTitle}
-                onChange={event => change('paperTitle', event.target.value)} /></label>
-              <div className="field-pair">
-                <label>期刊<input maxLength={120} value={current.fields.journal} onChange={event => change('journal', event.target.value)} /></label>
-                <label>年份<input inputMode="numeric" maxLength={4} value={current.fields.year} onChange={event => change('year', event.target.value)} /></label>
-              </div>
-              <div className="field-pair">
-                <label>DOI<input maxLength={160} value={current.fields.doi} onChange={event => change('doi', event.target.value)} /></label>
-                <label>来源链接<input type="url" maxLength={512} value={current.fields.sourceUrl}
-                  onChange={event => change('sourceUrl', event.target.value)} /></label>
-              </div>
-            </div>
-          </details>
         </fieldset>
         {current.error && <Status error text={current.error} />}
         {current.status === 'sending' && <progress aria-label="上传进度" max={100} value={current.progress} />}
@@ -223,7 +190,7 @@ export default function Upload({ api, categories, nickname, memberId, afterUploa
               items.some(item => item.status === 'failed') ? '重试未完成项' :
               items.length > 1 ? '提交待上传图片' : '提交图片'}</button>}
         </div>
-      </form> : <div className="empty-state"><ImagePlus size={30} /><p>选择图片后开始填写推荐信息。</p></div>}
+      </form> : <div className="empty-state"><ImagePlus size={30} /><p>选择图片后填写昵称和分类。</p></div>}
     </div>
   </section>;
 }

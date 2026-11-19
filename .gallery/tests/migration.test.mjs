@@ -93,9 +93,8 @@ test('member pages separate the same nickname and find earlier works after a nic
   await db.exec('begin');
   try {
     await db.query(`
-      insert into public.gallery_figures (id, author_id, category_id, title, author_name, recommendation,
-        design_highlights, image_path, thumbnail_path)
-      select $1, $2, category_id, '同名成员的作品', author_name, recommendation, design_highlights, 'c.jpg', 'c.jpg'
+      insert into public.gallery_figures (id, author_id, category_id, title, author_name, image_path, thumbnail_path)
+      select $1, $2, category_id, '同名成员的作品', author_name, 'c.jpg', 'c.jpg'
       from public.gallery_figures where id = $3
     `, [otherFigure, memberB, published]);
     await db.query("update public.gallery_members set display_name = '新昵称' where id = $1", [memberA]);
@@ -107,6 +106,8 @@ test('member pages separate the same nickname and find earlier works after a nic
     };
     assert.deepEqual(await ids('member', memberA), [published]);
     assert.deepEqual(await ids('member', memberB), [otherFigure]);
+    assert.deepEqual((await db.query('select recommendation, design_highlights from public.gallery_figures where id = $1',
+      [otherFigure])).rows, [{ recommendation: '', design_highlights: '' }]);
     assert.deepEqual(new Set(await ids('profile', 'Local A')), new Set([published, otherFigure]));
   } finally { await db.exec('rollback'); }
 });

@@ -38,17 +38,18 @@ try {
   assert.ok(categories.length, 'Test project needs one active category');
   const form = new FormData();
   const fields = {
-    id, title, author: 'Staging smoke', categoryId: categories[0].id,
-    recommendation: 'Temporary integration fixture', highlights: 'Synthetic image',
+    id, author: 'Staging smoke', categoryId: categories[0].id,
   };
   for (const [name, value] of Object.entries(fields)) form.set(name, value);
   const image = await readFile(new URL('../gallery-assets/figure-1.webp', import.meta.url));
-  form.set('image', new Blob([image], { type: 'image/webp' }), 'fixture.webp');
+  form.set('image', new Blob([image], { type: 'image/webp' }), title + '.webp');
   uploads.push(id);
   await request('upload', form, first.token);
   const secondId = crypto.randomUUID();
   form.set('id', secondId);
   form.set('title', 'Gallery staging smoke ' + secondId);
+  form.set('recommendation', 'An earlier client can still submit a recommendation.');
+  form.set('highlights', 'Synthetic image');
   uploads.push(secondId);
   await request('upload', form, second.token);
   assert.notEqual(first.memberId, second.memberId);
@@ -64,6 +65,9 @@ try {
   await request('detail', { id }, undefined, 401);
   const detail = await request('detail', { id }, second.token);
   assert.equal(detail.figure.title, title);
+  assert.equal(detail.figure.recommendation, '');
+  assert.equal(detail.figure.highlights, '');
+  assert.equal(secondMember.figures[0].recommendation, 'An earlier client can still submit a recommendation.');
   assert.equal(detail.figure.authorId, first.memberId);
   const signed = new URL(detail.figure.imageUrl);
   const download = await fetch(signed, { signal: AbortSignal.timeout(20000) });

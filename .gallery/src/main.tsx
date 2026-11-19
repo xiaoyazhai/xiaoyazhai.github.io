@@ -123,8 +123,8 @@ function SignedIn({ session, api, demo, readOnly = false, updateSession, lock }:
         <p className="page-subtitle">图片上传暂未开放。你可以先准备首轮推荐的 5 张科研图片。</p>
         <ul className="submission-prep">
           <li>每张图准备 JPG、PNG 或 WebP 文件，大小不超过 6 MB。</li>
-          <li>准备图片标题、展示昵称、分类、推荐理由和最值得学习的设计细节。</li>
-          <li>尽量附上论文出处、DOI 或链接，并确认图片可用于组内交流。</li>
+          <li>准备展示昵称，并为图片选好分类。</li>
+          <li>请确认图片可用于组内交流。</li>
         </ul>
         <p className="muted">投稿开放后，从本页提交作品。</p>
       </section> : readOnly && (route.scope === 'admin' || route.scope === 'saved') ? <section className="inner-page">

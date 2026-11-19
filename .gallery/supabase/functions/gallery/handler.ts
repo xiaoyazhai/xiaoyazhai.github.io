@@ -134,17 +134,21 @@ export function galleryHandler(db: SupabaseClient, settings: Settings) {
       if (known.author_id !== session.member_id) throw new RequestError(409, '提交标识已被使用。');
       return { id };
     }
+    const file = form.get('image');
+    const filename = file instanceof File ? file.name.split(/[\\/]/).at(-1) ?? '' : '';
+    const stem = filename.replace(/\.(?:jpe?g|png|webp)$/i, '').replace(/[\p{Cc}\u202a-\u202e\u2066-\u2069]/gu, ' ').trim();
+    const title = inputText(form.get('title'), 140) || [...stem].slice(0, 140).join('').trim() || '科研图片';
     const row = {
-      id, author_id: session.member_id, title: inputText(form.get('title'), 140, true),
+      id, author_id: session.member_id, title,
       author_name: inputText(form.get('author'), 32, true), category_id: inputUuid(form.get('categoryId')),
-      recommendation: inputText(form.get('recommendation'), 2000, true),
-      design_highlights: inputText(form.get('highlights'), 1500, true),
+      recommendation: inputText(form.get('recommendation'), 2000),
+      design_highlights: inputText(form.get('highlights'), 1500),
       paper_title: inputText(form.get('paperTitle'), 240), journal: inputText(form.get('journal'), 120),
       year: inputYear(form.get('year')), doi: inputText(form.get('doi'), 160), source_url: inputUrl(form.get('sourceUrl')),
     };
     const category = value(await db.from('gallery_categories').select('id').eq('id', row.category_id).maybeSingle());
     if (!category) throw new RequestError(400, '请选择仍然可用的分类。');
-    const image = await readImage(form.get('image'), MAX_UPLOAD);
+    const image = await readImage(file, MAX_UPLOAD);
     const thumbnail = form.has('thumbnail') ? await readImage(form.get('thumbnail'), MAX_THUMB) : null;
     const folder = id + '/' + crypto.randomUUID();
     const imagePath = folder + '/original.' + image.extension;

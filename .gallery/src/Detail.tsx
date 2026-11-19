@@ -71,8 +71,8 @@ export default function Details({ id, api, nickname, admin, readOnly = false, ne
         <h1>{figure.title}</h1>
         <p className="detail-byline"><MemberTag name={figure.author} id={figure.authorId} showCode />
           <time dateTime={figure.date}>{formatDate(figure.date)}</time></p>
-        <section><h2>推荐理由</h2><p className="user-text">{figure.recommendation}</p></section>
-        <section><h2>值得学习的地方</h2><p className="user-text">{figure.highlights}</p></section>
+        {figure.recommendation && <section><h2>推荐理由</h2><p className="user-text">{figure.recommendation}</p></section>}
+        {figure.highlights && <section><h2>值得学习的地方</h2><p className="user-text">{figure.highlights}</p></section>}
         {(figure.paperTitle || figure.journal || figure.doi || figure.year || figure.sourceUrl) && <section>
           <h2>图片出处</h2>
           {figure.paperTitle && <p className="user-text">{figure.paperTitle}</p>}

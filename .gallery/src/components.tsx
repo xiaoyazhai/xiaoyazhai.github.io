@@ -95,7 +95,7 @@ export function FigureImage({ src, alt, onRefresh, eager = false }: {
 export function FigureCard({ figure, react, busy, opened, admin, readOnly = false }: {
   figure: Figure; react: (figure: Figure) => void; busy: boolean; opened: () => void; admin?: boolean; readOnly?: boolean;
 }) {
-  const hasCitation = [figure.journal, figure.year, figure.doi].filter(Boolean).join(' · ');
+  const excerpt = [figure.journal, figure.year, figure.doi].filter(Boolean).join(' · ') || figure.recommendation;
   return <article className="figure-card">
     <a className="figure-cover" href={figureHref(figure.id)} onClick={opened} aria-label={'查看作品：' + figure.title}>
       <FigureImage src={figure.thumbUrl} alt="" />
@@ -105,7 +105,7 @@ export function FigureCard({ figure, react, busy, opened, admin, readOnly = fals
     </a>
     <div className="card-content">
       <h2><a href={figureHref(figure.id)} onClick={opened}>{figure.title}</a></h2>
-      <p className="card-excerpt" title={hasCitation || figure.recommendation}>{hasCitation || figure.recommendation}</p>
+      {excerpt && <p className="card-excerpt" title={excerpt}>{excerpt}</p>}
       <div className="card-meta">
         <MemberTag name={figure.author} id={figure.authorId} />
         <time dateTime={figure.date}>{formatDate(figure.date)}</time>

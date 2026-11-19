@@ -152,6 +152,8 @@ test('upload, reactions and comments work across sessions while image and admini
   let [, view] = await call('detail', { id }, two.token);
   assert.match(view.figure.imageUrl, /^https:\/\/storage\.example\/signed\//);
   assert.equal('image_path' in view.figure, false);
+  assert.equal(view.figure.title, '几何模型测试');
+  assert.equal(view.figure.recommendation, '阅读顺序清晰');
   for (let i = 0; i < 2; i++) assert.deepEqual(await call('reaction', { id, kind: 'like', enabled: true }, two.token),
     [200, { liked: true, saved: false, likes: 1 }]);
   assert.deepEqual(await call('reaction', { id, kind: 'save', enabled: true }, one.token),
@@ -172,6 +174,25 @@ test('upload, reactions and comments work across sessions while image and admini
   assert.equal((await call('moderate', { id, change: 'delete' }, one.token))[0], 200);
   assert.equal(files.size, 0);
   assert.equal((await call('detail', { id }, one.token))[0], 404);
+});
+
+test('submissions only need a file, display nickname and category', async () => {
+  const { call } = sandbox();
+  const [, member] = await call('login', { password });
+  const id = crypto.randomUUID();
+  const form = new FormData();
+  form.set('id', id);
+  form.set('author', '成员甲');
+  form.set('categoryId', category);
+  form.set('image', new Blob([artwork], { type: 'image/webp' }), '晶格结构研究图.WEBP');
+  assert.deepEqual(await call(null, form, member.token), [200, { id }]);
+  const [status, { figure }] = await call('detail', { id }, member.token);
+  assert.equal(status, 200);
+  assert.equal(figure.title, '晶格结构研究图');
+  assert.equal(figure.authorId, member.memberId);
+  assert.equal(figure.recommendation, '');
+  assert.equal(figure.highlights, '');
+  assert.equal(figure.doi, '');
 });
 
 test('uploads derive their member tag from the session and distinguish members with the same nickname', async () => {

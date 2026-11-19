@@ -86,12 +86,12 @@ export function createDemo() {
       const category = categories.find(item => item.id === form.get('categoryId'));
       if (!category) throw new Error('请选择仍然可用的分类。');
       progress(100);
+      const stem = file.name.replace(/\.(?:jpe?g|png|webp)$/i, '').trim();
+      const title = [...stem].slice(0, 140).join('').trim() || '科研图片';
       figures.push({
-        id, title: String(form.get('title')), author: String(form.get('author')), authorId: session.memberId, date: new Date().toISOString(),
-        category: category.name, categoryId: category.id, recommendation: String(form.get('recommendation')),
-        highlights: String(form.get('highlights')), paperTitle: String(form.get('paperTitle') ?? ''),
-        year: Number(form.get('year')) || null, journal: String(form.get('journal') ?? ''),
-        doi: String(form.get('doi') ?? ''), sourceUrl: String(form.get('sourceUrl') ?? ''),
+        id, title, author: String(form.get('author')), authorId: session.memberId, date: new Date().toISOString(),
+        category: category.name, categoryId: category.id, recommendation: '', highlights: '', paperTitle: '',
+        year: null, journal: '', doi: '', sourceUrl: '',
         thumbUrl: url, imageUrl: url, likes: 0, comments: 0, liked: false, saved: false,
         featured: false, pinned: false, status: 'visible',
       });
