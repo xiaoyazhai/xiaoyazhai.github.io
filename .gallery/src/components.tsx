@@ -12,8 +12,8 @@ export function Brand() {
   </a>;
 }
 
-export function Header({ route, nickname, admin, openSearch, openAccount, lock }: {
-  route: Route; nickname: string; admin: boolean; openSearch: () => void; openAccount: () => void;
+export function Header({ route, nickname, admin, readOnly = false, openSearch, openAccount, lock }: {
+  route: Route; nickname: string; admin: boolean; readOnly?: boolean; openSearch: () => void; openAccount: () => void;
   lock: () => void;
 }) {
   const [menu, setMenu] = useState<'pages' | 'account' | null>(null);
@@ -42,15 +42,15 @@ export function Header({ route, nickname, admin, openSearch, openAccount, lock }
         <a href="#featured" aria-current={route.scope === 'featured' ? 'page' : undefined} onClick={() => setMenu(null)}>
           精选 <span lang="en">Featured</span></a>
         <a href="#upload" aria-current={route.upload ? 'page' : undefined} onClick={() => setMenu(null)}>
-          上传 <span lang="en">Upload</span></a>
+          {readOnly ? '投稿说明' : '上传'} <span lang="en">{readOnly ? 'Submissions' : 'Upload'}</span></a>
       </nav>
       <div className="header-actions">
         <button className="icon-button header-search" aria-label="搜索图库" onClick={openSearch}><Search size={24} /></button>
-        <button className="account-trigger" aria-label="成员菜单" aria-expanded={menu === 'account'}
+        {!readOnly && <button className="account-trigger" aria-label="成员菜单" aria-expanded={menu === 'account'}
           onClick={() => setMenu(menu === 'account' ? null : 'account')}>
           <Avatar name={nickname} /><ChevronDown size={15} />
-        </button>
-        {menu === 'account' && <div className="account-menu">
+        </button>}
+        {!readOnly && menu === 'account' && <div className="account-menu">
           <p>{nickname || '课题组成员'}</p>
           {nickname && <a href={profileHref(nickname)} onClick={() => setMenu(null)}>我的推荐</a>}
           <a href="#saved" onClick={() => setMenu(null)}>我的收藏</a>
@@ -81,8 +81,8 @@ export function FigureImage({ src, alt, onRefresh, eager = false }: {
     onError={() => setFailed(src)} />;
 }
 
-export function FigureCard({ figure, react, busy, opened, admin }: {
-  figure: Figure; react: (figure: Figure) => void; busy: boolean; opened: () => void; admin?: boolean;
+export function FigureCard({ figure, react, busy, opened, admin, readOnly = false }: {
+  figure: Figure; react: (figure: Figure) => void; busy: boolean; opened: () => void; admin?: boolean; readOnly?: boolean;
 }) {
   const hasCitation = [figure.journal, figure.year, figure.doi].filter(Boolean).join(' · ');
   return <article className="figure-card">
@@ -100,8 +100,9 @@ export function FigureCard({ figure, react, busy, opened, admin }: {
         <time dateTime={figure.date}>{formatDate(figure.date)}</time>
         <div className="card-actions">
           {admin && figure.status !== 'visible' ? <span>{figure.status === 'deleting' ? '正在删除' : '已隐藏'}</span> : <>
-            <button className={'counter like' + (figure.liked ? ' liked' : '')} aria-label={figure.liked ? '取消点赞' : '点赞'}
-              aria-pressed={figure.liked} disabled={busy} onClick={() => react(figure)}><Heart size={17} />{figure.likes}</button>
+            {readOnly ? <span className="counter like" title="示例点赞数"><Heart size={17} aria-hidden="true" />{figure.likes}</span>
+              : <button className={'counter like' + (figure.liked ? ' liked' : '')} aria-label={figure.liked ? '取消点赞' : '点赞'}
+                aria-pressed={figure.liked} disabled={busy} onClick={() => react(figure)}><Heart size={17} />{figure.likes}</button>}
             <a className="counter" href={figureHref(figure.id)} onClick={opened} aria-label={figure.comments + ' 条评论'}>
               <MessageSquare size={16} />{figure.comments}</a>
           </>}

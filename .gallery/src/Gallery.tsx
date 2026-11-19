@@ -57,9 +57,9 @@ function AdminCategories({ categories, api, refresh }: { categories: Category[];
   </details>;
 }
 
-export default function Gallery({ route, categories, api, searchRef, revision, changed, openFigure, remembered, previousView }: {
+export default function Gallery({ route, categories, api, searchRef, revision, readOnly = false, changed, openFigure, remembered, previousView }: {
   route: Route; categories: Category[]; api: GalleryApi; searchRef: RefObject<HTMLInputElement | null>;
-  revision: number; changed: () => void; openFigure: (ids: string[]) => void;
+  revision: number; readOnly?: boolean; changed: () => void; openFigure: (ids: string[]) => void;
   remembered: { category: string; sort: Sort; query: string; page: number };
   previousView: (view: { category: string; sort: Sort; query: string; page: number }) => void;
 }) {
@@ -157,7 +157,7 @@ export default function Gallery({ route, categories, api, searchRef, revision, c
       {listing && <div aria-busy={loading}>
         {listing.figures.length ? <div className={'figure-grid' + (listMode ? ' figure-list' : '')}>
           {listing.figures.map(figure => <div key={figure.id}>
-            <FigureCard figure={figure} react={react} busy={busy.includes(figure.id)} opened={opened} admin={scope === 'admin'} />
+            <FigureCard figure={figure} react={react} busy={busy.includes(figure.id)} opened={opened} admin={scope === 'admin'} readOnly={readOnly} />
             {scope === 'admin' && figure.status === 'deleting' && <button className="button danger" onClick={async () => {
               try { await api.moderate(figure.id, 'delete'); changed(); }
               catch (error) { setReactionError(errorText(error)); }
@@ -169,7 +169,7 @@ export default function Gallery({ route, categories, api, searchRef, revision, c
             scope === 'featured' ? '暂时没有精选作品' : '还没有作品'}</h2>
           {(query || category) ? <button className="button secondary" onClick={() => {
             setQuery(''); setCategory(''); setPage(0);
-          }}>清除筛选</button> : scope === 'gallery' && <a href="#upload" className="button primary">推荐一张图片</a>}
+          }}>清除筛选</button> : scope === 'gallery' && <a href="#upload" className="button primary">{readOnly ? '查看投稿说明' : '推荐一张图片'}</a>}
         </div>}
         {listing.total > PAGE_SIZE && <nav className="pagination" aria-label="作品分页">
           <button className="icon-button" aria-label="上一页" disabled={loading || page < 1}

@@ -56,8 +56,8 @@ function LockScreen({ notice, unlocked, demo, validating }: {
   </main>;
 }
 
-function SignedIn({ session, api, demo, updateSession, lock }: {
-  session: Session; api: GalleryApi; demo: boolean; updateSession: (values: Partial<Session>) => void; lock: () => void;
+function SignedIn({ session, api, demo, readOnly = false, updateSession, lock }: {
+  session: Session; api: GalleryApi; demo: boolean; readOnly?: boolean; updateSession: (values: Partial<Session>) => void; lock: () => void;
 }) {
   const [route, setRoute] = useState(readRoute);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -109,26 +109,41 @@ function SignedIn({ session, api, demo, updateSession, lock }: {
   };
   const scope = route.scope + ':' + (route.profile ?? '');
   return <>
-    <Header route={route} nickname={session.nickname} admin={session.admin} openSearch={openSearch} openAccount={() => setAccount(true)} lock={lock} />
-    {demo && <div className="demo-banner" role="status">本地演示 · 图片与数据均为示例，操作仅保留在当前预览。</div>}
+    <Header route={route} nickname={session.nickname} admin={session.admin} readOnly={readOnly}
+      openSearch={openSearch} openAccount={() => setAccount(true)} lock={lock} />
+    {readOnly ? <div className="demo-banner" role="status">上线预览 · 图片与统计均为示例。<a href="#upload">查看投稿说明</a></div>
+      : demo && <div className="demo-banner" role="status">本地演示 · 图片与数据均为示例，操作仅保留在当前预览。</div>}
     <main id="main">
       {categoriesError && <div className="global-error"><Status text={categoriesError} error />
         <button className="button secondary" onClick={() => setCategoryVersion(i => i + 1)}>重新加载分类</button></div>}
-      {route.scope === 'admin' && !session.admin ? <div className="inner-page"><h1>图库管理</h1>
+      {readOnly && route.upload ? <section className="inner-page">
+        <a href="#" className="text-button back-link">返回图库</a>
+        <h1>投稿说明</h1>
+        <p className="page-subtitle">图片上传暂未开放。你可以先准备首轮推荐的 5 张科研图片。</p>
+        <ul className="submission-prep">
+          <li>每张图准备 JPG、PNG 或 WebP 文件，大小不超过 6 MB。</li>
+          <li>准备图片标题、展示昵称、分类、推荐理由和最值得学习的设计细节。</li>
+          <li>尽量附上论文出处、DOI 或链接，并确认图片可用于组内交流。</li>
+        </ul>
+        <p className="muted">投稿开放后，从本页提交作品。</p>
+      </section> : readOnly && (route.scope === 'admin' || route.scope === 'saved') ? <section className="inner-page">
+        <a href="#" className="text-button back-link">返回图库</a>
+        <Status text="当前开放图库预览。" />
+      </section> : route.scope === 'admin' && !session.admin ? <div className="inner-page"><h1>图库管理</h1>
         <Status text="请先验证管理员权限。" /><button className="button primary" onClick={() => setAccount(true)}>验证权限</button></div>
         : route.upload ? <Upload api={api} categories={categories} nickname={session.nickname}
           afterUpload={name => { nickname(name); changed(); }} />
         : route.figure ? <Details key={route.figure} id={route.figure} api={api} nickname={session.nickname}
-          admin={session.admin} neighbors={neighbors} back={lookup < 0 ? '#' : recentlyOpened.current.back}
+          admin={session.admin} readOnly={readOnly} neighbors={neighbors} back={lookup < 0 ? '#' : recentlyOpened.current.back}
           afterChange={changed} setNickname={nickname} />
-        : <Gallery key={scope} route={route} categories={categories} api={api} searchRef={search} revision={revision}
+        : <Gallery key={scope} route={route} categories={categories} api={api} searchRef={search} revision={revision} readOnly={readOnly}
           changed={() => { changed(); setCategoryVersion(i => i + 1); }}
           remembered={view.current.scope === scope ? view.current.values : emptyView}
           previousView={values => { view.current = { scope, values }; }}
           openFigure={ids => { recentlyOpened.current = { ids, back: scopeHref(route.scope, route.profile) }; }} />}
     </main>
     <footer className="site-footer"><strong>Research Figure Gallery</strong><span>科研美图赏析</span><span lang="en">USTC Research Group</span></footer>
-    {account && <Account nickname={session.nickname} admin={session.admin} close={() => setAccount(false)}
+    {!readOnly && account && <Account nickname={session.nickname} admin={session.admin} close={() => setAccount(false)}
       onNickname={async name => { const result = await api.nickname(name); nickname(result.nickname); }}
       onAdmin={async password => { await api.adminLogin(password); updateSession({ admin: true }); window.location.hash = 'admin'; }} />}
   </>;
@@ -199,4 +214,24 @@ function App() {
   }} />;
 }
 
-createRoot(document.getElementById('root')!).render(<App />);
+const root = createRoot(document.getElementById('root')!);
+
+if (import.meta.env.MODE === 'showcase') {
+  root.render(<main className="inner-page"><Status text="正在加载图库…" /></main>);
+  import('./demo').then(({ createDemo }) => {
+    const { api, session } = createDemo();
+    const unavailable = async () => { throw new GalleryError(403, '当前开放图库预览，投稿和互动暂未开放。'); };
+    const preview: GalleryApi = {
+      categories: api.categories, list: api.list, detail: api.detail,
+      session: unavailable, logout: unavailable, adminLogin: unavailable, nickname: unavailable,
+      upload: unavailable, reaction: unavailable, comment: unavailable, deleteComment: unavailable,
+      moderate: unavailable, category: unavailable,
+    };
+    root.render(<SignedIn session={session} api={preview} demo={false} readOnly
+      updateSession={() => {}} lock={() => {}} />);
+  }).catch(() => root.render(<main className="inner-page">
+    <Status text="图库加载失败，请刷新页面重试。" error />
+  </main>));
+} else {
+  root.render(<App />);
+}

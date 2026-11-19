@@ -3,8 +3,8 @@ import { Expand, MessageSquare, Trash2 } from 'lucide-react';
 import { Avatar, DetailReactions, Dialog, FigureImage, Status, figureHref, profileHref } from './components';
 import { errorText, formatDate, type Detail, type Figure, type GalleryApi, type Moderation, type Reaction } from './model';
 
-export default function Details({ id, api, nickname, admin, neighbors, back, afterChange, setNickname }: {
-  id: string; api: GalleryApi; nickname: string; admin: boolean;
+export default function Details({ id, api, nickname, admin, readOnly = false, neighbors, back, afterChange, setNickname }: {
+  id: string; api: GalleryApi; nickname: string; admin: boolean; readOnly?: boolean;
   neighbors: { previous?: string; next?: string }; back: string;
   afterChange: () => void; setNickname: (name: string) => void;
 }) {
@@ -82,7 +82,7 @@ export default function Details({ id, api, nickname, admin, neighbors, back, aft
           {figure.sourceUrl && /^https?:\/\//i.test(figure.sourceUrl) &&
             <p><a href={figure.sourceUrl} target="_blank" rel="noreferrer" className="text-button">查看原始来源</a></p>}
         </section>}
-        {figure.status === 'visible' && <DetailReactions figure={figure} busy={busy} react={kind => void perform(() => react(figure, kind))} />}
+        {!readOnly && figure.status === 'visible' && <DetailReactions figure={figure} busy={busy} react={kind => void perform(() => react(figure, kind))} />}
         {admin && <section className="detail-admin">
           <h2>管理作品</h2>
           <div className="detail-actions">
@@ -108,7 +108,7 @@ export default function Details({ id, api, nickname, admin, neighbors, back, aft
           <li>构图、配色和信息组织有什么值得借鉴的地方？</li><li>如果用于自己的论文，可以如何改进？</li>
         </ul>
       </details>
-      {figure.status === 'visible' && <form className="form-stack comment-form" onSubmit={event => {
+      {!readOnly && figure.status === 'visible' && <form className="form-stack comment-form" onSubmit={event => {
         event.preventDefault();
         void perform(async () => {
           const comment = await api.comment(id, author.trim(), text.trim());

@@ -16,6 +16,10 @@ npm run dev
 
 接入已部署的 Supabase 时，把 `.env.example` 复制为 `.env.local`，填写项目 HTTPS URL 和公开 publishable key（兼容旧版 anon key）。启动开发服务器后访问密码页。跨域开发需在 Edge Function 设置中添加实际浏览器 origin，例如 `http://localhost:5173` 或 `http://127.0.0.1:5173`。
 
+## 公开占位版
+
+`npm run build:showcase` 生成只读的公开占位版，可发布到同一个 `/figure-gallery/`。它展示合成示例图和投稿准备说明，上传、登录、评论、点赞和收藏不开放。构建不依赖 Supabase，也不读取或展示课题组作品。Supabase 联调后，使用下文的 `npm run build:pages` 产物替换占位版本。
+
 ## Supabase 部署
 
 使用独立项目或预发布项目先验证。需要 Supabase 管理权限和已登录的 Supabase CLI。从本目录链接项目并应用迁移：

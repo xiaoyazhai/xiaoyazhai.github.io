@@ -69,6 +69,9 @@ svg { flex-shrink: 0; }
 .account-menu a:hover, .account-menu button:hover { background: var(--light); }
 .mobile-menu { display: none; }
 .demo-banner { padding: 6px 22px; background: #e8f3ff; color: #234c78; border-bottom: 1px solid #d8e7f9; font-size: 13px; }
+.demo-banner a { margin-inline-start: 5px; text-decoration: underline; text-underline-offset: 2px; }
+.submission-prep { padding-left: 1.4em; }
+.submission-prep li + li { margin-top: .5em; }
 .hero { min-height: clamp(174px, 13.2vw, 235px); position: relative; isolation: isolate; display: grid; align-items: center; overflow: hidden; background: #f2f7fc; }
 .hero-art { position: absolute; top: 0; bottom: 0; right: 0; width: 56%; height: 100%; object-fit: cover; object-position: right center; z-index: -2; }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #f3f7fb 29%, #f3f7fb00 63%); }
