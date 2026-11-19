@@ -1,0 +1,4 @@
+project_id = "research-figure-gallery"
+
+[functions.gallery]
+verify_jwt = false

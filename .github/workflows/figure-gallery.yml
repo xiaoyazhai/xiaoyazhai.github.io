@@ -1,0 +1,41 @@
+name: Figure Gallery
+on:
+  pull_request:
+    paths:
+      - '.gallery/**'
+      - 'figure-gallery/**'
+      - '.github/workflows/figure-gallery.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .gallery
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: .gallery/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npx --yes deno@2.9.6 check --no-config --no-lock --node-modules-dir=none supabase/functions/gallery/index.ts
+      - if: github.event_name == 'pull_request'
+        run: npm run build
+      - if: github.event_name == 'workflow_dispatch'
+        run: npm run build:pages
+        env:
+          VITE_SUPABASE_URL: ${{ vars.FIGURE_GALLERY_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.FIGURE_GALLERY_SUPABASE_PUBLISHABLE_KEY }}
+      - if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: figure-gallery
+          path: .gallery/dist/
+          if-no-files-found: error
