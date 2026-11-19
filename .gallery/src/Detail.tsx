@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Expand, MessageSquare, Trash2 } from 'lucide-react';
-import { Avatar, DetailReactions, Dialog, FigureImage, Status, figureHref, profileHref } from './components';
+import { DetailReactions, Dialog, FigureImage, MemberTag, Status, figureHref } from './components';
 import { errorText, formatDate, type Detail, type Figure, type GalleryApi, type Moderation, type Reaction } from './model';
 
 export default function Details({ id, api, nickname, admin, readOnly = false, neighbors, back, afterChange, setNickname }: {
@@ -69,8 +69,8 @@ export default function Details({ id, api, nickname, admin, readOnly = false, ne
       <div className="detail-copy">
         <p className="detail-category">{figure.category}</p>
         <h1>{figure.title}</h1>
-        <p className="detail-byline"><a href={profileHref(figure.author)} className="byline">
-          <Avatar name={figure.author} />{figure.author}</a><time dateTime={figure.date}>{formatDate(figure.date)}</time></p>
+        <p className="detail-byline"><MemberTag name={figure.author} id={figure.authorId} showCode />
+          <time dateTime={figure.date}>{formatDate(figure.date)}</time></p>
         <section><h2>推荐理由</h2><p className="user-text">{figure.recommendation}</p></section>
         <section><h2>值得学习的地方</h2><p className="user-text">{figure.highlights}</p></section>
         {(figure.paperTitle || figure.journal || figure.doi || figure.year || figure.sourceUrl) && <section>
@@ -132,7 +132,7 @@ export default function Details({ id, api, nickname, admin, readOnly = false, ne
       <div className="comment-list">
         {!data.comments.length && <p className="muted">还没有评论。</p>}
         {data.comments.map(comment => <article key={comment.id} className="comment">
-          <a href={profileHref(comment.author)} className="byline"><Avatar name={comment.author} />{comment.author}</a>
+          <MemberTag name={comment.author} id={comment.authorId} showCode />
           <time dateTime={comment.date}>{formatDate(comment.date)}</time>
           {admin && <button className="icon-button" aria-label="删除评论" disabled={busy} onClick={() => setConfirm({
             title: '确认删除这条评论？',

@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { Eye, EyeOff, LockKeyhole } from 'lucide-react';
 import { GalleryError, liveGallery, priorSession, saveSession, serverConfigured, signIn } from './api';
-import { Account, Brand, Header, Status } from './components';
+import { Account, Brand, Header, Status, memberHref, profileHref } from './components';
 import Gallery from './Gallery';
 import Details from './Detail';
 import Upload from './Upload';
@@ -11,7 +11,8 @@ import './styles.css';
 
 const emptyView: { category: string; sort: Sort; query: string; page: number } = { category: '', sort: 'latest', query: '', page: 0 };
 const scopeHref = (scope: string, profile?: string) =>
-  scope === 'profile' && profile ? '#profile/' + encodeURIComponent(profile) : scope === 'gallery' ? '#' : '#' + scope;
+  profile && scope === 'member' ? memberHref(profile) : profile && scope === 'profile' ? profileHref(profile)
+    : scope === 'gallery' ? '#' : '#' + scope;
 
 function LockScreen({ notice, unlocked, demo, validating }: {
   notice: string; unlocked: (session: Session) => void; demo?: () => Promise<void>; validating: boolean;
@@ -109,7 +110,7 @@ function SignedIn({ session, api, demo, readOnly = false, updateSession, lock }:
   };
   const scope = route.scope + ':' + (route.profile ?? '');
   return <>
-    <Header route={route} nickname={session.nickname} admin={session.admin} readOnly={readOnly}
+    <Header route={route} nickname={session.nickname} memberId={session.memberId} admin={session.admin} readOnly={readOnly}
       openSearch={openSearch} openAccount={() => setAccount(true)} lock={lock} />
     {readOnly ? <div className="demo-banner" role="status">上线预览 · 图片与统计均为示例。<a href="#upload">查看投稿说明</a></div>
       : demo && <div className="demo-banner" role="status">本地演示 · 图片与数据均为示例，操作仅保留在当前预览。</div>}
@@ -131,7 +132,7 @@ function SignedIn({ session, api, demo, readOnly = false, updateSession, lock }:
         <Status text="当前开放图库预览。" />
       </section> : route.scope === 'admin' && !session.admin ? <div className="inner-page"><h1>图库管理</h1>
         <Status text="请先验证管理员权限。" /><button className="button primary" onClick={() => setAccount(true)}>验证权限</button></div>
-        : route.upload ? <Upload api={api} categories={categories} nickname={session.nickname}
+        : route.upload ? <Upload api={api} categories={categories} nickname={session.nickname} memberId={session.memberId}
           afterUpload={name => { nickname(name); changed(); }} />
         : route.figure ? <Details key={route.figure} id={route.figure} api={api} nickname={session.nickname}
           admin={session.admin} readOnly={readOnly} neighbors={neighbors} back={lookup < 0 ? '#' : recentlyOpened.current.back}

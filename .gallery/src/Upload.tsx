@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { ImagePlus, Upload as UploadIcon, X } from 'lucide-react';
 import { Status, figureHref } from './components';
-import { errorText, FILE_LIMIT_MB, type Category, type GalleryApi } from './model';
+import { errorText, FILE_LIMIT_MB, memberCode, type Category, type GalleryApi } from './model';
 
 type Fields = {
   title: string; author: string; categoryId: string; recommendation: string; highlights: string;
@@ -34,8 +34,8 @@ async function resizedThumbnail(file: File) {
   }
 }
 
-export default function Upload({ api, categories, nickname, afterUpload }: {
-  api: GalleryApi; categories: Category[]; nickname: string; afterUpload: (nickname: string) => void;
+export default function Upload({ api, categories, nickname, memberId, afterUpload }: {
+  api: GalleryApi; categories: Category[]; nickname: string; memberId?: string; afterUpload: (nickname: string) => void;
 }) {
   const [items, setItems] = useState<Item[]>([]);
   const [index, setIndex] = useState(0);
@@ -182,8 +182,12 @@ export default function Upload({ api, categories, nickname, afterUpload }: {
           <label>图片标题<input required maxLength={140} value={current.fields.title}
             onChange={event => change('title', event.target.value)} /></label>
           <div className="field-pair">
-            <label>展示昵称<input required maxLength={32} value={current.fields.author}
-              onChange={event => change('author', event.target.value)} /></label>
+            <div className="field-with-help">
+              <label>展示昵称<input required maxLength={32} value={current.fields.author}
+                aria-describedby={memberId ? 'upload-member-tag' : undefined}
+                onChange={event => change('author', event.target.value)} /></label>
+              {memberId && <small id="upload-member-tag">投稿标签 @{current.fields.author.trim() || '昵称'} · {memberCode(memberId)}</small>}
+            </div>
             <label>分类<select required value={current.fields.categoryId} onChange={event => change('categoryId', event.target.value)}>
               <option value="">请选择</option>{categories.map(category => <option key={category.id} value={category.id}>{category.name}</option>)}
             </select></label>

@@ -23,7 +23,7 @@ const id = crypto.randomUUID();
 const title = 'Gallery staging smoke ' + id;
 const sessions = [];
 let admin;
-let uploadAttempted = false;
+const uploads = [];
 
 try {
   await request('categories', {}, undefined, 401);
@@ -44,12 +44,27 @@ try {
   for (const [name, value] of Object.entries(fields)) form.set(name, value);
   const image = await readFile(new URL('../gallery-assets/figure-1.webp', import.meta.url));
   form.set('image', new Blob([image], { type: 'image/webp' }), 'fixture.webp');
-  uploadAttempted = true;
+  uploads.push(id);
   await request('upload', form, first.token);
+  const secondId = crypto.randomUUID();
+  form.set('id', secondId);
+  form.set('title', 'Gallery staging smoke ' + secondId);
+  uploads.push(secondId);
+  await request('upload', form, second.token);
+  assert.notEqual(first.memberId, second.memberId);
+  await request('nickname', { nickname: 'Renamed smoke member' }, first.token);
+  const firstMember = await request('list', { scope: 'member', profile: first.memberId }, second.token);
+  assert.equal(firstMember.profileName, 'Renamed smoke member');
+  assert.deepEqual(firstMember.figures.map(figure => [figure.id, figure.author, figure.authorId]),
+    [[id, fields.author, first.memberId]]);
+  const secondMember = await request('list', { scope: 'member', profile: second.memberId }, first.token);
+  assert.deepEqual(secondMember.figures.map(figure => [figure.id, figure.author, figure.authorId]),
+    [[secondId, fields.author, second.memberId]]);
   await request('moderate', { id, change: 'pinned', enabled: true }, second.token, 403);
   await request('detail', { id }, undefined, 401);
   const detail = await request('detail', { id }, second.token);
   assert.equal(detail.figure.title, title);
+  assert.equal(detail.figure.authorId, first.memberId);
   const signed = new URL(detail.figure.imageUrl);
   const download = await fetch(signed, { signal: AbortSignal.timeout(20000) });
   assert.equal(download.status, 200);
@@ -69,17 +84,22 @@ try {
   const comment = await request('comment', { id, author: 'Staging smoke', text: 'Synthetic sample.' }, second.token);
   const visible = await request('detail', { id }, first.token);
   assert.equal(visible.figure.likes, 1);
-  assert.ok(visible.comments.some(item => item.id === comment.id));
+  assert.ok(visible.comments.some(item => item.id === comment.id && item.authorId === second.memberId));
+  const commented = await request('list', { scope: 'member', profile: second.memberId }, first.token);
+  assert.ok(commented.comments.some(item => item.figureId === id && item.text === comment.text));
   const resumed = await request('login', { password, device: second.device });
   sessions.push(resumed.token);
+  assert.equal(resumed.memberId, second.memberId);
   assert.equal((await request('detail', { id }, resumed.token)).figure.saved, true);
   await request('moderate', { id, change: 'hidden', enabled: true }, first.token);
   await request('detail', { id }, second.token, 404);
   await request('detail', { id }, first.token);
-  console.log('Staging login, upload, private image access, interactions, persistence and administration passed.');
+  console.log('Gallery login, upload, member tags, private image access, interactions, persistence and administration passed.');
 } finally {
   try {
-    if (admin && uploadAttempted) await request('moderate', { id, change: 'delete' }, admin);
+    if (admin) {
+      for (const figureId of uploads) await request('moderate', { id: figureId, change: 'delete' }, admin);
+    }
   } finally {
     for (const session of sessions) await request('logout', {}, session);
   }

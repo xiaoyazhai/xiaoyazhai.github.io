@@ -7,7 +7,7 @@ import {
 type Settings = { password: string; adminPassword: string; origins: string[] };
 type Session = { token_hash: string; member_id: string; expires_at: string; is_admin: boolean };
 type FigureRow = {
-  id: string; title: string; author_name: string; category_id: string; category_name: string;
+  id: string; title: string; author_name: string; author_id: string; category_id: string; category_name: string;
   created_at: string; recommendation: string; design_highlights: string; paper_title: string; journal: string;
   year: number | null; doi: string; source_url: string; image_path: string; thumbnail_path: string;
   is_featured: boolean; is_pinned: boolean; status: string; liked: boolean; saved: boolean;
@@ -39,7 +39,7 @@ function assertAdmin(session: Session) {
 
 function publicFigure(row: FigureRow, thumbUrl = '', imageUrl = '') {
   return {
-    id: row.id, title: row.title, author: row.author_name, categoryId: row.category_id,
+    id: row.id, title: row.title, author: row.author_name, authorId: row.author_id, categoryId: row.category_id,
     category: row.category_name, date: row.created_at, recommendation: row.recommendation,
     highlights: row.design_highlights, paperTitle: row.paper_title, journal: row.journal,
     year: row.year, doi: row.doi, sourceUrl: row.source_url, thumbUrl, imageUrl,
@@ -86,7 +86,7 @@ export function galleryHandler(db: SupabaseClient, settings: Settings) {
     value(await db.from('gallery_sessions').insert({
       token_hash: await digest(token), member_id: member.id, expires_at: expiresAt,
     }));
-    return { token, device, expiresAt, nickname: member.display_name, admin: false };
+    return { token, device, memberId: member.id, expiresAt, nickname: member.display_name, admin: false };
   }
 
   async function categories() {
@@ -95,7 +95,7 @@ export function galleryHandler(db: SupabaseClient, settings: Settings) {
 
   async function list(session: Session, data: Record<string, unknown>) {
     const scope = inputText(data.scope, 12) || 'gallery';
-    if (!['gallery', 'featured', 'saved', 'profile', 'admin', 'detail'].includes(scope)) {
+    if (!['gallery', 'featured', 'saved', 'profile', 'member', 'admin', 'detail'].includes(scope)) {
       throw new RequestError(400, '未知的图库视图。');
     }
     if (scope === 'admin') assertAdmin(session);
@@ -108,7 +108,7 @@ export function galleryHandler(db: SupabaseClient, settings: Settings) {
     return required(await db.rpc('gallery_browse', {
       p_member: session.member_id, p_scope: scope, p_category: data.category ? inputUuid(data.category) : null,
       p_search: inputText(data.query, 120), p_sort: sort, p_offset: offset,
-      p_profile: inputText(data.profile, 32), p_admin: session.is_admin,
+      p_profile: scope === 'member' ? inputUuid(data.profile) : inputText(data.profile, 32), p_admin: session.is_admin,
       p_figure: scope === 'detail' ? inputUuid(data.figure) : null,
     })) as BrowseResult;
   }
@@ -220,7 +220,7 @@ export function galleryHandler(db: SupabaseClient, settings: Settings) {
     switch (data.action) {
       case 'session': {
         const member = required(await db.from('gallery_members').select('display_name').eq('id', session.member_id).single());
-        return { expiresAt: session.expires_at, admin: session.is_admin, nickname: member.display_name };
+        return { memberId: session.member_id, expiresAt: session.expires_at, admin: session.is_admin, nickname: member.display_name };
       }
       case 'logout':
         value(await db.from('gallery_sessions').delete().eq('token_hash', session.token_hash));
@@ -245,19 +245,25 @@ export function galleryHandler(db: SupabaseClient, settings: Settings) {
       case 'list': {
         const result = await list(session, { ...data, scope: data.scope === 'detail' ? 'gallery' : data.scope });
         const paths = [...new Set(result.rows.filter(row => row.status !== 'deleting').map(row => row.thumbnail_path))];
-        const signed = paths.length ? required(await storage.createSignedUrls(paths, 900)) : [];
+        const memberId = data.scope === 'member' ? inputUuid(data.profile) : undefined;
+        const hasProfile = Boolean(memberId) || data.scope === 'profile';
+        const [signed, member, comments] = await Promise.all([
+          paths.length ? storage.createSignedUrls(paths, 900).then(required) : [],
+          memberId ? db.from('gallery_members').select('display_name').eq('id', memberId).maybeSingle().then(value) : null,
+          hasProfile && !data.offset
+            ? db.from('gallery_comments').select('content,created_at,figure_id,gallery_figures!inner(title,status)')
+              .eq(memberId ? 'author_id' : 'author_name', memberId ?? inputText(data.profile, 32, true))
+              .eq('gallery_figures.status', 'visible').order('created_at', { ascending: false }).limit(20)
+              .then(result => required(result).map(row => ({
+                text: row.content, date: row.created_at, figureId: row.figure_id,
+                title: (row.gallery_figures as unknown as { title: string }).title,
+              })))
+            : undefined,
+        ]);
         const urls = new Map(signed.map(row => [row.path, row.signedUrl]));
-        const comments = data.scope === 'profile' && !data.offset
-          ? required(await db.from('gallery_comments').select('content,created_at,figure_id,gallery_figures!inner(title,status)')
-            .eq('author_name', inputText(data.profile, 32, true)).eq('gallery_figures.status', 'visible')
-            .order('created_at', { ascending: false }).limit(20)).map(row => ({
-              text: row.content, date: row.created_at, figureId: row.figure_id,
-              title: (row.gallery_figures as unknown as { title: string }).title,
-            }))
-          : undefined;
         return {
           figures: result.rows.map(row => publicFigure(row, urls.get(row.thumbnail_path) ?? '')),
-          total: result.total, stats: result.stats, comments,
+          total: result.total, stats: result.stats, profileName: member?.display_name, comments,
         };
       }
       case 'detail': {
@@ -268,7 +274,7 @@ export function galleryHandler(db: SupabaseClient, settings: Settings) {
         if (!Number.isInteger(offset) || offset < 0 || offset > 100000) throw new RequestError(400, '无效的评论页码。');
         const [signed, comments] = await Promise.all([
           storage.createSignedUrl(row.image_path, 180),
-          db.from('gallery_comments').select('id,author_name,content,created_at')
+          db.from('gallery_comments').select('id,author_id,author_name,content,created_at')
             .eq('figure_id', row.id).order('created_at', { ascending: false }).order('id').range(offset, offset + 30),
         ]);
         const imageUrl = required(signed).signedUrl;
@@ -276,7 +282,7 @@ export function galleryHandler(db: SupabaseClient, settings: Settings) {
         return {
           figure: publicFigure(row, imageUrl, imageUrl),
           comments: allComments.slice(0, 30).map(comment => ({
-            id: comment.id, author: comment.author_name, text: comment.content, date: comment.created_at,
+            id: comment.id, author: comment.author_name, authorId: comment.author_id, text: comment.content, date: comment.created_at,
           })),
           hasMore: allComments.length > 30,
         };
@@ -308,9 +314,9 @@ export function galleryHandler(db: SupabaseClient, settings: Settings) {
         const comment = required(await db.from('gallery_comments').insert({
           figure_id: id, author_id: session.member_id, author_name: author,
           content: inputText(data.text, 1200, true),
-        }).select('id,author_name,content,created_at').single());
+        }).select('id,author_id,author_name,content,created_at').single());
         await db.from('gallery_members').update({ display_name: author }).eq('id', session.member_id);
-        return { id: comment.id, author: comment.author_name, text: comment.content, date: comment.created_at };
+        return { id: comment.id, author: comment.author_name, authorId: comment.author_id, text: comment.content, date: comment.created_at };
       }
       case 'deleteComment':
         assertAdmin(session);

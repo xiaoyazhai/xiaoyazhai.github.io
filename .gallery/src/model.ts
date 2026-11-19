@@ -1,18 +1,18 @@
 export type Category = { id: string; name: string };
 export type Stats = { figures: number; members: number; categories: number };
-export type Scope = 'gallery' | 'featured' | 'saved' | 'profile' | 'admin';
+export type Scope = 'gallery' | 'featured' | 'saved' | 'profile' | 'member' | 'admin';
 export type Sort = 'latest' | 'popular' | 'discussed';
-export type Session = { token: string; device?: string; expiresAt: string; nickname: string; admin: boolean };
+export type Session = { token: string; device?: string; memberId?: string; expiresAt: string; nickname: string; admin: boolean };
 export type Figure = {
-  id: string; title: string; author: string; date: string; categoryId: string; category: string;
+  id: string; title: string; author: string; authorId?: string; date: string; categoryId: string; category: string;
   recommendation: string; highlights: string; paperTitle: string; journal: string; year: number | null;
   doi: string; sourceUrl: string; thumbUrl: string; imageUrl: string; likes: number; comments: number;
   liked: boolean; saved: boolean; featured: boolean; pinned: boolean; status: 'visible' | 'hidden' | 'deleting';
 };
-export type Comment = { id: string; author: string; text: string; date: string };
+export type Comment = { id: string; author: string; authorId?: string; text: string; date: string };
 export type ProfileComment = { figureId: string; title: string; text: string; date: string };
 export type Filter = { scope: Scope; sort: Sort; category: string; query: string; profile: string; offset: number };
-export type Listing = { figures: Figure[]; total: number; stats: Stats | null; comments?: ProfileComment[] };
+export type Listing = { figures: Figure[]; total: number; stats: Stats | null; profileName?: string; comments?: ProfileComment[] };
 export type Detail = { figure: Figure; comments: Comment[]; hasMore: boolean };
 export type Reaction = Pick<Figure, 'liked' | 'saved' | 'likes'>;
 export type Moderation = 'featured' | 'pinned' | 'hidden' | 'delete';
@@ -39,6 +39,7 @@ export const PAGE_SIZE = 24;
 export const categoriesDemo = [
   '几何表达', '结构设计', '力学仿真', '科学机理', '实验展示', '数据可视化', '多尺度结构', '综合插图',
 ].map((name, i) => ({ id: String(i + 1), name }));
+export const memberCode = (id: string) => '#' + id.slice(-6).toUpperCase();
 export const formatDate = (date: string) => date.slice(0, 10);
 export const errorText = (error: unknown) => error instanceof Error ? error.message : '操作失败，请重试。';
 
@@ -53,7 +54,8 @@ export function readRoute(): Route {
     case 'featured':
     case 'saved':
     case 'admin': return { scope: page };
-    case 'profile': return value ? { scope: 'profile', profile: value } : { scope: 'gallery' };
+    case 'profile':
+    case 'member': return value ? { scope: page, profile: value } : { scope: 'gallery' };
     case 'figure': return value ? { scope: 'gallery', figure: value } : { scope: 'gallery' };
     case 'upload': return { scope: 'gallery', upload: true };
     default: return { scope: 'gallery' };

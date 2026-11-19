@@ -115,8 +115,10 @@ svg { flex-shrink: 0; }
 .card-content h2 { font-size: clamp(15px, 1.13vw, 20px); line-height: 1.4; color: var(--ink); font-weight: 800; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .card-excerpt { margin-top: 5px; color: #425d79; font-size: clamp(13px, .93vw, 16px); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .card-meta { margin-top: auto; padding-top: 13px; display: flex; align-items: center; gap: 10px; font-size: clamp(12px, .86vw, 15px); white-space: nowrap; }
-.byline { display: inline-flex; align-items: center; min-width: 0; gap: 6px; font-weight: 650; }
-.byline span:last-child:not(.avatar) { overflow: hidden; text-overflow: ellipsis; }
+.member-tag { display: inline-flex; align-items: center; min-width: 0; max-width: 100%; gap: 6px; padding: 3px 7px; border-radius: 5px; background: #eaf2fa; color: var(--deep); font-weight: 700; }
+.member-tag:hover { background: #dbeafb; }
+.member-tag span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.member-tag small { flex: 0 0 auto; font-family: ui-monospace, monospace; font-size: .85em; }
 .card-meta time { color: #425d79; }
 .card-actions { margin-left: auto; display: inline-flex; align-items: center; gap: 9px; }
 .counter { padding: 4px 1px; display: inline-flex; align-items: center; gap: 4px; border: 0; background: transparent; border-radius: 4px; font-weight: 600; }
@@ -201,6 +203,7 @@ svg { flex-shrink: 0; }
 .form-stack label:not(.search) :is(input, select, textarea), .password-box { border: 1px solid #cfdeed; background: #fff; border-radius: 6px; width: 100%; padding: 9px 10px; font-weight: 400; }
 .form-stack textarea { resize: vertical; }
 .form-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.field-with-help { min-width: 0; }
 .field-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 11px; }
 .source-fields { padding: 9px 11px; border: 1px solid var(--line); border-radius: 7px; }
 .source-fields summary { line-height: 1.7; }

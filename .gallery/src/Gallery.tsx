@@ -1,10 +1,10 @@
 import { useEffect, useState, type RefObject } from 'react';
 import { ChevronLeft, ChevronRight, Grid2X2, Image, List, Search, SlidersHorizontal } from 'lucide-react';
 import { FigureCard, Status, figureHref } from './components';
-import { errorText, formatDate, PAGE_SIZE, type Category, type Figure, type GalleryApi, type Listing, type Route, type Sort, type Stats } from './model';
+import { errorText, formatDate, memberCode, PAGE_SIZE, type Category, type Figure, type GalleryApi, type Listing, type Route, type Sort, type Stats } from './model';
 import heroUrl from '../gallery-assets/hero.webp';
 
-const labels = { featured: '精选作品', saved: '我的收藏', profile: '成员作品', admin: '图库管理' };
+const labels = { featured: '精选作品', saved: '我的收藏', profile: '成员作品', member: '成员投稿', admin: '图库管理' };
 
 function Hero({ stats }: { stats?: Stats }) {
   return <section className="hero">
@@ -124,8 +124,10 @@ export default function Gallery({ route, categories, api, searchRef, revision, r
 
   return <>
     {scope === 'gallery' ? <Hero stats={stats} /> : <section className="scope-title">
-      <h1>{scope === 'profile' ? profile : labels[scope]}</h1>
-      {scope === 'profile' && <p>按自报昵称汇总的推荐与讨论。</p>}
+      <h1>{scope === 'profile' ? '@' + profile : scope === 'member' && listing?.profileName
+        ? '@' + listing.profileName : labels[scope]}</h1>
+      {scope === 'member' && profile && <p>成员编号 {memberCode(profile)} · 投稿与讨论</p>}
+      {scope === 'profile' && <p>按提交时填写的昵称查看投稿与讨论。</p>}
     </section>}
     <section className="gallery-shell" aria-label="作品列表">
       {scope === 'admin' && <AdminCategories categories={categories} api={api} refresh={changed} />}

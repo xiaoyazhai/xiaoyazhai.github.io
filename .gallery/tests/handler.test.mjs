@@ -61,6 +61,7 @@ function sandbox() {
       }
       assert.equal(name, 'gallery_browse');
       const rows = tables.gallery_figures.filter(row => (!input.p_figure || row.id === input.p_figure) &&
+        (input.p_scope !== 'member' || row.author_id === input.p_profile) &&
         (row.status === 'visible' || (input.p_admin && ['detail','admin'].includes(input.p_scope)))).map(row => ({
         ...row, category_name: '几何表达',
         liked: tables.gallery_likes.some(like => like.figure_id === row.id && like.member_id === input.p_member),
@@ -124,6 +125,7 @@ test('login verifies the shared secret, rate limits, expires, and revokes sessio
   assert.equal((await call('session', {}, user.token))[0], 401);
   const [, renewed] = await call('login', { password, device: user.device });
   assert.equal(tables.gallery_members.length, 1);
+  assert.equal(renewed.memberId, user.memberId);
   tables.gallery_sessions[0].expires_at = '2000-01-01T00:00:00.000Z';
   assert.equal((await call('session', {}, renewed.token))[0], 401);
   for (let i = 0; i < 27; i++) assert.equal((await call('login', { password: 'incorrect' }))[0], 401);
@@ -170,6 +172,30 @@ test('upload, reactions and comments work across sessions while image and admini
   assert.equal((await call('moderate', { id, change: 'delete' }, one.token))[0], 200);
   assert.equal(files.size, 0);
   assert.equal((await call('detail', { id }, one.token))[0], 404);
+});
+
+test('uploads derive their member tag from the session and distinguish members with the same nickname', async () => {
+  const { call } = sandbox();
+  const [, one] = await call('login', { password });
+  const [, two] = await call('login', { password });
+  const oneFigure = crypto.randomUUID();
+  const twoFigure = crypto.randomUUID();
+  const claimed = submission(oneFigure);
+  claimed.set('authorId', two.memberId);
+  assert.equal((await call('upload', claimed, one.token))[0], 200);
+  assert.equal((await call('upload', submission(twoFigure), two.token))[0], 200);
+  assert.equal((await call('nickname', { nickname: '成员甲的新昵称' }, one.token))[0], 200);
+
+  const [status, first] = await call('list', { scope: 'member', profile: one.memberId }, two.token);
+  assert.equal(status, 200);
+  assert.equal(first.profileName, '成员甲的新昵称');
+  assert.deepEqual(first.figures.map(figure => [figure.id, figure.author, figure.authorId]), [
+    [oneFigure, '成员甲', one.memberId],
+  ]);
+  const [, second] = await call('list', { scope: 'member', profile: two.memberId }, one.token);
+  assert.deepEqual(second.figures.map(figure => [figure.id, figure.authorId]), [[twoFigure, two.memberId]]);
+  assert.equal((await call('list', { scope: 'member', profile: '成员甲' }, one.token))[0], 400);
+  assert.equal((await call('list', { scope: 'member', profile: one.memberId }))[0], 401);
 });
 
 test('image validation accepts real content despite the MIME hint and rejects oversized files', async () => {

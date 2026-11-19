@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { after, before, test } from 'node:test';
 import { PGlite } from '@electric-sql/pglite';
 
@@ -27,8 +27,10 @@ before(async () => {
     create policy intentionally_broad_objects on storage.objects for all to anon, authenticated using (true) with check (true);
     create policy intentionally_broad_buckets on storage.buckets for all to anon, authenticated using (true) with check (true);
   `);
-  const migration = await readFile(new URL('../supabase/migrations/20261119000100_gallery.sql', import.meta.url), 'utf8');
-  await db.exec(migration);
+  const migrations = new URL('../supabase/migrations/', import.meta.url);
+  for (const file of (await readdir(migrations)).filter(name => name.endsWith('.sql')).sort()) {
+    await db.exec(await readFile(new URL(file, migrations), 'utf8'));
+  }
   await db.exec(`
     insert into storage.buckets (id,name,public) values ('existing', 'existing', true);
     insert into storage.objects (bucket_id,name) values ('research-figures','private.jpg'),('existing','ordinary.jpg');
@@ -50,6 +52,8 @@ test('public roles cannot read protected tables, execute privileged RPCs, or acc
     try {
       await assert.rejects(db.query('select * from public.gallery_figures'), { code: '42501' });
       await assert.rejects(db.query("select public.gallery_rate('test', 60, 1)"), { code: '42501' });
+      await assert.rejects(db.query("select public.gallery_browse(null, 'member', null, '', 'latest', 0, $1, false)",
+        [memberA]), { code: '42501' });
       assert.deepEqual((await db.query('select name from storage.objects')).rows, [{ name: 'ordinary.jpg' }]);
       assert.deepEqual((await db.query('select name from storage.buckets')).rows, [{ name: 'existing' }]);
       await assert.rejects(db.query("insert into storage.objects (bucket_id, name) values ('research-figures', 'x')"), { code: '42501' });
@@ -82,6 +86,29 @@ test('service can browse, search, restrict hidden works, and count persistent me
     assert.equal((await browse(memberB, 'admin', '隐藏', false)).total, 0);
     assert.equal((await browse(memberB, 'admin', '隐藏', true)).rows[0].id, hidden);
   } finally { await db.exec('reset role'); }
+});
+
+test('member pages separate the same nickname and find earlier works after a nickname change', async () => {
+  const otherFigure = crypto.randomUUID();
+  await db.exec('begin');
+  try {
+    await db.query(`
+      insert into public.gallery_figures (id, author_id, category_id, title, author_name, recommendation,
+        design_highlights, image_path, thumbnail_path)
+      select $1, $2, category_id, '同名成员的作品', author_name, recommendation, design_highlights, 'c.jpg', 'c.jpg'
+      from public.gallery_figures where id = $3
+    `, [otherFigure, memberB, published]);
+    await db.query("update public.gallery_members set display_name = '新昵称' where id = $1", [memberA]);
+    const ids = async (scope, identity) => {
+      const { rows: [{ result }] } = await db.query(
+        "select public.gallery_browse($1, $2, null, '', 'latest', 0, $3, false) as result",
+        [memberA, scope, identity]);
+      return result.rows.map(row => row.id);
+    };
+    assert.deepEqual(await ids('member', memberA), [published]);
+    assert.deepEqual(await ids('member', memberB), [otherFigure]);
+    assert.deepEqual(new Set(await ids('profile', 'Local A')), new Set([published, otherFigure]));
+  } finally { await db.exec('rollback'); }
 });
 
 test('attempt limits are enforced in PostgreSQL', async () => {

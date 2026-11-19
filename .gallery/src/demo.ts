@@ -18,13 +18,13 @@ const records = [
 export function createDemo() {
   let session: Session = {
     token: 'local-demo', expiresAt: new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString(),
-    nickname: '演示成员', admin: false,
+    nickname: '演示成员', memberId: 'demo-member-visitor', admin: false,
   };
   const figures: Figure[] = records.map((item, index) => {
     const category = categoriesDemo[item.category - 1];
     const url = artwork['../gallery-assets/figure-' + (index + 1) + '.webp'];
     return {
-      id: 'demo-' + (index + 1), title: item.title, author: item.author, date: item.date, likes: item.likes,
+      id: 'demo-' + (index + 1), title: item.title, author: item.author, authorId: 'demo-member-' + (index + 1), date: item.date, likes: item.likes,
       comments: item.comments, categoryId: category.id, category: category.name, thumbUrl: url, imageUrl: url,
       recommendation: item.summary, highlights: item.highlights, paperTitle: '', journal: '', year: null,
       doi: '', sourceUrl: '', liked: false, saved: false, featured: index < 3, pinned: false, status: 'visible',
@@ -32,7 +32,7 @@ export function createDemo() {
   });
   let categories = [...categoriesDemo];
   const threads = new Map<string, Comment[]>(figures.map(figure => [figure.id, [
-    { id: figure.id + '-comment', author: '演示成员', text: '让图例靠近对应子图，阅读时能更快找到对照关系。', date: figure.date },
+    { id: figure.id + '-comment', author: '演示成员', authorId: session.memberId, text: '让图例靠近对应子图，阅读时能更快找到对照关系。', date: figure.date },
   ]]));
   const figureWithId = (id: string) => {
     const figure = figures.find(item => item.id === id);
@@ -51,6 +51,7 @@ export function createDemo() {
         (filter.scope === 'admin' || item.status === 'visible') &&
         (filter.scope !== 'saved' || item.saved) &&
         (filter.scope !== 'profile' || item.author === filter.profile) &&
+        (filter.scope !== 'member' || item.authorId === filter.profile) &&
         (filter.scope !== 'featured' || filter.sort !== 'latest' || item.featured) &&
         (!filter.category || item.categoryId === filter.category) &&
         (!needle || [item.title, item.author, item.category, item.recommendation, item.paperTitle, item.doi].join(' ').toLowerCase().includes(needle))
@@ -59,16 +60,18 @@ export function createDemo() {
         if (filter.sort === 'discussed') return b.comments - a.comments;
         return Number(b.pinned) - Number(a.pinned) || b.date.localeCompare(a.date);
       });
-      const comments = filter.scope === 'profile' ? [...threads.entries()].flatMap(([id, list]) => {
+      const comments = (filter.scope === 'profile' || filter.scope === 'member') ? [...threads.entries()].flatMap(([id, list]) => {
         const figure = figures.find(item => item.id === id && item.status === 'visible');
-        return figure ? list.filter(comment => comment.author === filter.profile).map(comment => ({
+        return figure ? list.filter(comment => (filter.scope === 'member' ? comment.authorId : comment.author) === filter.profile).map(comment => ({
           text: comment.text, date: comment.date, figureId: id, title: figure.title,
         })) : [];
       }) : undefined;
       return {
+        profileName: filter.scope === 'member' ? (filter.profile === session.memberId
+          ? session.nickname : figures.find(item => item.authorId === filter.profile)?.author) : undefined,
         figures: subset.slice(filter.offset, filter.offset + 24).map(item => ({ ...item })),
         total: subset.length, stats: { figures: figures.filter(item => item.status === 'visible').length,
-          members: new Set(figures.filter(item => item.status === 'visible').map(item => item.author)).size,
+          members: new Set(figures.filter(item => item.status === 'visible').map(item => item.authorId)).size,
           categories: categories.length }, comments,
       };
     },
@@ -84,7 +87,7 @@ export function createDemo() {
       if (!category) throw new Error('请选择仍然可用的分类。');
       progress(100);
       figures.push({
-        id, title: String(form.get('title')), author: String(form.get('author')), date: new Date().toISOString(),
+        id, title: String(form.get('title')), author: String(form.get('author')), authorId: session.memberId, date: new Date().toISOString(),
         category: category.name, categoryId: category.id, recommendation: String(form.get('recommendation')),
         highlights: String(form.get('highlights')), paperTitle: String(form.get('paperTitle') ?? ''),
         year: Number(form.get('year')) || null, journal: String(form.get('journal') ?? ''),
@@ -92,6 +95,7 @@ export function createDemo() {
         thumbUrl: url, imageUrl: url, likes: 0, comments: 0, liked: false, saved: false,
         featured: false, pinned: false, status: 'visible',
       });
+      session = { ...session, nickname: String(form.get('author')) };
       return { id };
     },
     reaction: async (id, kind, enabled) => {
@@ -105,7 +109,8 @@ export function createDemo() {
     },
     comment: async (id, author, text) => {
       const figure = figureWithId(id);
-      const comment = { id: crypto.randomUUID(), author, text, date: new Date().toISOString() };
+      session = { ...session, nickname: author };
+      const comment = { id: crypto.randomUUID(), author, authorId: session.memberId, text, date: new Date().toISOString() };
       threads.set(id, [comment, ...(threads.get(id) ?? [])]);
       figure.comments++;
       return comment;

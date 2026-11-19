@@ -54,7 +54,8 @@ export function priorSession(): Session | null {
 
 export function saveSession(session: Session | null) {
   localValue('sessionStorage', SESSION_KEY, session ? JSON.stringify({
-    token: session.token, expiresAt: session.expiresAt, nickname: session.nickname, admin: session.admin,
+    token: session.token, memberId: session.memberId, expiresAt: session.expiresAt,
+    nickname: session.nickname, admin: session.admin,
   }) : null);
 }
 

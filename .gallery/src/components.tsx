@@ -1,9 +1,19 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Bookmark, Box, ChevronDown, Heart, ImageOff, LogOut, Menu, MessageSquare, Search, UserRound, X } from 'lucide-react';
-import { errorText, formatDate, type Figure, type Route } from './model';
+import { errorText, formatDate, memberCode, type Figure, type Route } from './model';
 
 export const figureHref = (id: string) => '#figure/' + encodeURIComponent(id);
 export const profileHref = (name: string) => '#profile/' + encodeURIComponent(name);
+export const memberHref = (id: string) => '#member/' + encodeURIComponent(id);
+
+export function MemberTag({ name, id, showCode = false }: { name: string; id?: string; showCode?: boolean }) {
+  const label = '@' + name;
+  return <a href={id ? memberHref(id) : profileHref(name)} className="member-tag"
+    title={id ? label + ' · ' + memberCode(id) : label}
+    aria-label={'查看 ' + label + (id ? ' ' + memberCode(id) : '') + ' 的投稿'}>
+    <span>{label}</span>{showCode && id && <small>{memberCode(id)}</small>}
+  </a>;
+}
 
 export function Brand() {
   return <a href="#" className="brand" aria-label="Research Figure Gallery 首页">
@@ -12,8 +22,8 @@ export function Brand() {
   </a>;
 }
 
-export function Header({ route, nickname, admin, readOnly = false, openSearch, openAccount, lock }: {
-  route: Route; nickname: string; admin: boolean; readOnly?: boolean; openSearch: () => void; openAccount: () => void;
+export function Header({ route, nickname, memberId, admin, readOnly = false, openSearch, openAccount, lock }: {
+  route: Route; nickname: string; memberId?: string; admin: boolean; readOnly?: boolean; openSearch: () => void; openAccount: () => void;
   lock: () => void;
 }) {
   const [menu, setMenu] = useState<'pages' | 'account' | null>(null);
@@ -52,7 +62,8 @@ export function Header({ route, nickname, admin, readOnly = false, openSearch, o
         </button>}
         {!readOnly && menu === 'account' && <div className="account-menu">
           <p>{nickname || '课题组成员'}</p>
-          {nickname && <a href={profileHref(nickname)} onClick={() => setMenu(null)}>我的推荐</a>}
+          {(memberId || nickname) && <a href={memberId ? memberHref(memberId) : profileHref(nickname)}
+            onClick={() => setMenu(null)}>我的投稿</a>}
           <a href="#saved" onClick={() => setMenu(null)}>我的收藏</a>
           {admin && <a href="#admin" onClick={() => setMenu(null)}>图库管理</a>}
           <button onClick={() => { setMenu(null); openAccount(); }}>{admin ? '修改展示昵称' : '昵称与管理员授权'}</button>
@@ -96,7 +107,7 @@ export function FigureCard({ figure, react, busy, opened, admin, readOnly = fals
       <h2><a href={figureHref(figure.id)} onClick={opened}>{figure.title}</a></h2>
       <p className="card-excerpt" title={hasCitation || figure.recommendation}>{hasCitation || figure.recommendation}</p>
       <div className="card-meta">
-        <a href={profileHref(figure.author)} className="byline"><Avatar name={figure.author} /><span>{figure.author}</span></a>
+        <MemberTag name={figure.author} id={figure.authorId} />
         <time dateTime={figure.date}>{formatDate(figure.date)}</time>
         <div className="card-actions">
           {admin && figure.status !== 'visible' ? <span>{figure.status === 'deleting' ? '正在删除' : '已隐藏'}</span> : <>
@@ -158,7 +169,7 @@ export function Account({ nickname, admin, onNickname, onAdmin, close }: {
     <div className="modal-body">
       <form className="form-stack" onSubmit={event => { event.preventDefault(); void submit(() => onNickname(name.trim())); }}>
         <label>展示昵称<input required maxLength={32} value={name} onChange={event => setName(event.target.value)} /></label>
-        <small>昵称由成员填写。修改后用于新提交的作品和评论。</small>
+        <small>昵称可以修改，同一成员的投稿仍汇总在同一个成员页。</small>
         <button className="button primary" disabled={busy || !name.trim()}>保存昵称</button>
       </form>
       {!admin && <form className="form-stack admin-auth" onSubmit={event => {
