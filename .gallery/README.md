@@ -1,6 +1,6 @@
 # Research Figure Gallery · 科研美图赏析
 
-供课题组分享、欣赏和讨论科研图片。计划发布地址为 [xiaoyazhai.github.io/figure-gallery/](https://xiaoyazhai.github.io/figure-gallery/)。
+供课题组分享、欣赏和讨论科研图片。发布地址为 [xiaoyazhai.github.io/figure-gallery/](https://xiaoyazhai.github.io/figure-gallery/)。
 
 ## 本地运行
 
@@ -26,7 +26,7 @@ npm run dev
 
 ```bash
 supabase link --project-ref YOUR_PROJECT_REF
-supabase db push
+supabase db push --remote
 ```
 
 在 Dashboard 的 Edge Functions Secrets 中设置以下条目，再部署函数。Supabase 提供函数运行环境中的 `SUPABASE_URL` 和 `SUPABASE_SERVICE_ROLE_KEY`。后者仅由服务器读取。
@@ -38,7 +38,7 @@ supabase db push
 | `GALLERY_ALLOWED_ORIGINS` | 逗号分隔的浏览器来源，生产为 `https://xiaoyazhai.github.io` |
 
 ```bash
-supabase functions deploy gallery
+supabase functions deploy gallery --use-api
 ```
 
 `supabase/config.toml` 为该函数关闭平台默认 JWT 校验。浏览器用公开项目 key 访问函数，登录以外的操作由函数校验自有会话。SQL 迁移回收匿名及普通认证角色对图库数据表和 RPC 的权限，并启用 RLS。私有桶 `research-figures` 额外限制这些角色访问和枚举对象。管理员权限由 Edge Function 和数据库会话校验。只把项目 URL 和 publishable/anon key 写入 `VITE_` 变量。
