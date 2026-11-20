@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { Bookmark, Box, ChevronDown, Heart, ImageOff, LogOut, Menu, MessageSquare, Search, UserRound, X } from 'lucide-react';
-import { errorText, formatDate, memberCode, type Figure, type Route } from './model';
+import { errorText, formatDate, memberCode, type Figure, type GalleryApi, type Route } from './model';
 
 export const figureHref = (id: string) => '#figure/' + encodeURIComponent(id);
 export const profileHref = (name: string) => '#profile/' + encodeURIComponent(name);
@@ -80,25 +81,77 @@ export function Avatar({ name }: { name: string }) {
   return <span className={'avatar avatar-' + tone} aria-hidden="true">{first || <UserRound size={19} />}</span>;
 }
 
-export function FigureImage({ src, alt, onRefresh, eager = false }: {
-  src: string; alt: string; onRefresh?: () => void; eager?: boolean;
+type PreviewSource = { id: string; detail: GalleryApi['detail'] };
+
+function CenteredImagePreview({ src, source, close }: { src: string; source?: PreviewSource; close: () => void }) {
+  const [preview, setPreview] = useState('');
+  const figureId = source?.id;
+  const getDetail = source?.detail;
+
+  useEffect(() => {
+    const request = new AbortController();
+    const timer = window.setTimeout(async () => {
+      setPreview(src);
+      if (!figureId || !getDetail) return;
+      try {
+        const { figure } = await getDetail(figureId, 0, request.signal);
+        if (request.signal.aborted || !figure.imageUrl || figure.imageUrl === src) return;
+        const fullSize = new window.Image();
+        fullSize.referrerPolicy = 'no-referrer';
+        fullSize.src = figure.imageUrl;
+        await fullSize.decode();
+        if (!request.signal.aborted) setPreview(figure.imageUrl);
+      } catch {
+        // Keep the thumbnail visible if the original can't be loaded.
+      }
+    }, 200);
+
+    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') close(); };
+    document.addEventListener('keydown', escape);
+    window.addEventListener('blur', close);
+    window.addEventListener('scroll', close, { passive: true });
+    return () => {
+      window.clearTimeout(timer);
+      request.abort();
+      document.removeEventListener('keydown', escape);
+      window.removeEventListener('blur', close);
+      window.removeEventListener('scroll', close);
+    };
+  }, [src, figureId, getDetail, close]);
+
+  return preview ? createPortal(<div className="image-hover-preview" aria-hidden="true">
+    <img src={preview} alt="" referrerPolicy="no-referrer" />
+  </div>, document.body) : null;
+}
+
+export function FigureImage({ src, alt, onRefresh, eager = false, hover = false, previewSource }: {
+  src: string; alt: string; onRefresh?: () => void; eager?: boolean; hover?: boolean; previewSource?: PreviewSource;
 }) {
   const [failed, setFailed] = useState('');
+  const [hovered, setHovered] = useState(false);
+  const dismiss = useCallback(() => setHovered(false), []);
   if (!src || failed === src) return <div className="image-fallback">
     <ImageOff size={24} aria-hidden="true" /><span>图片暂不可用</span>
     {onRefresh && <button className="text-button" onClick={onRefresh}>重新加载</button>}
   </div>;
-  return <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} referrerPolicy="no-referrer"
-    onError={() => setFailed(src)} />;
+  return <>
+    <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} referrerPolicy="no-referrer"
+      onPointerEnter={hover ? event => { if (event.pointerType === 'mouse') setHovered(true); } : undefined}
+      onPointerLeave={hover ? dismiss : undefined} onPointerDown={hover ? dismiss : undefined}
+      onPointerCancel={hover ? dismiss : undefined}
+      onError={() => { dismiss(); setFailed(src); }} />
+    {hovered && hover && <CenteredImagePreview key={src} src={src} source={previewSource} close={dismiss} />}
+  </>;
 }
 
-export function FigureCard({ figure, react, busy, opened, admin, readOnly = false }: {
+export function FigureCard({ figure, react, busy, opened, admin, readOnly = false, getDetail }: {
   figure: Figure; react: (figure: Figure) => void; busy: boolean; opened: () => void; admin?: boolean; readOnly?: boolean;
+  getDetail: GalleryApi['detail'];
 }) {
   const excerpt = [figure.journal, figure.year, figure.doi].filter(Boolean).join(' · ') || figure.recommendation;
   return <article className="figure-card">
     <a className="figure-cover" href={figureHref(figure.id)} onClick={opened} aria-label={'查看作品：' + figure.title}>
-      <FigureImage src={figure.thumbUrl} alt="" />
+      <FigureImage src={figure.thumbUrl} alt="" hover previewSource={{ id: figure.id, detail: getDetail }} />
       <span className="category-badge">{figure.category}</span>
       {figure.pinned && <span className="pin-badge">置顶</span>}
       <span className="view-hint" aria-hidden="true">查看作品</span>

@@ -104,8 +104,10 @@ svg { flex-shrink: 0; }
 .figure-card { min-width: 0; height: 100%; display: flex; flex-direction: column; padding: clamp(8px, .8vw, 14px); border: 1px solid #e2eaf3; border-radius: 9px; box-shadow: var(--shadow); background: var(--panel); }
 .figure-card:hover { border-color: #b7cee4; }
 .figure-cover { display: grid; position: relative; isolation: isolate; aspect-ratio: 1.68; width: 100%; overflow: hidden; background: #f3f7fa; }
-.figure-cover > img { width: 100%; height: 100%; min-height: 0; object-fit: contain; transition: transform .23s ease; }
-.figure-cover:hover > img { transform: scale(1.035); }
+.figure-cover > img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.image-hover-preview { position: fixed; inset: 0; z-index: 12; display: grid; place-items: center; pointer-events: none; background: rgb(15 27 44 / .72); }
+.image-hover-preview img { display: block; width: min(88vw, 1120px); height: min(84dvh, 860px); object-fit: contain; filter: drop-shadow(0 8px 24px rgb(0 0 0 / .28)); }
+.category-badge, .pin-badge, .view-hint { pointer-events: none; }
 .category-badge, .pin-badge { position: absolute; padding: 3px 7px; line-height: 1.25; border-radius: 4px; font-size: 12px; font-weight: 750; color: #153759; background: #c6d8ed; }
 .category-badge { top: 4px; left: 4px; }
 .pin-badge { top: 4px; right: 4px; background: #eaf2fc; }
@@ -283,5 +285,4 @@ progress { width: 100%; accent-color: var(--blue); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
-  .figure-cover:hover > img { transform: none; }
 }

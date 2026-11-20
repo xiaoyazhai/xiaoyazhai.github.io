@@ -62,7 +62,7 @@ export default function Details({ id, api, nickname, admin, readOnly = false, ne
         {neighbors.next && <a href={figureHref(neighbors.next)}>下一篇</a>}</div></div>
     <div className="detail-layout">
       <figure className="detail-image">
-        <FigureImage src={figure.imageUrl} alt={figure.title} onRefresh={reload} eager />
+        <FigureImage src={figure.imageUrl} alt={figure.title} onRefresh={reload} eager hover />
         {figure.imageUrl && <button className="button secondary enlarge" onClick={() => setLightbox(true)}>
           <Expand size={16} /> 放大查看</button>}
       </figure>

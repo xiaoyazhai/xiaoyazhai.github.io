@@ -159,7 +159,8 @@ export default function Gallery({ route, categories, api, searchRef, revision, r
       {listing && <div aria-busy={loading}>
         {listing.figures.length ? <div className={'figure-grid' + (listMode ? ' figure-list' : '')}>
           {listing.figures.map(figure => <div key={figure.id}>
-            <FigureCard figure={figure} react={react} busy={busy.includes(figure.id)} opened={opened} admin={scope === 'admin'} readOnly={readOnly} />
+            <FigureCard figure={figure} react={react} busy={busy.includes(figure.id)} opened={opened}
+              admin={scope === 'admin'} readOnly={readOnly} getDetail={api.detail} />
             {scope === 'admin' && figure.status === 'deleting' && <button className="button danger" onClick={async () => {
               try { await api.moderate(figure.id, 'delete'); changed(); }
               catch (error) { setReactionError(errorText(error)); }
