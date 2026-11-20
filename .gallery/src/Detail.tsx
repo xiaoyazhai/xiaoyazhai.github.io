@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Expand, MessageSquare, Trash2 } from 'lucide-react';
-import { DetailReactions, Dialog, FigureImage, MemberTag, Status, figureHref } from './components';
+import { CenteredImagePreview, DetailReactions, Dialog, FigureImage, MemberTag, Status } from './components';
+import { useArrowNavigation, type Direction, type GalleryNavigation } from './sequencing';
 import { errorText, formatDate, type Detail, type Figure, type GalleryApi, type Moderation, type Reaction } from './model';
 
-export default function Details({ id, api, nickname, admin, readOnly = false, neighbors, back, afterChange, setNickname }: {
+export default function Details({ id, api, nickname, admin, readOnly = false, navigation, keyboardEnabled, lightbox, setLightbox, back, afterChange, setNickname }: {
   id: string; api: GalleryApi; nickname: string; admin: boolean; readOnly?: boolean;
-  neighbors: { previous?: string; next?: string }; back: string;
+  navigation: GalleryNavigation; keyboardEnabled: boolean; lightbox: boolean; setLightbox: (open: boolean) => void; back: string;
   afterChange: () => void; setNickname: (name: string) => void;
 }) {
   const [data, setData] = useState<Detail | null>(null);
@@ -13,7 +14,8 @@ export default function Details({ id, api, nickname, admin, readOnly = false, ne
   const [loadError, setLoadError] = useState('');
   const [busy, setBusy] = useState(false);
   const [refresh, setRefresh] = useState(0);
-  const [lightbox, setLightbox] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const closeHover = useCallback(() => setHovered(false), []);
   const [author, setAuthor] = useState(nickname);
   const [text, setText] = useState('');
   const [confirm, setConfirm] = useState<{ title: string; run: () => Promise<void> } | null>(null);
@@ -36,6 +38,9 @@ export default function Details({ id, api, nickname, admin, readOnly = false, ne
 
   const reload = () => setRefresh(i => i + 1);
   const figure = data?.figure;
+  const move = (direction: Direction) => { void navigation.step(direction, lightbox || hovered); };
+  const hasNeighbors = navigation.previous || navigation.next;
+  useArrowNavigation(figure && keyboardEnabled && !confirm && hasNeighbors ? move : undefined);
   if (!figure || !data) return <div className="inner-page">
     <a className="text-button back-link" href={back}>返回图库</a>
     {loadError ? <><Status text={loadError} error /><button className="button secondary" onClick={reload}>重试</button></>
@@ -58,11 +63,14 @@ export default function Details({ id, api, nickname, admin, readOnly = false, ne
 
   return <article className="inner-page detail-page">
     <div className="detail-nav"><a className="text-button back-link" href={back}>返回图库</a>
-      <div>{neighbors.previous && <a href={figureHref(neighbors.previous)}>上一篇</a>}
-        {neighbors.next && <a href={figureHref(neighbors.next)}>下一篇</a>}</div></div>
+      <div>{navigation.previous && <button className="text-button" disabled={navigation.loading} onClick={() => move(-1)}>← 上一张</button>}
+        {navigation.next && <button className="text-button" disabled={navigation.loading} onClick={() => move(1)}>下一张 →</button>}</div></div>
+    {!lightbox && navigation.error && <Status text={navigation.error} error />}
     <div className="detail-layout">
       <figure className="detail-image">
-        <FigureImage src={figure.imageUrl} alt={figure.title} onRefresh={reload} eager hover />
+        <FigureImage src={figure.imageUrl} alt={figure.title} onRefresh={reload} eager onHover={setHovered} />
+        {hovered && !lightbox && <CenteredImagePreview src={figure.imageUrl} close={closeHover}
+          caption={hasNeighbors ? '← → 切换图片' : undefined} />}
         {figure.imageUrl && <button className="button secondary enlarge" onClick={() => setLightbox(true)}>
           <Expand size={16} /> 放大查看</button>}
       </figure>
@@ -148,8 +156,13 @@ export default function Details({ id, api, nickname, admin, readOnly = false, ne
         }));
       })}>加载更多评论</button>}
     </section>
-    {lightbox && <Dialog title={figure.title} wide close={() => setLightbox(false)} className="lightbox">
+    {lightbox && <Dialog title={figure.title} wide close={() => { closeHover(); setLightbox(false); }} className="lightbox">
       <FigureImage src={figure.imageUrl} alt={figure.title} onRefresh={reload} eager />
+      {hasNeighbors && <div className="image-sequence-controls">
+        <button className="button secondary" disabled={!navigation.previous || navigation.loading} onClick={() => move(-1)}>← 上一张</button>
+        <button className="button secondary" disabled={!navigation.next || navigation.loading} onClick={() => move(1)}>下一张 →</button>
+      </div>}
+      {navigation.error && <Status text={navigation.error} error />}
     </Dialog>}
     {confirm && <Dialog title={confirm.title} close={() => setConfirm(null)}>
       <div className="modal-body"><div className="form-actions">

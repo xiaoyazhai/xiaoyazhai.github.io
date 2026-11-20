@@ -105,8 +105,10 @@ svg { flex-shrink: 0; }
 .figure-card:hover { border-color: #b7cee4; }
 .figure-cover { display: grid; position: relative; isolation: isolate; aspect-ratio: 1.68; width: 100%; overflow: hidden; background: #f3f7fa; }
 .figure-cover > img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
-.image-hover-preview { position: fixed; inset: 0; z-index: 12; display: grid; place-items: center; pointer-events: none; background: rgb(15 27 44 / .72); }
+.image-hover-preview { position: fixed; inset: 0; z-index: 12; display: grid; place-items: center; pointer-events: none; background: rgb(15 27 44 / .72); color: #fff; }
 .image-hover-preview img { display: block; width: min(88vw, 1120px); height: min(84dvh, 860px); object-fit: contain; filter: drop-shadow(0 8px 24px rgb(0 0 0 / .28)); }
+.image-sequence-caption { position: absolute; inset: auto 12px 10px; text-align: center; font-size: 13px; }
+.lightbox .image-sequence-controls { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 10px; }
 .category-badge, .pin-badge, .view-hint { pointer-events: none; }
 .category-badge, .pin-badge { position: absolute; padding: 3px 7px; line-height: 1.25; border-radius: 4px; font-size: 12px; font-weight: 750; color: #153759; background: #c6d8ed; }
 .category-badge { top: 4px; left: 4px; }
@@ -153,7 +155,7 @@ svg { flex-shrink: 0; }
 .page-subtitle { margin-top: 8px; color: var(--muted); }
 .detail-nav { display: flex; gap: 16px; justify-content: space-between; margin-bottom: 6px; font-size: 14px; }
 .detail-nav div { display: flex; gap: 15px; }
-.detail-nav div a { color: var(--blue); }
+.detail-nav div .text-button { padding: 0 4px; }
 .detail-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); align-items: start; gap: clamp(16px, 3vw, 40px); }
 .detail-image { display: grid; justify-items: center; align-items: center; gap: 10px; border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: clamp(10px, 1.7vw, 25px); }
 .detail-image img { width: 100%; max-height: 75dvh; object-fit: contain; }

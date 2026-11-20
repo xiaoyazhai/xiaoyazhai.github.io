@@ -1,7 +1,8 @@
-import { useEffect, useState, type RefObject } from 'react';
+import { useCallback, useEffect, useMemo, useState, type RefObject } from 'react';
 import { ChevronLeft, ChevronRight, Grid2X2, Image, List, Search, SlidersHorizontal } from 'lucide-react';
-import { FigureCard, Status, figureHref } from './components';
-import { errorText, formatDate, memberCode, PAGE_SIZE, type Category, type Figure, type GalleryApi, type Listing, type Route, type Sort, type Stats } from './model';
+import { CenteredImagePreview, FigureCard, Status, figureHref } from './components';
+import { errorText, formatDate, memberCode, PAGE_SIZE, type Category, type Filter, type Figure, type GalleryApi, type Listing, type Route, type Sort, type Stats } from './model';
+import { useGalleryStep, type GallerySequence } from './sequencing';
 import heroUrl from '../gallery-assets/hero.webp';
 
 const labels = { featured: '精选作品', saved: '我的收藏', profile: '成员作品', member: '成员投稿', admin: '图库管理' };
@@ -57,9 +58,22 @@ function AdminCategories({ categories, api, refresh }: { categories: Category[];
   </details>;
 }
 
+function GalleryHover({ start, sequence, api, close }: {
+  start: string; sequence: GallerySequence; api: GalleryApi; close: () => void;
+}) {
+  const [current, setCurrent] = useState({ id: start, page: sequence });
+  const navigation = useGalleryStep(api.list, current.page, current.id, (id, page) => setCurrent({ id, page }));
+  const figure = current.page.listing.figures.find(item => item.id === current.id);
+  if (!figure) return null;
+  const caption = navigation.error || (navigation.loading ? '正在加载图片…' :
+    navigation.total > 1 ? (navigation.position + 1) + ' / ' + navigation.total + '　← → 切换图片' : '');
+  return <CenteredImagePreview src={figure.thumbUrl} source={{ id: figure.id, detail: api.detail }}
+    close={close} caption={caption} onStep={direction => void navigation.step(direction)} />;
+}
+
 export default function Gallery({ route, categories, api, searchRef, revision, readOnly = false, changed, openFigure, remembered, previousView }: {
   route: Route; categories: Category[]; api: GalleryApi; searchRef: RefObject<HTMLInputElement | null>;
-  revision: number; readOnly?: boolean; changed: () => void; openFigure: (ids: string[]) => void;
+  revision: number; readOnly?: boolean; changed: () => void; openFigure: (sequence: GallerySequence) => void;
   remembered: { category: string; sort: Sort; query: string; page: number };
   previousView: (view: { category: string; sort: Sort; query: string; page: number }) => void;
 }) {
@@ -77,6 +91,8 @@ export default function Gallery({ route, categories, api, searchRef, revision, r
   const [error, setError] = useState('');
   const [reactionError, setReactionError] = useState('');
   const [retry, setRetry] = useState(0);
+  const [hovered, setHovered] = useState<string | null>(null);
+  const closePreview = useCallback(() => setHovered(null), []);
   useEffect(() => {
     const timeout = window.setTimeout(() => setDebounced(query), 210);
     return () => window.clearTimeout(timeout);
@@ -85,11 +101,14 @@ export default function Gallery({ route, categories, api, searchRef, revision, r
     if (category && !categories.some(item => item.id === category)) { setCategory(''); setPage(0); }
   }, [categories, category]);
   const offset = page * PAGE_SIZE;
+  const filter = useMemo<Filter>(() => ({ scope, sort, query: debounced, category, profile: profile ?? '', offset }),
+    [scope, sort, debounced, category, profile, offset]);
   useEffect(() => {
     const controller = new AbortController();
+    closePreview();
     setLoading(true);
     setError('');
-    api.list({ scope, sort, query: debounced, category, profile: profile ?? '', offset }, controller.signal)
+    api.list(filter, controller.signal)
       .then(data => {
         if (controller.signal.aborted) return;
         if (data.total && offset >= data.total) {
@@ -101,7 +120,7 @@ export default function Gallery({ route, categories, api, searchRef, revision, r
       }, error => { if (!controller.signal.aborted) { setListing(null); setError(errorText(error)); } })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
-  }, [api, scope, category, sort, debounced, offset, profile, revision, retry]);
+  }, [api, filter, offset, revision, retry, closePreview]);
 
   async function react(figure: Figure) {
     if (busy.includes(figure.id)) return;
@@ -119,10 +138,12 @@ export default function Gallery({ route, categories, api, searchRef, revision, r
   }
   function opened() {
     previousView({ category, sort, query, page });
-    openFigure(listing?.figures.map(item => item.id) ?? []);
+    if (listing) openFigure({ filter, listing });
   }
 
   return <>
+    {hovered && listing && !loading && <GalleryHover key={hovered} start={hovered}
+      sequence={{ filter, listing }} api={api} close={closePreview} />}
     {scope === 'gallery' ? <Hero stats={stats} /> : <section className="scope-title">
       <h1>{scope === 'profile' ? '@' + profile : scope === 'member' && listing?.profileName
         ? '@' + listing.profileName : labels[scope]}</h1>
@@ -160,7 +181,10 @@ export default function Gallery({ route, categories, api, searchRef, revision, r
         {listing.figures.length ? <div className={'figure-grid' + (listMode ? ' figure-list' : '')}>
           {listing.figures.map(figure => <div key={figure.id}>
             <FigureCard figure={figure} react={react} busy={busy.includes(figure.id)} opened={opened}
-              admin={scope === 'admin'} readOnly={readOnly} getDetail={api.detail} />
+              admin={scope === 'admin'} readOnly={readOnly} onImageHover={over => {
+                if (over && !loading) setHovered(figure.id);
+                else if (!over) setHovered(current => current === figure.id ? null : current);
+              }} />
             {scope === 'admin' && figure.status === 'deleting' && <button className="button danger" onClick={async () => {
               try { await api.moderate(figure.id, 'delete'); changed(); }
               catch (error) { setReactionError(errorText(error)); }

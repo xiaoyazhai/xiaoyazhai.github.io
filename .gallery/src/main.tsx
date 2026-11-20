@@ -2,10 +2,11 @@ import { createRoot } from 'react-dom/client';
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { Eye, EyeOff, LockKeyhole } from 'lucide-react';
 import { GalleryError, liveGallery, priorSession, saveSession, serverConfigured, signIn } from './api';
-import { Account, Brand, Header, Status, memberHref, profileHref } from './components';
+import { Account, Brand, Header, Status, figureHref, memberHref, profileHref } from './components';
 import Gallery from './Gallery';
 import Details from './Detail';
 import Upload from './Upload';
+import { findGallerySequence, sequencePosition, useGalleryStep, type GallerySequence } from './sequencing';
 import { errorText, readRoute, type Category, type GalleryApi, type Session, type Sort } from './model';
 import './styles.css';
 
@@ -69,11 +70,16 @@ function SignedIn({ session, api, demo, readOnly = false, updateSession, lock }:
   const search = useRef<HTMLInputElement>(null);
   const searchPending = useRef(false);
   const view = useRef({ scope: '', values: emptyView });
-  const recentlyOpened = useRef({ ids: [] as string[], back: '#' });
+  const [sequence, setSequence] = useState<GallerySequence | null>(null);
+  const [lightbox, setLightbox] = useState(false);
+  const returnTo = useRef('#');
+  const detailId = route.figure ?? '';
 
   useEffect(() => {
     const changed = () => {
-      setRoute(readRoute());
+      const next = readRoute();
+      setRoute(next);
+      if (!next.figure) setLightbox(false);
       window.scrollTo(0, 0);
     };
     window.addEventListener('hashchange', changed);
@@ -95,6 +101,18 @@ function SignedIn({ session, api, demo, readOnly = false, updateSession, lock }:
     }
   }, [route]);
 
+  useEffect(() => {
+    if (!detailId || sequencePosition(sequence, detailId) >= 0) return;
+    const controller = new AbortController();
+    findGallerySequence(api.list, detailId, controller.signal).then(page => {
+      if (!controller.signal.aborted && page) {
+        returnTo.current = '#';
+        setSequence(page);
+      }
+    }, () => { /* The artwork detail remains usable if its browsing order can't be loaded. */ });
+    return () => controller.abort();
+  }, [api, detailId, sequence]);
+
   function openSearch() {
     if (search.current) search.current.focus();
     else {
@@ -104,10 +122,11 @@ function SignedIn({ session, api, demo, readOnly = false, updateSession, lock }:
   }
   const changed = () => setRevision(value => value + 1);
   const nickname = (name: string) => updateSession({ nickname: name });
-  const lookup = route.figure ? recentlyOpened.current.ids.indexOf(route.figure) : -1;
-  const neighbors = lookup < 0 ? {} : {
-    previous: recentlyOpened.current.ids[lookup - 1], next: recentlyOpened.current.ids[lookup + 1],
-  };
+  const navigation = useGalleryStep(api.list, sequence, detailId, (id, page, keepLarge) => {
+    setSequence(page);
+    if (keepLarge) setLightbox(true);
+    window.location.hash = figureHref(id);
+  });
   const scope = route.scope + ':' + (route.profile ?? '');
   return <>
     <Header route={route} nickname={session.nickname} memberId={session.memberId} admin={session.admin} readOnly={readOnly}
@@ -135,13 +154,14 @@ function SignedIn({ session, api, demo, readOnly = false, updateSession, lock }:
         : route.upload ? <Upload api={api} categories={categories} nickname={session.nickname} memberId={session.memberId}
           afterUpload={name => { nickname(name); changed(); }} />
         : route.figure ? <Details key={route.figure} id={route.figure} api={api} nickname={session.nickname}
-          admin={session.admin} readOnly={readOnly} neighbors={neighbors} back={lookup < 0 ? '#' : recentlyOpened.current.back}
+          admin={session.admin} readOnly={readOnly} navigation={navigation} keyboardEnabled={!account}
+          lightbox={lightbox} setLightbox={setLightbox} back={navigation.position < 0 ? '#' : returnTo.current}
           afterChange={changed} setNickname={nickname} />
         : <Gallery key={scope} route={route} categories={categories} api={api} searchRef={search} revision={revision} readOnly={readOnly}
           changed={() => { changed(); setCategoryVersion(i => i + 1); }}
           remembered={view.current.scope === scope ? view.current.values : emptyView}
           previousView={values => { view.current = { scope, values }; }}
-          openFigure={ids => { recentlyOpened.current = { ids, back: scopeHref(route.scope, route.profile) }; }} />}
+          openFigure={page => { returnTo.current = scopeHref(route.scope, route.profile); setSequence(page); }} />}
     </main>
     <footer className="site-footer"><strong>Research Figure Gallery</strong><span>科研美图赏析</span><span lang="en">USTC Research Group</span></footer>
     {!readOnly && account && <Account nickname={session.nickname} admin={session.admin} close={() => setAccount(false)}
